@@ -1,0 +1,28 @@
+# YAML 1.2
+---
+cff-version: "1.2.0"
+message: "If you use this software, please cite both the paper from preferred-citation and the software itself."
+authors: 
+  - name: "AMIDES contributors"
+title: "AMIDES: An Adaptive Misuse Detection System"
+repository-code: "https://github.com/fkie-cad/amides"
+license: "GPL-3.0"
+preferred-citation:
+  type: "conference-paper"
+  authors: 
+    - family-names: "Uetz"
+      given-names: "Rafael"
+    - family-names: "Herzog"
+      given-names: "Marco"
+    - family-names: "Hackländer"
+      given-names: "Louis"
+    - family-names: "Schwarz"
+      given-names: "Simon"
+    - family-names: "Henze"
+      given-names: "Martin"
+  title: "You Cannot Escape Me: Detecting Evasions of SIEM Rules in Enterprise Networks"
+  collection-title: "33rd USENIX Security Symposium (USENIX Security 24)"
+  year: 2024
+  publisher:
+    name: "USENIX Association"
+    address: "Anaheim, CA"
