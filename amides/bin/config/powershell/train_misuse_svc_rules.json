@@ -1,0 +1,6 @@
+{
+    "benign_samples": "../data/socbed/powershell/train",
+    "rule_values": "../data/sigma/rules/windows/powershell/values_rules_powershell",
+    "result_name": "misuse_svc_rules_f1_0",
+    "out_dir": "models/powershell"
+}

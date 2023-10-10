@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:27:18.343Z",
+  "related": {
+    "user": "setup",
+    "hash": [
+      "40d777b7a95e00593eb1568c68514493",
+      "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    ]
+  },
+  "hash": {
+    "md5": "40d777b7a95e00593eb1568c68514493",
+    "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-74C6-601C-0000-0010E21B0100}",
+    "executable": "C:\\Windows\\explorer.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "hash": {
+      "md5": "40d777b7a95e00593eb1568c68514493",
+      "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    },
+    "pid": 1292,
+    "command_line": "C:\\Windows\\Explorer.EXE",
+    "parent": {
+      "entity_id": "{19FC45AC-74C6-601C-0000-00107E140100}",
+      "pid": 1228,
+      "executable": "C:\\Windows\\System32\\userinit.exe",
+      "command_line": "C:\\Windows\\system32\\userinit.exe",
+      "name": "userinit.exe",
+      "args": [
+        "C:\\Windows\\system32\\userinit.exe"
+      ]
+    },
+    "name": "explorer.exe",
+    "args": [
+      "C:\\Windows\\Explorer.EXE"
+    ]
+  },
+  "user": {
+    "domain": "client",
+    "name": "setup"
+  },
+  "event": {
+    "created": "2021-02-04T22:31:11.355Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat"
+  },
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:18.343\nProcessGuid: {19FC45AC-74C6-601C-0000-0010E21B0100}\nProcessId: 1292\nImage: C:\\Windows\\explorer.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Explorer\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: EXPLORER.EXE\nCommandLine: C:\\Windows\\Explorer.EXE\nCurrentDirectory: C:\\Windows\\system32\\\nUser: client\\setup\nLogonGuid: {19FC45AC-74C5-601C-0000-0020F4FF0000}\nLogonId: 0xfff4\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=40D777B7A95E00593EB1568C68514493,SHA256=0A8CE026714E03E72C619307BD598ADD5F9B639CFD91437CB8D9C847BF9F6894\nParentProcessGuid: {19FC45AC-74C6-601C-0000-00107E140100}\nParentProcessId: 1228\nParentImage: C:\\Windows\\System32\\userinit.exe\nParentCommandLine: C:\\Windows\\system32\\userinit.exe",
+  "winlog": {
+    "computer_name": "CLIENT",
+    "event_data": {
+      "IntegrityLevel": "High",
+      "LogonGuid": "{19FC45AC-74C5-601C-0000-0020F4FF0000}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "1",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0xfff4",
+      "Description": "Windows Explorer",
+      "OriginalFileName": "EXPLORER.EXE"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "api": "wineventlog",
+    "record_id": 1170,
+    "process": {
+      "thread": {
+        "id": 1392
+      },
+      "pid": 1896
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1
+  }
+}

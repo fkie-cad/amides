@@ -1,0 +1,6 @@
+{
+    "eval_result": "models/process_creation/eval_rl_attr.zip",
+    "plot": "combined",
+    "out_dir": "plots/process_creation",
+    "title": "attr_svc_rules_f1"
+}

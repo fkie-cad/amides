@@ -1,0 +1,5 @@
+{
+    "New RUN Key Pointing to Suspicious Folder": [
+        "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\foo\\\\%%windir%%\\Temp\\calc.exe"
+    ]
+}

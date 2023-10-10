@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  amides-env:
+    image: amides:1
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: amides-env    
+    container_name: amides_env
+    tty: true
+    volumes:
+      - ./amides/models:/amides/models
+      - ./amides/plots:/amides/plots
+      - ./data:/data
+
+  amides-results:
+    image: amides:1
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: amides-results
+    container_name: amides_results
+    volumes:
+      - ./amides/models:/amides/models
+      - ./amides/plots:/amides/plots
+      - ./data:/data
+
+

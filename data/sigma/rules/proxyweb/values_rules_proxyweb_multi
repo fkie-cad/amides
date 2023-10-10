@@ -1,0 +1,46 @@
+{"title": "PwnDrp Access", "samples": ["pwndrop"]}
+{"title": "Telegram API Access", "samples": ["api,org,telegram"]}
+{"title": "Ursnif Malware Download URL Pattern", "samples": ["cab,l,php", "_2f", "_2b", "avi", "images"]}
+{"title": "Suspicious User Agent", "samples": []}
+{"title": "CobaltStrike Malleable OneDrive Browsing Traffic Profile", "samples": ["manifest,wac", "com,live,onedrive"]}
+{"title": "iOS Implant URL Pattern", "samples": ["list,name,suc"]}
+{"title": "Crypto Miner User Agent", "samples": []}
+{"title": "Flash Player Update from Suspicious Location", "samples": []}
+{"title": "Raw Paste Service Access", "samples": ["ee,paste,r", "com,pastebin,raw", "com,hastebin,raw", "co,ghostbin,paste,raw"]}
+{"title": "Download EXE from Suspicious TLD", "samples": ["exe", "vbs", "bat", "rar", "ps1", "doc", "docm", "xls", "xlsm", "pptm", "rtf", "hta", "dll", "ws", "wsf", "sct", "zip"]}
+{"title": "Windows PowerShell User Agent", "samples": []}
+{"title": "Chafer Malware URL Pattern", "samples": ["asp,asp,ui"]}
+{"title": "CobaltStrike Malleable (OCSP) Profile", "samples": ["oscp", "com,ocsp,verisign"]}
+{"title": "CobaltStrike Malleable Amazon Browsing Traffic Profile", "samples": ["amazon,com,www", "167,books,field,keywords,nb_sb_noss_1,ref,s", "adj,amzn,aps,n4215,sr,us"]}
+{"title": "Download from Suspicious TLD", "samples": ["exe", "vbs", "bat", "rar", "ps1", "doc", "docm", "xls", "xlsm", "pptm", "rtf", "hta", "dll", "ws", "wsf", "sct", "zip", "country", "stream", "gdn", "mom", "xin", "kim", "men", "loan", "download", "racing", "online", "science", "ren", "gb", "win", "top", "review", "vip", "party", "tech", "xyz", "date", "faith", "zip", "cricket", "space", "info", "vn", "cm", "am", "cc", "asia", "ws", "tk", "biz", "su", "st", "ro", "ge", "ms", "pk", "nu", "me", "ph", "to", "tt", "name", "tv", "kz", "tc", "mobi", "study", "click", "link", "trade", "accountant", "cf", "gq", "ml", "ga", "pw"]}
+{"title": "Hack Tool User Agent", "samples": []}
+{"title": "Windows WebDAV User Agent", "samples": []}
+{"title": "Malware User Agent", "samples": []}
+{"title": "Empire UserAgent URI Combo", "samples": ["admin,get,php", "news,php", "login,php,process"]}
+{"title": "Exploit Framework User Agent", "samples": []}
+{"title": "Download from Suspicious Dyndns Hosts", "samples": ["exe", "vbs", "bat", "rar", "ps1", "doc", "docm", "xls", "xlsm", "pptm", "rtf", "hta", "dll", "ws", "wsf", "sct", "zip", "hopto,org", "ip,no,org", "info,ip,no", "biz,ip,no", "com,ip,no", "com,noip", "ddns,name", "myftp,org", "biz,myftp", "net,serveblog", "com,servebeer", "com,servemp3", "com,serveftp", "com,servequake", "com,servehalflife", "com,servehttp", "com,servegame", "com,servepics", "com,myvnc", "com,ignorelist", "com,jkub", "com,dlinkddns", "com,jumpingcrab", "ddns,info", "com,mooo", "com,dns,dns", "net,strangled", "adultdns,net", "biz,craftx", "com,ddns01", "biz,dns53", "dnsapi,info", "dnsd,info", "com,dnsdynamic", "dnsdynamic,net", "dnsget,org", "net", "flashserv,net", "ftp21,net", "com,http01", "http80,info", "com,https443", "com,imap01", "com,kadm5", "mysq1,net", "info,ns360", "net,ntdll", "com,ole32", "com,proxy8080", "com,sql01", "com,ssh01", "net,ssh22", "com,tempors", "net,tftpd", "com,ttl60", "org,ttl60", "com,user32", "com,voip01", "net,wow64", "me,x64", "com,xns01", "dyndns,org", "dyndns,info", "dyndns,tv", "at,com,dyndns,home", "com,dnsomatic", "org,zapto", "net,webhop", "25u,com", "net,slyip"]}
+{"title": "Turla ComRAT", "samples": ["h,index,index,php"]}
+{"title": "Empty User Agent", "samples": []}
+{"title": "Bitsadmin to Uncommon TLD", "samples": []}
+{"title": "APT User Agent", "samples": []}
+{"title": "APT40 Dropbox Tool User Agent", "samples": ["api,com,dropbox"]}
+{"title": "SonicWall SSL/VPN Jarrewrite Exploit", "samples": ["bin,cgi,jarrewrite,sh"]}
+{"title": "Oracle WebLogic Exploit CVE-2021-2109", "samples": ["bea,com,console,handles,jndibindinghandle", "ldap", "adminserver"]}
+{"title": "Solarwinds SUPERNOVA Webshell Access", "samples": ["ashx,logoimagehandler", "clazz", "ashx,logoimagehandler"]}
+{"title": "Cisco ASA FTD Exploit CVE-2020-3452", "samples": ["cscot,table,translation", "cscot,customization,oem", "textdomain", "textdomain", "name", "name"]}
+{"title": "Confluence Exploitation CVE-2019-3398", "samples": ["action,upload", "filename"]}
+{"title": "Pulse Secure Attack CVE-2019-11510", "samples": ["dana,guacamole,html5acc"]}
+{"title": "Webshell ReGeorg Detection Via Web Logs", "samples": []}
+{"title": "Citrix Netscaler Attack CVE-2019-19781", "samples": ["vpns", "cfg,conf,smb,vpns", "pl,portal,scripts,vpns"]}
+{"title": "Fortinet CVE-2018-13379 Exploitation", "samples": ["lang", "cmdb,dev,sslvpn_websession"]}
+{"title": "CVE-2020-10148 SolarWinds Orion API Auth Bypass", "samples": ["axd,webresource", "axd,scriptresource", "ashx,i18n", "skipi18n"]}
+{"title": "Apache Threading Error", "samples": []}
+{"title": "Oracle WebLogic Exploit CVE-2020-14882", "samples": ["252fconsole,console,images,portal", "2e,console,css"]}
+{"title": "Oracle WebLogic Exploit", "samples": ["config,js,keystore"]}
+{"title": "Apache Segmentation Fault", "samples": []}
+{"title": "CVE-2020-5902 F5 BIG-IP Exploitation Attempt", "samples": ["tmui", "hsqldb", "jsp"]}
+{"title": "Webshell Detection by Keyword", "samples": []}
+{"title": "Citrix ADS Exploitation CVE-2020-8193 CVE-2020-8195", "samples": ["2f,filedownload,filter,path,rapi", "pcidss,report", "all_signatures,type", "_default_signature_,sig_name"]}
+{"title": "CVE-2020-0688 Exchange Exploitation via Web Log", "samples": ["ecp", "owa", "__viewstate"]}
+{"title": "CVE-2020-0688 Exploitation Attempt", "samples": ["aspx,default,ecp", "__viewstategenerator", "__viewstate"]}
+{"title": "Source Code Enumeration Detection by Keyword", "samples": []}

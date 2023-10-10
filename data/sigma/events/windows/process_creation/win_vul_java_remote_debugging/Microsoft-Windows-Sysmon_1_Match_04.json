@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:27:18.984Z",
+  "event": {
+    "created": "2021-02-04T22:31:11.355Z",
+    "kind": "event",
+    "code": 1,
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "host": {
+    "name": "CLIENT",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86"
+  },
+  "log": {
+    "level": "information"
+  },
+  "hash": {
+    "md5": "0ee3bd34729c40bd0853825753acb319",
+    "sha256": "c209e56688588601d947c061446e194ac1a79b9dd0ad38510d0fb9ca200481dd"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:18.984\nProcessGuid: {19FC45AC-74C6-601C-0000-00108F380100}\nProcessId: 1416\nImage: C:\\Windows\\System32\\ie4uinit.exe\nFileVersion: 8.00.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: IE Per-User Initialization Utility\nProduct: Windows\u00ae Internet Explorer\nCompany: Microsoft Corporation\nOriginalFileName: IE4UINIT.EXE\nCommandLine: \"C:\\Windows\\System32\\ie4uinit.exe\" -UserIconConfig\nCurrentDirectory: C:\\Windows\\system32\\\nUser: client\\setup\nLogonGuid: {19FC45AC-74C5-601C-0000-0020F4FF0000}\nLogonId: 0xfff4\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=0EE3BD34729C40BD0853825753ACB319,SHA256=C209E56688588601D947C061446E194AC1A79B9DD0AD38510D0FB9CA200481DD\nParentProcessGuid: {19FC45AC-74C6-601C-0000-0010E21B0100}\nParentProcessId: 1292\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "winlog": {
+    "opcode": "Info",
+    "version": 5,
+    "process": {
+      "thread": {
+        "id": 1392
+      },
+      "pid": 1896
+    },
+    "event_id": 1,
+    "computer_name": "CLIENT",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1171,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-74C5-601C-0000-0020F4FF0000}",
+      "Description": "IE Per-User Initialization Utility",
+      "Product": "Windows\u00ae Internet Explorer",
+      "LogonId": "0xfff4",
+      "FileVersion": "8.00.7601.17514 (win7sp1_rtm.101119-1850)",
+      "OriginalFileName": "IE4UINIT.EXE",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "High",
+      "TerminalSessionId": "1"
+    }
+  },
+  "process": {
+    "args": [
+      "C:\\Windows\\System32\\ie4uinit.exe",
+      "-UserIconConfig"
+    ],
+    "entity_id": "{19FC45AC-74C6-601C-0000-00108F380100}",
+    "executable": "C:\\Windows\\System32\\ie4uinit.exe",
+    "parent": {
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-74C6-601C-0000-0010E21B0100}",
+      "pid": 1292,
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe"
+    },
+    "name": "ie4uinit.exe",
+    "hash": {
+      "md5": "0ee3bd34729c40bd0853825753acb319",
+      "sha256": "c209e56688588601d947c061446e194ac1a79b9dd0ad38510d0fb9ca200481dd"
+    },
+    "pid": 1416,
+    "command_line": "java appname -Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1",
+    "working_directory": "C:\\Windows\\system32\\"
+  },
+  "user": {
+    "domain": "client",
+    "name": "setup"
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "0ee3bd34729c40bd0853825753acb319",
+      "c209e56688588601d947c061446e194ac1a79b9dd0ad38510d0fb9ca200481dd"
+    ]
+  }
+}

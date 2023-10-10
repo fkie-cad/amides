@@ -1,0 +1,13 @@
+filter: '(process.executable: "*\curl.exe" OR winlog.event_data.Product: "The curl
+  executable") AND process.command_line: "* -O *"'
+pre_detector:
+  case_condition: directly
+  id: e218595b-bbe7-4ee5-8a96-f32a24ad3468
+  mitre:
+  - attack.command_and_control
+  - attack.t1105
+  severity: medium
+  title: Suspicious Curl Usage on Windows
+sigma_fields: true
+description: Detects a suspicious curl process start on Windows and outputs the requested
+  document to a local file

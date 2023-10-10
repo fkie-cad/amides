@@ -1,0 +1,17 @@
+filter: 'process.executable: "*\schtasks.exe" AND process.command_line: "* /create
+  *" AND NOT user.name: "NT AUTHORITY\SYSTEM"'
+pre_detector:
+  case_condition: directly
+  id: 92626ddd-662c-49e3-ac59-f6535f12d189
+  mitre:
+  - attack.execution
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.t1053.005
+  - attack.t1053
+  - attack.s0111
+  - car.2013-08-001
+  severity: low
+  title: Scheduled Task Creation
+sigma_fields: true
+description: Detects the creation of scheduled tasks in user session

@@ -1,0 +1,10 @@
+{
+    "result": [
+        "AMIDES,models/process_creation/eval_rslt_misuse_svc_rules_f1_0.zip",
+        "Benchmark,models/process_creation/eval_rslt_misuse_svc_matches_f1_0.zip"
+    ],
+    "type": "prt",
+    "out_dir": "plots/process_creation",
+    "save": true,
+    "title": "misuse_svc_rules_matches_f1"
+}

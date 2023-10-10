@@ -1,0 +1,11 @@
+filter: 'process.command_line: "*transport=dt_socket,address=*" AND NOT (process.command_line:
+  "*address=127.0.0.1*" OR process.command_line: "*address=localhost*")'
+pre_detector:
+  case_condition: directly
+  id: 8f88e3f6-2a49-48f5-a5c4-2f7eedf78710
+  mitre: []
+  severity: medium
+  title: Java Running with Remote Debugging
+sigma_fields: true
+description: Detects a JAVA process running with remote debugging allowing more than
+  just localhost to connect

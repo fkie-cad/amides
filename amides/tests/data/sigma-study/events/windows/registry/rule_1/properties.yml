@@ -1,0 +1,8 @@
+queried_event_types:
+  - Microsoft-Windows-Sysmon_12
+  - Microsoft-Windows-Sysmon_13
+evasion_possible: yes
+broken_rule: no
+edited_fields:
+  - winlog.event_data.TargetObject
+  - winlog.event_data.Details

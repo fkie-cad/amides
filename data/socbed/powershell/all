@@ -1,0 +1,30 @@
+$cmd_man_ip = "netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.103"; Start-Process powershell.exe -Wait -ArgumentList $cmd_man_ip -Verb RunAs
+netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.103
+$global:?
+$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force
+$global:?
+$global:?
+$global:?
+$new_name = 'CLIENT3'; Rename-Computer -NewName $new_name -Restart -Force
+$global:?
+$reg_path = 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client3'
+$global:?
+$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force
+$cmd_man_ip = "netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.101"; Start-Process powershell.exe -Wait -ArgumentList $cmd_man_ip -Verb RunAs
+netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.101
+$global:?
+$global:?
+$new_name = 'CLIENT1'; Rename-Computer -NewName $new_name -Restart -Force
+$global:?
+$reg_path = 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client1'
+$global:?
+$cmd_man_ip = "netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.102"; Start-Process powershell.exe -Wait -ArgumentList $cmd_man_ip -Verb RunAs
+$global:?
+$global:?
+netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.102
+$new_name = 'CLIENT2'; Rename-Computer -NewName $new_name -Restart -Force
+$global:?
+$reg_path = 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client2'
+$global:?
+$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force
+$global:?

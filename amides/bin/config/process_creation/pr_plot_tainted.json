@@ -1,0 +1,41 @@
+{
+    "base_result": "models/process_creation/eval_rslt_misuse_svc_rules_f1_0.zip",
+    "low_tainted": [
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_0.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_1.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_2.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_3.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_4.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_5.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_6.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_7.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_8.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_10_f1_9.zip"
+    ],
+    "medium_tainted": [
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_0.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_1.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_2.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_3.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_4.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_5.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_6.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_7.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_8.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_20_f1_9.zip"
+    ],
+    "high_tainted": [
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_0.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_1.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_2.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_3.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_4.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_5.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_6.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_7.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_8.zip",
+        "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_9.zip"
+    ],
+    "out_dir": "plots/process_creation",
+    "title": "misuse_rules_svc_tainted_f1"
+}

@@ -1,0 +1,18 @@
+filter: 'url.full: "*/list/suc?name=*"'
+pre_detector:
+  case_condition: directly
+  id: e06ac91d-b9e6-443d-8e5b-af749e7aa6b6
+  mitre:
+    - attack.execution
+    - attack.t1203
+    - attack.collection
+    - attack.t1005
+    - attack.t1119
+    - attack.credential_access
+    - attack.t1528
+    - attack.t1552.001
+    - attack.t1081
+  severity: critical
+  title: rule_1
+sigma_fields: true
+description: Detects URL pattern used by iOS Implant

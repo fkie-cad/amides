@@ -1,0 +1,21 @@
+{
+    "malicious_samples_type": "evasions",
+    "save_vectorizer": true,
+    "save_data": true,
+    "result_path": [
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_0.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_1.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_2.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_3.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_4.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_5.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_6.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_7.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_8.zip",
+        "models/process_creation/tainted/10/train_rslt_misuse_svc_rules_tainted_10_f1_9.zip"
+    ],
+    "benign_samples": "../data/socbed/process_creation/validation",
+    "events_dir": "../data/sigma/events/windows/process_creation",
+    "rules_dir": "../data/sigma/rules/windows/process_creation",
+    "out_dir": "models/process_creation/tainted/10"
+}

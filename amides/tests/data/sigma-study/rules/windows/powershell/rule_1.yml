@@ -1,0 +1,15 @@
+filter:
+  "Keyless: \"del (Get-PSReadlineOption).HistorySavePath\" OR Keyless: \"Set-PSReadlineOption
+  \u2013HistorySaveStyle SaveNothing\" OR Keyless: \"Remove-Item (Get-PSReadlineOption).HistorySavePath\"\
+  \ OR Keyless: \"rm (Get-PSReadlineOption).HistorySavePath\""
+pre_detector:
+  case_condition: directly
+  id: dfba4ce1-e0ea-495f-986e-97140f31af2d
+  mitre:
+    - attack.defense_evasion
+    - attack.t1070.003
+    - attack.t1146
+  severity: medium
+  title: rule_1
+sigma_fields: true
+description: Detects keywords that could indicate clearing PowerShell history

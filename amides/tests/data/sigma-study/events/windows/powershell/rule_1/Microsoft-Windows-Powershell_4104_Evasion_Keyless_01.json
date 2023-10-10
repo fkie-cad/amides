@@ -1,0 +1,3 @@
+{
+    "Keyless": "Set-PSReadLineOption -HistorySaveStyle SaveNothing"
+}

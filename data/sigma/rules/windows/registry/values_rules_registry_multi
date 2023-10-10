@@ -1,0 +1,40 @@
+{"title": "Sticky Key Like Backdoor Usage", "samples": ["currentversion,debugger,exe,execution,file,image,microsoft,nt,options,sethc,software,windows", "currentversion,debugger,exe,execution,file,image,microsoft,nt,options,software,utilman,windows", "currentversion,debugger,exe,execution,file,image,microsoft,nt,options,osk,software,windows", "currentversion,debugger,exe,execution,file,image,magnify,microsoft,nt,options,software,windows", "currentversion,debugger,exe,execution,file,image,microsoft,narrator,nt,options,software,windows", "currentversion,debugger,displayswitch,exe,execution,file,image,microsoft,nt,options,software,windows"]}
+{"title": "CMSTP Execution Registry Event", "samples": ["cmmgr32,exe"]}
+{"title": "Disable Security Events Logging Adding Reg Key MiniNt", "samples": ["control,currentcontrolset,hklm,minint,system"]}
+{"title": "Leviathan Registry Key Activity", "samples": ["currentversion,hkey_current_user,microsoft,ntkd,run,software,windows"]}
+{"title": "New DLL Added to AppInit_DLLs Registry Key", "samples": ["appinit_dlls,currentversion,microsoft,nt,software,windows,windows", "appinit_dlls,currentversion,microsoft,nt,software,windows,windows,wow6432node"]}
+{"title": "Office Application Startup - Office Test", "samples": ["hkey_current_user,microsoft,office,perf,software,special,test", "hkey_local_machine,microsoft,office,perf,software,special,test"]}
+{"title": "Usage of Sysinternals Tools", "samples": ["eulaaccepted"]}
+{"title": "Registry Persistence Mechanisms", "samples": ["currentversion,execution,file,globalflag,image,microsoft,nt,options,software,windows", "currentversion,microsoft,nt,reportingmode,silentprocessexit,software,windows", "currentversion,microsoft,monitorprocess,nt,silentprocessexit,software,windows"]}
+{"title": "Windows Registry Persistence COM Search Order Hijacking", "samples": ["_classes,clsid,default,hku,inprocserver32"]}
+{"title": "COM Hijack via Sdclt", "samples": ["classes,command,delegateexecute,folder,hkcu,open,shell,software"]}
+{"title": "OceanLotus Registry Activity", "samples": ["clsid,hkcr,model", "_classes,clsid,hku,model", "app,application,software", "app,defaulticon,software", "app,application,software", "app,defaulticon,software", "app,application,software", "app,defaulticon,software", "_classes,hku", "_classes,hku", "_classes,clsid,hku"]}
+{"title": "Suspicious New Printer Ports in Registry (CVE-2020-1048)", "samples": ["currentversion,hklm,microsoft,nt,ports,software,windows", "dll", "exe", "bat", "com", "c"]}
+{"title": "Windows Credential Editor Registry", "samples": ["services,start,wceservice"]}
+{"title": "Pandemic Registry Key", "samples": ["currentcontrolset,instance,null,services,system"]}
+{"title": "Suspicious Service Installed", "samples": ["currentcontrolset,hklm,imagepath,naldrv,services,system", "currentcontrolset,hklm,imagepath,procexp152,services,system"]}
+{"title": "RedMimicry Winnti Playbook Registry Manipulation", "samples": ["data,hklm,htmlhelp,microsoft,software"]}
+{"title": "WINEKEY Registry Modification", "samples": ["backup,currentversion,mgr,microsoft,run,software,windows"]}
+{"title": "Narrator's Feedback-Hub Persistence", "samples": ["command,delegateexecute,open,shell", "command,default,open,shell"]}
+{"title": "DNS ServerLevelPluginDll Install", "samples": ["dns,parameters,serverlevelplugindll,services"]}
+{"title": "UAC Bypass via Sdclt", "samples": ["_classes,command,exefile,hku,isolatedcommand,runas,shell"]}
+{"title": "Logon Scripts (UserInitMprLogonScript) Registry", "samples": ["userinitmprlogonscript"]}
+{"title": "Autorun Keys Modification", "samples": ["currentversion,microsoft,run,software,windows", "currentversion,microsoft,runonce,software,windows", "currentversion,microsoft,runonceex,software,windows", "currentversion,microsoft,runservices,software,windows", "currentversion,microsoft,runservicesonce,software,windows", "currentversion,microsoft,nt,software,userinit,windows,winlogon", "currentversion,microsoft,nt,shell,software,windows,winlogon", "appinit_dlls,currentversion,microsoft,nt,software,windows,windows", "appinit_dlls,currentversion,microsoft,nt,software,windows,windows,wow6432node", "currentversion,load,microsoft,nt,software,windows,windows", "currentversion,load,microsoft,nt,software,windows,windows,wow6432node", "currentversion,microsoft,nt,run,software,windows,windows", "currentversion,microsoft,nt,run,software,windows,windows,wow6432node", "currentversion,explorer,folders,microsoft,shell,software,user,windows"]}
+{"title": "Windows Registry Persistence COM Key Linking", "samples": ["_classes,clsid,hku,treatas"]}
+{"title": "Registry Persistence via Explorer Run Key", "samples": ["currentversion,explorer,microsoft,policies,run,windows", "c,temp,windows", "c,programdata", "appdata", "bin,c,recycle", "c,temp", "c,public,users", "c,default,users"]}
+{"title": "Suspicious Keyboard Layout Load", "samples": ["keyboard,layout,preload", "keyboard,layout,substitutes"]}
+{"title": "Suspicious RUN Key from Download", "samples": ["currentversion,microsoft,run,software,windows"]}
+{"title": "Stealthy VSTO Persistence", "samples": ["addins,microsoft,office,outlook,software", "addins,microsoft,office,software,word", "addins,excel,microsoft,office,software", "addins,microsoft,office,powerpoint,software", "inclusion,microsoft,security,software,vsto"]}
+{"title": "DLL Load via LSASS", "samples": ["currentcontrolset,directoryserviceextpt,ntds,services", "currentcontrolset,lsadbextpt,ntds,services"]}
+{"title": "RDP Registry Modification", "samples": ["control,currentcontrolset,rdp,server,tcp,terminal,userauthentication,winstations", "control,currentcontrolset,fdenytsconnections,server,terminal", "dword"]}
+{"title": "Suspicious Camera and Microphone Access", "samples": ["capabilityaccessmanager,consentstore,currentversion,microsoft,nonpackaged,software,windows", "microphone", "webcam", "c,temp,windows", "bin,c,recycle", "c,temp", "c,public,users", "c,default,users", "c,desktop,users"]}
+{"title": "Windows Registry Trust Record Modification", "samples": ["trustrecords"]}
+{"title": "UAC Bypass via Event Viewer", "samples": ["command,hku,mscfile,open,shell"]}
+{"title": "New DLL Added to AppCertDlls Registry Key", "samples": ["appcertdlls,control,currentcontrolset,hklm,manager,session,system"]}
+{"title": "Security Support Provider (SSP) Added to LSA Configuration", "samples": ["control,currentcontrolset,hklm,lsa,packages,security,system", "control,currentcontrolset,hklm,lsa,osconfig,packages,security,system"]}
+{"title": "New RUN Key Pointing to Suspicious Folder", "samples": ["currentversion,microsoft,run,software,windows", "currentversion,microsoft,runonce,software,windows", "c,temp,windows", "bin,c,recycle", "c,temp", "c,public,users", "public", "c,default,users", "c,desktop,users", "wscript", "cscript"]}
+{"title": "Possible Privilege Escalation via Service Permissions Weakness", "samples": ["services", "imagepath", "failurecommand", "parameters,servicedll"]}
+{"title": "COMPlus_ETWEnabled Registry Modification", "samples": ["etwenabled,microsoft,netframework,software", "dword"]}
+{"title": "Office Security Settings Changed", "samples": ["documents,security,trusted,trustrecords", "accessvbom,security", "security,vbawarnings"]}
+{"title": "DHCP Callout DLL Installation", "samples": ["calloutdlls,dhcpserver,parameters,services", "calloutenabled,dhcpserver,parameters,services"]}
+{"title": "RDP Sensitive Settings Changed", "samples": ["parameters,servicedll,services,termservice", "control,fsinglesessionperuser,server,terminal", "control,fdenytsconnections,server,terminal"]}

@@ -1,0 +1,5 @@
+{
+  "process": {
+    "command_line": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\CPLs\" /v spotless /d C:\\some\\other\\malicious\\lib.cpl"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "result_file": "models/proxy_web/train_rslt_misuse_svc_rules_f1_0.zip",
+    "benign_samples": "../data/socbed/proxy_web/validation",
+    "evasions_file": "../data/sigma/events/proxyweb/values_evasion_proxyweb",
+    "out_dir": "models/proxy_web"
+}

@@ -1,0 +1,5 @@
+{
+	"Clear PowerShell History": [
+		"Set-PSReadLineOption -HistorySaveStyle SaveNoth"
+	]
+}

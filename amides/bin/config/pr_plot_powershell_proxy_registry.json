@@ -1,0 +1,11 @@
+{
+    "result": [
+        "Web,models/proxy_web/eval_rslt_misuse_svc_rules_f1_0.zip",
+        "Registry,models/registry/eval_rslt_misuse_svc_rules_f1_0.zip",
+        "PowerShell,models/powershell/eval_rslt_misuse_svc_rules_f1_0.zip"
+    ],
+    "type": "multi_prt",
+    "save": true,
+    "out_dir": "plots",
+    "title": "misuse_svc_rules_proxy_registry_powershell_f1"
+}

@@ -1,0 +1,5 @@
+{
+  "process": {
+    "command_line": "cmd /c taskkill /im cmd.exe"
+  }
+}

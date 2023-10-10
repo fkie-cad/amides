@@ -1,0 +1,5 @@
+{
+  "process": {
+    "command_line": "reg query \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\""
+  }
+}
