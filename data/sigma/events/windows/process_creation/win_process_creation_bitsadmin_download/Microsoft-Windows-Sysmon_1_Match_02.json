@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:09.078Z",
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT1",
+    "process": {
+      "pid": 1504,
+      "thread": {
+        "id": 1772
+      }
+    },
+    "opcode": "Info",
+    "record_id": 1210,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "version": 5,
+    "event_data": {
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonGuid": "{19FC45AC-74F9-601C-0000-0020E7030000}",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "IntegrityLevel": "System",
+      "Description": "Local Session Manager Service",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "OriginalFileName": "lsm.exe"
+    },
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.126Z",
+    "kind": "event",
+    "module": "sysmon"
+  },
+  "host": {
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1",
+    "hostname": "CLIENT1",
+    "architecture": "x86"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "8aea9a37c1a3565a204d37c5e72ab791",
+    "sha256": "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:09.078\nProcessGuid: {19FC45AC-74F9-601C-0000-001030640000}\nProcessId: 460\nImage: C:\\Windows\\System32\\lsm.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Local Session Manager Service\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: lsm.exe\nCommandLine: C:\\Windows\\system32\\lsm.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74F9-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=8AEA9A37C1A3565A204D37C5E72AB791,SHA256=939903F93FF37525A6C4B5CBA29CDEEE6D6055C42D605E80AE787F2A76F9870E\nParentProcessGuid: {19FC45AC-74F8-601C-0000-0010D4570000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "process": {
+    "entity_id": "{19FC45AC-74F9-601C-0000-001030640000}",
+    "pid": 460,
+    "command_line": "cmd /c copy bitsadmin.exe C:\\Destination\\bitsadmin.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\wininit.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-74F8-601C-0000-0010D4570000}",
+      "pid": 348
+    },
+    "name": "lsm.exe",
+    "executable": "C:\\Windows\\System32\\cmd.exe",
+    "args": [
+      "C:\\Windows\\system32\\lsm.exe"
+    ],
+    "hash": {
+      "md5": "8aea9a37c1a3565a204d37c5e72ab791",
+      "sha256": "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+    }
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "8aea9a37c1a3565a204d37c5e72ab791",
+      "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+    ]
+  }
+}

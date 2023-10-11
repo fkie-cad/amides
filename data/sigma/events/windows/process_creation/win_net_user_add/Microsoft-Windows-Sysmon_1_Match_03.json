@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-04T23:00:54.757Z",
+  "log": {
+    "level": "information"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "177650cc-629c-4abf-8b93-a90e2e515251",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client3"
+  },
+  "related": {
+    "hash": [
+      "15f07e50407139aa93d3fb6e612d2f74",
+      "aee5af2e994b008a7a2bf47283b8fc9197ca67296cdd18f3ba37ef3631fcce8f"
+    ],
+    "user": "client3"
+  },
+  "hash": {
+    "md5": "15f07e50407139aa93d3fb6e612d2f74",
+    "sha256": "aee5af2e994b008a7a2bf47283b8fc9197ca67296cdd18f3ba37ef3631fcce8f"
+  },
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "process": {
+      "pid": 1904,
+      "thread": {
+        "id": 308
+      }
+    },
+    "event_data": {
+      "OriginalFileName": "sdiagnhost.exe",
+      "LogonId": "0xf82b",
+      "Description": "Scripted Diagnostics Native Host",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "IntegrityLevel": "Medium",
+      "TerminalSessionId": "1",
+      "LogonGuid": "{19FC45AC-76E9-601C-0000-00202BF80000}",
+      "Company": "Microsoft Corporation",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)"
+    },
+    "record_id": 1503,
+    "computer_name": "CLIENT3.breach.local",
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "version": 5,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  },
+  "event": {
+    "created": "2021-02-04T23:00:55.896Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "host": {
+    "name": "CLIENT3.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    }
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:00:54.757\nProcessGuid: {19FC45AC-7CA6-601C-0000-001026050C00}\nProcessId: 4052\nImage: C:\\Windows\\System32\\sdiagnhost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Scripted Diagnostics Native Host\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: sdiagnhost.exe\nCommandLine: C:\\Windows\\System32\\sdiagnhost.exe -Embedding\nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client3\nLogonGuid: {19FC45AC-76E9-601C-0000-00202BF80000}\nLogonId: 0xf82b\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=15F07E50407139AA93D3FB6E612D2F74,SHA256=AEE5AF2E994B008A7A2BF47283B8FC9197CA67296CDD18F3BA37EF3631FCCE8F\nParentProcessGuid: {19FC45AC-76E8-601C-0000-0010267C0000}\nParentProcessId: 580\nParentImage: C:\\Windows\\System32\\svchost.exe\nParentCommandLine: C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+  "process": {
+    "entity_id": "{19FC45AC-7CA6-601C-0000-001026050C00}",
+    "pid": 4052,
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\System32\\sdiagnhost.exe",
+      "-Embedding"
+    ],
+    "hash": {
+      "md5": "15f07e50407139aa93d3fb6e612d2f74",
+      "sha256": "aee5af2e994b008a7a2bf47283b8fc9197ca67296cdd18f3ba37ef3631fcce8f"
+    },
+    "executable": "C:\\Windows\\System32\\net.exe",
+    "command_line": "net user /add name passwd",
+    "parent": {
+      "entity_id": "{19FC45AC-76E8-601C-0000-0010267C0000}",
+      "pid": 580,
+      "executable": "C:\\Windows\\System32\\svchost.exe",
+      "command_line": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+      "name": "svchost.exe",
+      "args": [
+        "C:\\Windows\\system32\\svchost.exe",
+        "-k",
+        "DcomLaunch"
+      ]
+    },
+    "name": "sdiagnhost.exe"
+  }
+}

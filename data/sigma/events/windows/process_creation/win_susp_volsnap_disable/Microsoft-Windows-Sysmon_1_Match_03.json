@@ -1,0 +1,133 @@
+{
+  "@timestamp": "2021-02-04T22:36:10.375Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:36:10.375\nProcessGuid: {19FC45AC-76DA-601C-0000-0010E83F0100}\nProcessId: 1616\nImage: C:\\Program Files\\NetTime\\NetTimeService.exe\nFileVersion: 3.1.4.220\nDescription: Network Time Synchronizer - NT Service\nProduct: NetTime\nCompany: \nOriginalFileName: NetTimeService.exe\nCommandLine: \"C:\\Program Files\\NetTime\\NetTimeService.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76D8-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=94C08DF0F07C509D99FEA7CFC486C335,SHA256=0AAE40D7B5D57AED2A897161601A08123E64088033B03527DC1BA2B55E7A4E9A\nParentProcessGuid: {19FC45AC-76D8-601C-0000-0010F1630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "entity_id": "{19FC45AC-76DA-601C-0000-0010E83F0100}",
+    "pid": 1616,
+    "executable": "C:\\Program Files\\NetTime\\NetTimeService.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "NetTimeService.exe",
+    "hash": {
+      "md5": "94c08df0f07c509d99fea7cfc486c335",
+      "sha256": "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+    },
+    "command_line": "reg.exe add HKLM\\SYSTEM\\CurrentControlSet\\Services\\VSS\\Diag\\Volsnap /ve /f /d Disabled",
+    "parent": {
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-76D8-601C-0000-0010F1630000}"
+    },
+    "args": [
+      "C:\\Program Files\\NetTime\\NetTimeService.exe"
+    ]
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "94c08df0f07c509d99fea7cfc486c335",
+      "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+    ]
+  },
+  "hash": {
+    "md5": "94c08df0f07c509d99fea7cfc486c335",
+    "sha256": "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+  },
+  "winlog": {
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1704,
+      "thread": {
+        "id": 1804
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "event_data": {
+      "FileVersion": "3.1.4.220",
+      "Description": "Network Time Synchronizer - NT Service",
+      "OriginalFileName": "NetTimeService.exe",
+      "TerminalSessionId": "0",
+      "Product": "NetTime",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "LogonGuid": "{19FC45AC-76D8-601C-0000-0020E7030000}"
+    },
+    "version": 5,
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1346,
+    "computer_name": "CLIENT2.breach.local"
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:38:22.764Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1
+  },
+  "agent": {
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "name": "CLIENT2.breach.local",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    }
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

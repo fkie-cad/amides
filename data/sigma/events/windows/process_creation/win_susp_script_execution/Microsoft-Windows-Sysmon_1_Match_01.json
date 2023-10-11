@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:27:23.500Z",
+  "event": {
+    "created": "2021-02-04T22:31:13.044Z",
+    "kind": "event",
+    "code": 1,
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:23.500\nProcessGuid: {19FC45AC-74CB-601C-0000-0010EEDA0100}\nProcessId: 316\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: IP Configuration Utility\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: client\\setup\nLogonGuid: {19FC45AC-74C6-601C-0000-002031010100}\nLogonId: 0x10131\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=CABB20E171770FF64614A54C1F31C033,SHA256=C0E3087D87C84776FE7FFCA768A0793C02D28E34A821F0C9DA32339AF8E7E6A6\nParentProcessGuid: {19FC45AC-74CA-601C-0000-001038C00100}\nParentProcessId: 1968\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "user": {
+    "domain": "client",
+    "name": "setup"
+  },
+  "hash": {
+    "sha256": "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6",
+    "md5": "cabb20e171770ff64614a54c1f31c033"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "record_id": 1185,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer_name": "CLIENT",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_data": {
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "ipconfig.exe",
+      "IntegrityLevel": "High",
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-74C6-601C-0000-002031010100}",
+      "LogonId": "0x10131",
+      "TerminalSessionId": "1",
+      "Description": "IP Configuration Utility",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "pid": 1692,
+      "thread": {
+        "id": 1064
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "api": "wineventlog"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "name": "ipconfig.exe",
+    "hash": {
+      "md5": "cabb20e171770ff64614a54c1f31c033",
+      "sha256": "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6"
+    },
+    "entity_id": "{19FC45AC-74CB-601C-0000-0010EEDA0100}",
+    "executable": "C:\\Windows\\System32\\cscript.exe",
+    "command_line": "cscript C:\\Path\\To\\File.js",
+    "working_directory": "C:\\BREACH\\",
+    "pid": 316,
+    "parent": {
+      "entity_id": "{19FC45AC-74CA-601C-0000-001038C00100}",
+      "pid": 1968,
+      "executable": "C:\\Program Files\\Python35-32\\python.exe",
+      "command_line": "\"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+      "name": "python.exe",
+      "args": [
+        "C:\\Program Files\\Python35-32\\python.exe",
+        "C:\\BREACH\\init_tbf_client.py"
+      ]
+    },
+    "args": [
+      "ipconfig",
+      "/all"
+    ]
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "cabb20e171770ff64614a54c1f31c033",
+      "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6"
+    ]
+  },
+  "agent": {
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3"
+  },
+  "host": {
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "name": "CLIENT"
+  }
+}

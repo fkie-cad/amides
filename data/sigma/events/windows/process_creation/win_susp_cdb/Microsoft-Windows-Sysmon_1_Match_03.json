@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:17.875Z",
+  "hash": {
+    "md5": "edc79826e21859e93a875dfc087606c5",
+    "sha256": "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1237,
+    "version": 5,
+    "event_data": {
+      "LogonId": "0x23cba",
+      "IntegrityLevel": "High",
+      "Product": "Python",
+      "Description": "Python",
+      "FileVersion": "3.5.2",
+      "OriginalFileName": "python.exe",
+      "Company": "Python Software Foundation",
+      "LogonGuid": "{19FC45AC-7500-601C-0000-0020BA3C0200}",
+      "TerminalSessionId": "1"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "computer_name": "CLIENT1",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1504,
+      "thread": {
+        "id": 1772
+      }
+    },
+    "opcode": "Info",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog"
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.131Z",
+    "kind": "event",
+    "code": 1
+  },
+  "process": {
+    "entity_id": "{19FC45AC-7501-601C-0000-0010A4A70200}",
+    "command_line": "\"C:\\Program Files (x86)\\Windows Kits\\10\\Debuggers\\x86\\cdb.exe\" -o \"C:\\Windows\\System32\\ping.exe\" -cf evilscript",
+    "working_directory": "C:\\BREACH\\",
+    "args": [
+      "C:\\Program Files\\Python35-32\\python.exe",
+      "C:\\BREACH\\init_tbf_client.py"
+    ],
+    "hash": {
+      "sha256": "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e",
+      "md5": "edc79826e21859e93a875dfc087606c5"
+    },
+    "pid": 2204,
+    "executable": "C:\\Program Files (x86)\\Windows Kits\\10\\Debuggers\\x86\\cdb.exe",
+    "parent": {
+      "executable": "C:\\Windows\\py.exe",
+      "command_line": "\"C:\\Windows\\py.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+      "name": "py.exe",
+      "args": [
+        "C:\\Windows\\py.exe",
+        "C:\\BREACH\\init_tbf_client.py"
+      ],
+      "entity_id": "{19FC45AC-7501-601C-0000-001032940200}",
+      "pid": 2108
+    },
+    "name": "python.exe"
+  },
+  "user": {
+    "domain": "CLIENT1",
+    "name": "setup"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:17.875\nProcessGuid: {19FC45AC-7501-601C-0000-0010A4A70200}\nProcessId: 2204\nImage: C:\\Program Files\\Python35-32\\python.exe\nFileVersion: 3.5.2\nDescription: Python\nProduct: Python\nCompany: Python Software Foundation\nOriginalFileName: python.exe\nCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" \nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT1\\setup\nLogonGuid: {19FC45AC-7500-601C-0000-0020BA3C0200}\nLogonId: 0x23cba\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=EDC79826E21859E93A875DFC087606C5,SHA256=D61DDEA87B2483612CAEB0F3514AEE3E60237D5F3880F49512C834539462742E\nParentProcessGuid: {19FC45AC-7501-601C-0000-001032940200}\nParentProcessId: 2108\nParentImage: C:\\Windows\\py.exe\nParentCommandLine: \"C:\\Windows\\py.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "name": "CLIENT1",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    }
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "edc79826e21859e93a875dfc087606c5",
+      "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+    ]
+  }
+}

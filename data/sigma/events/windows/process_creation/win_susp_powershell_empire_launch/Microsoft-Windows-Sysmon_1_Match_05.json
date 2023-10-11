@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:34:58.218Z",
+  "related": {
+    "hash": [
+      "edc79826e21859e93a875dfc087606c5",
+      "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+    ],
+    "user": "client1"
+  },
+  "hash": {
+    "md5": "edc79826e21859e93a875dfc087606c5",
+    "sha256": "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:58.218\nProcessGuid: {19FC45AC-7692-601C-0000-0010D87A0100}\nProcessId: 1724\nImage: C:\\Program Files\\Python35-32\\python.exe\nFileVersion: 3.5.2\nDescription: Python\nProduct: Python\nCompany: Python Software Foundation\nOriginalFileName: python.exe\nCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" \nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=EDC79826E21859E93A875DFC087606C5,SHA256=D61DDEA87B2483612CAEB0F3514AEE3E60237D5F3880F49512C834539462742E\nParentProcessGuid: {19FC45AC-7692-601C-0000-001077680100}\nParentProcessId: 1620\nParentImage: C:\\Windows\\py.exe\nParentCommandLine: \"C:\\Windows\\py.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "winlog": {
+    "version": 5,
+    "event_id": 1,
+    "process": {
+      "thread": {
+        "id": 1716
+      },
+      "pid": 1928
+    },
+    "event_data": {
+      "Description": "Python",
+      "TerminalSessionId": "1",
+      "FileVersion": "3.5.2",
+      "Company": "Python Software Foundation",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "Product": "Python",
+      "IntegrityLevel": "Medium",
+      "OriginalFileName": "python.exe",
+      "LogonId": "0xfb53"
+    },
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1346,
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "api": "wineventlog",
+    "computer_name": "CLIENT1.breach.local"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:37:09.058Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "name": "CLIENT1.breach.local"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "args": [
+      "C:\\Program Files\\Python35-32\\python.exe",
+      "C:\\BREACH\\init_tbf_client.py"
+    ],
+    "entity_id": "{19FC45AC-7692-601C-0000-0010D87A0100}",
+    "pid": 1724,
+    "parent": {
+      "name": "py.exe",
+      "args": [
+        "C:\\Windows\\py.exe",
+        "C:\\BREACH\\init_tbf_client.py"
+      ],
+      "entity_id": "{19FC45AC-7692-601C-0000-001077680100}",
+      "pid": 1620,
+      "executable": "C:\\Windows\\py.exe",
+      "command_line": "\"C:\\Windows\\py.exe\" \"C:\\BREACH\\init_tbf_client.py\" "
+    },
+    "name": "python.exe",
+    "executable": "C:\\Program Files\\Python35-32\\python.exe",
+    "command_line": "powershell.exe -nop -exec bypass -EncodedCommand SQBENC0D3DC0MM4ND",
+    "working_directory": "C:\\BREACH\\",
+    "hash": {
+      "md5": "edc79826e21859e93a875dfc087606c5",
+      "sha256": "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+    }
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  }
+}

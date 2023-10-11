@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:15.609Z",
+  "process": {
+    "command_line": "sysprep.exe C:\\Users\\admin\\AppData\\Local\\Temp\\gupdate.exe",
+    "args": [
+      "C:\\Windows\\system32\\userinit.exe"
+    ],
+    "hash": {
+      "md5": "61ac3efdfacfdd3f0f11dd4fd4044223",
+      "sha256": "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b"
+    },
+    "entity_id": "{19FC45AC-74FF-601C-0000-00107A480200}",
+    "pid": 1236,
+    "executable": "C:\\Windows\\System32\\userinit.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "args": [
+        "winlogon.exe"
+      ],
+      "entity_id": "{19FC45AC-74F7-601C-0000-0010E0590000}",
+      "pid": 388,
+      "executable": "C:\\Windows\\System32\\winlogon.exe",
+      "command_line": "winlogon.exe",
+      "name": "winlogon.exe"
+    },
+    "name": "userinit.exe"
+  },
+  "winlog": {
+    "record_id": 1230,
+    "computer_name": "CLIENT2",
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "event_data": {
+      "Description": "Userinit Logon Application",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "OriginalFileName": "USERINIT.EXE",
+      "LogonGuid": "{19FC45AC-74FF-601C-0000-002049330200}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x23349",
+      "IntegrityLevel": "High",
+      "TerminalSessionId": "1"
+    },
+    "process": {
+      "thread": {
+        "id": 1752
+      },
+      "pid": 1488
+    },
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "api": "wineventlog"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:15.609\nProcessGuid: {19FC45AC-74FF-601C-0000-00107A480200}\nProcessId: 1236\nImage: C:\\Windows\\System32\\userinit.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Userinit Logon Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: USERINIT.EXE\nCommandLine: C:\\Windows\\system32\\userinit.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: CLIENT2\\setup\nLogonGuid: {19FC45AC-74FF-601C-0000-002049330200}\nLogonId: 0x23349\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=61AC3EFDFACFDD3F0F11DD4FD4044223,SHA256=538FE1012FEDC72727A8DE0C2C01944B3D35C29812ECEF88E95AAC07235E0B0B\nParentProcessGuid: {19FC45AC-74F7-601C-0000-0010E0590000}\nParentProcessId: 388\nParentImage: C:\\Windows\\System32\\winlogon.exe\nParentCommandLine: winlogon.exe",
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "CLIENT2",
+    "name": "setup"
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "61ac3efdfacfdd3f0f11dd4fd4044223",
+      "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b"
+    ]
+  },
+  "hash": {
+    "md5": "61ac3efdfacfdd3f0f11dd4fd4044223",
+    "sha256": "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.404Z",
+    "kind": "event"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "name": "CLIENT2",
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    }
+  }
+}

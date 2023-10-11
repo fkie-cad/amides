@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:28:15.437Z",
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "name": "CLIENT3"
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\ping.exe",
+    "command_line": "C:\\Windows\\System32\\ping.exe 0x7f000001",
+    "working_directory": "C:\\BREACH\\",
+    "name": "py.exe",
+    "args": [
+      "C:\\Windows\\py.exe",
+      "C:\\BREACH\\init_tbf_client.py"
+    ],
+    "entity_id": "{19FC45AC-74FF-601C-0000-00109C980200}",
+    "pid": 2104,
+    "parent": {
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-74FE-601C-0000-0010D8530200}",
+      "pid": 1572,
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe"
+    },
+    "hash": {
+      "md5": "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+      "sha256": "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+    }
+  },
+  "related": {
+    "hash": [
+      "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+      "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+    ],
+    "user": "setup"
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "event_data": {
+      "Description": "Python",
+      "Company": "Python Software Foundation",
+      "FileVersion": "3.5.2",
+      "LogonGuid": "{19FC45AC-74FE-601C-0000-0020FD380200}",
+      "Product": "Python",
+      "IntegrityLevel": "High",
+      "LogonId": "0x238fd",
+      "OriginalFileName": "py.exe",
+      "TerminalSessionId": "1"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "computer_name": "CLIENT3",
+    "opcode": "Info",
+    "version": 5,
+    "record_id": 1236,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "thread": {
+        "id": 1780
+      },
+      "pid": 1516
+    },
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)"
+  },
+  "event": {
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.052Z"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:15.437\nProcessGuid: {19FC45AC-74FF-601C-0000-00109C980200}\nProcessId: 2104\nImage: C:\\Windows\\py.exe\nFileVersion: 3.5.2\nDescription: Python\nProduct: Python\nCompany: Python Software Foundation\nOriginalFileName: py.exe\nCommandLine: \"C:\\Windows\\py.exe\" \"C:\\BREACH\\init_tbf_client.py\" \nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT3\\setup\nLogonGuid: {19FC45AC-74FE-601C-0000-0020FD380200}\nLogonId: 0x238fd\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=CC3AC75DDBFAA6D4CCBB0AFAD7EB759D,SHA256=3D98A354F1329BFEB17216D2391D6E9C04F6873B6E491BCE9734C02C26574B3D\nParentProcessGuid: {19FC45AC-74FE-601C-0000-0010D8530200}\nParentProcessId: 1572\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "user": {
+    "name": "setup",
+    "domain": "CLIENT3"
+  },
+  "hash": {
+    "md5": "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+    "sha256": "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

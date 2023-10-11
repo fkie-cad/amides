@@ -1,0 +1,5 @@
+queried_event_types:
+  - Microsoft-Windows-Sysmon_1
+evasion_possible: unknown
+broken_rule: no
+edited_fields:

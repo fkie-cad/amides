@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:27:16.265Z",
+  "host": {
+    "name": "CLIENT",
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "27945cf21e17afbff1e31993aaee4551",
+      "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+    ]
+  },
+  "hash": {
+    "md5": "27945cf21e17afbff1e31993aaee4551",
+    "sha256": "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "opcode": "Info",
+    "event_data": {
+      "LogonGuid": "{19FC45AC-74C4-601C-0000-0020E7030000}",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "OriginalFileName": "lsass.exe",
+      "FileVersion": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "Description": "Local Security Authority Process",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "0",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1158,
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "api": "wineventlog",
+    "version": 5,
+    "process": {
+      "thread": {
+        "id": 1064
+      },
+      "pid": 1692
+    }
+  },
+  "event": {
+    "created": "2021-02-04T22:31:13.040Z",
+    "kind": "event",
+    "code": 1,
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:16.265\nProcessGuid: {19FC45AC-74C4-601C-0000-0010AB640000}\nProcessId: 452\nImage: C:\\Windows\\System32\\lsass.exe\nFileVersion: 6.1.7601.18741 (win7sp1_gdr.150202-1526)\nDescription: Local Security Authority Process\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: lsass.exe\nCommandLine: C:\\Windows\\system32\\lsass.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C4-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=27945CF21E17AFBFF1E31993AAEE4551,SHA256=E24137EFC6215FCD27479E0C1C455518B1D39F75B8CF67E8A9B46DCDDCECB350\nParentProcessGuid: {19FC45AC-74C3-601C-0000-0010D1590000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "process": {
+    "hash": {
+      "md5": "27945cf21e17afbff1e31993aaee4551",
+      "sha256": "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+    },
+    "entity_id": "{19FC45AC-74C4-601C-0000-0010AB640000}",
+    "command_line": "rundll32.exe url.dll, FileProtocolHandler calc.exe",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\wininit.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-74C3-601C-0000-0010D1590000}",
+      "pid": 348
+    },
+    "args": [
+      "C:\\Windows\\system32\\lsass.exe"
+    ],
+    "pid": 452,
+    "executable": "C:\\Windows\\System32\\lsass.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "lsass.exe"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:55.984Z",
+  "winlog": {
+    "record_id": 1269,
+    "task": "Process Create (rule: ProcessCreate)",
+    "version": 5,
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_id": 1,
+    "event_data": {
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E7030000}",
+      "LogonId": "0x3e7",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "0",
+      "IntegrityLevel": "System",
+      "Description": "Local Session Manager Service",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "lsm.exe"
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "agent": {
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.296Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1
+  },
+  "host": {
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "name": "CLIENT1.breach.local",
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:55.984\nProcessGuid: {19FC45AC-7527-601C-0000-00102E640000}\nProcessId: 460\nImage: C:\\Windows\\System32\\lsm.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Local Session Manager Service\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: lsm.exe\nCommandLine: C:\\Windows\\system32\\lsm.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-7528-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=8AEA9A37C1A3565A204D37C5E72AB791,SHA256=939903F93FF37525A6C4B5CBA29CDEEE6D6055C42D605E80AE787F2A76F9870E\nParentProcessGuid: {19FC45AC-7527-601C-0000-001028570000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "process": {
+    "hash": {
+      "md5": "8aea9a37c1a3565a204d37c5e72ab791",
+      "sha256": "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+    },
+    "pid": 460,
+    "executable": "C:\\Windows\\System32\\lsm.exe",
+    "command_line": "powershell -exec bypass -enc JgAg > rs.txt",
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\system32\\lsm.exe"
+    ],
+    "entity_id": "{19FC45AC-7527-601C-0000-00102E640000}",
+    "parent": {
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\wininit.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-7527-601C-0000-001028570000}"
+    },
+    "name": "lsm.exe"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "8aea9a37c1a3565a204d37c5e72ab791",
+      "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+    ]
+  },
+  "hash": {
+    "md5": "8aea9a37c1a3565a204d37c5e72ab791",
+    "sha256": "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

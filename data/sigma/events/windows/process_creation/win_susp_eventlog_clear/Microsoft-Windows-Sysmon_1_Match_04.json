@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:27:20.031Z",
+  "log": {
+    "level": "information"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.121Z",
+    "kind": "event"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  },
+  "hash": {
+    "md5": "54a47f6b5e09a77e61649109c6a08866",
+    "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:20.031\nProcessGuid: {19FC45AC-74C8-601C-0000-0010AA550100}\nProcessId: 1548\nImage: C:\\Windows\\System32\\svchost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Host Process for Windows Services\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: svchost.exe\nCommandLine: C:\\Windows\\system32\\svchost.exe -k ftpsvc\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C3-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=54A47F6B5E09A77E61649109C6A08866,SHA256=121118A0F5E0E8C933EFD28C9901E54E42792619A8A3A6D11E1F0025A7324BC2\nParentProcessGuid: {19FC45AC-74C3-601C-0000-0010D8620000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "process": {
+      "pid": 1684,
+      "thread": {
+        "id": 1512
+      }
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "computer_name": "CLIENT",
+    "version": 5,
+    "record_id": 1173,
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "Description": "Host Process for Windows Services",
+      "TerminalSessionId": "0",
+      "LogonGuid": "{19FC45AC-74C3-601C-0000-0020E7030000}",
+      "OriginalFileName": "svchost.exe",
+      "IntegrityLevel": "System",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonId": "0x3e7",
+      "Company": "Microsoft Corporation"
+    },
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "name": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "args": [
+      "C:\\Windows\\system32\\svchost.exe",
+      "-k",
+      "ftpsvc"
+    ],
+    "entity_id": "{19FC45AC-74C8-601C-0000-0010AA550100}",
+    "pid": 1548,
+    "command_line": "powershell /C Clear-EventLog System",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-74C3-601C-0000-0010D8620000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "svchost.exe",
+    "hash": {
+      "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2",
+      "md5": "54a47f6b5e09a77e61649109c6a08866"
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "54a47f6b5e09a77e61649109c6a08866",
+      "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    ]
+  }
+}

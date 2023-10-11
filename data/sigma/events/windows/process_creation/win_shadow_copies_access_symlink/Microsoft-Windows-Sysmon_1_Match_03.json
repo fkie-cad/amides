@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:27:20.968Z",
+  "winlog": {
+    "computer_name": "CLIENT",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "process": {
+      "pid": 1896,
+      "thread": {
+        "id": 1392
+      }
+    },
+    "record_id": 1181,
+    "api": "wineventlog",
+    "version": 5,
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-74C3-601C-0000-0020E7030000}",
+      "Product": "imdisk",
+      "OriginalFileName": "imdsksvc.exe",
+      "Company": "Olof Lagerkvist",
+      "IntegrityLevel": "System",
+      "Description": "ImDisk Virtual Disk Driver helper service",
+      "FileVersion": "2.0.9.24",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0"
+    }
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.356Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:20.968\nProcessGuid: {19FC45AC-74C8-601C-0000-001060AB0100}\nProcessId: 1772\nImage: C:\\Windows\\System32\\imdsksvc.exe\nFileVersion: 2.0.9.24\nDescription: ImDisk Virtual Disk Driver helper service\nProduct: imdisk\nCompany: Olof Lagerkvist\nOriginalFileName: imdsksvc.exe\nCommandLine: C:\\Windows\\system32\\imdsksvc.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C3-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=73DCB33604AB86BCD4CAA90346D73B49,SHA256=DB47A54AC39C5831F4FA8B678B5738B6BD304F6002D9FC0256F055ABE7A9D969\nParentProcessGuid: {19FC45AC-74C2-601C-0000-001050630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "73dcb33604ab86bcd4caa90346d73b49",
+      "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "name": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ]
+  },
+  "process": {
+    "entity_id": "{19FC45AC-74C8-601C-0000-001060AB0100}",
+    "pid": 1772,
+    "executable": "C:\\Windows\\System32\\imdsksvc.exe",
+    "command_line": "\"C:\\Windows\\System32\\cmd.exe\" /c \"mklink /d c:\\tmp\\vssstore \\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy1\\\"",
+    "hash": {
+      "sha256": "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969",
+      "md5": "73dcb33604ab86bcd4caa90346d73b49"
+    },
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-74C2-601C-0000-001050630000}",
+      "pid": 440
+    },
+    "name": "imdsksvc.exe",
+    "args": [
+      "C:\\Windows\\system32\\imdsksvc.exe"
+    ]
+  },
+  "hash": {
+    "md5": "73dcb33604ab86bcd4caa90346d73b49",
+    "sha256": "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+  },
+  "agent": {
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2"
+  }
+}

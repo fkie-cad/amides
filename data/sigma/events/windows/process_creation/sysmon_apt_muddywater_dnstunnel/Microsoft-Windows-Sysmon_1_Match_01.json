@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:55.656Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:55.656\nProcessGuid: {19FC45AC-7527-601C-0000-0010BD560000}\nProcessId: 340\nImage: C:\\Windows\\System32\\smss.exe\nFileVersion: 6.1.7601.18741 (win7sp1_gdr.150202-1526)\nDescription: Windows Session Manager\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: smss.exe\nCommandLine: \\SystemRoot\\System32\\smss.exe 00000001 0000003c \nCurrentDirectory: C:\\Windows\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-7528-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 1\nIntegrityLevel: System\nHashes: MD5=01C6C743FE49D0FB3F0A1391FEF1DEB3,SHA256=36155638E650576A8BCAFC23C50483AB4B831D9A34C781DDF7CC89554D0546B7\nParentProcessGuid: {19FC45AC-7526-601C-0000-00104D2F0000}\nParentProcessId: 236\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe",
+  "process": {
+    "args": [
+      "\\SystemRoot\\System32\\smss.exe",
+      "00000001",
+      "0000003c"
+    ],
+    "entity_id": "{19FC45AC-7527-601C-0000-0010BD560000}",
+    "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" Start-Process rundll32.exe C:\\ProgramData\\DataExchange.dll,Start",
+    "name": "smss.exe",
+    "parent": {
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe"
+      ],
+      "entity_id": "{19FC45AC-7526-601C-0000-00104D2F0000}",
+      "pid": 236,
+      "executable": "C:\\Program Files\\Microsoft Office\\Root\\Office16\\excel.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe",
+      "name": "smss.exe"
+    },
+    "hash": {
+      "md5": "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    },
+    "pid": 340,
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "working_directory": "C:\\Windows\\"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "created": "2021-02-04T22:31:06.295Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    ]
+  },
+  "hash": {
+    "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7",
+    "md5": "01c6c743fe49d0fb3f0a1391fef1deb3"
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1263,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT1.breach.local",
+    "event_data": {
+      "IntegrityLevel": "System",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Description": "Windows Session Manager",
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E7030000}",
+      "FileVersion": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "TerminalSessionId": "1",
+      "OriginalFileName": "smss.exe",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x3e7"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "process": {
+      "thread": {
+        "id": 1792
+      },
+      "pid": 1524
+    },
+    "api": "wineventlog",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    }
+  }
+}

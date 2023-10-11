@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T23:00:36.497Z",
+  "process": {
+    "hash": {
+      "md5": "51138beea3e2c21ec44d0932c71762a8",
+      "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    },
+    "pid": 3732,
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "rundll32.exe",
+    "args": [
+      "C:\\Windows\\system32\\rundll32.exe",
+      "/d",
+      "srrstr.dll,ExecuteScheduledSPPCreation"
+    ],
+    "entity_id": "{19FC45AC-7C94-601C-0000-0010390F0C00}",
+    "executable": "C:\\Windows\\System32\\reg.exe",
+    "command_line": "reg add HKLM\\system\\CurrentControlSet\\Control\\SafeBoot\\AlternateShell",
+    "parent": {
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-76D8-601C-0000-0010F1630000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe"
+    }
+  },
+  "related": {
+    "hash": [
+      "51138beea3e2c21ec44d0932c71762a8",
+      "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    ],
+    "user": "SYSTEM"
+  },
+  "hash": {
+    "md5": "51138beea3e2c21ec44d0932c71762a8",
+    "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "process": {
+      "thread": {
+        "id": 1804
+      },
+      "pid": 1704
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1381,
+    "computer_name": "CLIENT2.breach.local",
+    "event_data": {
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "0",
+      "OriginalFileName": "RUNDLL32.EXE",
+      "LogonGuid": "{19FC45AC-76D8-601C-0000-0020E7030000}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Description": "Windows host process (Rundll32)",
+      "LogonId": "0x3e7",
+      "IntegrityLevel": "System",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)"
+    }
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "created": "2021-02-04T23:00:37.164Z",
+    "kind": "event",
+    "code": 1
+  },
+  "log": {
+    "level": "information"
+  },
+  "agent": {
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "host": {
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "name": "CLIENT2.breach.local",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:00:36.497\nProcessGuid: {19FC45AC-7C94-601C-0000-0010390F0C00}\nProcessId: 3732\nImage: C:\\Windows\\System32\\rundll32.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Windows host process (Rundll32)\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: RUNDLL32.EXE\nCommandLine: C:\\Windows\\system32\\rundll32.exe /d srrstr.dll,ExecuteScheduledSPPCreation\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76D8-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=51138BEEA3E2C21EC44D0932C71762A8,SHA256=5AD3C37E6F2B9DB3EE8B5AEEDC474645DE90C66E3D95F8620C48102F1EBA4124\nParentProcessGuid: {19FC45AC-76D8-601C-0000-0010F1630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  }
+}

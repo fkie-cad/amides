@@ -1,0 +1,133 @@
+{
+  "@timestamp": "2021-02-04T22:34:58.437Z",
+  "winlog": {
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "event_data": {
+      "LogonId": "0x3e7",
+      "Description": "Network Time Synchronizer - NT Service",
+      "IntegrityLevel": "System",
+      "FileVersion": "3.1.4.220",
+      "Product": "NetTime",
+      "OriginalFileName": "NetTimeService.exe",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "TerminalSessionId": "0"
+    },
+    "process": {
+      "thread": {
+        "id": 1716
+      },
+      "pid": 1928
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1350,
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:58.437\nProcessGuid: {19FC45AC-7692-601C-0000-0010A3850100}\nProcessId: 1808\nImage: C:\\Program Files\\NetTime\\NetTimeService.exe\nFileVersion: 3.1.4.220\nDescription: Network Time Synchronizer - NT Service\nProduct: NetTime\nCompany: \nOriginalFileName: NetTimeService.exe\nCommandLine: \"C:\\Program Files\\NetTime\\NetTimeService.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=94C08DF0F07C509D99FEA7CFC486C335,SHA256=0AAE40D7B5D57AED2A897161601A08123E64088033B03527DC1BA2B55E7A4E9A\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "94c08df0f07c509d99fea7cfc486c335",
+      "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+    ]
+  },
+  "agent": {
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "94c08df0f07c509d99fea7cfc486c335",
+    "sha256": "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "created": "2021-02-04T22:37:09.059Z"
+  },
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "pid": 1808,
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "NetTimeService.exe",
+    "args": [
+      "C:\\Program Files\\NetTime\\NetTimeService.exe"
+    ],
+    "entity_id": "{19FC45AC-7692-601C-0000-0010A3850100}",
+    "command_line": "wmic product where name=\"Endpoint Sensor\" call uninstall /nointeractive",
+    "parent": {
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe"
+    },
+    "hash": {
+      "md5": "94c08df0f07c509d99fea7cfc486c335",
+      "sha256": "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+    },
+    "executable": "C:\\Program Files\\NetTime\\NetTimeService.exe"
+  }
+}

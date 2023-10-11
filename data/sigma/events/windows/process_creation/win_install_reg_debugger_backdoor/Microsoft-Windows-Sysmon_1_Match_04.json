@@ -1,0 +1,152 @@
+{
+  "@timestamp": "2021-02-04T22:27:32.609Z",
+  "agent": {
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2"
+  },
+  "host": {
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "name": "CLIENT",
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:32.609\nProcessGuid: {19FC45AC-74D4-601C-0000-0010555A0300}\nProcessId: 2604\nImage: C:\\Windows\\System32\\netsh.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Network Command Shell\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: netsh.exe\nCommandLine: \"C:\\Windows\\system32\\netsh.exe\" interface ip set address \"name=Local Area Connection 2\" static 192.168.56.102\nCurrentDirectory: C:\\BREACH\\\nUser: client\\breach\nLogonGuid: {19FC45AC-74D4-601C-0000-0020A94C0300}\nLogonId: 0x34ca9\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=784A50A6A09C25F011C3143DDD68E729,SHA256=661F5D4CE4F0A6CB32669A43CE5DEEC6D5A9E19B2387F22C5012405E92169943\nParentProcessGuid: {19FC45AC-74D4-601C-0000-0010BB4F0300}\nParentProcessId: 2520\nParentImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nParentCommandLine: \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" netsh.exe interface ip set address name='Local Area Connection 2' static 192.168.56.102 ",
+  "process": {
+    "pid": 2604,
+    "executable": "C:\\Windows\\System32\\netsh.exe",
+    "working_directory": "C:\\BREACH\\",
+    "parent": {
+      "name": "powershell.exe",
+      "args": [
+        "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "netsh.exe",
+        "interface",
+        "ip",
+        "set",
+        "address",
+        "name='Local",
+        "Area",
+        "Connection",
+        "2'",
+        "static",
+        "192.168.56.102"
+      ],
+      "entity_id": "{19FC45AC-74D4-601C-0000-0010BB4F0300}",
+      "pid": 2520,
+      "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" netsh.exe interface ip set address name='Local Area Connection 2' static 192.168.56.102 "
+    },
+    "name": "netsh.exe",
+    "args": [
+      "C:\\Windows\\system32\\netsh.exe",
+      "interface",
+      "ip",
+      "set",
+      "address",
+      "name=Local Area Connection 2",
+      "static",
+      "192.168.56.102"
+    ],
+    "entity_id": "{19FC45AC-74D4-601C-0000-0010555A0300}",
+    "command_line": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\magnify.exe\" /t REG_SZ /v Debugger /d “C:\\windows\\system32\\cmd.exe” /f",
+    "hash": {
+      "md5": "784a50a6a09c25f011c3143ddd68e729",
+      "sha256": "661f5d4ce4f0a6cb32669a43ce5deec6d5a9e19b2387f22c5012405e92169943"
+    }
+  },
+  "user": {
+    "domain": "client",
+    "name": "breach"
+  },
+  "hash": {
+    "md5": "784a50a6a09c25f011c3143ddd68e729",
+    "sha256": "661f5d4ce4f0a6cb32669a43ce5deec6d5a9e19b2387f22c5012405e92169943"
+  },
+  "event": {
+    "created": "2021-02-04T22:31:11.359Z",
+    "kind": "event",
+    "code": 1,
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "winlog": {
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_data": {
+      "Description": "Network Command Shell",
+      "LogonId": "0x34ca9",
+      "TerminalSessionId": "1",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "OriginalFileName": "netsh.exe",
+      "LogonGuid": "{19FC45AC-74D4-601C-0000-0020A94C0300}",
+      "IntegrityLevel": "High"
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1194,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "computer_name": "CLIENT",
+    "process": {
+      "thread": {
+        "id": 1392
+      },
+      "pid": 1896
+    },
+    "opcode": "Info",
+    "version": 5
+  },
+  "related": {
+    "user": "breach",
+    "hash": [
+      "784a50a6a09c25f011c3143ddd68e729",
+      "661f5d4ce4f0a6cb32669a43ce5deec6d5a9e19b2387f22c5012405e92169943"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

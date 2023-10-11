@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:29:07.389Z",
+  "hash": {
+    "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+    "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.298Z",
+    "module": "sysmon"
+  },
+  "process": {
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-7527-601C-0000-00104B610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe"
+    },
+    "hash": {
+      "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+      "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    },
+    "command_line": "C:\\Windows\\System32\\msdt.exe -path C:\\WINDOWS\\diagnostics\\index\\PCWDiagnostic.xml -af C:\\PCW8E57.xml /skip TRUE",
+    "pid": 508,
+    "executable": "C:\\Windows\\System32\\taskhost.exe",
+    "name": "taskhost.exe",
+    "args": [
+      "taskhost.exe"
+    ],
+    "entity_id": "{19FC45AC-7533-601C-0000-0010CF500200}"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:07.389\nProcessGuid: {19FC45AC-7533-601C-0000-0010CF500200}\nProcessId: 508\nImage: C:\\Windows\\System32\\taskhost.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Host Process for Windows Tasks\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: taskhost.exe\nCommandLine: \"taskhost.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7533-601C-0000-0020ED4A0200}\nLogonId: 0x24aed\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=7FA8BA5A780E4757964AC9D4238302B9,SHA256=65E3D8CE737896647065103FBB4D58E6A34171D0A48662A832CFDAC3CF469701\nParentProcessGuid: {19FC45AC-7527-601C-0000-00104B610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "related": {
+    "user": "client1",
+    "hash": [
+      "7fa8ba5a780e4757964ac9d4238302b9",
+      "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    ]
+  },
+  "agent": {
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  },
+  "winlog": {
+    "api": "wineventlog",
+    "computer_name": "CLIENT1.breach.local",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    },
+    "record_id": 1292,
+    "opcode": "Info",
+    "event_data": {
+      "TerminalSessionId": "1",
+      "LogonGuid": "{19FC45AC-7533-601C-0000-0020ED4A0200}",
+      "OriginalFileName": "taskhost.exe",
+      "IntegrityLevel": "Medium",
+      "LogonId": "0x24aed",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Description": "Host Process for Windows Tasks",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation"
+    },
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local",
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "log": {
+    "level": "information"
+  }
+}

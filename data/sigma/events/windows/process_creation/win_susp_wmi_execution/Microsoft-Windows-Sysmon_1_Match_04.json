@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:34:55.703Z",
+  "hash": {
+    "md5": "27945cf21e17afbff1e31993aaee4551",
+    "sha256": "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "event_id": 1,
+    "event_data": {
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "FileVersion": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "IntegrityLevel": "System",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "0",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "Description": "Local Security Authority Process",
+      "OriginalFileName": "lsass.exe",
+      "LogonId": "0x3e7"
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "record_id": 1327,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "opcode": "Info",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    }
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:37:09.055Z",
+    "kind": "event",
+    "code": 1
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT1.breach.local",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "27945cf21e17afbff1e31993aaee4551",
+      "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:55.703\nProcessGuid: {19FC45AC-768F-601C-0000-001038650000}\nProcessId: 456\nImage: C:\\Windows\\System32\\lsass.exe\nFileVersion: 6.1.7601.18741 (win7sp1_gdr.150202-1526)\nDescription: Local Security Authority Process\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: lsass.exe\nCommandLine: C:\\Windows\\system32\\lsass.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=27945CF21E17AFBFF1E31993AAEE4551,SHA256=E24137EFC6215FCD27479E0C1C455518B1D39F75B8CF67E8A9B46DCDDCECB350\nParentProcessGuid: {19FC45AC-768F-601C-0000-001049590000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "process": {
+    "args": [
+      "C:\\Windows\\system32\\lsass.exe"
+    ],
+    "hash": {
+      "md5": "27945cf21e17afbff1e31993aaee4551",
+      "sha256": "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+    },
+    "entity_id": "{19FC45AC-768F-601C-0000-001038650000}",
+    "pid": 456,
+    "executable": "C:\\Windows\\System32\\wbem\\wmic.exe",
+    "parent": {
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\wininit.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-001049590000}"
+    },
+    "command_line": "wmic shadowcopy delete /nointeractive",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "lsass.exe"
+  },
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-05T03:02:00.138Z",
+  "related": {
+    "hash": [
+      "1234a12b71dae034e45c714ae5a54412",
+      "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+    ],
+    "user": "SYSTEM"
+  },
+  "hash": {
+    "md5": "1234a12b71dae034e45c714ae5a54412",
+    "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T03:02:00.700Z"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\reg.exe",
+    "parent": {
+      "command_line": "C:\\Windows\\system32\\cmd.exe",
+      "name": "cmd.exe",
+      "args": [
+        "C:\\Windows\\system32\\cmd.exe"
+      ],
+      "entity_id": "{19FC45AC-76D8-601C-0000-0010F1630000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\cmd.exe"
+    },
+    "args": [
+      "reg",
+      "query",
+      "\"HKEY_CURRENT_USER}\\Software\\Microsoft\\Terminal Server Client\\Default\""
+    ],
+    "pid": 2088,
+    "command_line": "reg query \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\"",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "reg.exe",
+    "hash": {
+      "md5": "1234a12b71dae034e45c714ae5a54412",
+      "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+    },
+    "entity_id": "{19FC45AC-B528-601C-0000-00109B742700}"
+  },
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "api": "wineventlog",
+    "version": 5,
+    "event_data": {
+      "LogonGuid": "{19FC45AC-76D8-601C-0000-0020E7030000}",
+      "FileVersion": "18,0,0,194",
+      "IntegrityLevel": "System",
+      "OriginalFileName": "?",
+      "LogonId": "0x3e7",
+      "Company": "Adobe Systems Incorporated",
+      "Description": "Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0",
+      "TerminalSessionId": "0",
+      "Product": "Adobe\u00ae Flash\u00ae Player Update Service"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "computer_name": "CLIENT2.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "thread": {
+        "id": 1804
+      },
+      "pid": 1704
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "record_id": 1493,
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1
+  },
+  "host": {
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "name": "CLIENT2.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 03:02:00.138\nProcessGuid: {19FC45AC-B528-601C-0000-00109B742700}\nProcessId: 2088\nImage: C:\\Windows\\System32\\Macromed\\Flash\\FlashPlayerUpdateService.exe\nFileVersion: 18,0,0,194\nDescription: Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0\nProduct: Adobe\u00ae Flash\u00ae Player Update Service\nCompany: Adobe Systems Incorporated\nOriginalFileName: ?\nCommandLine: C:\\Windows\\system32\\Macromed\\Flash\\FlashPlayerUpdateService.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76D8-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=1234A12B71DAE034E45C714AE5A54412,SHA256=079E6BC834F38322ED5ED76295EC3961ED894084EF5CB171DFFBD9B3822CC78D\nParentProcessGuid: {19FC45AC-76D8-601C-0000-0010F1630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe"
+}

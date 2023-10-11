@@ -1,0 +1,133 @@
+{
+  "@timestamp": "2021-02-04T22:28:16.421Z",
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_data": {
+      "TerminalSessionId": "1",
+      "IntegrityLevel": "High",
+      "LogonId": "0x23349",
+      "FileVersion": "3.1.4.220",
+      "Product": "NetTime",
+      "OriginalFileName": "NetTime.exe",
+      "Description": "Network Time Synchronizer",
+      "LogonGuid": "{19FC45AC-74FF-601C-0000-002049330200}"
+    },
+    "computer_name": "CLIENT2",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1488,
+      "thread": {
+        "id": 1752
+      }
+    },
+    "version": 5,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1234
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:16.421\nProcessGuid: {19FC45AC-7500-601C-0000-001099870200}\nProcessId: 2104\nImage: C:\\Program Files\\NetTime\\NetTime.exe\nFileVersion: 3.1.4.220\nDescription: Network Time Synchronizer\nProduct: NetTime\nCompany: \nOriginalFileName: NetTime.exe\nCommandLine: \"C:\\Program Files\\NetTime\\NetTime.exe\" \nCurrentDirectory: C:\\Windows\\system32\\\nUser: CLIENT2\\setup\nLogonGuid: {19FC45AC-74FF-601C-0000-002049330200}\nLogonId: 0x23349\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=60B65F97C12BA30CD36450D376227C02,SHA256=D06598F2F203CEC7A7A3857F727BC2BA457C1C0CEF2787B90CE553407FBF8536\nParentProcessGuid: {19FC45AC-74FF-601C-0000-0010A0500200}\nParentProcessId: 1616\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "process": {
+    "command_line": "cmd /c copy \\\\?\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy3\\Windows\\NTDS\\NTDS.dit C:\\temp\\system",
+    "working_directory": "C:\\Windows\\system32\\",
+    "entity_id": "{19FC45AC-7500-601C-0000-001099870200}",
+    "pid": 2104,
+    "executable": "C:\\Windows\\System32\\cmd.exe",
+    "parent": {
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-74FF-601C-0000-0010A0500200}",
+      "pid": 1616,
+      "executable": "C:\\Windows\\explorer.exe"
+    },
+    "name": "NetTime.exe",
+    "args": [
+      "C:\\Program Files\\NetTime\\NetTime.exe"
+    ],
+    "hash": {
+      "sha256": "d06598f2f203cec7a7a3857f727bc2ba457c1c0cef2787b90ce553407fbf8536",
+      "md5": "60b65f97c12ba30cd36450d376227c02"
+    }
+  },
+  "user": {
+    "domain": "CLIENT2",
+    "name": "setup"
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "60b65f97c12ba30cd36450d376227c02",
+      "d06598f2f203cec7a7a3857f727bc2ba457c1c0cef2787b90ce553407fbf8536"
+    ]
+  },
+  "hash": {
+    "md5": "60b65f97c12ba30cd36450d376227c02",
+    "sha256": "d06598f2f203cec7a7a3857f727bc2ba457c1c0cef2787b90ce553407fbf8536"
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.405Z",
+    "module": "sysmon"
+  },
+  "host": {
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "name": "CLIENT2",
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "agent": {
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

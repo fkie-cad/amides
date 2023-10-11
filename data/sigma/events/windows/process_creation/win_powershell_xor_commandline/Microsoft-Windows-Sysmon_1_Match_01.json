@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:29:02.406Z",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "54a47f6b5e09a77e61649109c6a08866",
+      "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    ]
+  },
+  "hash": {
+    "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2",
+    "md5": "54a47f6b5e09a77e61649109c6a08866"
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1275,
+    "api": "wineventlog",
+    "opcode": "Info",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "LogonId": "0x3e7",
+      "IntegrityLevel": "System",
+      "Product": "PowerShell Core 6",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "Company": "Microsoft Corporation",
+      "Description": "Windows PowerShell",
+      "LogonGuid": "{19FC45AC-752E-601C-0000-0020E7030000}",
+      "TerminalSessionId": "0",
+      "OriginalFileName": "svchost.exe"
+    },
+    "computer_name": "CLIENT3.breach.local",
+    "version": 5,
+    "process": {
+      "pid": 1536,
+      "thread": {
+        "id": 1812
+      }
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "event": {
+    "created": "2021-02-04T22:31:13.164Z",
+    "kind": "event",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:02.406\nProcessGuid: {19FC45AC-752E-601C-0000-00107C7C0000}\nProcessId: 584\nImage: C:\\Windows\\System32\\svchost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Host Process for Windows Services\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: svchost.exe\nCommandLine: C:\\Windows\\system32\\svchost.exe -k DcomLaunch\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-752E-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=54A47F6B5E09A77E61649109C6A08866,SHA256=121118A0F5E0E8C933EFD28C9901E54E42792619A8A3A6D11E1F0025A7324BC2\nParentProcessGuid: {19FC45AC-752D-601C-0000-0010F4630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "entity_id": "{19FC45AC-752E-601C-0000-00107C7C0000}",
+    "pid": 584,
+    "args": [
+      "C:\\Windows\\system32\\svchost.exe",
+      "-k",
+      "DcomLaunch"
+    ],
+    "executable": "C:\\Windows\\System32\\svchost.exe",
+    "command_line": "powershell -C 3 -bxor 1",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-752D-601C-0000-0010F4630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe"
+    },
+    "name": "svchost.exe",
+    "hash": {
+      "md5": "54a47f6b5e09a77e61649109c6a08866",
+      "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    }
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "host": {
+    "name": "CLIENT3.breach.local",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ]
+  },
+  "log": {
+    "level": "information"
+  }
+}

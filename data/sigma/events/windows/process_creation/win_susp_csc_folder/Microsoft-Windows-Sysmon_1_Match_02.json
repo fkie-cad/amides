@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T21:07:16.744Z",
+  "process": {
+    "pid": 2260,
+    "args": [
+      "LogonUI.exe",
+      "/flags:0x1"
+    ],
+    "hash": {
+      "md5": "3ef0d8ab08385aab5802e773511a2e6a",
+      "sha256": "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+    },
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-4598-601C-0000-0010CB550000}",
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\wininit.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe"
+    },
+    "name": "LogonUI.exe",
+    "entity_id": "{19FC45AC-6204-601C-0000-001015E21400}",
+    "executable": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe",
+    "command_line": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe /noconfig /fullpaths @\"C:\\Windows\\Temp\\-dcx32-8.cmdline\""
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "3ef0d8ab08385aab5802e773511a2e6a",
+      "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+    ]
+  },
+  "hash": {
+    "md5": "3ef0d8ab08385aab5802e773511a2e6a",
+    "sha256": "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T21:07:18.918Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "computer_name": "CLIENT",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "event_data": {
+      "IntegrityLevel": "System",
+      "OriginalFileName": "logonui.exe",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonGuid": "{19FC45AC-4598-601C-0000-0020E7030000}",
+      "Description": "Windows Logon User Interface Host",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "Company": "Microsoft Corporation"
+    },
+    "api": "wineventlog",
+    "version": 5,
+    "event_id": 1,
+    "record_id": 1149
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "agent": {
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT",
+    "ephemeral_id": "66b561db-e9d4-4076-b78e-c4ce9eada53c",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    }
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 21:07:16.744\nProcessGuid: {19FC45AC-6204-601C-0000-001015E21400}\nProcessId: 2260\nImage: C:\\Windows\\System32\\LogonUI.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Logon User Interface Host\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: logonui.exe\nCommandLine: \"LogonUI.exe\" /flags:0x1\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-4598-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=3EF0D8AB08385AAB5802E773511A2E6A,SHA256=1A7EE4BC646767004372EAEA9BC0A2071790E739101F7D25ECD9C95D3F29AFD6\nParentProcessGuid: {19FC45AC-4598-601C-0000-0010CB550000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe"
+}

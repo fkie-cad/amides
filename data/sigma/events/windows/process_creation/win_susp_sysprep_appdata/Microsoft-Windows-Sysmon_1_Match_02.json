@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:08.187Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:08.187\nProcessGuid: {19FC45AC-74F8-601C-0000-0010C6440000}\nProcessId: 296\nImage: C:\\Windows\\System32\\smss.exe\nFileVersion: 6.1.7601.18741 (win7sp1_gdr.150202-1526)\nDescription: Windows Session Manager\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: smss.exe\nCommandLine: \\SystemRoot\\System32\\smss.exe 00000000 0000003c \nCurrentDirectory: C:\\Windows\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74F9-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=01C6C743FE49D0FB3F0A1391FEF1DEB3,SHA256=36155638E650576A8BCAFC23C50483AB4B831D9A34C781DDF7CC89554D0546B7\nParentProcessGuid: {19FC45AC-74F7-601C-0000-00104E2F0000}\nParentProcessId: 236\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe",
+  "process": {
+    "command_line": "sysprep.exe C:\\Users\\admin\\AppData\\Local\\Temp\\gupdate.exe",
+    "parent": {
+      "entity_id": "{19FC45AC-74F7-601C-0000-00104E2F0000}",
+      "pid": 236,
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe",
+      "name": "smss.exe",
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe"
+      ]
+    },
+    "name": "smss.exe",
+    "args": [
+      "\\SystemRoot\\System32\\smss.exe",
+      "00000000",
+      "0000003c"
+    ],
+    "hash": {
+      "md5": "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    },
+    "entity_id": "{19FC45AC-74F8-601C-0000-0010C6440000}",
+    "pid": 296,
+    "executable": "C:\\Windows\\System32\\smss.exe",
+    "working_directory": "C:\\Windows\\"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    ]
+  },
+  "hash": {
+    "md5": "01c6c743fe49d0fb3f0a1391fef1deb3",
+    "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+  },
+  "agent": {
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.125Z",
+    "kind": "event"
+  },
+  "host": {
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "name": "CLIENT1",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "computer_name": "CLIENT1",
+    "version": 5,
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "opcode": "Info",
+    "event_id": 1,
+    "event_data": {
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-74F9-601C-0000-0020E7030000}",
+      "OriginalFileName": "smss.exe",
+      "Description": "Windows Session Manager",
+      "FileVersion": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "TerminalSessionId": "0",
+      "IntegrityLevel": "System",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonId": "0x3e7"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1202,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1504,
+      "thread": {
+        "id": 1772
+      }
+    }
+  }
+}

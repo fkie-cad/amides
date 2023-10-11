@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:36:24.765Z",
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT3.breach.local",
+    "hostname": "CLIENT3"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:36:24.765\nProcessGuid: {19FC45AC-76E8-601C-0000-00102FEF0000}\nProcessId: 1000\nImage: C:\\Windows\\System32\\svchost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Host Process for Windows Services\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: svchost.exe\nCommandLine: C:\\Windows\\system32\\svchost.exe -k LocalService\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\LOCAL SERVICE\nLogonGuid: {19FC45AC-76E8-601C-0000-0020E5030000}\nLogonId: 0x3e5\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=54A47F6B5E09A77E61649109C6A08866,SHA256=121118A0F5E0E8C933EFD28C9901E54E42792619A8A3A6D11E1F0025A7324BC2\nParentProcessGuid: {19FC45AC-76E7-601C-0000-001081630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "hash": {
+    "md5": "54a47f6b5e09a77e61649109c6a08866",
+    "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "opcode": "Info",
+    "process": {
+      "pid": 1904,
+      "thread": {
+        "id": 308
+      }
+    },
+    "version": 5,
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_id": 1,
+    "api": "wineventlog",
+    "computer_name": "CLIENT3.breach.local",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "record_id": 1438,
+    "task": "Process Create (rule: ProcessCreate)",
+    "event_data": {
+      "LogonGuid": "{19FC45AC-76E8-601C-0000-0020E5030000}",
+      "Description": "Host Process for Windows Services",
+      "OriginalFileName": "svchost.exe",
+      "LogonId": "0x3e5",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "0",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "IntegrityLevel": "System"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "created": "2021-02-04T22:38:36.976Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\svchost.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-76E7-601C-0000-001081630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "svchost.exe",
+    "args": [
+      "C:\\Windows\\system32\\svchost.exe",
+      "-k",
+      "LocalService"
+    ],
+    "hash": {
+      "md5": "54a47f6b5e09a77e61649109c6a08866",
+      "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    },
+    "entity_id": "{19FC45AC-76E8-601C-0000-00102FEF0000}",
+    "pid": 1000,
+    "command_line": "wmic.exe product where name=\"Windows Defender\" call uninstall /nointeractive"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "LOCAL SERVICE"
+  },
+  "related": {
+    "user": "LOCAL SERVICE",
+    "hash": [
+      "54a47f6b5e09a77e61649109c6a08866",
+      "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    ]
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "177650cc-629c-4abf-8b93-a90e2e515251",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  }
+}

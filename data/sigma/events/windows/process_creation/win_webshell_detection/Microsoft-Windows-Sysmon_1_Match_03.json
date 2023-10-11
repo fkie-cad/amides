@@ -1,0 +1,139 @@
+{
+  "@timestamp": "2021-02-05T08:50:00.239Z",
+  "process": {
+    "name": "updater.exe",
+    "args": [
+      "C:\\Program Files\\Mozilla Firefox\\updater.exe",
+      "C:\\Users\\client1\\AppData\\Local\\Mozilla\\updates\\308046B0AF4A39CB\\updates\\0",
+      "C:\\Program Files\\Mozilla Firefox",
+      "C:\\Program Files\\Mozilla Firefox\\updated",
+      "-1"
+    ],
+    "entity_id": "{19FC45AC-06B8-601D-0000-0010BB685F00}",
+    "pid": 2352,
+    "command_line": "net user username",
+    "working_directory": "C:\\BREACH\\",
+    "parent": {
+      "command_line": "\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground",
+      "name": "firefox.exe",
+      "args": [
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+        "-foreground"
+      ],
+      "entity_id": "{19FC45AC-FA07-601C-0000-0010C0245900}",
+      "pid": 2380,
+      "executable": "C:\\Program Files\\Mozilla Firefox\\nginx.exe"
+    },
+    "executable": "C:\\Windows\\System32\\cmd.exe",
+    "hash": {
+      "md5": "d355e37797728119590b404fc834c0f3",
+      "sha256": "45005980af153f62aa1cb8ff4c72bafddccf95d94a05e26b0a35416efdf2174a"
+    }
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "hash": {
+    "md5": "d355e37797728119590b404fc834c0f3",
+    "sha256": "45005980af153f62aa1cb8ff4c72bafddccf95d94a05e26b0a35416efdf2174a"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 08:50:00.239\nProcessGuid: {19FC45AC-06B8-601D-0000-0010BB685F00}\nProcessId: 2352\nImage: C:\\Program Files\\Mozilla Firefox\\updater.exe\nFileVersion: 38.0.5\nDescription: Firefox Software Updater\nProduct: Firefox\nCompany: Mozilla Foundation\nOriginalFileName: updater.exe\nCommandLine: \"C:\\Program Files\\Mozilla Firefox\\updater.exe\" C:\\Users\\client1\\AppData\\Local\\Mozilla\\updates\\308046B0AF4A39CB\\updates\\0 \"C:\\Program Files\\Mozilla Firefox\" \"C:\\Program Files\\Mozilla Firefox\\updated\" -1\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=D355E37797728119590B404FC834C0F3,SHA256=45005980AF153F62AA1CB8FF4C72BAFDDCCF95D94A05E26B0A35416EFDF2174A\nParentProcessGuid: {19FC45AC-FA07-601C-0000-0010C0245900}\nParentProcessId: 2380\nParentImage: C:\\Program Files\\Mozilla Firefox\\firefox.exe\nParentCommandLine: \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground",
+  "winlog": {
+    "record_id": 1582,
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "api": "wineventlog",
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "version": 5,
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "event_data": {
+      "TerminalSessionId": "1",
+      "IntegrityLevel": "Medium",
+      "Product": "Firefox",
+      "OriginalFileName": "updater.exe",
+      "FileVersion": "38.0.5",
+      "Company": "Mozilla Foundation",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "Description": "Firefox Software Updater",
+      "LogonId": "0xfb53"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T08:50:03.228Z",
+    "module": "sysmon"
+  },
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local",
+    "hostname": "CLIENT1"
+  },
+  "log": {
+    "level": "information"
+  },
+  "related": {
+    "user": "client1",
+    "hash": [
+      "d355e37797728119590b404fc834c0f3",
+      "45005980af153f62aa1cb8ff4c72bafddccf95d94a05e26b0a35416efdf2174a"
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:29:15.074Z",
+  "user": {
+    "domain": "BREACH",
+    "name": "client3"
+  },
+  "related": {
+    "user": "client3",
+    "hash": [
+      "40d777b7a95e00593eb1568c68514493",
+      "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    ]
+  },
+  "hash": {
+    "md5": "40d777b7a95e00593eb1568c68514493",
+    "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:15.074\nProcessGuid: {19FC45AC-753B-601C-0000-001083660200}\nProcessId: 2096\nImage: C:\\Windows\\explorer.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Explorer\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: EXPLORER.EXE\nCommandLine: C:\\Windows\\Explorer.EXE\nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client3\nLogonGuid: {19FC45AC-753A-601C-0000-0020AE510200}\nLogonId: 0x251ae\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=40D777B7A95E00593EB1568C68514493,SHA256=0A8CE026714E03E72C619307BD598ADD5F9B639CFD91437CB8D9C847BF9F6894\nParentProcessGuid: {19FC45AC-753A-601C-0000-0010F35E0200}\nParentProcessId: 2056\nParentImage: C:\\Windows\\System32\\userinit.exe\nParentCommandLine: C:\\Windows\\system32\\userinit.exe",
+  "winlog": {
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_id": 1,
+    "computer_name": "CLIENT3.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "opcode": "Info",
+    "process": {
+      "pid": 1536,
+      "thread": {
+        "id": 1812
+      }
+    },
+    "event_data": {
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "TerminalSessionId": "1",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Description": "Windows Explorer",
+      "OriginalFileName": "EXPLORER.EXE",
+      "LogonGuid": "{19FC45AC-753A-601C-0000-0020AE510200}",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "Medium",
+      "LogonId": "0x251ae"
+    },
+    "record_id": 1297,
+    "task": "Process Create (rule: ProcessCreate)"
+  },
+  "event": {
+    "created": "2021-02-04T22:31:13.166Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "process": {
+    "executable": "C:\\Windows\\explorer.exe",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\userinit.exe",
+      "command_line": "C:\\Windows\\system32\\userinit.exe",
+      "name": "userinit.exe",
+      "args": [
+        "C:\\Windows\\system32\\userinit.exe"
+      ],
+      "entity_id": "{19FC45AC-753A-601C-0000-0010F35E0200}",
+      "pid": 2056
+    },
+    "name": "explorer.exe",
+    "args": [
+      "C:\\Windows\\Explorer.EXE"
+    ],
+    "entity_id": "{19FC45AC-753B-601C-0000-001083660200}",
+    "pid": 2096,
+    "command_line": "netsh wlan show profile name=WLAN-XYZ432 key=clear",
+    "working_directory": "C:\\Windows\\system32\\",
+    "hash": {
+      "md5": "40d777b7a95e00593eb1568c68514493",
+      "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    }
+  },
+  "agent": {
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "name": "CLIENT3.breach.local"
+  },
+  "log": {
+    "level": "information"
+  }
+}

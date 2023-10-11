@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:59:58.262Z",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "8c74dbdf501e081cc56bfe41fa8b17ae",
+      "92755aaeeed6618850d9f396286641bdf1bbde3cf22ccf3a0cb18ef6bdc23ae7"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72"
+  },
+  "process": {
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "lpremove.exe",
+    "hash": {
+      "md5": "8c74dbdf501e081cc56bfe41fa8b17ae",
+      "sha256": "92755aaeeed6618850d9f396286641bdf1bbde3cf22ccf3a0cb18ef6bdc23ae7"
+    },
+    "command_line": "bcdedit.exe /set {default} bootstatuspolicy ignoreallfailures",
+    "parent": {
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "args": [
+      "C:\\Windows\\system32\\lpremove.exe"
+    ],
+    "entity_id": "{19FC45AC-7C6E-601C-0000-0010F11F0E00}",
+    "pid": 2220,
+    "executable": "C:\\Windows\\System32\\bcdedit.exe"
+  },
+  "hash": {
+    "md5": "8c74dbdf501e081cc56bfe41fa8b17ae",
+    "sha256": "92755aaeeed6618850d9f396286641bdf1bbde3cf22ccf3a0cb18ef6bdc23ae7"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:59:58.262\nProcessGuid: {19FC45AC-7C6E-601C-0000-0010F11F0E00}\nProcessId: 2220\nImage: C:\\Windows\\System32\\lpremove.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: MUI Language pack cleanup\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: lpremove.exe\nCommandLine: C:\\Windows\\system32\\lpremove.exe \nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=8C74DBDF501E081CC56BFE41FA8B17AE,SHA256=92755AAEEED6618850D9F396286641BDF1BBDE3CF22CCF3A0CB18EF6BDC23AE7\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "process": {
+      "thread": {
+        "id": 1716
+      },
+      "pid": 1928
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "version": 5,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1408,
+    "api": "wineventlog",
+    "event_data": {
+      "IntegrityLevel": "System",
+      "TerminalSessionId": "0",
+      "Description": "MUI Language pack cleanup",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0x3e7",
+      "OriginalFileName": "lpremove.exe",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}"
+    },
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:59:59.099Z",
+    "kind": "event",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    }
+  },
+  "log": {
+    "level": "information"
+  }
+}

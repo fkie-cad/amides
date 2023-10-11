@@ -1,0 +1,142 @@
+{
+  "@timestamp": "2021-02-05T10:10:15.447Z",
+  "process": {
+    "pid": 2804,
+    "executable": "C:\\Windows\\System32\\wbem\\wmic.exe",
+    "command_line": "wmic path AntiVirusProduct get /format:list",
+    "working_directory": "C:\\Program Files\\Mozilla Firefox\\",
+    "args": [
+      "argv0ignored",
+      "/PostUpdate"
+    ],
+    "hash": {
+      "md5": "34eab3d9eec7f639beb243fca6a4bd79",
+      "sha256": "1b971ae0ac544af8d734d43ebf75a19b4d06d4839af220084e50f89316b44e04"
+    },
+    "entity_id": "{19FC45AC-1987-601D-0000-001069266800}",
+    "parent": {
+      "command_line": "\"C:\\Program Files\\Mozilla Firefox\\updater.exe\" C:\\Users\\client1\\AppData\\Local\\Mozilla\\updates\\308046B0AF4A39CB\\updates\\0 \"C:\\Program Files\\Mozilla Firefox\" \"C:\\Program Files\\Mozilla Firefox\\updated\" 2300/replace C:\\BREACH \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground",
+      "name": "updater.exe",
+      "args": [
+        "C:\\Program Files\\Mozilla Firefox\\updater.exe",
+        "C:\\Users\\client1\\AppData\\Local\\Mozilla\\updates\\308046B0AF4A39CB\\updates\\0",
+        "C:\\Program Files\\Mozilla Firefox",
+        "C:\\Program Files\\Mozilla Firefox\\updated",
+        "2300/replace",
+        "C:\\BREACH",
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+        "-foreground"
+      ],
+      "entity_id": "{19FC45AC-1987-601D-0000-0010D4176800}",
+      "pid": 3408,
+      "executable": "C:\\Program Files\\Mozilla Firefox\\updater.exe"
+    },
+    "name": "helper.exe"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_data": {
+      "Description": "Firefox Helper",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "TerminalSessionId": "1",
+      "LogonId": "0xfb53",
+      "FileVersion": "43.0.1",
+      "Company": "Mozilla Corporation",
+      "OriginalFileName": "helper.exe",
+      "Product": "Firefox",
+      "IntegrityLevel": "Medium"
+    },
+    "event_id": 1,
+    "record_id": 1640,
+    "computer_name": "CLIENT1.breach.local",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    }
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T10:10:18.370Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 10:10:15.447\nProcessGuid: {19FC45AC-1987-601D-0000-001069266800}\nProcessId: 2804\nImage: C:\\Program Files\\Mozilla Firefox\\uninstall\\helper.exe\nFileVersion: 43.0.1\nDescription: Firefox Helper\nProduct: Firefox\nCompany: Mozilla Corporation\nOriginalFileName: helper.exe\nCommandLine: argv0ignored /PostUpdate\nCurrentDirectory: C:\\Program Files\\Mozilla Firefox\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=34EAB3D9EEC7F639BEB243FCA6A4BD79,SHA256=1B971AE0AC544AF8D734D43EBF75A19B4D06D4839AF220084E50F89316B44E04\nParentProcessGuid: {19FC45AC-1987-601D-0000-0010D4176800}\nParentProcessId: 3408\nParentImage: C:\\Program Files\\Mozilla Firefox\\updater.exe\nParentCommandLine: \"C:\\Program Files\\Mozilla Firefox\\updater.exe\" C:\\Users\\client1\\AppData\\Local\\Mozilla\\updates\\308046B0AF4A39CB\\updates\\0 \"C:\\Program Files\\Mozilla Firefox\" \"C:\\Program Files\\Mozilla Firefox\\updated\" 2300/replace C:\\BREACH \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground",
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "related": {
+    "user": "client1",
+    "hash": [
+      "34eab3d9eec7f639beb243fca6a4bd79",
+      "1b971ae0ac544af8d734d43ebf75a19b4d06d4839af220084e50f89316b44e04"
+    ]
+  },
+  "hash": {
+    "md5": "34eab3d9eec7f639beb243fca6a4bd79",
+    "sha256": "1b971ae0ac544af8d734d43ebf75a19b4d06d4839af220084e50f89316b44e04"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local",
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    }
+  },
+  "log": {
+    "level": "information"
+  }
+}

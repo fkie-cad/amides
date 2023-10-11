@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:57.984Z",
+  "winlog": {
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "computer_name": "CLIENT1.breach.local",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1284,
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "version": 5,
+    "event_id": 1,
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "FileVersion": "2.0.9.24",
+      "Description": "ImDisk Virtual Disk Driver helper service",
+      "LogonId": "0x3e7",
+      "Company": "Olof Lagerkvist",
+      "Product": "imdisk",
+      "OriginalFileName": "imdsksvc.exe",
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E7030000}",
+      "IntegrityLevel": "System",
+      "TerminalSessionId": "0"
+    },
+    "api": "wineventlog"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:57.984\nProcessGuid: {19FC45AC-7529-601C-0000-0010F3310100}\nProcessId: 1424\nImage: C:\\Windows\\System32\\imdsksvc.exe\nFileVersion: 2.0.9.24\nDescription: ImDisk Virtual Disk Driver helper service\nProduct: imdisk\nCompany: Olof Lagerkvist\nOriginalFileName: imdsksvc.exe\nCommandLine: C:\\Windows\\system32\\imdsksvc.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-7528-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=73DCB33604AB86BCD4CAA90346D73B49,SHA256=DB47A54AC39C5831F4FA8B678B5738B6BD304F6002D9FC0256F055ABE7A9D969\nParentProcessGuid: {19FC45AC-7527-601C-0000-00104B610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "73dcb33604ab86bcd4caa90346d73b49",
+      "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+    ]
+  },
+  "hash": {
+    "md5": "73dcb33604ab86bcd4caa90346d73b49",
+    "sha256": "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.298Z",
+    "kind": "event",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "name": "CLIENT1.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "hash": {
+      "md5": "73dcb33604ab86bcd4caa90346d73b49",
+      "sha256": "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+    },
+    "parent": {
+      "entity_id": "{19FC45AC-7527-601C-0000-00104B610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "imdsksvc.exe",
+    "args": [
+      "C:\\Windows\\system32\\imdsksvc.exe"
+    ],
+    "command_line": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NONI -EP bypass $encodedCommand",
+    "working_directory": "C:\\Windows\\system32\\",
+    "entity_id": "{19FC45AC-7529-601C-0000-0010F3310100}",
+    "pid": 1424,
+    "executable": ""
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  }
+}

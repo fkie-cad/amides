@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:29:01.750Z",
+  "event": {
+    "code": 1,
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.540Z",
+    "kind": "event"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:01.750\nProcessGuid: {19FC45AC-752D-601C-0000-0010155A0000}\nProcessId: 384\nImage: C:\\Windows\\System32\\winlogon.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Logon Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: WINLOGON.EXE\nCommandLine: winlogon.exe\nCurrentDirectory: C:\\Windows\\system32\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-752E-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 1\nIntegrityLevel: System\nHashes: MD5=6D13E1406F50C66E2A95D97F22C47560,SHA256=BE40E84A824CB201F9C54DB4F860F3937630FDA3423940D44FCF4AC5DFF44271\nParentProcessGuid: {19FC45AC-752D-601C-0000-0010A4570000}\nParentProcessId: 340\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe 00000001 0000003c ",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat"
+  },
+  "host": {
+    "name": "CLIENT2.breach.local",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "event_data": {
+      "TerminalSessionId": "1",
+      "Description": "Windows Logon Application",
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "WINLOGON.EXE",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "IntegrityLevel": "System",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonId": "0x3e7",
+      "LogonGuid": "{19FC45AC-752E-601C-0000-0020E7030000}"
+    },
+    "process": {
+      "pid": 1528,
+      "thread": {
+        "id": 1796
+      }
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "task": "Process Create (rule: ProcessCreate)",
+    "record_id": 1268,
+    "computer_name": "CLIENT2.breach.local",
+    "version": 5,
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "process": {
+    "hash": {
+      "md5": "6d13e1406f50c66e2a95d97f22c47560",
+      "sha256": "be40e84a824cb201f9c54db4f860f3937630fda3423940d44fcf4ac5dff44271"
+    },
+    "entity_id": "{19FC45AC-752D-601C-0000-0010155A0000}",
+    "pid": 384,
+    "executable": "C:\\Windows\\System32\\winlogon.exe",
+    "name": "winlogon.exe",
+    "args": [
+      "winlogon.exe"
+    ],
+    "command_line": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\narrator.exe\" /t REG_SZ /v Debugger /d “C:\\windows\\system32\\cmd.exe” /f",
+    "working_directory": "C:\\Windows\\system32",
+    "parent": {
+      "entity_id": "{19FC45AC-752D-601C-0000-0010A4570000}",
+      "pid": 340,
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe 00000001 0000003c ",
+      "name": "smss.exe",
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe",
+        "00000001",
+        "0000003c"
+      ]
+    }
+  },
+  "related": {
+    "hash": [
+      "6d13e1406f50c66e2a95d97f22c47560",
+      "be40e84a824cb201f9c54db4f860f3937630fda3423940d44fcf4ac5dff44271"
+    ],
+    "user": "SYSTEM"
+  },
+  "hash": {
+    "md5": "6d13e1406f50c66e2a95d97f22c47560",
+    "sha256": "be40e84a824cb201f9c54db4f860f3937630fda3423940d44fcf4ac5dff44271"
+  }
+}

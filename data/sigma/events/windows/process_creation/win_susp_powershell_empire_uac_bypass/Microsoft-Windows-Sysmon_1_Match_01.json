@@ -1,0 +1,142 @@
+{
+  "@timestamp": "2021-02-04T22:59:29.434Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:59:29.434\nProcessGuid: {19FC45AC-7C51-601C-0000-0010FE450C00}\nProcessId: 3988\nImage: C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\cvtres.exe\nFileVersion: 8.00.50727.4940 (Win7SP1.050727-5400)\nDescription: Microsoft\u00ae Resource File To COFF Object Conversion Utility\nProduct: Microsoft\u00ae Visual Studio\u00ae 2005\nCompany: Microsoft Corporation\nOriginalFileName: CVTRES.EXE\nCommandLine: C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\cvtres.exe /NOLOGO /READONLY /MACHINE:IX86 \"/OUT:C:\\Users\\client1\\AppData\\Local\\Temp\\RESA0BA.tmp\" \"c:\\Users\\client1\\AppData\\Local\\Temp\\CSCA0B9.tmp\"\nCurrentDirectory: C:\\Users\\client1\\AppData\\Local\\Temp\\SDIAG_2308ca95-70b0-4703-820a-672bc2b9f8cd\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=ED797D8DC2C92401985D162E42FFA450,SHA256=B746362010A101CB5931BC066F0F4D3FC740C02A68C1F37FC3C8E6C87FD7CB1E\nParentProcessGuid: {19FC45AC-7C51-601C-0000-00101D420C00}\nParentProcessId: 4004\nParentImage: C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe\nParentCommandLine: \"C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe\" /noconfig /fullpaths @\"C:\\Users\\client1\\AppData\\Local\\Temp\\tckwp2wa.cmdline\"",
+  "process": {
+    "working_directory": "C:\\Users\\client1\\AppData\\Local\\Temp\\SDIAG_2308ca95-70b0-4703-820a-672bc2b9f8cd\\",
+    "parent": {
+      "entity_id": "{19FC45AC-7C51-601C-0000-00101D420C00}",
+      "pid": 4004,
+      "executable": "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe",
+      "command_line": "\"C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe\" /noconfig /fullpaths @\"C:\\Users\\client1\\AppData\\Local\\Temp\\tckwp2wa.cmdline\"",
+      "name": "csc.exe",
+      "args": [
+        "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe",
+        "/noconfig",
+        "/fullpaths",
+        "@C:\\Users\\client1\\AppData\\Local\\Temp\\tckwp2wa.cmdline"
+      ]
+    },
+    "command_line": "powershell.exe -NoP -NonI -c $x=$((gp HKCU:Software\\\\Microsoft\\\\Windows Update).Update); powershell -NoP -NonI -W Hidden -enc $x",
+    "name": "cvtres.exe",
+    "args": [
+      "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\cvtres.exe",
+      "/NOLOGO",
+      "/READONLY",
+      "/MACHINE:IX86",
+      "/OUT:C:\\Users\\client1\\AppData\\Local\\Temp\\RESA0BA.tmp",
+      "c:\\Users\\client1\\AppData\\Local\\Temp\\CSCA0B9.tmp"
+    ],
+    "hash": {
+      "md5": "ed797d8dc2c92401985d162e42ffa450",
+      "sha256": "b746362010a101cb5931bc066f0f4d3fc740c02a68c1f37fc3c8e6c87fd7cb1e"
+    },
+    "entity_id": "{19FC45AC-7C51-601C-0000-0010FE450C00}",
+    "pid": 3988,
+    "executable": "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\cvtres.exe"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "related": {
+    "user": "client1",
+    "hash": [
+      "ed797d8dc2c92401985d162e42ffa450",
+      "b746362010a101cb5931bc066f0f4d3fc740c02a68c1f37fc3c8e6c87fd7cb1e"
+    ]
+  },
+  "hash": {
+    "sha256": "b746362010a101cb5931bc066f0f4d3fc740c02a68c1f37fc3c8e6c87fd7cb1e",
+    "md5": "ed797d8dc2c92401985d162e42ffa450"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "created": "2021-02-04T22:59:29.884Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "log": {
+    "level": "information"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_data": {
+      "LogonId": "0xfb53",
+      "TerminalSessionId": "1",
+      "OriginalFileName": "CVTRES.EXE",
+      "Description": "Microsoft\u00ae Resource File To COFF Object Conversion Utility",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "IntegrityLevel": "Medium",
+      "FileVersion": "8.00.50727.4940 (Win7SP1.050727-5400)",
+      "Company": "Microsoft Corporation",
+      "Product": "Microsoft\u00ae Visual Studio\u00ae 2005"
+    },
+    "api": "wineventlog",
+    "record_id": 1398,
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "version": 5,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    }
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "name": "CLIENT1.breach.local",
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  }
+}

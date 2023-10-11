@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-04T22:30:20.080Z",
+  "user": {
+    "domain": "BREACH",
+    "name": "client2"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1310,
+    "api": "wineventlog",
+    "computer_name": "CLIENT2.breach.local",
+    "process": {
+      "thread": {
+        "id": 1796
+      },
+      "pid": 1528
+    },
+    "event_data": {
+      "Company": "Mozilla Corporation",
+      "FileVersion": "38.0.5",
+      "LogonId": "0x25b8f",
+      "Product": "Firefox",
+      "LogonGuid": "{19FC45AC-7540-601C-0000-00208F5B0200}",
+      "OriginalFileName": "firefox.exe",
+      "TerminalSessionId": "1",
+      "IntegrityLevel": "Medium",
+      "Description": "Firefox"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "task": "Process Create (rule: ProcessCreate)",
+    "version": 5
+  },
+  "process": {
+    "entity_id": "{19FC45AC-757C-601C-0000-00108A6C0300}",
+    "command_line": "rundll32.exe comsvcs.dll,#24 654 lsass.dmp full",
+    "parent": {
+      "entity_id": "{19FC45AC-7542-601C-0000-00100CD80200}",
+      "pid": 2432,
+      "executable": "C:\\Program Files\\Python35-32\\python.exe",
+      "command_line": "python C:\\BREACH\\userbehavior.pex --use-breach-setup",
+      "name": "python.exe",
+      "args": [
+        "python",
+        "C:\\BREACH\\userbehavior.pex",
+        "--use-breach-setup"
+      ]
+    },
+    "name": "firefox.exe",
+    "args": [
+      "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+      "-foreground"
+    ],
+    "pid": 2844,
+    "executable": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+    "working_directory": "C:\\BREACH\\",
+    "hash": {
+      "md5": "923fe895b22b22a9ca03c72f3d15ce20",
+      "sha256": "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+    }
+  },
+  "related": {
+    "hash": [
+      "923fe895b22b22a9ca03c72f3d15ce20",
+      "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+    ],
+    "user": "client2"
+  },
+  "hash": {
+    "md5": "923fe895b22b22a9ca03c72f3d15ce20",
+    "sha256": "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:30:20.080\nProcessGuid: {19FC45AC-757C-601C-0000-00108A6C0300}\nProcessId: 2844\nImage: C:\\Program Files\\Mozilla Firefox\\firefox.exe\nFileVersion: 38.0.5\nDescription: Firefox\nProduct: Firefox\nCompany: Mozilla Corporation\nOriginalFileName: firefox.exe\nCommandLine: \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client2\nLogonGuid: {19FC45AC-7540-601C-0000-00208F5B0200}\nLogonId: 0x25b8f\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=923FE895B22B22A9CA03C72F3D15CE20,SHA256=98B7F5B40C557775CD645CA69B788FE4A3DEAE25CDB6E5DD4FB94DB1BDC10969\nParentProcessGuid: {19FC45AC-7542-601C-0000-00100CD80200}\nParentProcessId: 2432\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: python C:\\BREACH\\userbehavior.pex --use-breach-setup",
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.573Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "name": "CLIENT2.breach.local",
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  }
+}

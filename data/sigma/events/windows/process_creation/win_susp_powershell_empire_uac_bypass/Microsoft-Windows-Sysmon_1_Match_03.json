@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:28:16.500Z",
+  "user": {
+    "domain": "CLIENT2",
+    "name": "setup"
+  },
+  "process": {
+    "command_line": "powershell.exe -NoP -NonI -W Hidden -c $x=$((gp HKCU:Software\\\\Microsoft\\\\Windows Update).Update); powershell -NoP -NonI -W Hidden -enc $x",
+    "working_directory": "C:\\BREACH\\",
+    "name": "py.exe",
+    "args": [
+      "C:\\Windows\\py.exe",
+      "C:\\BREACH\\create_filing_dir.py"
+    ],
+    "hash": {
+      "md5": "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+      "sha256": "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+    },
+    "entity_id": "{19FC45AC-7500-601C-0000-0010A78F0200}",
+    "pid": 2112,
+    "executable": "C:\\Windows\\py.exe",
+    "parent": {
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-74FF-601C-0000-0010A0500200}",
+      "pid": 1616
+    }
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:16.500\nProcessGuid: {19FC45AC-7500-601C-0000-0010A78F0200}\nProcessId: 2112\nImage: C:\\Windows\\py.exe\nFileVersion: 3.5.2\nDescription: Python\nProduct: Python\nCompany: Python Software Foundation\nOriginalFileName: py.exe\nCommandLine: \"C:\\Windows\\py.exe\" \"C:\\BREACH\\create_filing_dir.py\" \nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT2\\setup\nLogonGuid: {19FC45AC-74FF-601C-0000-002049330200}\nLogonId: 0x23349\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=CC3AC75DDBFAA6D4CCBB0AFAD7EB759D,SHA256=3D98A354F1329BFEB17216D2391D6E9C04F6873B6E491BCE9734C02C26574B3D\nParentProcessGuid: {19FC45AC-74FF-601C-0000-0010A0500200}\nParentProcessId: 1616\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "version": 5,
+    "process": {
+      "thread": {
+        "id": 1752
+      },
+      "pid": 1488
+    },
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "record_id": 1235,
+    "computer_name": "CLIENT2",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "Company": "Python Software Foundation",
+      "FileVersion": "3.5.2",
+      "LogonGuid": "{19FC45AC-74FF-601C-0000-002049330200}",
+      "IntegrityLevel": "High",
+      "LogonId": "0x23349",
+      "TerminalSessionId": "1",
+      "Description": "Python",
+      "OriginalFileName": "py.exe",
+      "Product": "Python"
+    },
+    "api": "wineventlog",
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.406Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event"
+  },
+  "host": {
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT2"
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+      "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+    ]
+  },
+  "hash": {
+    "md5": "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+    "sha256": "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426"
+  }
+}

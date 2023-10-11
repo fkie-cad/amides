@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:29:03.484Z",
+  "agent": {
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-752E-601C-0000-0020E7030000}",
+      "LogonId": "0x3e7",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "System",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Description": "Spooler SubSystem App",
+      "OriginalFileName": "spoolsv.exe",
+      "TerminalSessionId": "0"
+    },
+    "computer_name": "CLIENT2.breach.local",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1282,
+    "event_id": 1,
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "thread": {
+        "id": 1796
+      },
+      "pid": 1528
+    },
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.542Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:03.484\nProcessGuid: {19FC45AC-752F-601C-0000-00100A0D0100}\nProcessId: 1192\nImage: C:\\Windows\\System32\\spoolsv.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Spooler SubSystem App\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: spoolsv.exe\nCommandLine: C:\\Windows\\System32\\spoolsv.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-752E-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=866A43013535DC8587C258E43579C764,SHA256=B2BE846B5167A2ECD1E30C69A81385FCC6EAE6033394D08458A5583D311C4D82\nParentProcessGuid: {19FC45AC-752D-601C-0000-001032610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "pid": 1192,
+    "command_line": "schtasks /change /TN taskname /ru user /rp password",
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\System32\\spoolsv.exe"
+    ],
+    "entity_id": "{19FC45AC-752F-601C-0000-00100A0D0100}",
+    "executable": "C:\\Windows\\System32\\schtasks.exe",
+    "parent": {
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-752D-601C-0000-001032610000}"
+    },
+    "name": "spoolsv.exe",
+    "hash": {
+      "md5": "866a43013535dc8587c258e43579c764",
+      "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    }
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "866a43013535dc8587c258e43579c764",
+      "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    ]
+  },
+  "hash": {
+    "md5": "866a43013535dc8587c258e43579c764",
+    "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "name": "CLIENT2.breach.local",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

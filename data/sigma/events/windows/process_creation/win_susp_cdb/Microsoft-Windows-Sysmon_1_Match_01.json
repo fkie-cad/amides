@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:29:01.781Z",
+  "process": {
+    "pid": 384,
+    "command_line": "cdb -cf foo -o notepad.exe",
+    "parent": {
+      "pid": 340,
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe 00000001 0000003c ",
+      "name": "smss.exe",
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe",
+        "00000001",
+        "0000003c"
+      ],
+      "entity_id": "{19FC45AC-752D-601C-0000-0010F5580000}"
+    },
+    "args": [
+      "winlogon.exe"
+    ],
+    "entity_id": "{19FC45AC-752D-601C-0000-0010D95C0000}",
+    "executable": "C:\\Program Files (x86)\\Windows Kits\\10\\Debuggers\\x86\\cdb.exe",
+    "working_directory": "C:\\Windows\\system32",
+    "name": "winlogon.exe",
+    "hash": {
+      "md5": "6d13e1406f50c66e2a95d97f22c47560",
+      "sha256": "be40e84a824cb201f9c54db4f860f3937630fda3423940d44fcf4ac5dff44271"
+    }
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "name": "CLIENT3.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:01.781\nProcessGuid: {19FC45AC-752D-601C-0000-0010D95C0000}\nProcessId: 384\nImage: C:\\Windows\\System32\\winlogon.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Logon Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: WINLOGON.EXE\nCommandLine: winlogon.exe\nCurrentDirectory: C:\\Windows\\system32\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-752E-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 1\nIntegrityLevel: System\nHashes: MD5=6D13E1406F50C66E2A95D97F22C47560,SHA256=BE40E84A824CB201F9C54DB4F860F3937630FDA3423940D44FCF4AC5DFF44271\nParentProcessGuid: {19FC45AC-752D-601C-0000-0010F5580000}\nParentProcessId: 340\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe 00000001 0000003c ",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "6d13e1406f50c66e2a95d97f22c47560",
+      "be40e84a824cb201f9c54db4f860f3937630fda3423940d44fcf4ac5dff44271"
+    ]
+  },
+  "hash": {
+    "md5": "6d13e1406f50c66e2a95d97f22c47560",
+    "sha256": "be40e84a824cb201f9c54db4f860f3937630fda3423940d44fcf4ac5dff44271"
+  },
+  "winlog": {
+    "process": {
+      "pid": 1536,
+      "thread": {
+        "id": 1812
+      }
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_data": {
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Description": "Windows Logon Application",
+      "OriginalFileName": "WINLOGON.EXE",
+      "LogonId": "0x3e7",
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-752E-601C-0000-0020E7030000}",
+      "TerminalSessionId": "1",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "IntegrityLevel": "System"
+    },
+    "record_id": 1268,
+    "version": 5,
+    "computer_name": "CLIENT3.breach.local",
+    "opcode": "Info",
+    "event_id": 1
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.163Z",
+    "kind": "event",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

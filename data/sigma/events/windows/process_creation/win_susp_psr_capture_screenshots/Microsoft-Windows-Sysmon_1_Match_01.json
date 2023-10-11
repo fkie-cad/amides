@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-04T20:35:50.974Z",
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "computer_name": "CLIENT",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1141,
+    "process": {
+      "thread": {
+        "id": 1780
+      },
+      "pid": 1524
+    },
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_data": {
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "WORDPAD.EXE",
+      "LogonId": "0x25612",
+      "LogonGuid": "{19FC45AC-53AD-601C-0000-002012560200}",
+      "IntegrityLevel": "High",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Description": "Windows Wordpad Application",
+      "TerminalSessionId": "1",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)"
+    },
+    "version": 5
+  },
+  "process": {
+    "entity_id": "{19FC45AC-5AA6-601C-0000-001053B81000}",
+    "command_line": "psr.exe /start /gui 0 /output C:\\Users\\User\\out.zip",
+    "name": "wordpad.exe",
+    "hash": {
+      "md5": "b3dd214f23037e3d3c27d6c9447b40b5",
+      "sha256": "86374883cd75b4c29c3fba50c8580843d06753d09f3a959f26ec8e13e69835a1"
+    },
+    "args": [
+      "C:\\Program Files\\Windows NT\\Accessories\\WORDPAD.EXE",
+      "C:\\ProgramData\\winlogbeat\\logs\\winlogbeat"
+    ],
+    "pid": 3568,
+    "executable": "C:\\Windows\\System32\\psr.exe",
+    "working_directory": "C:\\ProgramData\\winlogbeat\\logs\\",
+    "parent": {
+      "command_line": "\"C:\\Windows\\system32\\rundll32.exe\" C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL C:\\ProgramData\\winlogbeat\\logs\\winlogbeat",
+      "name": "rundll32.exe",
+      "args": [
+        "C:\\Windows\\system32\\rundll32.exe",
+        "C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL",
+        "C:\\ProgramData\\winlogbeat\\logs\\winlogbeat"
+      ],
+      "entity_id": "{19FC45AC-5AA4-601C-0000-0010AB9B1000}",
+      "pid": 2612,
+      "executable": "C:\\Windows\\System32\\rundll32.exe"
+    }
+  },
+  "user": {
+    "domain": "client",
+    "name": "breach"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:35:50.974\nProcessGuid: {19FC45AC-5AA6-601C-0000-001053B81000}\nProcessId: 3568\nImage: C:\\Program Files\\Windows NT\\Accessories\\wordpad.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Wordpad Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: WORDPAD.EXE\nCommandLine: \"C:\\Program Files\\Windows NT\\Accessories\\WORDPAD.EXE\" \"C:\\ProgramData\\winlogbeat\\logs\\winlogbeat\"\nCurrentDirectory: C:\\ProgramData\\winlogbeat\\logs\\\nUser: client\\breach\nLogonGuid: {19FC45AC-53AD-601C-0000-002012560200}\nLogonId: 0x25612\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=B3DD214F23037E3D3C27D6C9447B40B5,SHA256=86374883CD75B4C29C3FBA50C8580843D06753D09F3A959F26EC8E13E69835A1\nParentProcessGuid: {19FC45AC-5AA4-601C-0000-0010AB9B1000}\nParentProcessId: 2612\nParentImage: C:\\Windows\\System32\\rundll32.exe\nParentCommandLine: \"C:\\Windows\\system32\\rundll32.exe\" C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL C:\\ProgramData\\winlogbeat\\logs\\winlogbeat",
+  "related": {
+    "user": "breach",
+    "hash": [
+      "b3dd214f23037e3d3c27d6c9447b40b5",
+      "86374883cd75b4c29c3fba50c8580843d06753d09f3a959f26ec8e13e69835a1"
+    ]
+  },
+  "hash": {
+    "md5": "b3dd214f23037e3d3c27d6c9447b40b5",
+    "sha256": "86374883cd75b4c29c3fba50c8580843d06753d09f3a959f26ec8e13e69835a1"
+  },
+  "agent": {
+    "ephemeral_id": "66b561db-e9d4-4076-b78e-c4ce9eada53c",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T20:35:52.757Z",
+    "kind": "event"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT",
+    "architecture": "x86",
+    "name": "CLIENT",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    }
+  },
+  "log": {
+    "level": "information"
+  }
+}

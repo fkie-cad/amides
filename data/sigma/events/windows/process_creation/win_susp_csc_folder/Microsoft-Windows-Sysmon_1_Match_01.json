@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-04T22:27:23.609Z",
+  "event": {
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.044Z"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:23.609\nProcessGuid: {19FC45AC-74CB-601C-0000-001057E00100}\nProcessId: 876\nImage: C:\\Windows\\System32\\wbem\\unsecapp.exe\nFileVersion: 10.0.14409.1005 (rs1_srvoob.161208-1155)\nDescription: Sink to receive asynchronous callbacks for WMI client application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: unsecapp.dll\nCommandLine: C:\\Windows\\system32\\wbem\\unsecapp.exe -Embedding\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C4-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=91FED64CC1898029441C31A98B1B8FE4,SHA256=608D4EBBA90FD2ED66BBDF392898DF10A302F884E8ECB8D6F5BC8FAB99ACCB4E\nParentProcessGuid: {19FC45AC-74C5-601C-0000-0010067A0000}\nParentProcessId: 568\nParentImage: C:\\Windows\\System32\\svchost.exe\nParentCommandLine: C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "hash": [
+      "91fed64cc1898029441c31a98b1b8fe4",
+      "608d4ebba90fd2ed66bbdf392898df10a302f884e8ecb8d6f5bc8fab99accb4e"
+    ],
+    "user": "SYSTEM"
+  },
+  "hash": {
+    "md5": "91fed64cc1898029441c31a98b1b8fe4",
+    "sha256": "608d4ebba90fd2ed66bbdf392898df10a302f884e8ecb8d6f5bc8fab99accb4e"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "record_id": 1186,
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "event_id": 1,
+    "api": "wineventlog",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "process": {
+      "pid": 1692,
+      "thread": {
+        "id": 1064
+      }
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-74C4-601C-0000-0020E7030000}",
+      "Description": "Sink to receive asynchronous callbacks for WMI client application",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "IntegrityLevel": "System",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "FileVersion": "10.0.14409.1005 (rs1_srvoob.161208-1155)",
+      "OriginalFileName": "unsecapp.dll"
+    },
+    "computer_name": "CLIENT"
+  },
+  "host": {
+    "architecture": "x86",
+    "name": "CLIENT",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "executable": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe",
+    "name": "unsecapp.exe",
+    "pid": 876,
+    "command_line": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\csc.exe /noconfig /fullpaths @\"C:\\Users\\admin\\AppData\\Local\\Temp\\-dcx32-8.cmdline\"",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-74C5-601C-0000-0010067A0000}",
+      "pid": 568,
+      "executable": "C:\\Windows\\System32\\svchost.exe",
+      "command_line": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+      "name": "svchost.exe",
+      "args": [
+        "C:\\Windows\\system32\\svchost.exe",
+        "-k",
+        "DcomLaunch"
+      ]
+    },
+    "args": [
+      "C:\\Windows\\system32\\wbem\\unsecapp.exe",
+      "-Embedding"
+    ],
+    "hash": {
+      "md5": "91fed64cc1898029441c31a98b1b8fe4",
+      "sha256": "608d4ebba90fd2ed66bbdf392898df10a302f884e8ecb8d6f5bc8fab99accb4e"
+    },
+    "entity_id": "{19FC45AC-74CB-601C-0000-001057E00100}"
+  }
+}

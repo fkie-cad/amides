@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:55.671Z",
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "b5c5dcad3899512020d135600129d665",
+      "f6b4d18fa0d3c4958711ac0d476c21a6fdf2897f989a0ad290b43f463dd8b5b0"
+    ]
+  },
+  "hash": {
+    "md5": "b5c5dcad3899512020d135600129d665",
+    "sha256": "f6b4d18fa0d3c4958711ac0d476c21a6fdf2897f989a0ad290b43f463dd8b5b0"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:55.671\nProcessGuid: {19FC45AC-7527-601C-0000-001028570000}\nProcessId: 348\nImage: C:\\Windows\\System32\\wininit.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Windows Start-Up Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: WinInit.exe\nCommandLine: wininit.exe\nCurrentDirectory: C:\\Windows\\system32\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-7528-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=B5C5DCAD3899512020D135600129D665,SHA256=F6B4D18FA0D3C4958711AC0D476C21A6FDF2897F989A0AD290B43F463DD8B5B0\nParentProcessGuid: {19FC45AC-7527-601C-0000-0010D84F0000}\nParentProcessId: 304\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe 00000000 0000003c ",
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "process": {
+      "thread": {
+        "id": 1792
+      },
+      "pid": 1524
+    },
+    "event_data": {
+      "Description": "Windows Start-Up Application",
+      "IntegrityLevel": "System",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "WinInit.exe",
+      "TerminalSessionId": "0",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E7030000}",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x3e7"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT1.breach.local",
+    "record_id": 1264,
+    "version": 5
+  },
+  "process": {
+    "entity_id": "{19FC45AC-7527-601C-0000-001028570000}",
+    "pid": 348,
+    "executable": "C:\\Windows\\System32\\wininit.exe",
+    "command_line": "wevtutil.exe cl Microsoft-Windows-WMI-Activity/Trace",
+    "parent": {
+      "entity_id": "{19FC45AC-7527-601C-0000-0010D84F0000}",
+      "pid": 304,
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe 00000000 0000003c ",
+      "name": "smss.exe",
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe",
+        "00000000",
+        "0000003c"
+      ]
+    },
+    "args": [
+      "wininit.exe"
+    ],
+    "hash": {
+      "md5": "b5c5dcad3899512020d135600129d665",
+      "sha256": "f6b4d18fa0d3c4958711ac0d476c21a6fdf2897f989a0ad290b43f463dd8b5b0"
+    },
+    "working_directory": "C:\\Windows\\system32",
+    "name": "wininit.exe"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.296Z",
+    "kind": "event"
+  }
+}

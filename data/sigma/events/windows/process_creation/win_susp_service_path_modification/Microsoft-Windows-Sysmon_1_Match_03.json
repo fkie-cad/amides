@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T23:04:58.264Z",
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local",
+    "hostname": "CLIENT1"
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "LOCAL SERVICE"
+  },
+  "related": {
+    "user": "LOCAL SERVICE",
+    "hash": [
+      "51138beea3e2c21ec44d0932c71762a8",
+      "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    ]
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "version": 5,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_data": {
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "RUNDLL32.EXE",
+      "LogonId": "0x3e5",
+      "Description": "Windows host process (Rundll32)",
+      "TerminalSessionId": "0",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-0020E5030000}",
+      "IntegrityLevel": "System"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "record_id": 1416
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T23:04:59.960Z",
+    "kind": "event",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:04:58.264\nProcessGuid: {19FC45AC-7D9A-601C-0000-001057EF0E00}\nProcessId: 1884\nImage: C:\\Windows\\System32\\rundll32.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Windows host process (Rundll32)\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: RUNDLL32.EXE\nCommandLine: C:\\Windows\\system32\\rundll32.exe /d acproxy.dll,PerformAutochkOperations\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\LOCAL SERVICE\nLogonGuid: {19FC45AC-7690-601C-0000-0020E5030000}\nLogonId: 0x3e5\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=51138BEEA3E2C21EC44D0932C71762A8,SHA256=5AD3C37E6F2B9DB3EE8B5AEEDC474645DE90C66E3D95F8620C48102F1EBA4124\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "executable": "C:\\Windows\\System32\\sc.exe",
+    "command_line": "sc.exe config servicename binPath=cmd.exe",
+    "parent": {
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe"
+    },
+    "hash": {
+      "md5": "51138beea3e2c21ec44d0932c71762a8",
+      "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    },
+    "entity_id": "{19FC45AC-7D9A-601C-0000-001057EF0E00}",
+    "pid": 1884,
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "rundll32.exe",
+    "args": [
+      "C:\\Windows\\system32\\rundll32.exe",
+      "/d",
+      "acproxy.dll,PerformAutochkOperations"
+    ]
+  },
+  "hash": {
+    "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124",
+    "md5": "51138beea3e2c21ec44d0932c71762a8"
+  }
+}
