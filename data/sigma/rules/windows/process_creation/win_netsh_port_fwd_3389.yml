@@ -1,0 +1,14 @@
+filter: 'process.command_line: "netsh i* p*=3389 c*"'
+pre_detector:
+  case_condition: directly
+  id: 782d6f3e-4c5d-4b8c-92a3-1d05fed72e63
+  mitre:
+  - attack.lateral_movement
+  - attack.defense_evasion
+  - attack.command_and_control
+  - attack.t1090
+  severity: high
+  title: Netsh RDP Port Forwarding
+sigma_fields: true
+description: Detects netsh commands that configure a port forwarding of port 3389
+  used for RDP

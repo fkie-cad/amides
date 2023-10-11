@@ -1,0 +1,15 @@
+filter: 'winlog.event_data.Description: "Execute processes remotely" AND winlog.event_data.Product:
+  "Sysinternals PsExec" AND NOT process.executable: ("*\PsExec.exe" OR "*\PsExec64.exe")'
+pre_detector:
+  case_condition: directly
+  id: a7a7e0e5-1d57-49df-9c58-9fe5bc0346a2
+  mitre:
+  - car.2013-05-009
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.t1036.003
+  severity: high
+  title: Renamed PsExec
+sigma_fields: true
+description: Detects the execution of a renamed PsExec often used by attackers or
+  malware

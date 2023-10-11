@@ -1,0 +1,16 @@
+filter: 'process.parent.executable: "*\sqlservr.exe" AND process.executable: ("*\cmd.exe"
+  OR "*\sh.exe" OR "*\bash.exe" OR "*\powershell.exe" OR "*\bitsadmin.exe")'
+pre_detector:
+  case_condition: directly
+  id: 869b9ca7-9ea2-4a5a-8325-e80e62f75445
+  mitre:
+  - attack.t1100
+  - attack.t1190
+  - attack.initial_access
+  - attack.persistence
+  - attack.privilege_escalation
+  severity: critical
+  title: Suspicious Shells Spawn by SQL Server
+sigma_fields: true
+description: Detects suspicious shell spawn from MSSQL process, this might be sight
+  of RCE or SQL Injection

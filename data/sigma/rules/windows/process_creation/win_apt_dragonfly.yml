@@ -1,0 +1,10 @@
+filter: 'process.executable: "*\crackmapexec.exe"'
+pre_detector:
+  case_condition: directly
+  id: 04d9079e-3905-4b70-ad37-6bdf11304965
+  mitre:
+  - attack.g0035
+  severity: critical
+  title: CrackMapExecWin
+sigma_fields: true
+description: Detects CrackMapExecWin Activity as Described by NCSC

@@ -1,0 +1,15 @@
+filter: 'process.executable: ("*\powershell.exe" OR "*\wmic.exe" OR "*\vssadmin.exe")
+  AND process.command_line: "*shadow*" AND process.command_line: "*create*"'
+pre_detector:
+  case_condition: directly
+  id: b17ea6f7-6e90-447e-a799-e6c0a493d6ce
+  mitre:
+  - attack.credential_access
+  - attack.t1003
+  - attack.t1003.002
+  - attack.t1003.003
+  severity: medium
+  title: Shadow Copies Creation Using Operating Systems Utilities
+sigma_fields: true
+description: Shadow Copies creation using operating systems utilities, possible credential
+  access

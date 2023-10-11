@@ -1,0 +1,15 @@
+filter: 'process.command_line: "*svchost.exe" AND process.executable: "*\svchost.exe"
+  AND NOT process.parent.executable: ("*\rpcnet.exe" OR "*\rpcnetp.exe")'
+pre_detector:
+  case_condition: directly
+  id: 16c37b52-b141-42a5-a3ea-bbe098444397
+  mitre:
+  - attack.defense_evasion
+  - attack.privilege_escalation
+  - attack.t1055
+  severity: critical
+  title: Suspect Svchost Activity
+sigma_fields: true
+description: It is extremely abnormal for svchost.exe to spawn without any CLI arguments
+  and is normally observed when a malicious process spawns the process and injects
+  code into the process memory space.

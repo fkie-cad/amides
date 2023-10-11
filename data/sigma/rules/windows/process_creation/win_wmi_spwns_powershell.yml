@@ -1,0 +1,14 @@
+filter: 'process.parent.executable: "*\wmiprvse.exe" AND process.executable: "*\powershell.exe"'
+pre_detector:
+  case_condition: directly
+  id: 692f0bec-83ba-4d04-af7e-e884a96059b6
+  mitre:
+  - attack.execution
+  - attack.t1047
+  - attack.t1059.001
+  - attack.defense_evasion
+  - attack.t1064
+  severity: high
+  title: WMI Spawning Windows PowerShell
+sigma_fields: true
+description: Detects WMI spawning PowerShell

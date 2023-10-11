@@ -1,0 +1,21 @@
+filter: "(process.executable: \"*\\wmic.exe\" AND process.command_line: (\"wmic *
+  *format:\\\"http*\" OR \"wmic * /format:'http\" OR \"wmic * /format:http*\")) OR
+  (winlog.event_data.Imphash: (\"1B1A3F43BF37B5BFE60751F2EE2F326E\" OR \"37777A96245A3C74EB217308F3546F4C\"\
+  \ OR \"9D87C9D67CE724033C0B40CC4CA1B206\") AND process.command_line: (\"* *format:\\\
+  \"http*\" OR \"* /format:'http\" OR \"* /format:http*\"))"
+pre_detector:
+  case_condition: directly
+  id: 8d63dadf-b91b-4187-87b6-34a1114577ea
+  mitre:
+  - attack.defense_evasion
+  - attack.t1047
+  - attack.t1220
+  - attack.execution
+  - attack.t1059.005
+  - attack.t1059.007
+  - attack.t1059
+  severity: medium
+  title: SquiblyTwo
+sigma_fields: true
+description: Detects WMI SquiblyTwo Attack with possible renamed WMI by looking for
+  imphash

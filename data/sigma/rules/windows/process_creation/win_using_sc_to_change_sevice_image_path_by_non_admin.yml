@@ -1,0 +1,16 @@
+filter: 'process.executable: "*\sc.exe" AND winlog.event_data.IntegrityLevel: "Medium"
+  AND ((process.command_line: "*config*" AND process.command_line: "*binPath*") OR
+  (process.command_line: "*failure*" AND process.command_line: "*command*"))'
+pre_detector:
+  case_condition: directly
+  id: d937b75f-a665-4480-88a5-2f20e9f9b22a
+  mitre:
+  - attack.persistence
+  - attack.defense_evasion
+  - attack.privilege_escalation
+  - attack.t1574.011
+  severity: high
+  title: Possible Privilege Escalation via Weak Service Permissions
+sigma_fields: true
+description: Detection of sc.exe utility spawning by user with Medium integrity level
+  to change service ImagePath or FailureCommand

@@ -1,0 +1,16 @@
+filter: 'process.command_line: ("*OjpGcm9tQmFzZTY0U3RyaW5n*" OR "*o6RnJvbUJhc2U2NFN0cmluZ*"
+  OR "*6OkZyb21CYXNlNjRTdHJpbm*")'
+pre_detector:
+  case_condition: directly
+  id: fdb62a13-9a81-4e5c-a38f-ea93a16f6d7c
+  mitre:
+  - attack.defense_evasion
+  - attack.t1140
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  severity: critical
+  title: Encoded FromBase64String
+sigma_fields: true
+description: Detects a base64 encoded FromBase64String keyword in a process command
+  line

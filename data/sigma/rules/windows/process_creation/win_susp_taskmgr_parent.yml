@@ -1,0 +1,12 @@
+filter: 'process.parent.executable: "*\taskmgr.exe" AND NOT process.executable: ("*\resmon.exe"
+  OR "*\mmc.exe" OR "*\taskmgr.exe")'
+pre_detector:
+  case_condition: directly
+  id: 3d7679bd-0c00-440c-97b0-3f204273e6c7
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  severity: low
+  title: Taskmgr as Parent
+sigma_fields: true
+description: Detects the creation of a process from Windows task manager

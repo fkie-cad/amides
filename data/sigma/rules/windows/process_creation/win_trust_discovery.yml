@@ -1,0 +1,14 @@
+filter: '(process.executable: "*\nltest.exe" AND process.command_line: ("*domain_trusts*"
+  OR "*all_trusts*" OR "*/dclist*")) OR (process.executable: "*\dsquery.exe" AND process.command_line:
+  "*trustedDomain*")'
+pre_detector:
+  case_condition: directly
+  id: 3bad990e-4848-4a78-9530-b427d854aac0
+  mitre:
+  - attack.discovery
+  - attack.t1482
+  severity: medium
+  title: Domain Trust Discovery
+sigma_fields: true
+description: Identifies execution of nltest.exe and dsquery.exe for domain trust discovery.
+  This technique is used by attackers to enumerate Active Directory trusts.

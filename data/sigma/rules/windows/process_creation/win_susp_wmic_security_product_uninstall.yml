@@ -1,0 +1,15 @@
+filter: 'process.command_line: "*wmic*" AND process.command_line: "*product where
+  name=*" AND process.command_line: "*call uninstall*" AND process.command_line: "*/nointeractive*"
+  AND process.command_line: ("*Antivirus*" OR "*Endpoint Security*" OR "*Endpoint
+  Detection*" OR "*Crowdstrike Sensor*" OR "*Windows Defender*" OR "*VirusScan*" OR
+  "*Threat Protection*" OR "*Endpoint Sensor*")'
+pre_detector:
+  case_condition: directly
+  id: 847d5ff3-8a31-4737-a970-aeae8fe21765
+  mitre:
+  - attack.defense_evasion
+  - attack.t1562.001
+  severity: medium
+  title: Wmic Uninstall Security Product
+sigma_fields: true
+description: Detects deinstallation of security products using WMIC utility

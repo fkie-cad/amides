@@ -1,0 +1,14 @@
+filter: 'winlog.event_data.OriginalFilename: "procdump" AND NOT process.executable:
+  ("*\procdump.exe" OR "*\procdump64.exe")'
+pre_detector:
+  case_condition: directly
+  id: 4a0b2c7e-7cb2-495d-8b63-5f268e7bfd67
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.t1036.003
+  severity: critical
+  title: Renamed ProcDump
+sigma_fields: true
+description: Detects the execution of a renamed ProcDump executable often used by
+  attackers or malware

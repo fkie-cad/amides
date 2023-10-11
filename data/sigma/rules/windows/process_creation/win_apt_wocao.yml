@@ -1,0 +1,46 @@
+filter: 'winlog.channel: "Security" AND winlog.event_id: 4799 AND (group.name: "Administrators"
+  OR winlog.event_data.GroupName: "Administrators") AND process.executable: "*\checkadmin.exe"'
+pre_detector:
+  case_condition: directly
+  id: 74ad4314-482e-4c3e-b237-3f7ed3b9ca8d
+  mitre:
+  - attack.discovery
+  - attack.t1012
+  - attack.defense_evasion
+  - attack.t1036.004
+  - attack.t1036
+  - attack.t1027
+  - attack.execution
+  - attack.t1053.005
+  - attack.t1053
+  - attack.t1059.001
+  - attack.t1086
+  severity: high
+  title: Operation Wocao Activity
+sigma_fields: true
+description: Detects activity mentioned in Operation Wocao report
+---
+filter: 'process.command_line: ("*checkadmin.exe 127.0.0.1 -all*" OR "*netsh advfirewall
+  firewall add rule name=powershell dir=in*" OR "*cmd /c powershell.exe -ep bypass
+  -file c:\s.ps1*" OR "*/tn win32times /f*" OR "*create win32times binPath=*" OR "*\c$\windows\system32\devmgr.dll*"
+  OR "* -exec bypass -enc JgAg*" OR "*type *keepass\KeePass.config.xml*" OR "*iie.exe
+  iie.txt*" OR "*reg query HKEY_CURRENT_USER\Software\\*\PuTTY\Sessions\\*")'
+pre_detector:
+  case_condition: directly
+  id: 74ad4314-482e-4c3e-b237-3f7ed3b9ca8d
+  mitre:
+  - attack.discovery
+  - attack.t1012
+  - attack.defense_evasion
+  - attack.t1036.004
+  - attack.t1036
+  - attack.t1027
+  - attack.execution
+  - attack.t1053.005
+  - attack.t1053
+  - attack.t1059.001
+  - attack.t1086
+  severity: high
+  title: Operation Wocao Activity
+sigma_fields: true
+description: Detects activity mentioned in Operation Wocao report

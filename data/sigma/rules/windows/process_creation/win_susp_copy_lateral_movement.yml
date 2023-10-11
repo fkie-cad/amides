@@ -1,0 +1,15 @@
+filter: 'process.command_line: ("*copy *\c$*" OR "*copy *\ADMIN$*")'
+pre_detector:
+  case_condition: directly
+  id: 855bc8b5-2ae8-402e-a9ed-b889e6df1900
+  mitre:
+  - attack.lateral_movement
+  - attack.t1021.002
+  - attack.command_and_control
+  - attack.t1105
+  - attack.s0106
+  - attack.t1077
+  severity: high
+  title: Copy from Admin Share
+sigma_fields: true
+description: Detects a suspicious copy command from a remote C$ or ADMIN$ share

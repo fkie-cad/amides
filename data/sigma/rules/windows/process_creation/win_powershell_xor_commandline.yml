@@ -1,0 +1,16 @@
+filter: '(winlog.event_data.Description: "Windows PowerShell" OR winlog.event_data.Product:
+  "PowerShell Core 6") AND process.command_line: ("*bxor*" OR "*join*" OR "*char*")'
+pre_detector:
+  case_condition: directly
+  id: bb780e0c-16cf-4383-8383-1e5471db6cf9
+  mitre:
+  - attack.defense_evasion
+  - attack.t1086
+  - attack.t1059.001
+  - attack.t1140
+  - attack.t1027
+  severity: medium
+  title: Suspicious XOR Encoded PowerShell Command Line
+sigma_fields: true
+description: Detects suspicious powershell process which includes bxor command, alternative
+  obfuscation method to b64 encoded commands.

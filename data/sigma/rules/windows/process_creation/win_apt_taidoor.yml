@@ -1,0 +1,14 @@
+filter: 'process.command_line: ("*dll,MyStart*" OR "*dll MyStart*") OR (process.command_line:
+  "* MyStart" AND process.command_line: "*rundll32.exe*")'
+pre_detector:
+  case_condition: directly
+  id: d1aa3382-abab-446f-96ea-4de52908210b
+  mitre:
+  - attack.execution
+  - attack.t1055
+  - attack.t1055.001
+  severity: critical
+  title: TAIDOOR RAT DLL Load
+sigma_fields: true
+description: Detects specific process characteristics of Chinese TAIDOOR RAT malware
+  load

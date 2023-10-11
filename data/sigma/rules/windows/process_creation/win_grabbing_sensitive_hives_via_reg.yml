@@ -1,0 +1,17 @@
+filter: 'process.executable: "*\reg.exe" AND process.command_line: ("*save*" OR "*export*")
+  AND process.command_line: ("*hklm*" OR "*hkey_local_machine*") AND process.command_line:
+  ("*\system" OR "*\sam" OR "*\security")'
+pre_detector:
+  case_condition: directly
+  id: fd877b94-9bb5-4191-bb25-d79cbd93c167
+  mitre:
+  - attack.credential_access
+  - attack.t1003.002
+  - attack.t1003.004
+  - attack.t1003.005
+  - attack.t1003
+  - car.2013-07-001
+  severity: medium
+  title: Grabbing Sensitive Hives via Reg Utility
+sigma_fields: true
+description: Dump sam, system or security hives using REG.exe utility

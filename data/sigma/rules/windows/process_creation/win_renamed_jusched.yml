@@ -1,0 +1,14 @@
+filter: '(winlog.event_data.Description: "Java Update Scheduler" OR winlog.event_data.Description:
+  "Java(TM) Update Scheduler") AND NOT process.executable: "*\jusched.exe"'
+pre_detector:
+  case_condition: directly
+  id: edd8a48c-1b9f-4ba1-83aa-490338cd1ccb
+  mitre:
+  - attack.execution
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.t1036.003
+  severity: high
+  title: Renamed jusched.exe
+sigma_fields: true
+description: Detects renamed jusched.exe used by cobalt group

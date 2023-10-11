@@ -1,0 +1,10 @@
+filter: 'process.command_line: ("chcp* 936" OR "chcp* 1258")'
+pre_detector:
+  case_condition: directly
+  id: c7942406-33dd-4377-a564-0f62db0593a3
+  mitre: []
+  severity: medium
+  title: Suspicious Code Page Switch
+sigma_fields: true
+description: Detects a code page switch in command line or batch scripts to a rare
+  language

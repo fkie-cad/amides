@@ -1,0 +1,13 @@
+filter: 'process.command_line: "* msiexec*://*"'
+pre_detector:
+  case_condition: directly
+  id: f7b5f842-a6af-4da5-9e95-e32478f3cd2f
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.007
+  - attack.command_and_control
+  - attack.t1105
+  severity: medium
+  title: MsiExec Web Install
+sigma_fields: true
+description: Detects suspicious msiexec process starts with web addreses as parameter

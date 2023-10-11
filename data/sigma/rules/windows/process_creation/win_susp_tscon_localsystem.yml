@@ -1,0 +1,11 @@
+filter: 'user.name: "NT AUTHORITY\SYSTEM" AND process.executable: "*\tscon.exe"'
+pre_detector:
+  case_condition: directly
+  id: 9847f263-4a81-424f-970c-875dab15b79b
+  mitre:
+  - attack.command_and_control
+  - attack.t1219
+  severity: high
+  title: Suspicious TSCON Start
+sigma_fields: true
+description: Detects a tscon.exe start as LOCAL SYSTEM

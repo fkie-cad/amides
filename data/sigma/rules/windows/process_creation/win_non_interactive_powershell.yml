@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\powershell.exe" AND NOT process.parent.executable:
+  "*\explorer.exe"'
+pre_detector:
+  case_condition: directly
+  id: f4bbd493-b796-416e-bbf2-121235348529
+  mitre:
+  - attack.execution
+  - attack.t1086
+  - attack.t1059.001
+  severity: medium
+  title: Non Interactive PowerShell
+sigma_fields: true
+description: Detects non-interactive PowerShell activity by looking at powershell.exe
+  with not explorer.exe as a parent.

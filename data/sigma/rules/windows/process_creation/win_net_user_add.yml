@@ -1,0 +1,13 @@
+filter: 'process.executable: ("*\net.exe" OR "*\net1.exe") AND process.command_line:
+  "*user*" AND process.command_line: "*add*"'
+pre_detector:
+  case_condition: directly
+  id: cd219ff3-fa99-45d4-8380-a7d15116c6dc
+  mitre:
+  - attack.persistence
+  - attack.t1136
+  - attack.t1136.001
+  severity: medium
+  title: Net.exe User Account Creation
+sigma_fields: true
+description: Identifies creation of local users via the net.exe command

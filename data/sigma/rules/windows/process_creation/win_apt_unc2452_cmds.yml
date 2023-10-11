@@ -1,0 +1,21 @@
+filter: '(((process.command_line: "*7z.exe a -v500m -mx9 -r0 -p*" OR (process.parent.command_line:
+  "*wscript.exe*" AND process.parent.command_line: "*.vbs*" AND process.command_line:
+  "*rundll32.exe*" AND process.command_line: "*C:\Windows*" AND process.command_line:
+  "*.dll,Tk_*")) OR (process.parent.executable: "*\rundll32.exe" AND process.parent.command_line:
+  "*C:\Windows*" AND process.command_line: "*cmd.exe /C *")) OR (process.command_line:
+  "*rundll32 c:\windows\\\*" AND process.command_line: "*.dll *")) OR ((process.parent.executable:
+  "*\rundll32.exe" AND process.executable: "*\dllhost.exe") AND NOT (process.command_line:
+  (" " OR "")))'
+pre_detector:
+  case_condition: directly
+  id: 9be34ad0-b6a7-4fbd-91cf-fc7ec1047f5f
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - sunburst
+  - unc2452
+  severity: critical
+  title: UNC2452 Process Creation Patterns
+sigma_fields: true
+description: Detects a specific process creation patterns as seen used by UNC2452
+  and provided by Microsoft as Microsoft Defender ATP queries

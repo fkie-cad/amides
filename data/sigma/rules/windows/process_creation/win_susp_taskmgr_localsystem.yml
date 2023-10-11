@@ -1,0 +1,11 @@
+filter: 'user.name: "NT AUTHORITY\SYSTEM" AND process.executable: "*\taskmgr.exe"'
+pre_detector:
+  case_condition: directly
+  id: 9fff585c-c33e-4a86-b3cd-39312079a65f
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  severity: high
+  title: Taskmgr as LOCAL_SYSTEM
+sigma_fields: true
+description: Detects the creation of taskmgr.exe process in context of LOCAL_SYSTEM

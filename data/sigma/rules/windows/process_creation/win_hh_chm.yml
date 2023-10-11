@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\hh.exe" AND process.command_line: "*.chm*"'
+pre_detector:
+  case_condition: directly
+  id: 68c8acb4-1b60-4890-8e82-3ddf7a6dba84
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.001
+  - attack.execution
+  - attack.t1223
+  severity: high
+  title: HH.exe Execution
+sigma_fields: true
+description: Identifies usage of hh.exe executing recently modified .chm files.

@@ -1,0 +1,17 @@
+filter: 'winlog.event_data.OriginalFilename: ("7z*.exe" OR "*rar.exe" OR "*Command*Line*RAR*")
+  AND process.command_line: ("* -p*" OR "* -ta*" OR "* -tb*" OR "* -sdel*" OR "* -dw*"
+  OR "* -hp*") AND NOT process.parent.executable: "C:\Program*"'
+pre_detector:
+  case_condition: directly
+  id: 27a72a60-7e5e-47b1-9d17-909c9abafdcd
+  mitre:
+  - attack.collection
+  - attack.t1560.001
+  - attack.exfiltration
+  - attack.t1020
+  - attack.t1002
+  severity: high
+  title: Suspicious Compression Tool Parameters
+sigma_fields: true
+description: Detects suspicious command line arguments of common data compression
+  tools

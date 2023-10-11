@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*EnableUnsafeClientMailRules*" OR (process.parent.executable:
+  "*\outlook.exe" AND process.command_line: "\\\\*\\*.exe")'
+pre_detector:
+  case_condition: directly
+  id: e212d415-0e93-435f-9e1a-f29005bb4723
+  mitre:
+  - attack.execution
+  - attack.t1059
+  - attack.t1202
+  severity: high
+  title: Suspicious Execution from Outlook
+sigma_fields: true
+description: Detects EnableUnsafeClientMailRules used for Script Execution from Outlook

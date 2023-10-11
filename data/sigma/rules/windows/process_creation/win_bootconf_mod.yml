@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\bcdedit.exe" AND process.command_line: "*set*" AND
+  ((process.command_line: "*bootstatuspolicy*" AND process.command_line: "*ignoreallfailures*")
+  OR (process.command_line: "*recoveryenabled*" AND process.command_line: "*no*"))'
+pre_detector:
+  case_condition: directly
+  id: 1444443e-6757-43e4-9ea4-c8fc705f79a2
+  mitre:
+  - attack.impact
+  - attack.t1490
+  severity: high
+  title: Modification of Boot Configuration
+sigma_fields: true
+description: Identifies use of the bcdedit command to delete boot configuration data.
+  This tactic is sometimes used as by malware or an attacker as a destructive technique.

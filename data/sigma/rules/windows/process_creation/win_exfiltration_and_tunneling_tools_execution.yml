@@ -1,0 +1,16 @@
+filter: 'process.executable: ("*\plink.exe" OR "*\socat.exe" OR "*\stunnel.exe" OR
+  "*\httptunnel.exe")'
+pre_detector:
+  case_condition: directly
+  id: c75309a3-59f8-4a8d-9c2c-4c927ad50555
+  mitre:
+  - attack.exfiltration
+  - attack.command_and_control
+  - attack.t1043
+  - attack.t1041
+  - attack.t1572
+  - attack.t1071.001
+  severity: medium
+  title: Exfiltration and Tunneling Tools Execution
+sigma_fields: true
+description: Execution of well known tools for data exfiltration and tunneling

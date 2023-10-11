@@ -1,0 +1,24 @@
+filter: 'process.executable: ("*\net.exe" OR "*\net1.exe") AND process.command_line:
+  ("* group*" OR "* localgroup*" OR "* user*" OR "* view*" OR "* share" OR "* accounts*"
+  OR "* use*" OR "* stop *")'
+pre_detector:
+  case_condition: directly
+  id: 183e7ea8-ac4b-4c23-9aec-b3dac4e401ac
+  mitre:
+  - attack.discovery
+  - attack.t1049
+  - attack.t1018
+  - attack.t1135
+  - attack.t1201
+  - attack.t1069.001
+  - attack.t1069.002
+  - attack.t1087.001
+  - attack.t1087.002
+  - attack.lateral_movement
+  - attack.t1021.002
+  - attack.t1077
+  - attack.s0039
+  severity: low
+  title: Net.exe Execution
+sigma_fields: true
+description: Detects execution of Net.exe, whether suspicious or benign.

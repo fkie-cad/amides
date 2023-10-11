@@ -1,0 +1,16 @@
+filter: '((process.command_line: "*lsass*" AND process.command_line: "*.dmp*") AND
+  NOT (process.executable: "*\werfault.exe")) OR (process.executable: "*\procdump*"
+  AND process.executable: "*.exe" AND process.command_line: "*lsass*")'
+pre_detector:
+  case_condition: directly
+  id: ffa6861c-4461-4f59-8a41-578c39f3f23e
+  mitre:
+  - attack.credential_access
+  - attack.t1003.001
+  - attack.t1003
+  severity: high
+  title: LSASS Memory Dumping
+sigma_fields: true
+description: Detect creation of dump files containing the memory space of lsass.exe,
+  which contains sensitive credentials. Identifies usage of Sysinternals procdump.exe
+  to export the memory space of lsass.exe which contains sensitive credentials.

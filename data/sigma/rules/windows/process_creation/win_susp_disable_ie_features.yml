@@ -1,0 +1,16 @@
+filter: '(process.command_line: "* -name IEHarden *" AND process.command_line: "*
+  -value 0 *") OR (process.command_line: "* -name DEPOff *" AND process.command_line:
+  "* -value 1 *") OR (process.command_line: "* -name DisableFirstRunCustomize *" AND
+  process.command_line: "* -value 2 *")'
+pre_detector:
+  case_condition: directly
+  id: fb50eb7a-5ab1-43ae-bcc9-091818cb8424
+  mitre:
+  - attack.defense_evasion
+  - attack.t1562.001
+  - attack.t1089
+  severity: high
+  title: Disabled IE Security Features
+sigma_fields: true
+description: Detects command lines that indicate unwanted modifications to registry
+  keys that disable important Internet Explorer security features

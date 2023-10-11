@@ -1,0 +1,13 @@
+filter: 'process.command_line: "C:\Windows\PSEXESVC.exe"'
+pre_detector:
+  case_condition: directly
+  id: 3ede524d-21cc-472d-a3ce-d21b568d8db7
+  mitre:
+  - attack.execution
+  - attack.t1035
+  - attack.s0029
+  - attack.t1569.002
+  severity: low
+  title: PsExec Service Start
+sigma_fields: true
+description: Detects a PsExec service start

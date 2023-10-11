@@ -1,0 +1,15 @@
+filter: '(process.executable: ("*\net.exe" OR "*\net1.exe") AND process.command_line:
+  "*time*") OR (process.executable: "*\w32tm.exe" AND process.command_line: "*tz*")
+  OR (process.executable: "*\powershell.exe" AND process.command_line: "*Get-Date*")'
+pre_detector:
+  case_condition: directly
+  id: b243b280-65fe-48df-ba07-6ddea7646427
+  mitre:
+  - attack.discovery
+  - attack.t1124
+  severity: low
+  title: Discovery of a System Time
+sigma_fields: true
+description: Identifies use of various commands to query a systems time. This technique
+  may be used before executing a scheduled task or to discover the time zone of a
+  target system.

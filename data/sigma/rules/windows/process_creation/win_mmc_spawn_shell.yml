@@ -1,0 +1,14 @@
+filter: 'process.parent.executable: "*\mmc.exe" AND process.executable: ("*\cmd.exe"
+  OR "*\powershell.exe" OR "*\wscript.exe" OR "*\cscript.exe" OR "*\sh.exe" OR "*\bash.exe"
+  OR "*\reg.exe" OR "*\regsvr32.exe" OR "*\BITSADMIN*")'
+pre_detector:
+  case_condition: directly
+  id: 05a2ab7e-ce11-4b63-86db-ab32e763e11d
+  mitre:
+  - attack.lateral_movement
+  - attack.t1175
+  - attack.t1021.003
+  severity: high
+  title: MMC Spawning Windows Shell
+sigma_fields: true
+description: Detects a Windows command line executable started from MMC

@@ -1,0 +1,13 @@
+filter: 'process.command_line: ("certutil -f -encode *" OR "certutil.exe -f -encode
+  *" OR "certutil -encode -f *" OR "certutil.exe -encode -f *")'
+pre_detector:
+  case_condition: directly
+  id: e62a9f0c-ca1e-46b2-85d5-a6da77f86d1a
+  mitre:
+  - attack.defense_evasion
+  - attack.t1027
+  severity: medium
+  title: Certutil Encode
+sigma_fields: true
+description: Detects suspicious a certutil command that used to encode files, which
+  is sometimes used for data exfiltration

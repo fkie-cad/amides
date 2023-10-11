@@ -1,0 +1,29 @@
+filter: 'process.executable: "*\CreateMiniDump.exe*" OR winlog.event_data.Imphash:
+  "4a07f944a83e8a7c2525efa35dd30e2f"'
+pre_detector:
+  case_condition: directly
+  id: 36d88494-1d43-4dc0-b3fa-35c8fea0ca9d
+  mitre:
+  - attack.credential_access
+  - attack.t1003.001
+  - attack.t1003
+  severity: high
+  title: CreateMiniDump Hacktool
+sigma_fields: true
+description: Detects the use of CreateMiniDump hack tool used to dump the LSASS process
+  memory for credential extraction on the attacker's machine
+---
+filter: 'winlog.channel: "Microsoft-Windows-Sysmon/Operational" AND winlog.event_id:
+  11 AND file.path: "*\lsass.dmp*"'
+pre_detector:
+  case_condition: directly
+  id: 36d88494-1d43-4dc0-b3fa-35c8fea0ca9d
+  mitre:
+  - attack.credential_access
+  - attack.t1003.001
+  - attack.t1003
+  severity: high
+  title: CreateMiniDump Hacktool
+sigma_fields: true
+description: Detects the use of CreateMiniDump hack tool used to dump the LSASS process
+  memory for credential extraction on the attacker's machine

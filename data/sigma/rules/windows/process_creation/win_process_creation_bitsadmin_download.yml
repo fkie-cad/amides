@@ -1,0 +1,15 @@
+filter: '(process.executable: "*\bitsadmin.exe" AND process.command_line: "* /transfer
+  *") OR process.command_line: "*copy bitsadmin.exe*"'
+pre_detector:
+  case_condition: directly
+  id: d059842b-6b9d-4ed1-b5c3-5b89143c6ede
+  mitre:
+  - attack.defense_evasion
+  - attack.persistence
+  - attack.t1197
+  - attack.s0190
+  - attack.t1036.003
+  severity: medium
+  title: Bitsadmin Download
+sigma_fields: true
+description: Detects usage of bitsadmin downloading a file

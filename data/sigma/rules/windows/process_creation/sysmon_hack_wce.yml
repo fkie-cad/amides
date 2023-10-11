@@ -1,0 +1,14 @@
+filter: 'winlog.event_data.Imphash: ("a53a02b997935fd8eedcb5f7abab9b9f" OR "e96a73c7bf33a464c510ede582318bf2")
+  OR (process.command_line: "*.exe -S" AND process.parent.executable: "*\services.exe")'
+pre_detector:
+  case_condition: directly
+  id: 7aa7009a-28b9-4344-8c1f-159489a390df
+  mitre:
+  - attack.credential_access
+  - attack.t1003
+  - attack.t1003.001
+  - attack.s0005
+  severity: critical
+  title: Windows Credential Editor
+sigma_fields: true
+description: Detects the use of Windows Credential Editor (WCE)

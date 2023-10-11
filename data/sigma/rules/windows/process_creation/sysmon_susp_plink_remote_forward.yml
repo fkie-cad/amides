@@ -1,0 +1,14 @@
+filter: 'winlog.event_data.Description: "Command-line SSH, Telnet, and Rlogin client"
+  AND process.command_line: "* -R *"'
+pre_detector:
+  case_condition: directly
+  id: 48a61b29-389f-4032-b317-b30de6b95314
+  mitre:
+  - attack.command_and_control
+  - attack.t1572
+  - attack.lateral_movement
+  - attack.t1021.001
+  severity: high
+  title: Suspicious Plink Remote Forwarding
+sigma_fields: true
+description: Detects suspicious Plink tunnel remote forarding to a local port

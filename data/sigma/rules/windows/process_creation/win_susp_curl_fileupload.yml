@@ -1,0 +1,11 @@
+filter: 'process.executable: "*\curl.exe" AND process.command_line: "* -F *"'
+pre_detector:
+  case_condition: directly
+  id: 00bca14a-df4e-4649-9054-3f2aa676bc04
+  mitre:
+  - attack.exfiltration
+  - attack.t1567
+  severity: medium
+  title: Suspicious Curl File Upload
+sigma_fields: true
+description: Detects a suspicious curl process start the adds a file to a web request

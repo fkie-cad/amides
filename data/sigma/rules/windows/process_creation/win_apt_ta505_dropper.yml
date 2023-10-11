@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\mshta.exe" AND process.parent.executable: "*\wmiprvse.exe"'
+pre_detector:
+  case_condition: directly
+  id: 18cf6cf0-39b0-4c22-9593-e244bdc9a2d4
+  mitre:
+  - attack.execution
+  - attack.g0092
+  severity: critical
+  title: TA505 Dropper Load Pattern
+sigma_fields: true
+description: Detects mshta loaded by wmiprvse as parent as used by TA505 malicious
+  documents

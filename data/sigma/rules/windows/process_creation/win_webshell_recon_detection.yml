@@ -1,0 +1,18 @@
+filter: 'process.parent.executable: ("*\apache*" OR "*\tomcat*" OR "*\w3wp.exe*" OR
+  "*\php-cgi.exe*" OR "*\nginx.exe*" OR "*\httpd.exe*") AND process.executable: "*\cmd.exe"
+  AND process.command_line: ("*perl --help*" OR "*python --help*" OR "*wget --help*"
+  OR "*perl -h*")'
+pre_detector:
+  case_condition: directly
+  id: f64e5c19-879c-4bae-b471-6d84c8339677
+  mitre:
+  - attack.persistence
+  - attack.t1505.003
+  - attack.privilege_escalation
+  - attack.t1100
+  severity: high
+  title: Webshell Recon Detection Via CommandLine & Processes
+sigma_fields: true
+description: Looking for processes spawned by web server components that indicate
+  reconnaissance by popular public domain webshells for whether perl, python or wget
+  are installed.

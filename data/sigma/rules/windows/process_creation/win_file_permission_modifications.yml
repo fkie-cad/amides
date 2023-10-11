@@ -1,0 +1,13 @@
+filter: '(process.executable: ("*\takeown.exe" OR "*\cacls.exe" OR "*\icacls.exe")
+  AND process.command_line: "*/grant*") OR (process.executable: "*\attrib.exe" AND
+  process.command_line: "*-r*")'
+pre_detector:
+  case_condition: directly
+  id: 37ae075c-271b-459b-8d7b-55ad5f993dd8
+  mitre:
+  - attack.defense_evasion
+  - attack.t1222
+  severity: medium
+  title: File or Folder Permissions Modifications
+sigma_fields: true
+description: Detects a file or folder permissions modifications

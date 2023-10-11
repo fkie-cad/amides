@@ -1,0 +1,14 @@
+filter: 'process.executable: ("*\msdtc.exe" OR "*\gpvc.exe") AND NOT process.executable:
+  ("C:\Windows\System32\\*" OR "C:\Windows\SysWOW64\\*")'
+pre_detector:
+  case_condition: directly
+  id: 3f7f5b0b-5b16-476c-a85f-ab477f6dd24b
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.t1036.005
+  severity: high
+  title: Lazarus Session Highjacker
+sigma_fields: true
+description: Detects executables launched outside their default directories as used
+  by Lazarus Group (Bluenoroff)

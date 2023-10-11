@@ -1,0 +1,21 @@
+filter: '((process.executable: "*\whoami.exe" OR (process.executable: "*\wmic.exe"
+  AND process.command_line: "*useraccount*" AND process.command_line: "*get*") OR
+  process.executable: ("*\quser.exe" OR "*\qwinsta.exe") OR (process.executable: "*\cmdkey.exe"
+  AND process.command_line: "*/list*") OR (process.executable: "*\cmd.exe" AND process.command_line:
+  "*/c*" AND process.command_line: "*dir *" AND process.command_line: "*\Users\\*"))
+  AND NOT (process.command_line: "* rmdir *")) OR ((process.executable: ("*\net.exe"
+  OR "*\net1.exe") AND process.command_line: "*user*") AND NOT (process.command_line:
+  ("*/domain*" OR "*/add*" OR "*/delete*" OR "*/active*" OR "*/expires*" OR "*/passwordreq*"
+  OR "*/scriptpath*" OR "*/times*" OR "*/workstations*")))'
+pre_detector:
+  case_condition: directly
+  id: 502b42de-4306-40b4-9596-6f590c81f073
+  mitre:
+  - attack.discovery
+  - attack.t1033
+  - attack.t1087.001
+  - attack.t1087
+  severity: low
+  title: Local Accounts Discovery
+sigma_fields: true
+description: Local accounts, System Owner/User discovery using operating systems utilities

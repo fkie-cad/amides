@@ -1,0 +1,15 @@
+filter: '(process.executable: "*\odbcconf.exe" AND process.command_line: ("*-f*" OR
+  "*regsvr*")) OR (process.parent.executable: "*\odbcconf.exe" AND process.executable:
+  "*\rundll32.exe")'
+pre_detector:
+  case_condition: directly
+  id: 65d2be45-8600-4042-b4c0-577a1ff8a60e
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.008
+  - attack.execution
+  - attack.t1218
+  severity: medium
+  title: Application Whitelisting Bypass via DLL Loaded by odbcconf.exe
+sigma_fields: true
+description: Detects defence evasion attempt via odbcconf.exe execution to load DLL

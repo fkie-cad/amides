@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*\rundll32.exe *,InstallArcherSvc"'
+pre_detector:
+  case_condition: directly
+  id: 3d4aebe0-6d29-45b2-a8a4-3dfde586a26d
+  mitre:
+  - attack.execution
+  - attack.defense_evasion
+  - attack.t1218.011
+  - attack.t1085
+  severity: high
+  title: Fireball Archer Install
+sigma_fields: true
+description: Detects Archer malware invocation via rundll32

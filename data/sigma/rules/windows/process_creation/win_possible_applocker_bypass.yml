@@ -1,0 +1,21 @@
+filter: 'process.command_line: ("*\msdt.exe*" OR "*\installutil.exe*" OR "*\regsvcs.exe*"
+  OR "*\regasm.exe*" OR "*\msbuild.exe*" OR "*\ieexec.exe*")'
+pre_detector:
+  case_condition: directly
+  id: 82a19e3a-2bfe-4a91-8c0d-5d4c98fbb719
+  mitre:
+  - attack.defense_evasion
+  - attack.t1118
+  - attack.t1218.004
+  - attack.t1121
+  - attack.t1218.009
+  - attack.t1127
+  - attack.t1127.001
+  - attack.t1170
+  - attack.t1218.005
+  - attack.t1218
+  severity: low
+  title: Possible Applocker Bypass
+sigma_fields: true
+description: Detects execution of executables that can be used to bypass Applocker
+  whitelisting

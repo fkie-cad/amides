@@ -1,0 +1,14 @@
+filter: 'process.executable: ("*\wscript.exe" OR "*\cscript.exe") AND process.command_line:
+  ("*.jse*" OR "*.vbe*" OR "*.js*" OR "*.vba*")'
+pre_detector:
+  case_condition: directly
+  id: 1e33157c-53b1-41ad-bbcc-780b80b58288
+  mitre:
+  - attack.execution
+  - attack.t1059.005
+  - attack.t1059.007
+  - attack.t1064
+  severity: medium
+  title: WSF/JSE/JS/VBA/VBE File Execution
+sigma_fields: true
+description: Detects suspicious file execution by wscript and cscript

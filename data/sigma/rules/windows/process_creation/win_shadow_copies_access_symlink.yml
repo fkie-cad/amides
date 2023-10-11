@@ -1,0 +1,14 @@
+filter: 'process.command_line: "*mklink*" AND process.command_line: "*HarddiskVolumeShadowCopy*"'
+pre_detector:
+  case_condition: directly
+  id: 40b19fa6-d835-400c-b301-41f3a2baacaf
+  mitre:
+  - attack.credential_access
+  - attack.t1003
+  - attack.t1003.002
+  - attack.t1003.003
+  severity: medium
+  title: Shadow Copies Access via Symlink
+sigma_fields: true
+description: Shadow Copies storage symbolic link creation using operating systems
+  utilities

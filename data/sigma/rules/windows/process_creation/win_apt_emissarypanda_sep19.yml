@@ -1,0 +1,13 @@
+filter: 'process.parent.executable: "*\sllauncher.exe" AND process.executable: "*\svchost.exe"'
+pre_detector:
+  case_condition: directly
+  id: 9aa01d62-7667-4d3b-acb8-8cb5103e2014
+  mitre:
+  - attack.defense_evasion
+  - attack.t1073
+  - attack.t1574.002
+  severity: critical
+  title: Emissary Panda Malware SLLauncher
+sigma_fields: true
+description: Detects the execution of DLL side-loading malware used by threat group
+  Emissary Panda aka APT27

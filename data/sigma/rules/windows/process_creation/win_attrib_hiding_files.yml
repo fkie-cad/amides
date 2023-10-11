@@ -1,0 +1,15 @@
+filter: 'process.executable: "*\attrib.exe" AND process.command_line: "* +h *" AND
+  NOT (process.command_line: "*\desktop.ini *" OR (process.parent.executable: "*\cmd.exe"
+  AND process.command_line: "+R +H +S +A \\*.cui" AND process.parent.command_line:
+  "C:\WINDOWS\system32\\*.bat"))'
+pre_detector:
+  case_condition: directly
+  id: 4281cb20-2994-4580-aa63-c8b86d019934
+  mitre:
+  - attack.defense_evasion
+  - attack.t1564.001
+  - attack.t1158
+  severity: low
+  title: Hiding Files with Attrib.exe
+sigma_fields: true
+description: Detects usage of attrib.exe to hide files from users.

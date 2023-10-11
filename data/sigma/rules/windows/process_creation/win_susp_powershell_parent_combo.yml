@@ -1,0 +1,14 @@
+filter: 'process.parent.executable: ("*\wscript.exe" OR "*\cscript.exe") AND process.executable:
+  "*\powershell.exe" AND NOT process.working_directory: "*\Health Service State\\*"'
+pre_detector:
+  case_condition: directly
+  id: 95eadcb2-92e4-4ed1-9031-92547773a6db
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  severity: medium
+  title: Suspicious PowerShell Invocation Based on Parent Process
+sigma_fields: true
+description: Detects suspicious powershell invocations from interpreters or unusual
+  programs

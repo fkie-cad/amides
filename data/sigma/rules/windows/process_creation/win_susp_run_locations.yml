@@ -1,0 +1,15 @@
+filter: 'process.executable: ("*:\RECYCLER\\*" OR "*:\SystemVolumeInformation\\*"
+  OR "C:\\Windows\\Tasks\\*" OR "C:\\Windows\\debug\\*" OR "C:\\Windows\\fonts\\*"
+  OR "C:\\Windows\\help\\*" OR "C:\\Windows\\drivers\\*" OR "C:\\Windows\\addins\\*"
+  OR "C:\\Windows\\cursors\\*" OR "C:\\Windows\\system32\tasks\\*")'
+pre_detector:
+  case_condition: directly
+  id: 15b75071-74cc-47e0-b4c6-b43744a62a2b
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  - car.2013-05-002
+  severity: medium
+  title: Suspicious Process Start Locations
+sigma_fields: true
+description: Detects suspicious process run from unusual locations

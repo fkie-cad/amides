@@ -1,0 +1,15 @@
+filter: '(process.executable: "*\rundll32.exe" OR winlog.event_data.OriginalFilename:
+  "RUNDLL32.EXE") AND process.command_line: ("*comsvcs*MiniDump*full*" OR "*comsvcs*MiniDumpW*full*")'
+pre_detector:
+  case_condition: directly
+  id: 09e6d5c0-05b8-4ff8-9eeb-043046ec774c
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.011
+  - attack.credential_access
+  - attack.t1003.001
+  - attack.t1003
+  severity: medium
+  title: Process Dump via Comsvcs DLL
+sigma_fields: true
+description: Detects process memory dump via comsvcs.dll and rundll32

@@ -1,0 +1,12 @@
+filter: 'process.parent.executable: "*\conhost.exe"'
+pre_detector:
+  case_condition: directly
+  id: 7dc2dedd-7603-461a-bc13-15803d132355
+  mitre:
+  - attack.defense_evasion
+  - attack.t1202
+  severity: medium
+  title: Conhost Parent Proces Executions
+sigma_fields: true
+description: Detects the conhost execution as parent process. Can be used to evaded
+  defense mechanism.

@@ -1,0 +1,14 @@
+filter: 'process.parent.executable: "*\WSreset.exe"'
+pre_detector:
+  case_condition: directly
+  id: bdc8918e-a1d5-49d1-9db7-ea0fd91aa2ae
+  mitre:
+  - attack.privilege_escalation
+  - attack.defense_evasion
+  - attack.t1548.002
+  - attack.t1088
+  severity: high
+  title: Wsreset UAC Bypass
+sigma_fields: true
+description: Detects a method that uses Wsreset.exe tool that can be used to reset
+  the Windows Store to bypass UAC

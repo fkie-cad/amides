@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\Microsoft.Workflow.Compiler.exe"'
+pre_detector:
+  case_condition: directly
+  id: 419dbf2b-8a9b-4bea-bf99-7544b050ec8d
+  mitre:
+  - attack.defense_evasion
+  - attack.execution
+  - attack.t1127
+  severity: high
+  title: Microsoft Workflow Compiler
+sigma_fields: true
+description: Detects invocation of Microsoft Workflow Compiler, which may permit the
+  execution of arbitrary unsigned code.

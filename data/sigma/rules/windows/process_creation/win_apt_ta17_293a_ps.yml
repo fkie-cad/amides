@@ -1,0 +1,15 @@
+filter: 'process.command_line: "ps.exe -accepteula"'
+pre_detector:
+  case_condition: directly
+  id: 18da1007-3f26-470f-875d-f77faf1cab31
+  mitre:
+  - attack.defense_evasion
+  - attack.g0035
+  - attack.t1036
+  - attack.t1036.003
+  - car.2013-05-009
+  severity: high
+  title: Ps.exe Renamed SysInternals Tool
+sigma_fields: true
+description: Detects renamed SysInternals tool execution with a binary named ps.exe
+  as used by Dragonfly APT group and documented in TA17-293A report

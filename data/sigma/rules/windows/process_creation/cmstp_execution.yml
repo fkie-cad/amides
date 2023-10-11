@@ -1,0 +1,16 @@
+filter: 'process.parent.executable: "*\cmstp.exe"'
+pre_detector:
+  case_condition: directly
+  id: 7d4cdc5a-0076-40ca-aac8-f7e714570e47
+  mitre:
+  - attack.defense_evasion
+  - attack.execution
+  - attack.t1191
+  - attack.t1218.003
+  - attack.g0069
+  - car.2019-04-001
+  severity: high
+  title: CMSTP Execution Process Creation
+sigma_fields: true
+description: Detects various indicators of Microsoft Connection Manager Profile Installer
+  execution

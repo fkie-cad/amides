@@ -1,0 +1,15 @@
+filter: 'process.executable: "*\bcdedit.exe" AND process.command_line: ("*delete*"
+  OR "*deletevalue*" OR "*import*")'
+pre_detector:
+  case_condition: directly
+  id: c9fbe8e9-119d-40a6-9b59-dd58a5d84429
+  mitre:
+  - attack.defense_evasion
+  - attack.t1070
+  - attack.persistence
+  - attack.t1542.003
+  - attack.t1067
+  severity: medium
+  title: Possible Ransomware or Unauthorized MBR Modifications
+sigma_fields: true
+description: Detects, possibly, malicious unauthorized usage of bcdedit.exe

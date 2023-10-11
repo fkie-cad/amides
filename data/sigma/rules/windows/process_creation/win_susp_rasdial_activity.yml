@@ -1,0 +1,13 @@
+filter: 'process.executable: "*rasdial.exe"'
+pre_detector:
+  case_condition: directly
+  id: 6bba49bf-7f8c-47d6-a1bb-6b4dece4640e
+  mitre:
+  - attack.defense_evasion
+  - attack.execution
+  - attack.t1059
+  - attack.t1064
+  severity: medium
+  title: Suspicious RASdial Activity
+sigma_fields: true
+description: Detects suspicious process related to rasdial.exe

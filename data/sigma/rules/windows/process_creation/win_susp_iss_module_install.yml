@@ -1,0 +1,12 @@
+filter: 'process.command_line: "*\APPCMD.EXE install module /name:*"'
+pre_detector:
+  case_condition: directly
+  id: 9465ddf4-f9e4-4ebd-8d98-702df3a93239
+  mitre:
+  - attack.persistence
+  - attack.t1505.003
+  - attack.t1100
+  severity: medium
+  title: IIS Native-Code Module Command Line Installation
+sigma_fields: true
+description: Detects suspicious IIS native-code module installations via command line

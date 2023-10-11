@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\netsh.exe" AND process.command_line: "*add*" AND process.command_line:
+  "*helper*"'
+pre_detector:
+  case_condition: directly
+  id: 56321594-9087-49d9-bf10-524fe8479452
+  mitre:
+  - attack.persistence
+  - attack.t1546.007
+  - attack.s0108
+  - attack.t1128
+  severity: high
+  title: Suspicious Netsh DLL Persistence
+sigma_fields: true
+description: Detects persitence via netsh helper

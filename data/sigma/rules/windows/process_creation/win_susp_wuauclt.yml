@@ -1,0 +1,14 @@
+filter: 'process.command_line: "*/UpdateDeploymentProvider*" AND process.command_line:
+  "*/RunHandlerComServer*" AND process.executable: "*\wuauclt.exe"'
+pre_detector:
+  case_condition: directly
+  id: d7825193-b70a-48a4-b992-8b5b3015cc11
+  mitre:
+  - attack.command_and_control
+  - attack.execution
+  - attack.t1105
+  - attack.t1218
+  severity: high
+  title: Windows Update Client LOLBIN
+sigma_fields: true
+description: Detects code execution via the Windows Update client (wuauclt)

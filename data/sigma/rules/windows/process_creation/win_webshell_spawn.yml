@@ -1,0 +1,16 @@
+filter: 'process.parent.executable: ("*\w3wp.exe" OR "*\httpd.exe" OR "*\nginx.exe"
+  OR "*\php-cgi.exe" OR "*\tomcat.exe") AND process.executable: ("*\cmd.exe" OR "*\sh.exe"
+  OR "*\bash.exe" OR "*\powershell.exe" OR "*\bitsadmin.exe")'
+pre_detector:
+  case_condition: directly
+  id: 8202070f-edeb-4d31-a010-a26c72ac5600
+  mitre:
+  - attack.persistence
+  - attack.t1505.003
+  - attack.privilege_escalation
+  - attack.t1190
+  severity: high
+  title: Shells Spawned by Web Servers
+sigma_fields: true
+description: Web servers that spawn shell processes could be the result of a successfully
+  placed web shell or an other attack

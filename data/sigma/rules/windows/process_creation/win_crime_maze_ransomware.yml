@@ -1,0 +1,19 @@
+filter: '(process.parent.executable: "*\WINWORD.exe" AND process.executable: "*.tmp")
+  OR (process.executable: "*\wmic.exe" AND process.parent.executable: "*\Temp\\*"
+  AND process.command_line: "*shadowcopy delete") OR (process.command_line: "*shadowcopy
+  delete" AND process.command_line: "*\..\..\system32*")'
+pre_detector:
+  case_condition: directly
+  id: 29fd07fc-9cfd-4331-b7fd-cc18dfa21052
+  mitre:
+  - attack.execution
+  - attack.t1204.002
+  - attack.t1204
+  - attack.t1047
+  - attack.impact
+  - attack.t1490
+  severity: critical
+  title: Maze Ransomware
+sigma_fields: true
+description: Detects specific process characteristics of Maze ransomware word document
+  droppers

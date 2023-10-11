@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\cdb.exe" AND process.command_line: "*-cf*"'
+pre_detector:
+  case_condition: directly
+  id: b5c7395f-e501-4a08-94d4-57fe7a9da9d2
+  mitre:
+  - attack.execution
+  - attack.t1106
+  - attack.defense_evasion
+  - attack.t1218
+  - attack.t1127
+  severity: medium
+  title: Possible App Whitelisting Bypass via WinDbg/CDB as a Shellcode Runner
+sigma_fields: true
+description: Launch 64-bit shellcode from a debugger script file using cdb.exe.

@@ -1,0 +1,23 @@
+filter: 'process.parent.executable: "*\powershell.exe" AND process.command_line: ("*schtasks*/Create*/SC
+  *ONLOGON*/TN *Updater*/TR *powershell*" OR "*schtasks*/Create*/SC *DAILY*/TN *Updater*/TR
+  *powershell*" OR "*schtasks*/Create*/SC *ONIDLE*/TN *Updater*/TR *powershell*" OR
+  "*schtasks*/Create*/SC *Updater*/TN *Updater*/TR *powershell*")'
+pre_detector:
+  case_condition: directly
+  id: 56c217c3-2de2-479b-990f-5c109ba8458f
+  mitre:
+  - attack.execution
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.t1053
+  - attack.t1086
+  - attack.s0111
+  - attack.g0022
+  - attack.g0060
+  - car.2013-08-001
+  - attack.t1053.005
+  - attack.t1059.001
+  severity: high
+  title: Default PowerSploit and Empire Schtasks Persistence
+sigma_fields: true
+description: Detects the creation of a schtask via PowerSploit or Empire Default Configuration.

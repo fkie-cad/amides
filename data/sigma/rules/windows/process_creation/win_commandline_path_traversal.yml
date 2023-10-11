@@ -1,0 +1,13 @@
+filter: 'process.parent.command_line: "*cmd*/c*" AND process.command_line: "*/../../*"'
+pre_detector:
+  case_condition: directly
+  id: 087790e3-3287-436c-bccf-cbd0184a7db1
+  mitre:
+  - attack.execution
+  - attack.t1059.003
+  - attack.t1059
+  severity: high
+  title: Cmd.exe CommandLine Path Traversal
+sigma_fields: true
+description: detects the usage of path traversal in cmd.exe indicating possible command/argument
+  confusion/hijacking

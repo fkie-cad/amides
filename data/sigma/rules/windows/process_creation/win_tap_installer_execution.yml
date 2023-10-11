@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\tapinstall.exe"'
+pre_detector:
+  case_condition: directly
+  id: 99793437-3e16-439b-be0f-078782cf953d
+  mitre:
+  - attack.exfiltration
+  - attack.t1048
+  severity: medium
+  title: Tap Installer Execution
+sigma_fields: true
+description: Well-known TAP software installation. Possible preparation for data exfiltration
+  using tunneling techniques

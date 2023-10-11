@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\ditsnap.exe" OR process.command_line: "*ditsnap.exe*"'
+pre_detector:
+  case_condition: directly
+  id: d3b70aad-097e-409c-9df2-450f80dc476b
+  mitre:
+  - attack.credential_access
+  - attack.t1003.003
+  - attack.t1003
+  severity: high
+  title: DIT Snapshot Viewer Use
+sigma_fields: true
+description: Detects the use of Ditsnap tool. Seems to be a tool for ransomware groups.

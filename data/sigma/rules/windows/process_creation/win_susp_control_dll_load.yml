@@ -1,0 +1,14 @@
+filter: 'process.parent.executable: "*\System32\control.exe" AND process.command_line:
+  "*\rundll32.exe *" AND NOT process.command_line: "*Shell32.dll*"'
+pre_detector:
+  case_condition: directly
+  id: d7eb979b-c2b5-4a6f-a3a7-c87ce6763819
+  mitre:
+  - attack.defense_evasion
+  - attack.t1085
+  - attack.t1218.011
+  severity: high
+  title: Suspicious Control Panel DLL Load
+sigma_fields: true
+description: Detects suspicious Rundll32 execution from control.exe as used by Equation
+  Group and Exploit Kits

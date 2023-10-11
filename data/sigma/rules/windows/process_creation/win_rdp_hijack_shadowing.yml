@@ -1,0 +1,11 @@
+filter: 'process.command_line: "*noconsentprompt*" AND process.command_line: "*shadow:*"'
+pre_detector:
+  case_condition: directly
+  id: 6ba5a05f-b095-4f0a-8654-b825f4f16334
+  mitre:
+  - attack.lateral_movement
+  - attack.t1563.002
+  severity: high
+  title: MSTSC Shadowing
+sigma_fields: true
+description: Detects RDP session hijacking by using MSTSC shadowing

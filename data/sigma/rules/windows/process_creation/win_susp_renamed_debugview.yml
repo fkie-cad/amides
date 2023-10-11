@@ -1,0 +1,11 @@
+filter: 'winlog.event_data.Product: ("Sysinternals DebugView" OR "Sysinternals Debugview")
+  AND NOT (winlog.event_data.OriginalFilename: "Dbgview.exe" AND process.executable:
+  "*\Dbgview.exe")'
+pre_detector:
+  case_condition: directly
+  id: cd764533-2e07-40d6-a718-cfeec7f2da7f
+  mitre: []
+  severity: high
+  title: Renamed SysInternals Debug View
+sigma_fields: true
+description: Detects suspicious renamed SysInternals DebugView execution

@@ -1,0 +1,19 @@
+filter: 'process.executable: ("*\svchost.exe" OR "*\rundll32.exe" OR "*\services.exe"
+  OR "*\powershell.exe" OR "*\regsvr32.exe" OR "*\spoolsv.exe" OR "*\lsass.exe" OR
+  "*\smss.exe" OR "*\csrss.exe" OR "*\conhost.exe" OR "*\wininit.exe" OR "*\lsm.exe"
+  OR "*\winlogon.exe" OR "*\explorer.exe" OR "*\taskhost.exe" OR "*\Taskmgr.exe" OR
+  "*\sihost.exe" OR "*\RuntimeBroker.exe" OR "*\smartscreen.exe" OR "*\dllhost.exe"
+  OR "*\audiodg.exe" OR "*\wlanext.exe") AND NOT process.executable: ("C:\Windows\System32\\*"
+  OR "C:\Windows\system32\\*" OR "C:\Windows\SysWow64\\*" OR "C:\Windows\SysWOW64\\*"
+  OR "C:\Windows\explorer.exe" OR "C:\Windows\winsxs\\*" OR "C:\Windows\WinSxS\\*"
+  OR "\SystemRoot\System32\\*")'
+pre_detector:
+  case_condition: directly
+  id: e4a6b256-3e47-40fc-89d2-7a477edd6915
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  severity: high
+  title: System File Execution Location Anomaly
+sigma_fields: true
+description: Detects a Windows program executable started in a suspicious folder
