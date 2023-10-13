@@ -1,0 +1,7 @@
+{
+    "winlog": {
+        "event_data": {
+            "Details": "%%systemroot%%\\Temp\\calc.exe"
+        }
+    }
+}

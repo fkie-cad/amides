@@ -1,0 +1,14 @@
+filter: 'process.command_line: "*(WCHAR)0x*"'
+pre_detector:
+  case_condition: directly
+  id: e312efd0-35a1-407f-8439-b8d434b438a6
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  - attack.defense_evasion
+  - attack.t1027
+  severity: high
+  title: PowerShell Encoded Character Syntax
+sigma_fields: true
+description: Detects suspicious encoded character syntax often used for defense evasion

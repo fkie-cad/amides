@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:27:35.093Z",
+  "event": {
+    "code": 1,
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.125Z",
+    "kind": "event"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "name": "CLIENT",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1200,
+    "api": "wineventlog",
+    "computer_name": "CLIENT",
+    "version": 5,
+    "event_data": {
+      "Description": "Windows Logon User Interface Host",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "OriginalFileName": "logonui.exe",
+      "LogonGuid": "{19FC45AC-74C3-601C-0000-0020E7030000}",
+      "IntegrityLevel": "System"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "process": {
+      "thread": {
+        "id": 1512
+      },
+      "pid": 1684
+    },
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-74D7-601C-0000-0010CAA40300}",
+    "pid": 2912,
+    "executable": "C:\\Program Files\\Wireshark\\tshark.exe",
+    "parent": {
+      "entity_id": "{19FC45AC-74C2-601C-0000-00103F590000}",
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\wininit.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ]
+    },
+    "command_line": "tshark.exe -i Ethernet",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "LogonUI.exe",
+    "args": [
+      "LogonUI.exe",
+      "/flags:0x1"
+    ],
+    "hash": {
+      "md5": "3ef0d8ab08385aab5802e773511a2e6a",
+      "sha256": "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+    }
+  },
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:35.093\nProcessGuid: {19FC45AC-74D7-601C-0000-0010CAA40300}\nProcessId: 2912\nImage: C:\\Windows\\System32\\LogonUI.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Logon User Interface Host\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: logonui.exe\nCommandLine: \"LogonUI.exe\" /flags:0x1\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C3-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=3EF0D8AB08385AAB5802E773511A2E6A,SHA256=1A7EE4BC646767004372EAEA9BC0A2071790E739101F7D25ECD9C95D3F29AFD6\nParentProcessGuid: {19FC45AC-74C2-601C-0000-00103F590000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "3ef0d8ab08385aab5802e773511a2e6a",
+      "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+    ]
+  },
+  "hash": {
+    "md5": "3ef0d8ab08385aab5802e773511a2e6a",
+    "sha256": "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  }
+}

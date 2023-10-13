@@ -1,0 +1,23 @@
+{
+    "model_type": "misuse",
+    "malicious_samples_type": "rule_filters",
+    "tainted_benign_samples": 10.0,
+    "tokenization": "comma_separation",
+    "vectorization": "tfidf",
+    "ngram_mode": "word",
+    "ngram_range": "(1,1)",
+    "search_params": true,
+    "search_method": "GridSearchCV",
+    "cv": 5,
+    "scoring": "f1",
+    "mcc_scaling": true,
+    "mcc_threshold": 0.1,
+    "num_jobs": 1,
+    "save_data": true,
+    "num_iterations": 10,
+    "benign_samples": "../data/socbed/process_creation/train",
+    "events_dir": "../data/sigma/events/windows/process_creation",
+    "rules_dir": "../data/sigma/rules/windows/process_creation",
+    "result_name": "misuse_svc_rules_tainted_10_f1",
+    "out_dir": "models/process_creation/tainted/10"
+}

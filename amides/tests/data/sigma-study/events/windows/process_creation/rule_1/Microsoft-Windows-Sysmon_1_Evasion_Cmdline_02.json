@@ -1,0 +1,10 @@
+{
+  "@timestamp": "2021-02-05T09:02:00.656Z",
+  "winlog": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "process": {
+    "command_line": "cmd.exe /c taskkill.exe /im cmd.exe"
+  }
+}

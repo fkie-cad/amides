@@ -1,0 +1,15 @@
+filter: 'process.command_line: "*setup0.exe -p*" OR process.command_line: ("*setup.exe
+  -x:0" OR "*setup.exe -x:1" OR "*setup.exe -x:2")'
+pre_detector:
+  case_condition: directly
+  id: 73d70463-75c9-4258-92c6-17500fe972f2
+  mitre:
+  - attack.defense_evasion
+  - attack.t1574.002
+  - attack.t1073
+  - attack.g0044
+  severity: critical
+  title: Winnti Pipemon Characteristics
+sigma_fields: true
+description: Detects specific process characteristics of Winnti Pipemon malware reported
+  by ESET

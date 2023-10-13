@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\sc.exe" AND process.command_line: "*config*" AND process.command_line:
+  "*binpath*" AND process.command_line: ("*powershell*" OR "*cmd*")'
+pre_detector:
+  case_condition: directly
+  id: 138d3531-8793-4f50-a2cd-f291b2863d78
+  mitre:
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.t1543.003
+  - attack.t1031
+  severity: high
+  title: Suspicious Service Path Modification
+sigma_fields: true
+description: Detects service path modification to powershell/cmd

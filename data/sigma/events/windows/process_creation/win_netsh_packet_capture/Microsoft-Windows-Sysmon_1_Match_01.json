@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T21:06:01.422Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 21:06:01.422\nProcessGuid: {19FC45AC-61B9-601C-0000-0010602A1400}\nProcessId: 244\nImage: C:\\Windows\\explorer.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Explorer\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: EXPLORER.EXE\nCommandLine: \"C:\\Windows\\explorer.exe\" \nCurrentDirectory: C:\\Windows\\system32\\\nUser: client\\breach\nLogonGuid: {19FC45AC-53AD-601C-0000-002012560200}\nLogonId: 0x25612\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=40D777B7A95E00593EB1568C68514493,SHA256=0A8CE026714E03E72C619307BD598ADD5F9B639CFD91437CB8D9C847BF9F6894\nParentProcessGuid: {19FC45AC-53AF-601C-0000-0010E7660300}\nParentProcessId: 1876\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T21:06:02.631Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "name": "CLIENT",
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "related": {
+    "user": "breach",
+    "hash": [
+      "40d777b7a95e00593eb1568c68514493",
+      "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT",
+    "ephemeral_id": "66b561db-e9d4-4076-b78e-c4ce9eada53c"
+  },
+  "winlog": {
+    "event_data": {
+      "Company": "Microsoft Corporation",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0x25612",
+      "IntegrityLevel": "High",
+      "TerminalSessionId": "1",
+      "Description": "Windows Explorer",
+      "OriginalFileName": "EXPLORER.EXE",
+      "LogonGuid": "{19FC45AC-53AD-601C-0000-002012560200}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "opcode": "Info",
+    "computer_name": "CLIENT",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "version": 5,
+    "api": "wineventlog",
+    "record_id": 1147,
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "event_id": 1
+  },
+  "process": {
+    "name": "explorer.exe",
+    "entity_id": "{19FC45AC-61B9-601C-0000-0010602A1400}",
+    "pid": 244,
+    "executable": "C:\\Windows\\explorer.exe",
+    "parent": {
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-53AF-601C-0000-0010E7660300}",
+      "pid": 1876,
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE"
+    },
+    "command_line": "netsh.exe trace start capture=yes",
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\explorer.exe"
+    ],
+    "hash": {
+      "md5": "40d777b7a95e00593eb1568c68514493",
+      "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+    }
+  },
+  "user": {
+    "domain": "client",
+    "name": "breach"
+  },
+  "hash": {
+    "md5": "40d777b7a95e00593eb1568c68514493",
+    "sha256": "0a8ce026714e03e72c619307bd598add5f9b639cfd91437cb8d9c847bf9f6894"
+  }
+}

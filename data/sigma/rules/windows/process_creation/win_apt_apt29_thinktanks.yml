@@ -1,0 +1,15 @@
+filter: 'process.command_line: "*-noni -ep bypass $*"'
+pre_detector:
+  case_condition: directly
+  id: 033fe7d6-66d1-4240-ac6b-28908009c71f
+  mitre:
+  - attack.execution
+  - attack.g0016
+  - attack.t1086
+  - attack.t1059
+  - attack.t1059.001
+  severity: critical
+  title: APT29
+sigma_fields: true
+description: This method detects a suspicious powershell command line combination
+  as used by APT29 in a campaign against US think tanks

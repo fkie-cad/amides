@@ -1,0 +1,5 @@
+{
+  "process": {
+    "command_line": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\CPLs\" /v spotless /d C:\\labs\\cplAddin\\cplAddin\\x64\\Release\\cplAddin2.cpl"
+  }
+}

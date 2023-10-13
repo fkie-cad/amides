@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:08.828Z",
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "866a43013535dc8587c258e43579c764",
+      "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    ]
+  },
+  "winlog": {
+    "record_id": 1218,
+    "computer_name": "CLIENT3",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Description": "Windows PowerShell",
+      "TerminalSessionId": "0",
+      "LogonGuid": "{19FC45AC-74F7-601C-0000-0020E7030000}",
+      "OriginalFileName": "spoolsv.exe",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System"
+    },
+    "event_id": 1,
+    "api": "wineventlog",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "process": {
+      "pid": 1516,
+      "thread": {
+        "id": 1780
+      }
+    }
+  },
+  "event": {
+    "code": 1,
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.050Z",
+    "kind": "event"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:08.828\nProcessGuid: {19FC45AC-74F8-601C-0000-00100C0D0100}\nProcessId: 1208\nImage: C:\\Windows\\System32\\spoolsv.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Spooler SubSystem App\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: spoolsv.exe\nCommandLine: C:\\Windows\\System32\\spoolsv.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74F7-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=866A43013535DC8587C258E43579C764,SHA256=B2BE846B5167A2ECD1E30C69A81385FCC6EAE6033394D08458A5583D311C4D82\nParentProcessGuid: {19FC45AC-74F7-601C-0000-0010FE630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-74F7-601C-0000-0010FE630000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "command_line": "powershell -C -join('a', 'b')",
+    "name": "spoolsv.exe",
+    "args": [
+      "C:\\Windows\\System32\\spoolsv.exe"
+    ],
+    "hash": {
+      "md5": "866a43013535dc8587c258e43579c764",
+      "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    },
+    "entity_id": "{19FC45AC-74F8-601C-0000-00100C0D0100}",
+    "pid": 1208,
+    "executable": "C:\\Windows\\System32\\spoolsv.exe"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "866a43013535dc8587c258e43579c764",
+    "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "name": "CLIENT3"
+  },
+  "log": {
+    "level": "information"
+  }
+}

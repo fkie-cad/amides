@@ -1,0 +1,32 @@
+filter: '(((((((((((process.executable: "*\CamMute.exe" AND NOT (process.executable:
+  "*\Lenovo\Communication Utility\\*")) OR (process.executable: "*\chrome_frame_helper.exe"
+  AND NOT (process.executable: "*\Google\Chrome\application\\*"))) OR (process.executable:
+  "*\dvcemumanager.exe" AND NOT (process.executable: "*\Microsoft Device Emulator\\*")))
+  OR (process.executable: "*\Gadget.exe" AND NOT (process.executable: "*\Windows Media
+  Player\\*"))) OR (process.executable: "*\hcc.exe" AND NOT (process.executable: "*\HTML
+  Help Workshop\\*"))) OR (process.executable: "*\hkcmd.exe" AND NOT (process.executable:
+  ("*\System32\\*" OR "*\SysNative\\*" OR "*\SysWowo64\\*")))) OR (process.executable:
+  "*\Mc.exe" AND NOT (process.executable: ("*\Microsoft Visual Studio*" OR "*\Microsoft
+  SDK*" OR "*\Windows Kit*")))) OR (process.executable: "*\MsMpEng.exe" AND NOT (process.executable:
+  ("*\Microsoft Security Client\\*" OR "*\Windows Defender\\*" OR "*\AntiMalware\\*"))))
+  OR (process.executable: "*\msseces.exe" AND NOT (process.executable: ("*\Microsoft
+  Security Center\\*" OR "*\Microsoft Security Client\\*" OR "*\Microsoft Security
+  Essentials\\*")))) OR (process.executable: "*\OInfoP11.exe" AND NOT (process.executable:
+  "*\Common Files\Microsoft Shared\\*"))) OR (process.executable: "*\OleView.exe"
+  AND NOT (process.executable: ("*\Microsoft Visual Studio*" OR "*\Microsoft SDK*"
+  OR "*\Windows Kit*" OR "*\Windows Resource Kit\\*")))) OR (process.executable: "*\rc.exe"
+  AND NOT (process.executable: ("*\Microsoft Visual Studio*" OR "*\Microsoft SDK*"
+  OR "*\Windows Kit*" OR "*\Windows Resource Kit\\*" OR "*\Microsoft.NET\\*")))'
+pre_detector:
+  case_condition: directly
+  id: aeab5ec5-be14-471a-80e8-e344418305c2
+  mitre:
+  - attack.s0013
+  - attack.defense_evasion
+  - attack.t1073
+  - attack.t1574.002
+  severity: high
+  title: Executable Used by PlugX in Uncommon Location
+sigma_fields: true
+description: Detects the execution of an executable that is typically used by PlugX
+  for DLL side loading started from an uncommon location

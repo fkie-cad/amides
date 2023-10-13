@@ -1,0 +1,16 @@
+filter: '(process.executable: "*\wmic.exe" AND process.command_line: "*/format*")
+  OR process.executable: "*\msxsl.exe"'
+pre_detector:
+  case_condition: directly
+  id: 05c36dd6-79d6-4a9a-97da-3db20298ab2d
+  mitre:
+  - attack.defense_evasion
+  - attack.t1220
+  - attack.execution
+  severity: medium
+  title: XSL Script Processing
+sigma_fields: true
+description: Extensible Stylesheet Language (XSL) files are commonly used to describe
+  the processing and rendering of data within XML files, rule detects when adversaries
+  abuse this functionality to execute arbitrary files while potentially bypassing
+  application whitelisting defenses

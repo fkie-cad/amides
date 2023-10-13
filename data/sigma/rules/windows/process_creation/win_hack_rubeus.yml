@@ -1,0 +1,18 @@
+filter: 'process.command_line: ("* asreproast *" OR "* dump /service:krbtgt *" OR
+  "* kerberoast *" OR "* createnetonly /program:*" OR "* ptt /ticket:*" OR "* /impersonateuser:*"
+  OR "* renew /ticket:*" OR "* asktgt /user:*" OR "* harvest /interval:*")'
+pre_detector:
+  case_condition: directly
+  id: 7ec2c172-dceb-4c10-92c9-87c1881b7e18
+  mitre:
+  - attack.credential_access
+  - attack.t1003
+  - attack.t1558.003
+  - attack.t1558
+  - attack.lateral_movement
+  - attack.t1550.003
+  - attack.t1097
+  severity: critical
+  title: Rubeus Hack Tool
+sigma_fields: true
+description: Detects command line parameters used by Rubeus hack tool

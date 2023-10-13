@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:19.031Z",
+  "host": {
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT2",
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:19.031\nProcessGuid: {19FC45AC-7503-601C-0000-001078D80200}\nProcessId: 2372\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\nFileVersion: 10.0.14409.1005 (rs1_srvoob.161208-1155)\nDescription: Windows PowerShell\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: PowerShell.EXE\nCommandLine: powershell \"$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force\"\nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT2\\setup\nLogonGuid: {19FC45AC-74FF-601C-0000-002049330200}\nLogonId: 0x23349\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=EB32C070E658937AA9FA9F3AE629B2B8,SHA256=70BA57FB0BF2F34B86426D21559F5F6D05C1268193904DE8E959D7B06CE964CE\nParentProcessGuid: {19FC45AC-7500-601C-0000-001020A80200}\nParentProcessId: 2200\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "related": {
+    "user": "setup",
+    "hash": [
+      "eb32c070e658937aa9fa9f3ae629b2b8",
+      "70ba57fb0bf2f34b86426d21559f5f6d05c1268193904de8e959d7b06ce964ce"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_id": 1,
+    "event_data": {
+      "LogonId": "0x23349",
+      "TerminalSessionId": "1",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "High",
+      "Description": "Windows PowerShell",
+      "OriginalFileName": "PowerShell.EXE",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonGuid": "{19FC45AC-74FF-601C-0000-002049330200}",
+      "FileVersion": "10.0.14409.1005 (rs1_srvoob.161208-1155)"
+    },
+    "api": "wineventlog",
+    "record_id": 1242,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT2",
+    "opcode": "Info",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "process": {
+      "pid": 1488,
+      "thread": {
+        "id": 1752
+      }
+    },
+    "version": 5
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.407Z"
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\wbem\\WMIC.exe",
+    "command_line": "wmic nteventlog where filename=\"application\" cleareventlog ",
+    "parent": {
+      "pid": 2200,
+      "executable": "C:\\Program Files\\Python35-32\\python.exe",
+      "command_line": "\"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+      "name": "python.exe",
+      "args": [
+        "C:\\Program Files\\Python35-32\\python.exe",
+        "C:\\BREACH\\init_tbf_client.py"
+      ],
+      "entity_id": "{19FC45AC-7500-601C-0000-001020A80200}"
+    },
+    "name": "powershell.exe",
+    "args": [
+      "powershell",
+      "$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force"
+    ],
+    "entity_id": "{19FC45AC-7503-601C-0000-001078D80200}",
+    "pid": 2372,
+    "working_directory": "C:\\BREACH\\",
+    "hash": {
+      "md5": "eb32c070e658937aa9fa9f3ae629b2b8",
+      "sha256": "70ba57fb0bf2f34b86426d21559f5f6d05c1268193904de8e959d7b06ce964ce"
+    }
+  },
+  "user": {
+    "domain": "CLIENT2",
+    "name": "setup"
+  },
+  "hash": {
+    "md5": "eb32c070e658937aa9fa9f3ae629b2b8",
+    "sha256": "70ba57fb0bf2f34b86426d21559f5f6d05c1268193904de8e959d7b06ce964ce"
+  }
+}

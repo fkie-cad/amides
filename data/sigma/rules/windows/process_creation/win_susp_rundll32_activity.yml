@@ -1,0 +1,18 @@
+filter: 'process.command_line: ("*\rundll32.exe* url.dll,*OpenURL *" OR "*\rundll32.exe*
+  url.dll,*OpenURLA *" OR "*\rundll32.exe* url.dll,*FileProtocolHandler *" OR "*\rundll32.exe*
+  zipfldr.dll,*RouteTheCall *" OR "*\rundll32.exe* Shell32.dll,*Control_RunDLL *"
+  OR "*\rundll32.exe javascript:*" OR "* url.dll,*OpenURL *" OR "* url.dll,*OpenURLA
+  *" OR "* url.dll,*FileProtocolHandler *" OR "* zipfldr.dll,*RouteTheCall *" OR "*
+  Shell32.dll,*Control_RunDLL *" OR "* javascript:*" OR "*.RegisterXLL*")'
+pre_detector:
+  case_condition: directly
+  id: e593cf51-88db-4ee1-b920-37e89012a3c9
+  mitre:
+  - attack.defense_evasion
+  - attack.execution
+  - attack.t1218.011
+  - attack.t1085
+  severity: medium
+  title: Suspicious Rundll32 Activity
+sigma_fields: true
+description: Detects suspicious process related to rundll32 based on arguments

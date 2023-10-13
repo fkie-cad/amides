@@ -1,0 +1,15 @@
+filter: 'process.command_line: ("*reg.exe save hklm\sam %temp%\\~reg_sam.save*" OR
+  "*1q2w3e4r@#$@#$@#$*" OR "* -hp1q2w3e4 *" OR "*.dat data03 10000 -p *") OR (process.command_line:
+  "*process call create*" AND process.command_line: "* > %temp%\\~*") OR (process.command_line:
+  "*netstat -aon | find *" AND process.command_line: "* > %temp%\\~*") OR process.command_line:
+  "*.255 10 C:\ProgramData\\\*"'
+pre_detector:
+  case_condition: directly
+  id: 24c4d154-05a4-4b99-b57d-9b977472443a
+  mitre:
+  - attack.g0032
+  severity: critical
+  title: Lazarus Activity
+sigma_fields: true
+description: Detects different process creation events as described in various threat
+  reports on Lazarus group activity

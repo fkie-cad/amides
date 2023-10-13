@@ -1,0 +1,7 @@
+{
+    "valid_results": [
+        "models/process_creation/valid_rslt_misuse_svc_rules_f1_0.zip"
+    ],
+    "num_eval_thresholds": 50,
+    "out_dir": "models/process_creation"
+}

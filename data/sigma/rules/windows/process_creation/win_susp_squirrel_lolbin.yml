@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\update.exe" AND process.command_line: ("*--processStart*.exe*"
+  OR "*--processStartAndWait*.exe*" OR "*--createShortcut*.exe*")'
+pre_detector:
+  case_condition: directly
+  id: fa4b21c9-0057-4493-b289-2556416ae4d7
+  mitre:
+  - attack.execution
+  - attack.defense_evasion
+  - attack.t1218
+  severity: high
+  title: Squirrel Lolbin
+sigma_fields: true
+description: Detects Possible Squirrel Packages Manager as Lolbin

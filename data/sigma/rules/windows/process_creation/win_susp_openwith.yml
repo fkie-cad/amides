@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\OpenWith.exe" AND process.command_line: "*/c*"'
+pre_detector:
+  case_condition: directly
+  id: cec8e918-30f7-4e2d-9bfa-a59cc97ae60f
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218
+  - attack.execution
+  severity: high
+  title: OpenWith.exe Executes Specified Binary
+sigma_fields: true
+description: The OpenWith.exe executes other binary

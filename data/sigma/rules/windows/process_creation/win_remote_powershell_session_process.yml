@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\wsmprovhost.exe" OR process.parent.executable: "*\wsmprovhost.exe"'
+pre_detector:
+  case_condition: directly
+  id: 734f8d9b-42b8-41b2-bcf5-abaf49d5a3c8
+  mitre:
+  - attack.execution
+  - attack.t1086
+  - attack.t1059.001
+  severity: medium
+  title: Remote PowerShell Session
+sigma_fields: true
+description: Detects remote PowerShell sections by monitoring for wsmprovhost as a
+  parent or child process (sign of an active ps remote session)

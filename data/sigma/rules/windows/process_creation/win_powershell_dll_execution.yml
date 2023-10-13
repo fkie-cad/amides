@@ -1,0 +1,13 @@
+filter: '(process.executable: "*\rundll32.exe" OR winlog.event_data.Description: "*Windows-Hostprozess
+  (Rundll32)*") AND process.command_line: ("*Default.GetString*" OR "*FromBase64String*")'
+pre_detector:
+  case_condition: directly
+  id: 6812a10b-60ea-420c-832f-dfcc33b646ba
+  mitre:
+  - attack.defense_evasion
+  - attack.t1085
+  - attack.t1218.011
+  severity: high
+  title: Detection of PowerShell Execution via DLL
+sigma_fields: true
+description: Detects PowerShell Strings applied to rundll as seen in PowerShdll.dll

@@ -1,0 +1,3 @@
+{
+    "Keyless": "$foo=\"SaveNothing\"; Set-PSReadLineOption -HistorySaveStyle $foo"
+}

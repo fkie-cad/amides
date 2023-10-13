@@ -1,0 +1,21 @@
+filter: '(process.executable: "*\regsvr32.exe" AND process.command_line: "*\Temp\\*")
+  OR (process.executable: "*\regsvr32.exe" AND process.parent.executable: "*\powershell.exe")
+  OR (process.executable: "*\regsvr32.exe" AND process.parent.executable: "*\cmd.exe")
+  OR (process.executable: "*\regsvr32.exe" AND process.command_line: ("*/i:http* scrobj.dll"
+  OR "*/i:ftp* scrobj.dll")) OR (process.executable: "*\wscript.exe" AND process.parent.executable:
+  "*\regsvr32.exe") OR (process.executable: "*\EXCEL.EXE" AND process.command_line:
+  "*..\..\..\Windows\System32\regsvr32.exe *")'
+pre_detector:
+  case_condition: directly
+  id: 8e2b24c9-4add-46a0-b4bb-0057b4e6187d
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.010
+  - attack.execution
+  - attack.t1117
+  - car.2019-04-002
+  - car.2019-04-003
+  severity: high
+  title: Regsvr32 Anomaly
+sigma_fields: true
+description: Detects various anomalies in relation to regsvr32.exe

@@ -1,0 +1,12 @@
+filter: 'process.command_line: "*reg*" AND process.command_line: "* add *" AND process.command_line:
+  "*\Services\VSS\Diag*" AND process.command_line: "*/d Disabled*"'
+pre_detector:
+  case_condition: directly
+  id: dee4af55-1f22-4e1d-a9d2-4bdc7ecb472a
+  mitre:
+  - attack.defense_evasion
+  - attack.t1562.001
+  severity: high
+  title: Disabled Volume Snapshots
+sigma_fields: true
+description: Detects commands that temporarily turn off Volume Snapshots

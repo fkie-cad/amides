@@ -1,0 +1,13 @@
+filter: '(process.executable: "*\dsquery.exe" AND process.command_line: "*-filter*"
+  AND process.command_line: "*trustedDomain*") OR (process.executable: "*\nltest.exe"
+  AND process.command_line: "*domain_trusts*")'
+pre_detector:
+  case_condition: directly
+  id: 77815820-246c-47b8-9741-e0def3f57308
+  mitre:
+  - attack.discovery
+  - attack.t1482
+  severity: medium
+  title: Domain Trust Discovery 2 
+sigma_fields: true
+description: Detects a discovery of domain trusts

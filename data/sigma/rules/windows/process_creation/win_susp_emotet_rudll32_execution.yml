@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\rundll32.exe" AND process.command_line: "*,RunDLL"
+  AND NOT process.parent.executable: "*\tracker.exe"'
+pre_detector:
+  case_condition: directly
+  id: 54e57ce3-0672-46eb-a402-2c0948d5e3e9
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.011
+  severity: critical
+  title: Emotet RunDLL32 Process Creation
+sigma_fields: true
+description: Detecting Emotet DLL loading by looking for rundll32.exe processes with
+  command lines ending in ,RunDLL or ,#1

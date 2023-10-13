@@ -1,0 +1,11 @@
+filter: 'process.command_line: "*process call create*" AND process.command_line: "*rundll32*"'
+pre_detector:
+  case_condition: directly
+  id: 3c89a1e8-0fba-449e-8f1b-8409d6267ec8
+  mitre:
+  - attack.execution
+  - attack.t1047
+  severity: high
+  title: Suspicious WMI Execution Using Rundll32
+sigma_fields: true
+description: Detects WMI executing rundll32

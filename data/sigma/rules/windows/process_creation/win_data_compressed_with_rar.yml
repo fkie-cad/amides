@@ -1,0 +1,15 @@
+filter: 'process.executable: "*\rar.exe" AND process.command_line: "* a *"'
+pre_detector:
+  case_condition: directly
+  id: 6f3e2987-db24-4c78-a860-b4f4095a7095
+  mitre:
+  - attack.exfiltration
+  - attack.t1002
+  - attack.collection
+  - attack.t1560.001
+  severity: low
+  title: Data Compressed - rar.exe
+sigma_fields: true
+description: An adversary may compress data (e.g., sensitive documents) that is collected
+  prior to exfiltration in order to make it portable and minimize the amount of data
+  sent over the network

@@ -1,0 +1,146 @@
+{
+  "@timestamp": "2021-02-04T22:28:06.625Z",
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "version": 5,
+    "api": "wineventlog",
+    "computer_name": "CLIENT3",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "OriginalFileName": "CSRSS.Exe",
+      "TerminalSessionId": "0",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "Description": "Client Server Runtime Process",
+      "Company": "Microsoft Corporation",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonGuid": "{19FC45AC-74F7-601C-0000-0020E7030000}"
+    },
+    "process": {
+      "thread": {
+        "id": 1780
+      },
+      "pid": 1516
+    },
+    "record_id": 1203,
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    }
+  },
+  "host": {
+    "name": "CLIENT3",
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "process": {
+    "entity_id": "{19FC45AC-74F6-601C-0000-0010C6550000}",
+    "pid": 312,
+    "working_directory": "C:\\Windows\\system32",
+    "parent": {
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe",
+        "00000000",
+        "0000003c"
+      ],
+      "entity_id": "{19FC45AC-74F6-601C-0000-0010A1440000}",
+      "pid": 296,
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe 00000000 0000003c ",
+      "name": "smss.exe"
+    },
+    "name": "csrss.exe",
+    "args": [
+      "%%SystemRoot%%\\system32\\csrss.exe",
+      "ObjectDirectory=\\Windows",
+      "SharedSection=1024,12288,512",
+      "Windows=On",
+      "SubSystemType=Windows",
+      "ServerDll=basesrv,1",
+      "ServerDll=winsrv:UserServerDllInitialization,3",
+      "ServerDll=winsrv:ConServerDllInitialization,2",
+      "ServerDll=sxssrv,4",
+      "ProfileControl=Off",
+      "MaxRequestThreads=16"
+    ],
+    "hash": {
+      "md5": "342271f6142e7c70805b8a81e1ba5f5c",
+      "sha256": "f9112b88fec5ef10a7aedf88dcee61956d1fcde7cb42197216e8265578713786"
+    },
+    "executable": "C:\\Windows\\System32\\rundll32.exe",
+    "command_line": "\"C:\\Windows\\system32\\rundll32.exe\" C:\\Users\\admin\\AppData\\Roaming\\MICROS\\~1\\Windows\\Caches\\NavShExt.dll,Setting"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "hash": [
+      "342271f6142e7c70805b8a81e1ba5f5c",
+      "f9112b88fec5ef10a7aedf88dcee61956d1fcde7cb42197216e8265578713786"
+    ],
+    "user": "SYSTEM"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.047Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:06.625\nProcessGuid: {19FC45AC-74F6-601C-0000-0010C6550000}\nProcessId: 312\nImage: C:\\Windows\\System32\\csrss.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Client Server Runtime Process\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: CSRSS.Exe\nCommandLine: %%SystemRoot%%\\system32\\csrss.exe ObjectDirectory=\\Windows SharedSection=1024,12288,512 Windows=On SubSystemType=Windows ServerDll=basesrv,1 ServerDll=winsrv:UserServerDllInitialization,3 ServerDll=winsrv:ConServerDllInitialization,2 ServerDll=sxssrv,4 ProfileControl=Off MaxRequestThreads=16\nCurrentDirectory: C:\\Windows\\system32\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74F7-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=342271F6142E7C70805B8A81E1BA5F5C,SHA256=F9112B88FEC5EF10A7AEDF88DCEE61956D1FCDE7CB42197216E8265578713786\nParentProcessGuid: {19FC45AC-74F6-601C-0000-0010A1440000}\nParentProcessId: 296\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe 00000000 0000003c ",
+  "hash": {
+    "md5": "342271f6142e7c70805b8a81e1ba5f5c",
+    "sha256": "f9112b88fec5ef10a7aedf88dcee61956d1fcde7cb42197216e8265578713786"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978"
+  }
+}

@@ -1,0 +1,13 @@
+filter: 'process.command_line: ("* /c copy *\System32\\*" OR "*xcopy*\System32\\*")'
+pre_detector:
+  case_condition: directly
+  id: fff9d2b7-e11c-4a69-93d3-40ef66189767
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036.003
+  severity: medium
+  title: Suspicious Copy From or To System32
+sigma_fields: true
+description: Detects a suspicious copy command that copies a system program from System32
+  to another directory on disk - sometimes used to use LOLBINs like certutil or desktopimgdownldr
+  to a different location with a different name

@@ -1,0 +1,12 @@
+filter: 'process.executable: ("*\$Recycle.bin" OR "*\Users\Public\\*" OR "C:\Perflogs\\*"
+  OR "*\Windows\Fonts\\*" OR "*\Windows\IME\\*" OR "*\Windows\addins\\*" OR "*\Windows\debug\\*")'
+pre_detector:
+  case_condition: directly
+  id: f50bfd8b-e2a3-4c15-9373-7900b5a4c6d5
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  severity: high
+  title: Suspicious Program Location Process Starts
+sigma_fields: true
+description: Detects programs running in suspicious files system locations

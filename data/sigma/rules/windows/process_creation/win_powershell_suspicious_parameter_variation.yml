@@ -1,0 +1,21 @@
+filter: 'process.executable: "*\Powershell.exe" AND process.command_line: ("* -windowstyle
+  h *" OR "* -windowstyl h*" OR "* -windowsty h*" OR "* -windowst h*" OR "* -windows
+  h*" OR "* -windo h*" OR "* -wind h*" OR "* -win h*" OR "* -wi h*" OR "* -win h *"
+  OR "* -win hi *" OR "* -win hid *" OR "* -win hidd *" OR "* -win hidde *" OR "*
+  -NoPr *" OR "* -NoPro *" OR "* -NoProf *" OR "* -NoProfi *" OR "* -NoProfil *" OR
+  "* -nonin *" OR "* -nonint *" OR "* -noninte *" OR "* -noninter *" OR "* -nonintera
+  *" OR "* -noninterac *" OR "* -noninteract *" OR "* -noninteracti *" OR "* -noninteractiv
+  *" OR "* -ec *" OR "* -encodedComman *" OR "* -encodedComma *" OR "* -encodedComm
+  *" OR "* -encodedCom *" OR "* -encodedCo *" OR "* -encodedC *" OR "* -encoded *"
+  OR "* -encode *" OR "* -encod *" OR "* -enco *" OR "* -en *")'
+pre_detector:
+  case_condition: directly
+  id: 36210e0d-5b19-485d-a087-c096088885f0
+  mitre:
+  - attack.execution
+  - attack.t1086
+  - attack.t1059.001
+  severity: high
+  title: Suspicious PowerShell Parameter Substring
+sigma_fields: true
+description: Detects suspicious PowerShell invocation with a parameter substring

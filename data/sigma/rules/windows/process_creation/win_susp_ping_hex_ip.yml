@@ -1,0 +1,13 @@
+filter: 'process.command_line: ("*\ping.exe 0x*" OR "*\ping 0x*") AND process.executable:
+  "*ping.exe*"'
+pre_detector:
+  case_condition: directly
+  id: 1a0d4aba-7668-4365-9ce4-6d79ab088dfd
+  mitre:
+  - attack.defense_evasion
+  - attack.t1140
+  - attack.t1027
+  severity: high
+  title: Ping Hex IP
+sigma_fields: true
+description: Detects a ping command that uses a hex encoded IP address

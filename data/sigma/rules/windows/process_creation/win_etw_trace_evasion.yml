@@ -1,0 +1,24 @@
+filter: '(process.command_line: "*cl*" AND process.command_line: "*/Trace*") OR (process.command_line:
+  "*clear-log*" AND process.command_line: "*/Trace*") OR (process.command_line: "*sl*"
+  AND process.command_line: "*/e:false*") OR (process.command_line: "*set-log*" AND
+  process.command_line: "*/e:false*") OR (process.command_line: "*Remove-EtwTraceProvider*"
+  AND process.command_line: "*EventLog-Microsoft-Windows-WMI-Activity-Trace*" AND
+  process.command_line: "*{1418ef04-b0b4-4623-bf7e-d74ab47bbdaa}*") OR (process.command_line:
+  "*Set-EtwTraceProvider*" AND process.command_line: "*{1418ef04-b0b4-4623-bf7e-d74ab47bbdaa}*"
+  AND process.command_line: "*EventLog-Microsoft-Windows-WMI-Activity-Trace*" AND
+  process.command_line: "*0x11*") OR (process.command_line: "*logman*" AND process.command_line:
+  "*update*" AND process.command_line: "*trace*" AND process.command_line: "*--p*"
+  AND process.command_line: "*-ets*")'
+pre_detector:
+  case_condition: directly
+  id: a238b5d0-ce2d-4414-a676-7a531b3d13d6
+  mitre:
+  - attack.defense_evasion
+  - attack.t1070
+  - attack.t1562.006
+  - car.2016-04-002
+  severity: high
+  title: Disable of ETW Trace
+sigma_fields: true
+description: Detects a command that clears or disables any ETW trace log which could
+  indicate a logging evasion.

@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T20:53:10.040Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:53:10.040\nProcessGuid: {19FC45AC-5EB6-601C-0000-0010E1C81200}\nProcessId: 1708\nImage: C:\\Windows\\System32\\slui.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Activation Client\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: slui.exe\nCommandLine: C:\\Windows\\System32\\slui.exe -Embedding\nCurrentDirectory: C:\\Windows\\system32\\\nUser: client\\breach\nLogonGuid: {19FC45AC-53AD-601C-0000-002012560200}\nLogonId: 0x25612\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=D861EB4D6719D6738270E6A376B87F18,SHA256=CB6FAAF9FFBC91A4F306A95D4472EE23715C91B06CE59394D6A5C23A4F4B9476\nParentProcessGuid: {19FC45AC-4599-601C-0000-001067790000}\nParentProcessId: 568\nParentImage: C:\\Windows\\System32\\svchost.exe\nParentCommandLine: C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+  "process": {
+    "entity_id": "{19FC45AC-5EB6-601C-0000-0010E1C81200}",
+    "executable": "C:\\Program Files\\ps.exe",
+    "working_directory": "C:\\Program Files\\",
+    "args": [
+      "ps.exe",
+      "-accepteula"
+    ],
+    "hash": {
+      "md5": "d861eb4d6719d6738270e6a376b87f18",
+      "sha256": "cb6faaf9ffbc91a4f306a95d4472ee23715c91b06ce59394d6a5c23a4f4b9476"
+    },
+    "pid": 1708,
+    "command_line": "ps.exe -accepteula",
+    "parent": {
+      "entity_id": "{19FC45AC-4599-601C-0000-001067790000}",
+      "pid": 568,
+      "executable": "C:\\Windows\\System32\\cmd.exe",
+      "command_line": "C:\\Windows\\system32\\cmd.exe",
+      "name": "cmd.exe",
+      "args": [
+        "C:\\Windows\\System32\\cmd.exe"
+      ]
+    },
+    "name": "ps.exe"
+  },
+  "user": {
+    "domain": "client",
+    "name": "breach"
+  },
+  "related": {
+    "user": "breach",
+    "hash": [
+      "d861eb4d6719d6738270e6a376b87f18",
+      "cb6faaf9ffbc91a4f306a95d4472ee23715c91b06ce59394d6a5c23a4f4b9476"
+    ]
+  },
+  "winlog": {
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "OriginalFileName": "slui.exe",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0x25612",
+      "LogonGuid": "{19FC45AC-53AD-601C-0000-002012560200}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "Description": "Windows Activation Client",
+      "IntegrityLevel": "High",
+      "TerminalSessionId": "1"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1144,
+    "computer_name": "CLIENT",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "version": 5,
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    }
+  },
+  "event": {
+    "created": "2021-02-04T20:53:11.238Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "host": {
+    "name": "CLIENT",
+    "hostname": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "hash": {
+    "md5": "d861eb4d6719d6738270e6a376b87f18",
+    "sha256": "cb6faaf9ffbc91a4f306a95d4472ee23715c91b06ce59394d6a5c23a4f4b9476"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT",
+    "ephemeral_id": "66b561db-e9d4-4076-b78e-c4ce9eada53c",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  }
+}

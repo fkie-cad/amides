@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-05T04:14:36.447Z",
+  "process": {
+    "name": "firefox.exe",
+    "command_line": "reg save  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ShellServiceObjectDelayLoad ssodl.reg",
+    "working_directory": "C:\\BREACH\\",
+    "parent": {
+      "executable": "C:\\Program Files\\Python35-32\\python.exe",
+      "command_line": "python C:\\BREACH\\userbehavior.pex --use-breach-setup",
+      "name": "python.exe",
+      "args": [
+        "python",
+        "C:\\BREACH\\userbehavior.pex",
+        "--use-breach-setup"
+      ],
+      "entity_id": "{19FC45AC-76DE-601C-0000-00103F9F0100}",
+      "pid": 1988
+    },
+    "args": [
+      "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+      "-foreground"
+    ],
+    "hash": {
+      "md5": "923fe895b22b22a9ca03c72f3d15ce20",
+      "sha256": "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+    },
+    "entity_id": "{19FC45AC-C62C-601C-0000-001089F84100}",
+    "pid": 3948,
+    "executable": "C:\\Windows\\System32\\reg.exe"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client2"
+  },
+  "related": {
+    "user": "client2",
+    "hash": [
+      "923fe895b22b22a9ca03c72f3d15ce20",
+      "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+    ]
+  },
+  "hash": {
+    "md5": "923fe895b22b22a9ca03c72f3d15ce20",
+    "sha256": "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+  },
+  "winlog": {
+    "record_id": 1514,
+    "opcode": "Info",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "computer_name": "CLIENT2.breach.local",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "TerminalSessionId": "1",
+      "LogonGuid": "{19FC45AC-76D9-601C-0000-002027FB0000}",
+      "IntegrityLevel": "Medium",
+      "FileVersion": "38.0.5",
+      "Product": "Firefox",
+      "Company": "Mozilla Corporation",
+      "LogonId": "0xfb27",
+      "OriginalFileName": "firefox.exe",
+      "Description": "Firefox"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "pid": 1704,
+      "thread": {
+        "id": 1804
+      }
+    },
+    "event_id": 1,
+    "api": "wineventlog"
+  },
+  "host": {
+    "name": "CLIENT2.breach.local",
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 04:14:36.447\nProcessGuid: {19FC45AC-C62C-601C-0000-001089F84100}\nProcessId: 3948\nImage: C:\\Program Files\\Mozilla Firefox\\firefox.exe\nFileVersion: 38.0.5\nDescription: Firefox\nProduct: Firefox\nCompany: Mozilla Corporation\nOriginalFileName: firefox.exe\nCommandLine: \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client2\nLogonGuid: {19FC45AC-76D9-601C-0000-002027FB0000}\nLogonId: 0xfb27\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=923FE895B22B22A9CA03C72F3D15CE20,SHA256=98B7F5B40C557775CD645CA69B788FE4A3DEAE25CDB6E5DD4FB94DB1BDC10969\nParentProcessGuid: {19FC45AC-76DE-601C-0000-00103F9F0100}\nParentProcessId: 1988\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: python C:\\BREACH\\userbehavior.pex --use-breach-setup",
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T04:14:38.852Z",
+    "kind": "event",
+    "code": 1,
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ]
+  }
+}

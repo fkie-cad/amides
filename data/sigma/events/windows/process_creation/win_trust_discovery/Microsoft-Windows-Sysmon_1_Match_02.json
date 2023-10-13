@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-04T20:33:40.156Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:33:40.156\nProcessGuid: {19FC45AC-5A24-601C-0000-00103B131000}\nProcessId: 3736\nImage: C:\\Windows\\System32\\notepad.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Notepad\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: NOTEPAD.EXE\nCommandLine: \"C:\\Windows\\system32\\NOTEPAD.EXE\" C:\\ProgramData\\winlogbeat\\logs\\winlogbeat\nCurrentDirectory: C:\\ProgramData\\winlogbeat\\logs\\\nUser: client\\breach\nLogonGuid: {19FC45AC-53AD-601C-0000-002012560200}\nLogonId: 0x25612\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=D378BFFB70923139D6A4F546864AA61C,SHA256=C4232DDD4D37B9C0884BD44D8476578C54D7F98D58945728E425736A6A07E102\nParentProcessGuid: {19FC45AC-5A22-601C-0000-00103D041000}\nParentProcessId: 3512\nParentImage: C:\\Windows\\System32\\rundll32.exe\nParentCommandLine: \"C:\\Windows\\system32\\rundll32.exe\" C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL C:\\ProgramData\\winlogbeat\\logs\\winlogbeat",
+  "related": {
+    "hash": [
+      "d378bffb70923139d6a4f546864aa61c",
+      "c4232ddd4d37b9c0884bd44d8476578c54d7f98d58945728e425736a6a07e102"
+    ],
+    "user": "breach"
+  },
+  "hash": {
+    "md5": "d378bffb70923139d6a4f546864aa61c",
+    "sha256": "c4232ddd4d37b9c0884bd44d8476578c54d7f98d58945728e425736a6a07e102"
+  },
+  "winlog": {
+    "event_data": {
+      "LogonId": "0x25612",
+      "LogonGuid": "{19FC45AC-53AD-601C-0000-002012560200}",
+      "Description": "Notepad",
+      "TerminalSessionId": "1",
+      "OriginalFileName": "NOTEPAD.EXE",
+      "IntegrityLevel": "High",
+      "Company": "Microsoft Corporation",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "event_id": 1,
+    "record_id": 1136,
+    "api": "wineventlog",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT",
+    "version": 5,
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    }
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "command_line": "nltest /domain_trust /all_trusts",
+    "parent": {
+      "args": [
+        "C:\\Windows\\system32\\rundll32.exe",
+        "C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL",
+        "C:\\ProgramData\\winlogbeat\\logs\\winlogbeat"
+      ],
+      "entity_id": "{19FC45AC-5A22-601C-0000-00103D041000}",
+      "pid": 3512,
+      "executable": "C:\\Windows\\System32\\rundll32.exe",
+      "command_line": "\"C:\\Windows\\system32\\rundll32.exe\" C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL C:\\ProgramData\\winlogbeat\\logs\\winlogbeat",
+      "name": "rundll32.exe"
+    },
+    "name": "notepad.exe",
+    "args": [
+      "C:\\Windows\\system32\\NOTEPAD.EXE",
+      "C:\\ProgramData\\winlogbeat\\logs\\winlogbeat"
+    ],
+    "entity_id": "{19FC45AC-5A24-601C-0000-00103B131000}",
+    "pid": 3736,
+    "executable": "C:\\Windows\\System32\\nltest.exe",
+    "working_directory": "C:\\ProgramData\\winlogbeat\\logs\\",
+    "hash": {
+      "md5": "d378bffb70923139d6a4f546864aa61c",
+      "sha256": "c4232ddd4d37b9c0884bd44d8476578c54d7f98d58945728e425736a6a07e102"
+    }
+  },
+  "user": {
+    "domain": "client",
+    "name": "breach"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT",
+    "ephemeral_id": "8d71002f-bbaa-43e7-9f1b-6316d51fcd53",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "event": {
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "created": "2021-02-04T20:33:40.392Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "host": {
+    "hostname": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  }
+}

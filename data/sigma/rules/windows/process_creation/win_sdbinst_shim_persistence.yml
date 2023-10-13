@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\sdbinst.exe" AND process.command_line: "*.sdb*"'
+pre_detector:
+  case_condition: directly
+  id: 517490a7-115a-48c6-8862-1a481504d5a8
+  mitre:
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.t1546.011
+  - attack.t1138
+  severity: high
+  title: Possible Shim Database Persistence via sdbinst.exe
+sigma_fields: true
+description: Detects installation of a new shim using sdbinst.exe. A shim can be used
+  to load malicious DLLs into applications.

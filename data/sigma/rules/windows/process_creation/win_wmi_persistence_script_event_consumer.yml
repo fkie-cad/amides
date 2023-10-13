@@ -1,0 +1,14 @@
+filter: 'process.executable: "C:\WINDOWS\system32\wbem\scrcons.exe" AND process.parent.executable:
+  "C:\Windows\System32\svchost.exe"'
+pre_detector:
+  case_condition: directly
+  id: ec1d5e28-8f3b-4188-a6f8-6e8df81dc28e
+  mitre:
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.t1546.003
+  - attack.t1047
+  severity: high
+  title: WMI Persistence - Script Event Consumer
+sigma_fields: true
+description: Detects WMI script event consumers

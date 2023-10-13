@@ -1,0 +1,13 @@
+filter: 'process.parent.executable: "*\fodhelper.exe"'
+pre_detector:
+  case_condition: directly
+  id: 7f741dcf-fc22-4759-87b4-9ae8376676a2
+  mitre:
+  - attack.privilege_escalation
+  - attack.t1548.002
+  - attack.t1088
+  severity: high
+  title: Bypass UAC via Fodhelper.exe
+sigma_fields: true
+description: Identifies use of Fodhelper.exe to bypass User Account Control. Adversaries
+  use this technique to execute privileged processes.

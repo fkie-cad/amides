@@ -1,0 +1,10 @@
+filter: 'process.parent.executable: "*\userinit.exe" AND NOT process.command_line:
+  "*\\netlogon\\*" AND NOT process.executable: "*\explorer.exe"'
+pre_detector:
+  case_condition: directly
+  id: b655a06a-31c0-477a-95c2-3726b83d649d
+  mitre: []
+  severity: medium
+  title: Suspicious Userinit Child Process
+sigma_fields: true
+description: Detects a suspicious child process of userinit

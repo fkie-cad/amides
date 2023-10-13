@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:17.406Z",
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "CLIENT1",
+    "name": "setup"
+  },
+  "hash": {
+    "md5": "452fa961163ef4aee4815796a13ab2cf",
+    "sha256": "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "created": "2021-02-04T22:31:06.131Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "name": "CLIENT1"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-7501-601C-0000-001018830200}",
+    "executable": "C:\\Windows\\System32\\cmd.exe",
+    "command_line": "cmd /c C:\\Windows\\Temp\\tmp.bat",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "reader_sl.exe",
+    "args": [
+      "C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe"
+    ],
+    "pid": 2084,
+    "parent": {
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-7500-601C-0000-00100B520200}",
+      "pid": 1564,
+      "executable": "C:\\Windows\\explorer.exe"
+    },
+    "hash": {
+      "md5": "452fa961163ef4aee4815796a13ab2cf",
+      "sha256": "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+    }
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "452fa961163ef4aee4815796a13ab2cf",
+      "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+    ]
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat"
+  },
+  "winlog": {
+    "opcode": "Info",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "record_id": 1232,
+    "task": "Process Create (rule: ProcessCreate)",
+    "event_data": {
+      "FileVersion": "9.1.0.2009022700",
+      "Product": "Adobe Acrobat",
+      "TerminalSessionId": "1",
+      "LogonGuid": "{19FC45AC-7500-601C-0000-0020BA3C0200}",
+      "Description": "Adobe Acrobat SpeedLauncher",
+      "IntegrityLevel": "High",
+      "Company": "Adobe Systems Incorporated",
+      "LogonId": "0x23cba",
+      "OriginalFileName": "AcroSpeedLaunch.exe"
+    },
+    "event_id": 1,
+    "process": {
+      "pid": 1504,
+      "thread": {
+        "id": 1772
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "computer_name": "CLIENT1"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:17.406\nProcessGuid: {19FC45AC-7501-601C-0000-001018830200}\nProcessId: 2084\nImage: C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe\nFileVersion: 9.1.0.2009022700\nDescription: Adobe Acrobat SpeedLauncher\nProduct: Adobe Acrobat\nCompany: Adobe Systems Incorporated\nOriginalFileName: AcroSpeedLaunch.exe\nCommandLine: \"C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe\" \nCurrentDirectory: C:\\Windows\\system32\\\nUser: CLIENT1\\setup\nLogonGuid: {19FC45AC-7500-601C-0000-0020BA3C0200}\nLogonId: 0x23cba\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=452FA961163EF4AEE4815796A13AB2CF,SHA256=14DC422082F96F5C21C41A5E5F6E8445547CC4B02B18F0A86A34669CA2CE18A7\nParentProcessGuid: {19FC45AC-7500-601C-0000-00100B520200}\nParentProcessId: 1564\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE"
+}

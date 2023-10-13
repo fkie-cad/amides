@@ -1,0 +1,17 @@
+{
+  "C": 1.5998587196060574,
+  "break_ties": false,
+  "cache_size": 2000,
+  "class_weight": null,
+  "coef0": 0,
+  "decision_function_shape": "ovr",
+  "degree": 3,
+  "gamma": "scale",
+  "kernel": "linear",
+  "max_iter": -1,
+  "probability": false,
+  "random_state": null,
+  "shrinking": true,
+  "tol": 0.001,
+  "verbose": false
+}

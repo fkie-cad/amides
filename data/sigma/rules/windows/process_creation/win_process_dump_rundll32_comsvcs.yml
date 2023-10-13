@@ -1,0 +1,15 @@
+filter: 'process.command_line: ("*comsvcs.dll,#24*" OR "*comsvcs.dll,MiniDump*")'
+pre_detector:
+  case_condition: directly
+  id: 646ea171-dded-4578-8a4d-65e9822892e3
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.credential_access
+  - attack.t1003
+  - car.2013-05-009
+  - attack.t1003.001
+  severity: high
+  title: Process Dump via Rundll32 and Comsvcs.dll
+sigma_fields: true
+description: Detects a process memory dump performed via ordinal function 24 in comsvcs.dll

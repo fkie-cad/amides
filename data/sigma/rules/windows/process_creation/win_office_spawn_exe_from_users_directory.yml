@@ -1,0 +1,16 @@
+filter: 'process.parent.executable: ("*\WINWORD.EXE" OR "*\EXCEL.EXE" OR "*\POWERPNT.exe"
+  OR "*\MSPUB.exe" OR "*\VISIO.exe" OR "*\OUTLOOK.EXE") AND process.executable: "C:\users\\*.exe"'
+pre_detector:
+  case_condition: directly
+  id: aa3a6f94-890e-4e22-b634-ffdfd54792cc
+  mitre:
+  - attack.execution
+  - attack.t1204
+  - attack.t1204.002
+  - FIN7
+  - car.2013-05-002
+  severity: high
+  title: MS Office Product Spawning Exe in User Dir
+sigma_fields: true
+description: Detects an executable in the users directory started from Microsoft Word,
+  Excel, Powerpoint, Publisher or Visio

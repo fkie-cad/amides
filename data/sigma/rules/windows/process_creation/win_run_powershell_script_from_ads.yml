@@ -1,0 +1,13 @@
+filter: 'process.parent.executable: "*\powershell.exe" AND process.executable: "*\powershell.exe"
+  AND process.command_line: "*Get-Content*" AND process.command_line: "*-Stream*"'
+pre_detector:
+  case_condition: directly
+  id: 45a594aa-1fbd-4972-a809-ff5a99dd81b8
+  mitre:
+  - attack.defense_evasion
+  - attack.t1096
+  - attack.t1564.004
+  severity: high
+  title: Run PowerShell Script from ADS
+sigma_fields: true
+description: Detects PowerShell script execution from Alternate Data Stream (ADS)

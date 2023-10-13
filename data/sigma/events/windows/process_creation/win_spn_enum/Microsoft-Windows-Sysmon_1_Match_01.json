@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-05T03:08:46.236Z",
+  "user": {
+    "name": "LOCAL SERVICE",
+    "domain": "NT AUTHORITY"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-B6BE-601C-0000-001008312800}",
+    "command_line": "setspn -q foo/example.com",
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "setspn",
+      "-q",
+      "foo/example.com"
+    ],
+    "pid": 800,
+    "executable": "C:\\Windows\\System32\\setspn.exe",
+    "parent": {
+      "entity_id": "{19FC45AC-76D8-601C-0000-0010F1630000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\cmd.exe",
+      "command_line": "C:\\Windows\\system32\\cmd.exe",
+      "name": "cmd.exe",
+      "args": [
+        "C:\\Windows\\system32\\cmd.exe"
+      ]
+    },
+    "name": "setspn.exe",
+    "hash": {
+      "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+      "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    }
+  },
+  "related": {
+    "user": "LOCAL SERVICE",
+    "hash": [
+      "7fa8ba5a780e4757964ac9d4238302b9",
+      "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    ]
+  },
+  "hash": {
+    "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+    "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 03:08:46.236\nProcessGuid: {19FC45AC-B6BE-601C-0000-001008312800}\nProcessId: 800\nImage: C:\\Windows\\System32\\taskhost.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Host Process for Windows Tasks\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: taskhost.exe\nCommandLine: taskhost.exe $(Arg0)\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\LOCAL SERVICE\nLogonGuid: {19FC45AC-76D8-601C-0000-0020E5030000}\nLogonId: 0x3e5\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=7FA8BA5A780E4757964AC9D4238302B9,SHA256=65E3D8CE737896647065103FBB4D58E6A34171D0A48662A832CFDAC3CF469701\nParentProcessGuid: {19FC45AC-76D8-601C-0000-0010F1630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "version": 5,
+    "event_data": {
+      "LogonId": "0x3e5",
+      "IntegrityLevel": "System",
+      "Description": "Host Process for Windows Tasks",
+      "LogonGuid": "{19FC45AC-76D8-601C-0000-0020E5030000}",
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "taskhost.exe",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "TerminalSessionId": "0"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "process": {
+      "pid": 1704,
+      "thread": {
+        "id": 1804
+      }
+    },
+    "record_id": 1495,
+    "api": "wineventlog",
+    "computer_name": "CLIENT2.breach.local",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T03:08:47.018Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "architecture": "x86",
+    "name": "CLIENT2.breach.local",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  }
+}

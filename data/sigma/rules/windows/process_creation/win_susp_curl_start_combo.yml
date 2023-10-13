@@ -1,0 +1,14 @@
+filter: 'process.command_line: "*curl* start *"'
+pre_detector:
+  case_condition: directly
+  id: 21dd6d38-2b18-4453-9404-a0fe4a0cc288
+  mitre:
+  - attack.execution
+  - attack.t1218
+  - attack.command_and_control
+  - attack.t1105
+  severity: medium
+  title: Curl Start Combination
+sigma_fields: true
+description: Adversaries can use curl to download payloads remotely and execute them.
+  Curl is included by default in Windows 10 build 17063 and later.

@@ -1,0 +1,16 @@
+filter: 'winlog.event_data.Description: "\?" AND (winlog.event_data.FileVersion: "\?"
+  OR winlog.event_data.Product: "\?" OR winlog.event_data.Company: "\?") AND process.executable:
+  "*\Downloads\\*"'
+pre_detector:
+  case_condition: directly
+  id: 9637e8a5-7131-4f7f-bdc7-2b05d8670c43
+  mitre:
+  - attack.execution
+  - attack.t1059.006
+  - attack.defense_evasion
+  - attack.t1064
+  severity: medium
+  title: Suspicious File Characteristics Due to Missing Fields
+sigma_fields: true
+description: Detects Executables in the Downloads folder without FileVersion,Description,Product,Company
+  likely created with py2exe

@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T23:06:26.735Z",
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "209a3b1901b83aeb8527ed211cce9e4c",
+      "1a431f6409f8e0531f600f8f988ecececb902da26bbaaf1de74a5cac29a7cb44"
+    ]
+  },
+  "hash": {
+    "md5": "209a3b1901b83aeb8527ed211cce9e4c",
+    "sha256": "1a431f6409f8e0531f600f8f988ecececb902da26bbaaf1de74a5cac29a7cb44"
+  },
+  "host": {
+    "name": "CLIENT3.breach.local",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:06:26.735\nProcessGuid: {19FC45AC-7DF2-601C-0000-0010356A0E00}\nProcessId: 3064\nImage: C:\\Windows\\System32\\VSSVC.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Microsoft\u00ae Volume Shadow Copy Service\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: VSSVC.EXE\nCommandLine: C:\\Windows\\system32\\vssvc.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76E7-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=209A3B1901B83AEB8527ED211CCE9E4C,SHA256=1A431F6409F8E0531F600F8F988ECECECB902DA26BBAAF1DE74A5CAC29A7CB44\nParentProcessGuid: {19FC45AC-76E7-601C-0000-001081630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "computer_name": "CLIENT3.breach.local",
+    "opcode": "Info",
+    "process": {
+      "pid": 1904,
+      "thread": {
+        "id": 308
+      }
+    },
+    "event_data": {
+      "OriginalFileName": "VSSVC.EXE",
+      "Description": "Microsoft\u00ae Volume Shadow Copy Service",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonGuid": "{19FC45AC-76E7-601C-0000-0020E7030000}",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "IntegrityLevel": "System",
+      "Company": "Microsoft Corporation"
+    },
+    "record_id": 1526,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "version": 5
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T23:06:28.168Z",
+    "module": "sysmon"
+  },
+  "process": {
+    "pid": 3064,
+    "executable": "C:\\Windows\\System32\\VSSVC.exe",
+    "command_line": "reg.exe delete HKLM\\Path\\Raccine Tray",
+    "name": "VSSVC.exe",
+    "args": [
+      "C:\\Windows\\system32\\vssvc.exe"
+    ],
+    "hash": {
+      "md5": "209a3b1901b83aeb8527ed211cce9e4c",
+      "sha256": "1a431f6409f8e0531f600f8f988ecececb902da26bbaaf1de74a5cac29a7cb44"
+    },
+    "entity_id": "{19FC45AC-7DF2-601C-0000-0010356A0E00}",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-76E7-601C-0000-001081630000}",
+      "pid": 440
+    }
+  },
+  "user": {
+    "name": "SYSTEM",
+    "domain": "NT AUTHORITY"
+  },
+  "log": {
+    "level": "information"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "177650cc-629c-4abf-8b93-a90e2e515251",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  }
+}

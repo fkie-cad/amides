@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*::FromBase64String(*"'
+pre_detector:
+  case_condition: directly
+  id: e32d4572-9826-4738-b651-95fa63747e8a
+  mitre:
+  - attack.t1027
+  - attack.defense_evasion
+  - attack.t1140
+  - attack.t1059.001
+  severity: high
+  title: FromBase64String Command Line
+sigma_fields: true
+description: Detects suspicious FromBase64String expressions in command line arguments

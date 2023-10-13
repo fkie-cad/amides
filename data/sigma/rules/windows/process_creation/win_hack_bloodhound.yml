@@ -1,0 +1,25 @@
+filter: 'process.executable: ("*\Bloodhound.exe*" OR "*\SharpHound.exe*") OR process.command_line:
+  ("* -CollectionMethod All *" OR "*.exe -c All -d *" OR "*Invoke-Bloodhound*" OR
+  "*Get-BloodHoundData*") OR (process.command_line: "* -JsonFolder *" AND process.command_line:
+  "* -ZipFileName *") OR (process.command_line: "* DCOnly *" AND process.command_line:
+  "* --NoSaveCache *")'
+pre_detector:
+  case_condition: directly
+  id: f376c8a7-a2d0-4ddc-aa0c-16c17236d962
+  mitre:
+  - attack.discovery
+  - attack.t1087.001
+  - attack.t1087.002
+  - attack.t1087
+  - attack.t1482
+  - attack.t1069.001
+  - attack.t1069.002
+  - attack.t1069
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  severity: high
+  title: Bloodhound and Sharphound Hack Tool
+sigma_fields: true
+description: Detects command line parameters used by Bloodhound and Sharphound hack
+  tools

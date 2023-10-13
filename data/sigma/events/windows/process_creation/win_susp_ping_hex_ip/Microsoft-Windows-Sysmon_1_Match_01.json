@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:29:01.718Z",
+  "host": {
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "name": "CLIENT3.breach.local",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:01.718\nProcessGuid: {19FC45AC-752D-601C-0000-0010F5580000}\nProcessId: 340\nImage: C:\\Windows\\System32\\smss.exe\nFileVersion: 6.1.7601.18741 (win7sp1_gdr.150202-1526)\nDescription: Windows Session Manager\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: smss.exe\nCommandLine: \\SystemRoot\\System32\\smss.exe 00000001 0000003c \nCurrentDirectory: C:\\Windows\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-752E-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 1\nIntegrityLevel: System\nHashes: MD5=01C6C743FE49D0FB3F0A1391FEF1DEB3,SHA256=36155638E650576A8BCAFC23C50483AB4B831D9A34C781DDF7CC89554D0546B7\nParentProcessGuid: {19FC45AC-752C-601C-0000-00104D2F0000}\nParentProcessId: 236\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe",
+  "process": {
+    "parent": {
+      "command_line": "\\SystemRoot\\System32\\smss.exe",
+      "name": "smss.exe",
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe"
+      ],
+      "entity_id": "{19FC45AC-752C-601C-0000-00104D2F0000}",
+      "pid": 236,
+      "executable": "C:\\Windows\\System32\\smss.exe"
+    },
+    "name": "smss.exe",
+    "args": [
+      "\\SystemRoot\\System32\\smss.exe",
+      "00000001",
+      "0000003c"
+    ],
+    "entity_id": "{19FC45AC-752D-601C-0000-0010F5580000}",
+    "command_line": "C:\\Windows\\System32\\ping.exe 0x7f000001",
+    "working_directory": "C:\\Windows\\",
+    "pid": 340,
+    "executable": "C:\\Windows\\System32\\ping.exe",
+    "hash": {
+      "md5": "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    }
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    ]
+  },
+  "hash": {
+    "md5": "01c6c743fe49d0fb3f0a1391fef1deb3",
+    "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978"
+  },
+  "winlog": {
+    "api": "wineventlog",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_data": {
+      "LogonGuid": "{19FC45AC-752E-601C-0000-0020E7030000}",
+      "IntegrityLevel": "System",
+      "FileVersion": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "Description": "Windows Session Manager",
+      "LogonId": "0x3e7",
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "smss.exe",
+      "TerminalSessionId": "1",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System"
+    },
+    "record_id": 1265,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT3.breach.local",
+    "process": {
+      "pid": 1536,
+      "thread": {
+        "id": 1812
+      }
+    },
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    }
+  },
+  "event": {
+    "code": 1,
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.163Z",
+    "kind": "event"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  }
+}

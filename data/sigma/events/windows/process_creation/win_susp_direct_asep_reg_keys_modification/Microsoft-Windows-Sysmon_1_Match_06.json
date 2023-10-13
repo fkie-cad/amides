@@ -1,0 +1,145 @@
+{
+  "@timestamp": "2021-02-04T20:34:37.071Z",
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT",
+    "ephemeral_id": "66b561db-e9d4-4076-b78e-c4ce9eada53c",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT",
+    "type": "winlogbeat"
+  },
+  "event": {
+    "created": "2021-02-04T20:34:39.516Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:34:37.071\nProcessGuid: {19FC45AC-5A5D-601C-0000-0010CB3A1000}\nProcessId: 4052\nImage: C:\\Program Files\\Winlogbeat\\winlogbeat.exe\nFileVersion: 7.10.2\nDescription: Winlogbeat ships Windows event logs to Elasticsearch or Logstash.\nProduct: Winlogbeat\nCompany: Elastic\nOriginalFileName: winlogbeat.exe\nCommandLine: \"C:\\Program Files\\Winlogbeat\\winlogbeat.exe\" --environment=windows_service -c \"C:\\Program Files\\Winlogbeat\\winlogbeat.yml\" --path.home \"C:\\Program Files\\Winlogbeat\" --path.data \"C:\\ProgramData\\winlogbeat\" --path.logs \"C:\\ProgramData\\winlogbeat\\logs\" -E logging.files.redirect_stderr=true\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-4598-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=0D17999868F2768B1B050CB051884110,SHA256=E72F5DBA2A177397403965A3352F0CC45EC46A568A53D5EF4535FBBA18E73023\nParentProcessGuid: {19FC45AC-4598-601C-0000-00100D610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "executable": "C:\\Windows\\System32\\reg.exe",
+    "parent": {
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-4598-601C-0000-00100D610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe"
+    },
+    "args": [
+      "C:\\Program Files\\Winlogbeat\\winlogbeat.exe",
+      "--environment=windows_service",
+      "-c",
+      "C:\\Program Files\\Winlogbeat\\winlogbeat.yml",
+      "--path.home",
+      "C:\\Program Files\\Winlogbeat",
+      "--path.data",
+      "C:\\ProgramData\\winlogbeat",
+      "--path.logs",
+      "C:\\ProgramData\\winlogbeat\\logs",
+      "-E",
+      "logging.files.redirect_stderr=true"
+    ],
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "winlogbeat.exe",
+    "hash": {
+      "md5": "0d17999868f2768b1b050cb051884110",
+      "sha256": "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+    },
+    "entity_id": "{19FC45AC-5A5D-601C-0000-0010CB3A1000}",
+    "pid": 4052,
+    "command_line": "reg add HKLM\\software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\Userinit"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "0d17999868f2768b1b050cb051884110",
+    "sha256": "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT",
+    "opcode": "Info",
+    "event_data": {
+      "FileVersion": "7.10.2",
+      "Company": "Elastic",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "Description": "Winlogbeat ships Windows event logs to Elasticsearch or Logstash.",
+      "IntegrityLevel": "System",
+      "LogonGuid": "{19FC45AC-4598-601C-0000-0020E7030000}",
+      "Product": "Winlogbeat",
+      "OriginalFileName": "winlogbeat.exe"
+    },
+    "api": "wineventlog",
+    "version": 5,
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1137,
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    }
+  },
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT",
+    "hostname": "CLIENT"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "0d17999868f2768b1b050cb051884110",
+      "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+filter: 'process.executable: ("C:\PerfLogs\\*" OR "C:\$Recycle.bin\\*" OR "C:\Intel\Logs\\*"
+  OR "C:\Users\Default\\*" OR "C:\Users\Public\\*" OR "C:\Users\NetworkService\\*"
+  OR "C:\Windows\Fonts\\*" OR "C:\Windows\Debug\\*" OR "C:\Windows\Media\\*" OR "C:\Windows\Help\\*"
+  OR "C:\Windows\addins\\*" OR "C:\Windows\repair\\*" OR "C:\Windows\security\\*"
+  OR "*\RSA\MachineKeys\\*" OR "C:\Windows\system32\config\systemprofile\\*" OR "C:\Windows\Tasks\\*"
+  OR "C:\Windows\System32\Tasks\\*")'
+pre_detector:
+  case_condition: directly
+  id: 7a38aa19-86a9-4af7-ac51-6bfe4e59f254
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  severity: high
+  title: Executables Started in Suspicious Folder
+sigma_fields: true
+description: Detects process starts of binaries from a suspicious folder

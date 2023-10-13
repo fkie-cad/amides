@@ -1,0 +1,11 @@
+filter: 'process.command_line: ("*Temp\wtask.exe /create*" OR "*%windir:\~-3,1%%PUBLIC:\~-9,1%*"
+  OR "*/E:vbscript * C:\Users\\*.txt\" /F" OR "*/tn \"Security Script *" OR "*%windir:\~-1,1%*")
+  OR process.executable: "*Temp\winwsh.exe"'
+pre_detector:
+  case_condition: directly
+  id: 2d87d610-d760-45ee-a7e6-7a6f2a65de00
+  mitre: []
+  severity: high
+  title: Mustang Panda Dropper
+sigma_fields: true
+description: Detects specific process parameters as used by Mustang Panda droppers

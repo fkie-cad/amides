@@ -1,0 +1,6 @@
+{
+    "benign_samples": "../data/socbed/proxy_web/train",
+    "rule_values": "../data/sigma/rules/proxyweb/values_rules_proxyweb",
+    "result_name": "misuse_svc_rules_f1_0",
+    "out_dir": "models/proxy_web"
+}

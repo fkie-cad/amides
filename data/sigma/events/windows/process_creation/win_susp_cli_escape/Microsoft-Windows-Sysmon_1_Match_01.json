@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:36:23.781Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:36:23.781\nProcessGuid: {19FC45AC-76E7-601C-0000-0010EF640000}\nProcessId: 460\nImage: C:\\Windows\\System32\\lsm.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Local Session Manager Service\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: lsm.exe\nCommandLine: C:\\Windows\\system32\\lsm.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76E7-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=8AEA9A37C1A3565A204D37C5E72AB791,SHA256=939903F93FF37525A6C4B5CBA29CDEEE6D6055C42D605E80AE787F2A76F9870E\nParentProcessGuid: {19FC45AC-76E7-601C-0000-0010115A0000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "winlog": {
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1904,
+      "thread": {
+        "id": 308
+      }
+    },
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-76E7-601C-0000-0020E7030000}",
+      "Description": "Local Session Manager Service",
+      "LogonId": "0x3e7",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "lsm.exe",
+      "IntegrityLevel": "System",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "0",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1432,
+    "computer_name": "CLIENT3.breach.local",
+    "version": 5
+  },
+  "process": {
+    "pid": 460,
+    "command_line": "powershell -c invoke-webrequest -uri h^t^t^p://www.google.de -outfile foo",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-76E7-601C-0000-0010115A0000}",
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\wininit.exe"
+    },
+    "name": "lsm.exe",
+    "entity_id": "{19FC45AC-76E7-601C-0000-0010EF640000}",
+    "executable": "C:\\Windows\\System32\\lsm.exe",
+    "args": [
+      "C:\\Windows\\system32\\lsm.exe"
+    ],
+    "hash": {
+      "md5": "8aea9a37c1a3565a204d37c5e72ab791",
+      "sha256": "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "8aea9a37c1a3565a204d37c5e72ab791",
+    "sha256": "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:38:36.975Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "8aea9a37c1a3565a204d37c5e72ab791",
+      "939903f93ff37525a6c4b5cba29cdeee6d6055c42d605e80ae787f2a76f9870e"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "177650cc-629c-4abf-8b93-a90e2e515251",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3"
+  },
+  "host": {
+    "name": "CLIENT3.breach.local",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\psexec.exe" AND process.command_line: "*accepteula*"'
+pre_detector:
+  case_condition: directly
+  id: 730fc21b-eaff-474b-ad23-90fd265d4988
+  mitre:
+  - attack.execution
+  - attack.t1569
+  - attack.t1021
+  severity: medium
+  title: Psexec Accepteula Condition
+sigma_fields: true
+description: Detect ed user accept agreement execution in psexec commandline

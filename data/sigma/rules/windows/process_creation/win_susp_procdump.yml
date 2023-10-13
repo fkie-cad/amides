@@ -1,0 +1,19 @@
+filter: '(process.command_line: "* -ma *" AND process.command_line: "* lsass*") OR
+  process.command_line: "* -ma ls*"'
+pre_detector:
+  case_condition: directly
+  id: 5afee48e-67dd-4e03-a783-f74259dcf998
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.credential_access
+  - attack.t1003.001
+  - attack.t1003
+  - car.2013-05-009
+  severity: high
+  title: Suspicious Use of Procdump
+sigma_fields: true
+description: Detects suspicious uses of the SysInternals Procdump utility by using
+  a special command line parameter in combination with the lsass.exe process. This
+  way we're also able to catch cases in which the attacker has renamed the procdump
+  executable.

@@ -1,0 +1,13 @@
+filter: 'process.executable: ("*\$Recycle.bin" OR "*\Users\All Users\\*" OR "*\Users\Default\\*"
+  OR "*\Users\Public\\*" OR "C:\Perflogs\\*" OR "*\config\systemprofile\\*" OR "*\Windows\Fonts\\*"
+  OR "*\Windows\IME\\*" OR "*\Windows\addins\\*")'
+pre_detector:
+  case_condition: directly
+  id: 3dfd06d2-eaf4-4532-9555-68aca59f57c4
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  severity: high
+  title: Execution in Non-Executable Folder
+sigma_fields: true
+description: Detects a suspicious exection from an uncommon folder

@@ -1,0 +1,7 @@
+{
+    "winlog": {
+        "event_data": {
+            "Details": "C:\\Windows\\Temp\\calc.exe"
+        }
+    }
+}

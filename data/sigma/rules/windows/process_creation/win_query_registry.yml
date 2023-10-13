@@ -1,0 +1,17 @@
+filter: 'process.executable: "*\reg.exe" AND process.command_line: ("*query*" OR "*save*"
+  OR "*export*") AND process.command_line: ("*currentVersion\windows*" OR "*currentVersion\runServicesOnce*"
+  OR "*currentVersion\runServices*" OR "*winlogon\\*" OR "*currentVersion\shellServiceObjectDelayLoad*"
+  OR "*currentVersion\runOnce*" OR "*currentVersion\runOnceEx*" OR "*currentVersion\run*"
+  OR "*currentVersion\policies\explorer\run*" OR "*currentcontrolset\services*")'
+pre_detector:
+  case_condition: directly
+  id: 970007b7-ce32-49d0-a4a4-fbef016950bd
+  mitre:
+  - attack.discovery
+  - attack.t1012
+  - attack.t1007
+  severity: low
+  title: Query Registry
+sigma_fields: true
+description: Adversaries may interact with the Windows Registry to gather information
+  about the system, configuration, and installed software.

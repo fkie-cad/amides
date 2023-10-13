@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*explorer.exe*" AND process.command_line: "* /root,*"'
+pre_detector:
+  case_condition: directly
+  id: 949f1ffb-6e85-4f00-ae1e-c3c5b190d605
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  severity: medium
+  title: Explorer Root Flag Process Tree Break
+sigma_fields: true
+description: Detects a command line process that uses explorer.exe /root, which is
+  similar to cmd.exe /c, only it breaks the process tree and makes its parent a new
+  instance of explorer

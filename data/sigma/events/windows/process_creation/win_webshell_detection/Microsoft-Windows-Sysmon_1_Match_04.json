@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:34:55.640Z",
+  "host": {
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "name": "CLIENT1.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "event": {
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:37:09.055Z"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+    "executable": "C:\\Windows\\System32\\cmd.exe",
+    "command_line": "ping -n 10",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-001049590000}",
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\httpd.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe"
+    },
+    "name": "services.exe",
+    "args": [
+      "C:\\Windows\\system32\\services.exe"
+    ],
+    "hash": {
+      "md5": "5f1b6a9c35d3d5ca72d6d6fdef9747d6",
+      "sha256": "d7bc4ed605b32274b45328fd9914fb0e7b90d869a38f0e6f94fb1bf4e9e2b407"
+    },
+    "pid": 440
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:55.640\nProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nProcessId: 440\nImage: C:\\Windows\\System32\\services.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Services and Controller app\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: services.exe\nCommandLine: C:\\Windows\\system32\\services.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=5F1B6A9C35D3D5CA72D6D6FDEF9747D6,SHA256=D7BC4ED605B32274B45328FD9914FB0E7B90D869A38F0E6F94FB1BF4E9E2B407\nParentProcessGuid: {19FC45AC-768F-601C-0000-001049590000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "winlog": {
+    "opcode": "Info",
+    "version": 5,
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "record_id": 1326,
+    "computer_name": "CLIENT1.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "event_data": {
+      "LogonId": "0x3e7",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "OriginalFileName": "services.exe",
+      "TerminalSessionId": "0",
+      "Company": "Microsoft Corporation",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Description": "Services and Controller app",
+      "IntegrityLevel": "System"
+    }
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "5f1b6a9c35d3d5ca72d6d6fdef9747d6",
+      "d7bc4ed605b32274b45328fd9914fb0e7b90d869a38f0e6f94fb1bf4e9e2b407"
+    ]
+  },
+  "hash": {
+    "md5": "5f1b6a9c35d3d5ca72d6d6fdef9747d6",
+    "sha256": "d7bc4ed605b32274b45328fd9914fb0e7b90d869a38f0e6f94fb1bf4e9e2b407"
+  }
+}

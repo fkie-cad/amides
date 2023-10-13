@@ -1,0 +1,19 @@
+filter: '(process.parent.executable: ("*C:\Windows\Temp*" OR "*\hpqhvind.exe*") AND
+  process.executable: "C:\ProgramData\DRM*") OR (process.parent.executable: "C:\ProgramData\DRM*"
+  AND process.executable: "*\wmplayer.exe") OR (process.parent.executable: "*\Test.exe"
+  AND process.executable: "*\wmplayer.exe") OR process.executable: "C:\ProgramData\DRM\CLR\CLR.exe"
+  OR (process.parent.executable: "C:\ProgramData\DRM\Windows*" AND process.executable:
+  "*\SearchFilterHost.exe")'
+pre_detector:
+  case_condition: directly
+  id: 3121461b-5aa0-4a41-b910-66d25524edbb
+  mitre:
+  - attack.defense_evasion
+  - attack.t1574.002
+  - attack.t1073
+  - attack.g0044
+  severity: critical
+  title: Winnti Malware HK University Campaign
+sigma_fields: true
+description: Detects specific process characteristics of Winnti malware noticed in
+  Dec/Jan 2020 in a campaign against Honk Kong universities

@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\cmdkey.exe" AND process.command_line: "* /list *"'
+pre_detector:
+  case_condition: directly
+  id: 07f8bdc2-c9b3-472a-9817-5a670b872f53
+  mitre:
+  - attack.credential_access
+  - attack.t1003.005
+  - attack.t1003
+  severity: low
+  title: Cmdkey Cached Credentials Recon
+sigma_fields: true
+description: Detects usage of cmdkey to look for cached credentials

@@ -1,0 +1,22 @@
+filter: 'process.parent.executable: ("*\apache*" OR "*\tomcat*" OR "*\w3wp.exe" OR
+  "*\php-cgi.exe" OR "*\nginx.exe" OR "*\httpd.exe") AND process.command_line: ("*whoami*"
+  OR "*net user *" OR "*net use *" OR "*net group *" OR "*quser*" OR "*ping -n *"
+  OR "*systeminfo" OR "*&cd&echo*" OR "*cd /d*" OR "*ipconfig*" OR "*pathping*" OR
+  "*tracert*" OR "*netstat*" OR "*schtasks*" OR "*vssadmin*" OR "*wevtutil*" OR "*tasklist*"
+  OR "*wmic /node:*" OR "*Test-NetConnection*" OR "*dir \*")'
+pre_detector:
+  case_condition: directly
+  id: bed2a484-9348-4143-8a8a-b801c979301c
+  mitre:
+  - attack.persistence
+  - attack.t1505.003
+  - attack.t1018
+  - attack.t1033
+  - attack.t1087
+  - attack.privilege_escalation
+  - attack.t1100
+  severity: high
+  title: Webshell Detection With Command Line Keywords
+sigma_fields: true
+description: Detects certain command line parameters often used during reconnaissance
+  activity via web shells

@@ -1,0 +1,12 @@
+filter: 'process.parent.executable: "*\EdgeTransport.exe"'
+pre_detector:
+  case_condition: directly
+  id: 797011dc-44f4-4e6f-9f10-a8ceefbe566b
+  mitre:
+  - attack.persistence
+  - attack.t1546.003
+  - attack.t1084
+  severity: critical
+  title: WMI Backdoor Exchange Transport Agent
+sigma_fields: true
+description: Detects a WMi backdoor in Exchange Transport Agents via WMi event filters

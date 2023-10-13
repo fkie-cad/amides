@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*abCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc*"'
+pre_detector:
+  case_condition: directly
+  id: 8c7090c3-e0a0-4944-bd08-08c3a0cecf79
+  mitre:
+  - attack.execution
+  - attack.t1059
+  - attack.t1059.001
+  severity: high
+  title: TropicTrooper Campaign November 2018
+sigma_fields: true
+description: Detects TropicTrooper activity, an actor who targeted high-profile organizations
+  in the energy and food and beverage sectors in Asia

@@ -1,0 +1,12 @@
+filter: 'process.command_line: ("* localgroup administrators admin /add" OR "*\Win64.exe*")'
+pre_detector:
+  case_condition: directly
+  id: 0eb2107b-a596-422e-b123-b389d5594ed7
+  mitre:
+  - attack.privilege_escalation
+  - attack.g0009
+  - attack.t1068
+  severity: high
+  title: Hurricane Panda Activity
+sigma_fields: true
+description: Detects Hurricane Panda Activity

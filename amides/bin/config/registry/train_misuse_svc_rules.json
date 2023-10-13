@@ -1,0 +1,6 @@
+{
+    "benign_samples": "../data/socbed/registry/train",
+    "rule_values": "../data/sigma/rules/windows/registry/values_rules_registry",
+    "result_name": "misuse_svc_rules_f1_0",
+    "out_dir": "models/registry"
+}

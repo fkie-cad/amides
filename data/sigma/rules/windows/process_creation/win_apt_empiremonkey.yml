@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*/i:%APPDATA%\logs.txt scrobj.dll" AND (process.executable:
+  "*\cutil.exe" OR winlog.event_data.Description: "Microsoft(C) Registerserver")'
+pre_detector:
+  case_condition: directly
+  id: 10152a7b-b566-438f-a33c-390b607d1c8d
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.010
+  - attack.t1117
+  severity: critical
+  title: Empire Monkey
+sigma_fields: true
+description: Detects EmpireMonkey APT reported Activity

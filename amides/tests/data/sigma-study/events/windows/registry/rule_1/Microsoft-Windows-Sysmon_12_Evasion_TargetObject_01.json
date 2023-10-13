@@ -1,0 +1,7 @@
+{
+    "winlog": {
+        "event_data": {
+            "TargetObject": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\foo"
+        }
+    }
+}

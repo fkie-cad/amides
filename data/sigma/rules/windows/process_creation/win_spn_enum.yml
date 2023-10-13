@@ -1,0 +1,13 @@
+filter: '(process.executable: "*\setspn.exe" OR winlog.event_data.Description: "*Query
+  or reset the computer* SPN attribute*") AND process.command_line: "*-q*"'
+pre_detector:
+  case_condition: directly
+  id: 1eeed653-dbc8-4187-ad0c-eeebb20e6599
+  mitre:
+  - attack.credential_access
+  - attack.t1558.003
+  - attack.t1208
+  severity: medium
+  title: Possible SPN Enumeration
+sigma_fields: true
+description: Detects Service Principal Name Enumeration used for Kerberoasting

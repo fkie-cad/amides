@@ -1,0 +1,17 @@
+filter: 'process.executable: "*\iodine.exe" OR process.executable: "*\dnscat2*"'
+pre_detector:
+  case_condition: directly
+  id: 98a96a5a-64a0-4c42-92c5-489da3866cb0
+  mitre:
+  - attack.exfiltration
+  - attack.t1048.001
+  - attack.t1048
+  - attack.command_and_control
+  - attack.t1071.004
+  - attack.t1071
+  - attack.t1132.001
+  - attack.t1132
+  severity: high
+  title: DNS Exfiltration and Tunneling Tools Execution
+sigma_fields: true
+description: Well-known DNS Exfiltration tools execution

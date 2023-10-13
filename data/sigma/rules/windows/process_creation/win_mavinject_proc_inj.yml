@@ -1,0 +1,12 @@
+filter: 'process.command_line: "* /INJECTRUNNING *"'
+pre_detector:
+  case_condition: directly
+  id: 17eb8e57-9983-420d-ad8a-2c4976c22eb8
+  mitre:
+  - attack.t1055
+  - attack.t1055.001
+  - attack.t1218
+  severity: critical
+  title: MavInject Process Injection
+sigma_fields: true
+description: Detects process injection using the signed Windows tool Mavinject32.exe

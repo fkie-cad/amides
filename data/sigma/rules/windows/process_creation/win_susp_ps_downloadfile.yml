@@ -1,0 +1,17 @@
+filter: 'process.command_line: "*powershell*" AND process.command_line: "*.DownloadFile*"
+  AND process.command_line: "*System.Net.WebClient*"'
+pre_detector:
+  case_condition: directly
+  id: 8f70ac5f-1f6f-4f8e-b454-db19561216c5
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  - attack.command_and_control
+  - attack.t1104
+  - attack.t1105
+  severity: high
+  title: PowerShell DownloadFile
+sigma_fields: true
+description: Detects the execution of powershell, a WebClient object creation and
+  the invocation of DownloadFile in a single command line

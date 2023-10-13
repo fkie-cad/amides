@@ -1,0 +1,30 @@
+{"Keyless": "$cmd_man_ip = \"netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.103\"; Start-Process powershell.exe -Wait -ArgumentList $cmd_man_ip -Verb RunAs"}
+{"Keyless": "netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.103"}
+{"Keyless": "$global:?"}
+{"Keyless": "$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force"}
+{"Keyless": "$global:?"}
+{"Keyless": "$global:?"}
+{"Keyless": "$global:?"}
+{"Keyless": "$new_name = 'CLIENT3'; Rename-Computer -NewName $new_name -Restart -Force"}
+{"Keyless": "$global:?"}
+{"Keyless": "$reg_path = 'HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client3'"}
+{"Keyless": "$global:?"}
+{"Keyless": "$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force"}
+{"Keyless": "$cmd_man_ip = \"netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.101\"; Start-Process powershell.exe -Wait -ArgumentList $cmd_man_ip -Verb RunAs"}
+{"Keyless": "netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.101"}
+{"Keyless": "$global:?"}
+{"Keyless": "$global:?"}
+{"Keyless": "$new_name = 'CLIENT1'; Rename-Computer -NewName $new_name -Restart -Force"}
+{"Keyless": "$global:?"}
+{"Keyless": "$reg_path = 'HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client1'"}
+{"Keyless": "$global:?"}
+{"Keyless": "$cmd_man_ip = \"netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.102\"; Start-Process powershell.exe -Wait -ArgumentList $cmd_man_ip -Verb RunAs"}
+{"Keyless": "$global:?"}
+{"Keyless": "$global:?"}
+{"Keyless": "netsh.exe interface ip set address name='Ethernet 3' static 192.168.56.102"}
+{"Keyless": "$new_name = 'CLIENT2'; Rename-Computer -NewName $new_name -Restart -Force"}
+{"Keyless": "$global:?"}
+{"Keyless": "$reg_path = 'HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client2'"}
+{"Keyless": "$global:?"}
+{"Keyless": "$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force"}
+{"Keyless": "$global:?"}

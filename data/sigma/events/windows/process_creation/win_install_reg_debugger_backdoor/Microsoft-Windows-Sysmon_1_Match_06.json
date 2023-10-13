@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-05T09:02:00.137Z",
+  "event": {
+    "category": [
+      "process"
+    ],
+    "created": "2021-02-05T09:02:01.013Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "1234a12b71dae034e45c714ae5a54412",
+    "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1611,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "process": {
+      "thread": {
+        "id": 1716
+      },
+      "pid": 1928
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "event_id": 1,
+    "event_data": {
+      "TerminalSessionId": "0",
+      "Description": "Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0",
+      "FileVersion": "18,0,0,194",
+      "IntegrityLevel": "System",
+      "Company": "Adobe Systems Incorporated",
+      "LogonId": "0x3e7",
+      "Product": "Adobe\u00ae Flash\u00ae Player Update Service",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "OriginalFileName": "?"
+    }
+  },
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\Macromed\\Flash\\FlashPlayerUpdateService.exe",
+    "command_line": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\displayswitch.exe\" /t REG_SZ /v Debugger /d “C:\\windows\\system32\\cmd.exe” /f",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\taskeng.exe",
+      "command_line": "taskeng.exe {08EBF8AC-88BC-4743-8882-B616EA616483} S-1-5-18:NT AUTHORITY\\System:Service:",
+      "name": "taskeng.exe",
+      "args": [
+        "taskeng.exe",
+        "{08EBF8AC-88BC-4743-8882-B616EA616483}",
+        "S-1-5-18:NT",
+        "AUTHORITY\\System:Service:"
+      ],
+      "entity_id": "{19FC45AC-0987-601D-0000-00109CEE6000}",
+      "pid": 2792
+    },
+    "name": "FlashPlayerUpdateService.exe",
+    "hash": {
+      "md5": "1234a12b71dae034e45c714ae5a54412",
+      "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+    },
+    "entity_id": "{19FC45AC-0988-601D-0000-001061F06000}",
+    "pid": 1992,
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\system32\\Macromed\\Flash\\FlashPlayerUpdateService.exe"
+    ]
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "1234a12b71dae034e45c714ae5a54412",
+      "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 09:02:00.137\nProcessGuid: {19FC45AC-0988-601D-0000-001061F06000}\nProcessId: 1992\nImage: C:\\Windows\\System32\\Macromed\\Flash\\FlashPlayerUpdateService.exe\nFileVersion: 18,0,0,194\nDescription: Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0\nProduct: Adobe\u00ae Flash\u00ae Player Update Service\nCompany: Adobe Systems Incorporated\nOriginalFileName: ?\nCommandLine: C:\\Windows\\system32\\Macromed\\Flash\\FlashPlayerUpdateService.exe \nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=1234A12B71DAE034E45C714AE5A54412,SHA256=079E6BC834F38322ED5ED76295EC3961ED894084EF5CB171DFFBD9B3822CC78D\nParentProcessGuid: {19FC45AC-0987-601D-0000-00109CEE6000}\nParentProcessId: 2792\nParentImage: C:\\Windows\\System32\\taskeng.exe\nParentCommandLine: taskeng.exe {08EBF8AC-88BC-4743-8882-B616EA616483} S-1-5-18:NT AUTHORITY\\System:Service:"
+}

@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T23:00:38.838Z",
+  "host": {
+    "name": "CLIENT2.breach.local",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:00:38.838\nProcessGuid: {19FC45AC-7C96-601C-0000-0010D0350C00}\nProcessId: 3260\nImage: C:\\Windows\\System32\\VSSVC.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Microsoft\u00ae Volume Shadow Copy Service\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: VSSVC.EXE\nCommandLine: C:\\Windows\\system32\\vssvc.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76D8-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=209A3B1901B83AEB8527ED211CCE9E4C,SHA256=1A431F6409F8E0531F600F8F988ECECECB902DA26BBAAF1DE74A5CAC29A7CB44\nParentProcessGuid: {19FC45AC-76D8-601C-0000-0010F1630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "version": 5,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "event_data": {
+      "TerminalSessionId": "0",
+      "Description": "Microsoft\u00ae Volume Shadow Copy Service",
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-76D8-601C-0000-0020E7030000}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "LogonId": "0x3e7",
+      "IntegrityLevel": "System",
+      "OriginalFileName": "VSSVC.EXE"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1704,
+      "thread": {
+        "id": 1804
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "record_id": 1407,
+    "api": "wineventlog",
+    "computer_name": "CLIENT2.breach.local",
+    "opcode": "Info"
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\VSSVC.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "VSSVC.exe",
+    "hash": {
+      "md5": "209a3b1901b83aeb8527ed211cce9e4c",
+      "sha256": "1a431f6409f8e0531f600f8f988ecececb902da26bbaaf1de74a5cac29a7cb44"
+    },
+    "entity_id": "{19FC45AC-7C96-601C-0000-0010D0350C00}",
+    "pid": 3260,
+    "command_line": "netsh trace start capture=yes",
+    "parent": {
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-76D8-601C-0000-0010F1630000}"
+    },
+    "args": [
+      "C:\\Windows\\system32\\vssvc.exe"
+    ]
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "209a3b1901b83aeb8527ed211cce9e4c",
+    "sha256": "1a431f6409f8e0531f600f8f988ecececb902da26bbaaf1de74a5cac29a7cb44"
+  },
+  "agent": {
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2"
+  },
+  "log": {
+    "level": "information"
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T23:00:39.203Z",
+    "module": "sysmon"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "209a3b1901b83aeb8527ed211cce9e4c",
+      "1a431f6409f8e0531f600f8f988ecececb902da26bbaaf1de74a5cac29a7cb44"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

@@ -1,0 +1,20 @@
+filter: 'process.command_line: ("*\ldifde.exe -f -n *" OR "*\7za.exe a 1.7z *" OR
+  "* eprod.ldf" OR "*\aaaa\procdump64.exe*" OR "*\aaaa\netsess.exe*" OR "*\aaaa\7za.exe*"
+  OR "*copy .\1.7z \\*" OR "*copy \\client\c$\aaaa\\*") OR process.executable: "C:\Users\Public\7za.exe"'
+pre_detector:
+  case_condition: directly
+  id: 03e2746e-2b31-42f1-ab7a-eb39365b2422
+  mitre:
+  - attack.lateral_movement
+  - attack.g0010
+  - attack.credential_access
+  - attack.t1003
+  - attack.t1003.001
+  - attack.exfiltration
+  - attack.t1002
+  - attack.t1560.001
+  severity: critical
+  title: Judgement Panda Exfil Activity
+sigma_fields: true
+description: Detects Judgement Panda activity as described in Global Threat Report
+  2019 by Crowdstrike

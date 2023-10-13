@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\dctask64.exe" AND NOT process.command_line: "*DesktopCentral_Agent\agent*"'
+pre_detector:
+  case_condition: directly
+  id: 6345b048-8441-43a7-9bed-541133633d7a
+  mitre:
+  - attack.defense_evasion
+  - attack.t1055.001
+  - attack.t1055
+  severity: high
+  title: ZOHO Dctask64 Process Injection
+sigma_fields: true
+description: Detects suspicious process injection using ZOHO's dctask64.exe

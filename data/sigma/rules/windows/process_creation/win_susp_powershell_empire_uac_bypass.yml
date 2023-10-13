@@ -1,0 +1,16 @@
+filter: 'process.command_line: ("* -NoP -NonI -w Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows
+  Update).Update)*" OR "* -NoP -NonI -c $x=$((gp HKCU:Software\\Microsoft\\Windows
+  Update).Update);*")'
+pre_detector:
+  case_condition: directly
+  id: 3268b746-88d8-4cd3-bffc-30077d02c787
+  mitre:
+  - attack.defense_evasion
+  - attack.privilege_escalation
+  - attack.t1548.002
+  - attack.t1088
+  - car.2019-04-001
+  severity: critical
+  title: Empire PowerShell UAC Bypass
+sigma_fields: true
+description: Detects some Empire PowerShell UAC bypass methods

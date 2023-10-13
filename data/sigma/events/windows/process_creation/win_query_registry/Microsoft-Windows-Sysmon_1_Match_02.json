@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:35:47.905Z",
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:35:49.069Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "name": "CLIENT3.breach.local",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:35:47.905\nProcessGuid: {19FC45AC-76C3-601C-0000-0010700A0500}\nProcessId: 1064\nImage: C:\\Windows\\System32\\LogonUI.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Logon User Interface Host\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: logonui.exe\nCommandLine: \"LogonUI.exe\" /flags:0x0\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-752E-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 1\nIntegrityLevel: System\nHashes: MD5=3EF0D8AB08385AAB5802E773511A2E6A,SHA256=1A7EE4BC646767004372EAEA9BC0A2071790E739101F7D25ECD9C95D3F29AFD6\nParentProcessGuid: {19FC45AC-752D-601C-0000-0010D95C0000}\nParentProcessId: 384\nParentImage: C:\\Windows\\System32\\winlogon.exe\nParentCommandLine: winlogon.exe",
+  "hash": {
+    "sha256": "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6",
+    "md5": "3ef0d8ab08385aab5802e773511a2e6a"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3"
+  },
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "version": 5,
+    "event_id": 1,
+    "process": {
+      "pid": 1536,
+      "thread": {
+        "id": 1812
+      }
+    },
+    "event_data": {
+      "TerminalSessionId": "1",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonId": "0x3e7",
+      "Description": "Windows Logon User Interface Host",
+      "LogonGuid": "{19FC45AC-752E-601C-0000-0020E7030000}",
+      "OriginalFileName": "logonui.exe",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "System"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1421,
+    "opcode": "Info",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "api": "wineventlog",
+    "computer_name": "CLIENT3.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "process": {
+    "hash": {
+      "md5": "3ef0d8ab08385aab5802e773511a2e6a",
+      "sha256": "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+    },
+    "entity_id": "{19FC45AC-76C3-601C-0000-0010700A0500}",
+    "pid": 1064,
+    "command_line": "reg save HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\RunServicesOnce C:\\Temp\\regsave.txt",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-752D-601C-0000-0010D95C0000}",
+      "pid": 384,
+      "executable": "C:\\Windows\\System32\\winlogon.exe",
+      "command_line": "winlogon.exe",
+      "name": "winlogon.exe",
+      "args": [
+        "winlogon.exe"
+      ]
+    },
+    "args": [
+      "LogonUI.exe",
+      "/flags:0x0"
+    ],
+    "executable": "C:\\Windows\\System32\\reg.exe",
+    "name": "LogonUI.exe"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "3ef0d8ab08385aab5802e773511a2e6a",
+      "1a7ee4bc646767004372eaea9bc0a2071790e739101f7d25ecd9c95d3f29afd6"
+    ]
+  }
+}

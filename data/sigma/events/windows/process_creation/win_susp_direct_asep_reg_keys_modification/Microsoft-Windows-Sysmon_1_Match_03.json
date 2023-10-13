@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:34:58.359Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:58.359\nProcessGuid: {19FC45AC-7692-601C-0000-001004830100}\nProcessId: 1788\nImage: C:\\Windows\\System32\\imdsksvc.exe\nFileVersion: 2.0.9.24\nDescription: ImDisk Virtual Disk Driver helper service\nProduct: imdisk\nCompany: Olof Lagerkvist\nOriginalFileName: imdsksvc.exe\nCommandLine: C:\\Windows\\system32\\imdsksvc.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=73DCB33604AB86BCD4CAA90346D73B49,SHA256=DB47A54AC39C5831F4FA8B678B5738B6BD304F6002D9FC0256F055ABE7A9D969\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "hash": {
+    "md5": "73dcb33604ab86bcd4caa90346d73b49",
+    "sha256": "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "process": {
+      "thread": {
+        "id": 1716
+      },
+      "pid": 1928
+    },
+    "version": 5,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "record_id": 1349,
+    "api": "wineventlog",
+    "opcode": "Info",
+    "computer_name": "CLIENT1.breach.local",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_data": {
+      "TerminalSessionId": "0",
+      "FileVersion": "2.0.9.24",
+      "Product": "imdisk",
+      "OriginalFileName": "imdsksvc.exe",
+      "Description": "ImDisk Virtual Disk Driver helper service",
+      "Company": "Olof Lagerkvist",
+      "LogonId": "0x3e7",
+      "IntegrityLevel": "System",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}"
+    },
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)"
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:37:09.059Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event"
+  },
+  "process": {
+    "command_line": "reg add \\software\\Microsoft\\Windows\\CurrentVersion\\RunOnceEx",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "args": [
+      "C:\\Windows\\system32\\imdsksvc.exe"
+    ],
+    "hash": {
+      "md5": "73dcb33604ab86bcd4caa90346d73b49",
+      "sha256": "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+    },
+    "entity_id": "{19FC45AC-7692-601C-0000-001004830100}",
+    "pid": 1788,
+    "executable": "C:\\Windows\\System32\\reg.exe",
+    "name": "imdsksvc.exe"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "73dcb33604ab86bcd4caa90346d73b49",
+      "db47a54ac39c5831f4fa8b678b5738b6bd304f6002d9fc0256f055abe7a9d969"
+    ]
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\at.exe" AND process.command_line: "*interactive*"'
+pre_detector:
+  case_condition: directly
+  id: 60fc936d-2eb0-4543-8a13-911c750a1dfc
+  mitre:
+  - attack.privilege_escalation
+  - attack.t1053.002
+  - attack.t1053
+  severity: high
+  title: Interactive AT Job
+sigma_fields: true
+description: Detect an interactive AT job, which may be used as a form of privilege
+  escalation

@@ -1,0 +1,19 @@
+filter: 'process.parent.executable: "*\services.exe" AND ((process.command_line: "*cmd*"
+  AND process.command_line: "*/c*" AND process.command_line: "*echo*" AND process.command_line:
+  "*\pipe\\*") OR (process.command_line: "*%COMSPEC%*" AND process.command_line: "*/c*"
+  AND process.command_line: "*echo*" AND process.command_line: "*\pipe\\*") OR (process.command_line:
+  "*rundll32*" AND process.command_line: "*.dll,a*" AND process.command_line: "*/p:*"))
+  AND NOT process.command_line: "*MpCmdRun*"'
+pre_detector:
+  case_condition: directly
+  id: 15619216-e993-4721-b590-4c520615a67d
+  mitre:
+  - attack.privilege_escalation
+  - attack.t1134
+  - attack.t1134.001
+  - attack.t1134.002
+  severity: high
+  title: Meterpreter or Cobalt Strike Getsystem Service Start
+sigma_fields: true
+description: Detects the use of getsystem Meterpreter/Cobalt Strike command by detecting
+  a specific service starting

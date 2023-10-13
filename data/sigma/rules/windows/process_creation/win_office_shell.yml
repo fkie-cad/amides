@@ -1,0 +1,19 @@
+filter: 'process.parent.executable: ("*\WINWORD.EXE" OR "*\EXCEL.EXE" OR "*\POWERPNT.exe"
+  OR "*\MSPUB.exe" OR "*\VISIO.exe" OR "*\OUTLOOK.EXE" OR "*\MSACCESS.EXE" OR "*\EQNEDT32.EXE")
+  AND process.executable: ("*\cmd.exe" OR "*\powershell.exe" OR "*\wscript.exe" OR
+  "*\cscript.exe" OR "*\sh.exe" OR "*\bash.exe" OR "*\scrcons.exe" OR "*\schtasks.exe"
+  OR "*\regsvr32.exe" OR "*\hh.exe" OR "*\wmic.exe" OR "*\mshta.exe" OR "*\rundll32.exe"
+  OR "*\msiexec.exe" OR "*\forfiles.exe" OR "*\scriptrunner.exe" OR "*\mftrace.exe"
+  OR "*\AppVLP.exe" OR "*\svchost.exe" OR "*\msbuild.exe")'
+pre_detector:
+  case_condition: directly
+  id: 438025f9-5856-4663-83f7-52f878a70a50
+  mitre:
+  - attack.execution
+  - attack.t1204
+  - attack.t1204.002
+  severity: high
+  title: Microsoft Office Product Spawning Windows Shell
+sigma_fields: true
+description: Detects a Windows command and scripting interpreter executable started
+  from Microsoft Word, Excel, Powerpoint, Publisher and Visio

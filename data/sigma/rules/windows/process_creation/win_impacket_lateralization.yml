@@ -1,0 +1,18 @@
+filter: '(process.parent.executable: ("*\wmiprvse.exe" OR "*\mmc.exe" OR "*\explorer.exe"
+  OR "*\services.exe") AND process.command_line: "*cmd.exe* /Q /c * \\\\127.0.0.1\\*&1*")
+  OR (process.parent.command_line: ("*svchost.exe -k netsvcs" OR "taskeng.exe*") AND
+  process.command_line: "cmd.exe /C *Windows\\Temp\\*&1")'
+pre_detector:
+  case_condition: directly
+  id: 10c14723-61c7-4c75-92ca-9af245723ad2
+  mitre:
+  - attack.execution
+  - attack.t1047
+  - attack.lateral_movement
+  - attack.t1175
+  - attack.t1021.003
+  - attack.t1021
+  severity: critical
+  title: Impacket Lateralization Detection
+sigma_fields: true
+description: Detects wmiexec/dcomexec/atexec/smbexec from Impacket framework

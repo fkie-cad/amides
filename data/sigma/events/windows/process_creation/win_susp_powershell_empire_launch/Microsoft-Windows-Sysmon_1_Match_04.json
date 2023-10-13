@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:29:15.183Z",
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.166Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client3"
+  },
+  "hash": {
+    "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+    "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+  },
+  "related": {
+    "user": "client3",
+    "hash": [
+      "7fa8ba5a780e4757964ac9d4238302b9",
+      "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    ]
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "computer_name": "CLIENT3.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "pid": 1536,
+      "thread": {
+        "id": 1812
+      }
+    },
+    "event_data": {
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Description": "Host Process for Windows Tasks",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "LogonGuid": "{19FC45AC-753A-601C-0000-0020AE510200}",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "1",
+      "IntegrityLevel": "Medium",
+      "OriginalFileName": "taskhost.exe",
+      "LogonId": "0x251ae"
+    },
+    "record_id": 1298,
+    "api": "wineventlog",
+    "version": 5,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "opcode": "Info"
+  },
+  "host": {
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT3.breach.local",
+    "hostname": "CLIENT3",
+    "architecture": "x86"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:15.183\nProcessGuid: {19FC45AC-753B-601C-0000-00108C6B0200}\nProcessId: 2140\nImage: C:\\Windows\\System32\\taskhost.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Host Process for Windows Tasks\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: taskhost.exe\nCommandLine: \"taskhost.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client3\nLogonGuid: {19FC45AC-753A-601C-0000-0020AE510200}\nLogonId: 0x251ae\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=7FA8BA5A780E4757964AC9D4238302B9,SHA256=65E3D8CE737896647065103FBB4D58E6A34171D0A48662A832CFDAC3CF469701\nParentProcessGuid: {19FC45AC-752D-601C-0000-0010F4630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "entity_id": "{19FC45AC-753B-601C-0000-00108C6B0200}",
+    "pid": 2140,
+    "hash": {
+      "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+      "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    },
+    "args": [
+      "taskhost.exe"
+    ],
+    "executable": "C:\\Windows\\System32\\taskhost.exe",
+    "command_line": "powershell.exe -NoP -sta -NonI -W Hidden -enc SQBENC0D3DC0MM4ND",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-752D-601C-0000-0010F4630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "taskhost.exe"
+  }
+}

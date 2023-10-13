@@ -1,0 +1,16 @@
+filter: 'process.parent.command_line: "*\svchost.exe*termsvcs" AND NOT process.executable:
+  "*\rdpclip.exe"'
+pre_detector:
+  case_condition: directly
+  id: 1012f107-b8f1-4271-af30-5aed2de89b39
+  mitre:
+  - attack.initial_access
+  - attack.t1190
+  - attack.lateral_movement
+  - attack.t1210
+  - car.2013-07-002
+  severity: high
+  title: Terminal Service Process Spawn
+sigma_fields: true
+description: Detects a process spawned by the terminal service server process (this
+  could be an indicator for an exploitation of CVE-2019-0708)

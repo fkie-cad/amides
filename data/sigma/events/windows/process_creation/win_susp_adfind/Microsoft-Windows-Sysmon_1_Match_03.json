@@ -1,0 +1,145 @@
+{
+  "@timestamp": "2021-02-04T20:30:47.126Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:30:47.126\nProcessGuid: {19FC45AC-5977-601C-0000-0010FF2D0F00}\nProcessId: 3372\nImage: C:\\Program Files\\Winlogbeat\\winlogbeat.exe\nFileVersion: 7.10.2\nDescription: Winlogbeat ships Windows event logs to Elasticsearch or Logstash.\nProduct: Winlogbeat\nCompany: Elastic\nOriginalFileName: winlogbeat.exe\nCommandLine: \"C:\\Program Files\\Winlogbeat\\winlogbeat.exe\" --environment=windows_service -c \"C:\\Program Files\\Winlogbeat\\winlogbeat.yml\" --path.home \"C:\\Program Files\\Winlogbeat\" --path.data \"C:\\ProgramData\\winlogbeat\" --path.logs \"C:\\ProgramData\\winlogbeat\\logs\" -E logging.files.redirect_stderr=true\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-4598-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=0D17999868F2768B1B050CB051884110,SHA256=E72F5DBA2A177397403965A3352F0CC45EC46A568A53D5EF4535FBBA18E73023\nParentProcessGuid: {19FC45AC-4598-601C-0000-00100D610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "pid": 3372,
+    "name": "winlogbeat.exe",
+    "args": [
+      "C:\\Program Files\\Winlogbeat\\winlogbeat.exe",
+      "--environment=windows_service",
+      "-c",
+      "C:\\Program Files\\Winlogbeat\\winlogbeat.yml",
+      "--path.home",
+      "C:\\Program Files\\Winlogbeat",
+      "--path.data",
+      "C:\\ProgramData\\winlogbeat",
+      "--path.logs",
+      "C:\\ProgramData\\winlogbeat\\logs",
+      "-E",
+      "logging.files.redirect_stderr=true"
+    ],
+    "hash": {
+      "md5": "0d17999868f2768b1b050cb051884110",
+      "sha256": "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+    },
+    "entity_id": "{19FC45AC-5977-601C-0000-0010FF2D0F00}",
+    "executable": "C:\\Program Files\\AdFind.exe",
+    "command_line": "C:\\Program Files\\AdFind.exe -b DC=Contoso,DC=com -f \"objectcategory=person\" displayName -sl",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-4598-601C-0000-00100D610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    }
+  },
+  "hash": {
+    "md5": "0d17999868f2768b1b050cb051884110",
+    "sha256": "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "8d71002f-bbaa-43e7-9f1b-6316d51fcd53",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1131,
+    "computer_name": "CLIENT",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "event_data": {
+      "Description": "Winlogbeat ships Windows event logs to Elasticsearch or Logstash.",
+      "LogonGuid": "{19FC45AC-4598-601C-0000-0020E7030000}",
+      "OriginalFileName": "winlogbeat.exe",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "FileVersion": "7.10.2",
+      "Company": "Elastic",
+      "Product": "Winlogbeat"
+    },
+    "event_id": 1
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T20:30:49.652Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "hostname": "CLIENT",
+    "name": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "0d17999868f2768b1b050cb051884110",
+      "e72f5dba2a177397403965a3352f0cc45ec46a568a53d5ef4535fbba18e73023"
+    ]
+  }
+}

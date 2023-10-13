@@ -1,0 +1,12 @@
+filter: 'process.parent.executable: "*\WmiPrvSe.exe" AND NOT (LogonId: "0x3e7" OR
+  user.name: "NT AUTHORITY\SYSTEM" OR process.executable: ("*\WmiPrvSE.exe" OR "*\WerFault.exe"))'
+pre_detector:
+  case_condition: directly
+  id: d21374ff-f574-44a7-9998-4a8c8bf33d7d
+  mitre:
+  - attack.execution
+  - attack.t1047
+  severity: high
+  title: Wmiprvse Spawning Process
+sigma_fields: true
+description: Detects wmiprvse spawning processes

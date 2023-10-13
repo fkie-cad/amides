@@ -1,0 +1,14 @@
+filter: '(process.command_line: "*cmd.exe /c *" AND process.command_line: "* -p 0x*"
+  AND process.command_line: ("*C:\ProgramData\\\*" OR "*C:\RECYCLER\\\*")) OR (process.command_line:
+  "*rundll32.exe *" AND process.command_line: "*C:\ProgramData\\\*" AND process.command_line:
+  ("*.bin,*" OR "*.tmp,*" OR "*.dat,*" OR "*.io,*" OR "*.ini,*" OR "*.db,*"))'
+pre_detector:
+  case_condition: directly
+  id: 7b49c990-4a9a-4e65-ba95-47c9cc448f6e
+  mitre:
+  - attack.g0032
+  severity: critical
+  title: Lazarus Loaders
+sigma_fields: true
+description: Detects different loaders as described in various threat reports on Lazarus
+  group activity

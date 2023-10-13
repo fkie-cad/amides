@@ -1,0 +1,18 @@
+filter: 'process.parent.executable: ("*\mshta.exe" OR "*\powershell.exe" OR "*\rundll32.exe"
+  OR "*\cscript.exe" OR "*\wscript.exe" OR "*\wmiprvse.exe") AND process.executable:
+  ("*\schtasks.exe" OR "*\nslookup.exe" OR "*\certutil.exe" OR "*\bitsadmin.exe" OR
+  "*\mshta.exe") AND NOT process.working_directory: "*\ccmcache\\*"'
+pre_detector:
+  case_condition: directly
+  id: 3a6586ad-127a-4d3b-a677-1e6eacdf8fde
+  mitre:
+  - attack.execution
+  - attack.defense_evasion
+  - attack.t1064
+  - attack.t1059.005
+  - attack.t1059.001
+  - attack.t1218
+  severity: high
+  title: Windows Shell Spawning Suspicious Program
+sigma_fields: true
+description: Detects a suspicious child process of a Windows shell

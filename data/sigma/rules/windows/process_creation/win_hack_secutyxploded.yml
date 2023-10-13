@@ -1,0 +1,14 @@
+filter: 'winlog.event_data.Company: "SecurityXploded" OR process.executable: "*PasswordDump.exe"
+  OR winlog.event_data.OriginalFilename: "*PasswordDump.exe"'
+pre_detector:
+  case_condition: directly
+  id: 7679d464-4f74-45e2-9e01-ac66c5eb041a
+  mitre:
+  - attack.credential_access
+  - attack.t1555
+  - attack.t1003
+  - attack.t1503
+  severity: critical
+  title: SecurityXploded Tool
+sigma_fields: true
+description: Detects the execution of SecurityXploded Tools

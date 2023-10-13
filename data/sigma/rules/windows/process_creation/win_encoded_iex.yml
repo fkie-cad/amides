@@ -1,0 +1,14 @@
+filter: 'process.command_line: ("*SUVYIChb*" OR "*lFWCAoW*" OR "*JRVggKF*" OR "*aWV4IChb*"
+  OR "*lleCAoW*" OR "*pZXggKF*" OR "*aWV4IChOZX*" OR "*lleCAoTmV3*" OR "*pZXggKE5ld*"
+  OR "*SUVYIChOZX*" OR "*lFWCAoTmV3*" OR "*JRVggKE5ld*")'
+pre_detector:
+  case_condition: directly
+  id: 88f680b8-070e-402c-ae11-d2914f2257f1
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  severity: critical
+  title: Encoded IEX
+sigma_fields: true
+description: Detects a base64 encoded IEX command string in a process command line

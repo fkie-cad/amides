@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-05T08:00:51.630Z",
+  "process": {
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "taskhost.exe",
+      "$(Arg0)"
+    ],
+    "hash": {
+      "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701",
+      "md5": "7fa8ba5a780e4757964ac9d4238302b9"
+    },
+    "pid": 2624,
+    "command_line": "wget --help",
+    "parent": {
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\nginx.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}"
+    },
+    "name": "taskhost.exe",
+    "entity_id": "{19FC45AC-FB33-601C-0000-0010CAFF5900}",
+    "executable": "C:\\Windows\\System32\\cmd.exe"
+  },
+  "related": {
+    "user": "LOCAL SERVICE",
+    "hash": [
+      "7fa8ba5a780e4757964ac9d4238302b9",
+      "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    ]
+  },
+  "hash": {
+    "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+    "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 08:00:51.630\nProcessGuid: {19FC45AC-FB33-601C-0000-0010CAFF5900}\nProcessId: 2624\nImage: C:\\Windows\\System32\\taskhost.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Host Process for Windows Tasks\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: taskhost.exe\nCommandLine: taskhost.exe $(Arg0)\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\LOCAL SERVICE\nLogonGuid: {19FC45AC-7690-601C-0000-0020E5030000}\nLogonId: 0x3e5\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=7FA8BA5A780E4757964AC9D4238302B9,SHA256=65E3D8CE737896647065103FBB4D58E6A34171D0A48662A832CFDAC3CF469701\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "event_data": {
+      "LogonGuid": "{19FC45AC-7690-601C-0000-0020E5030000}",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "IntegrityLevel": "System",
+      "TerminalSessionId": "0",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "taskhost.exe",
+      "LogonId": "0x3e5",
+      "Description": "Host Process for Windows Tasks",
+      "Company": "Microsoft Corporation"
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "record_id": 1569,
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "version": 5,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog"
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT1.breach.local",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "event": {
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T08:00:52.777Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "LOCAL SERVICE"
+  }
+}

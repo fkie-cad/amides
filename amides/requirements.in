@@ -1,0 +1,11 @@
+scikit-learn>=1.2.0
+numpy
+joblib
+matplotlib
+luqum
+scipy>=1.9.2
+pandas
+seaborn
+elasticsearch
+ndjson
+pyyaml

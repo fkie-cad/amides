@@ -1,0 +1,19 @@
+filter: 'process.command_line: ("* -e JAB*" OR "* -e  JAB*" OR "* -e   JAB*" OR "*
+  -e    JAB*" OR "* -e     JAB*" OR "* -e      JAB*" OR "* -en JAB*" OR "* -enc JAB*"
+  OR "* -enc* JAB*" OR "* -w hidden -e* JAB*" OR "* BA^J e-" OR "* -e SUVYI*" OR "*
+  -e aWV4I*" OR "* -e SQBFAFgA*" OR "* -e aQBlAHgA*" OR "* -enc SUVYI*" OR "* -enc
+  aWV4I*" OR "* -enc SQBFAFgA*" OR "* -enc aQBlAHgA*" OR "* -e* IAA*" OR "* -e* IAB*"
+  OR "* -e* UwB*" OR "* -e* cwB*" OR "*.exe -ENCOD *") AND NOT process.command_line:
+  "* -ExecutionPolicy remotesigned *"'
+pre_detector:
+  case_condition: directly
+  id: ca2092a1-c273-4878-9b4b-0d60115bf5ea
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  severity: high
+  title: Suspicious Encoded PowerShell Command Line
+sigma_fields: true
+description: Detects suspicious powershell process starts with base64 encoded commands
+  (e.g. Emotet)

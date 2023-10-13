@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-05T02:02:00.114Z",
+  "host": {
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT2.breach.local"
+  },
+  "winlog": {
+    "event_id": 1,
+    "event_data": {
+      "LogonId": "0x3e7",
+      "FileVersion": "18,0,0,194",
+      "Description": "Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0",
+      "TerminalSessionId": "0",
+      "LogonGuid": "{19FC45AC-76D8-601C-0000-0020E7030000}",
+      "Product": "Adobe\u00ae Flash\u00ae Player Update Service",
+      "IntegrityLevel": "System",
+      "Company": "Adobe Systems Incorporated",
+      "OriginalFileName": "?"
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "api": "wineventlog",
+    "computer_name": "CLIENT2.breach.local",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "thread": {
+        "id": 1804
+      },
+      "pid": 1704
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1478
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T02:02:01.912Z",
+    "kind": "event",
+    "module": "sysmon"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 02:02:00.114\nProcessGuid: {19FC45AC-A718-601C-0000-0010778F2100}\nProcessId: 3088\nImage: C:\\Windows\\System32\\Macromed\\Flash\\FlashPlayerUpdateService.exe\nFileVersion: 18,0,0,194\nDescription: Adobe\u00ae Flash\u00ae Player Update Service 18.0 r0\nProduct: Adobe\u00ae Flash\u00ae Player Update Service\nCompany: Adobe Systems Incorporated\nOriginalFileName: ?\nCommandLine: C:\\Windows\\system32\\Macromed\\Flash\\FlashPlayerUpdateService.exe \nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76D8-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=1234A12B71DAE034E45C714AE5A54412,SHA256=079E6BC834F38322ED5ED76295EC3961ED894084EF5CB171DFFBD9B3822CC78D\nParentProcessGuid: {19FC45AC-A718-601C-0000-0010B88D2100}\nParentProcessId: 2136\nParentImage: C:\\Windows\\System32\\taskeng.exe\nParentCommandLine: taskeng.exe {4A87357A-390E-4DAE-9E5B-604177A1B25A} S-1-5-18:NT AUTHORITY\\System:Service:",
+  "process": {
+    "args": [
+      "C:\\Windows\\system32\\Macromed\\Flash\\FlashPlayerUpdateService.exe"
+    ],
+    "entity_id": "{19FC45AC-A718-601C-0000-0010778F2100}",
+    "executable": "C:\\Windows\\System32\\findstr.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "FlashPlayerUpdateService.exe",
+    "pid": 3088,
+    "command_line": "C:\\Windows\\System32\\findstr.exe findme *.lnk",
+    "parent": {
+      "name": "taskeng.exe",
+      "args": [
+        "taskeng.exe",
+        "{4A87357A-390E-4DAE-9E5B-604177A1B25A}",
+        "S-1-5-18:NT",
+        "AUTHORITY\\System:Service:"
+      ],
+      "entity_id": "{19FC45AC-A718-601C-0000-0010B88D2100}",
+      "pid": 2136,
+      "executable": "C:\\Windows\\System32\\taskeng.exe",
+      "command_line": "taskeng.exe {4A87357A-390E-4DAE-9E5B-604177A1B25A} S-1-5-18:NT AUTHORITY\\System:Service:"
+    },
+    "hash": {
+      "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d",
+      "md5": "1234a12b71dae034e45c714ae5a54412"
+    }
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "1234a12b71dae034e45c714ae5a54412",
+      "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+    ]
+  },
+  "hash": {
+    "md5": "1234a12b71dae034e45c714ae5a54412",
+    "sha256": "079e6bc834f38322ed5ed76295ec3961ed894084ef5cb171dffbd9b3822cc78d"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  }
+}

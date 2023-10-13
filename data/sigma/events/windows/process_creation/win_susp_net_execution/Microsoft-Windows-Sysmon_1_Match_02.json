@@ -1,0 +1,133 @@
+{
+  "@timestamp": "2021-02-05T01:30:00.568Z",
+  "host": {
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "name": "CLIENT1.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 01:30:00.568\nProcessGuid: {19FC45AC-9F98-601C-0000-001018D01E00}\nProcessId: 1888\nImage: C:\\Windows\\System32\\aitagent.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Application Impact Telemetry Agent\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: \nCommandLine: C:\\Windows\\system32\\aitagent.EXE \nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=2A3557DD3913F8D7CC5A5703083424D8,SHA256=E0731448A15FFAC9F20A82EAE95D97733FBCD227D1EAB7264F8FDE14503F3494\nParentProcessGuid: {19FC45AC-768F-601C-0000-0010EE630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "entity_id": "{19FC45AC-9F98-601C-0000-001018D01E00}",
+    "command_line": "net localgroup Administrators",
+    "args": [
+      "C:\\Windows\\system32\\aitagent.EXE"
+    ],
+    "hash": {
+      "md5": "2a3557dd3913f8d7cc5a5703083424d8",
+      "sha256": "e0731448a15ffac9f20a82eae95d97733fbcd227d1eab7264f8fde14503f3494"
+    },
+    "pid": 1888,
+    "executable": "C:\\Windows\\System32\\net1.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-768F-601C-0000-0010EE630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "name": "aitagent.exe"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "2a3557dd3913f8d7cc5a5703083424d8",
+      "e0731448a15ffac9f20a82eae95d97733fbcd227d1eab7264f8fde14503f3494"
+    ]
+  },
+  "hash": {
+    "md5": "2a3557dd3913f8d7cc5a5703083424d8",
+    "sha256": "e0731448a15ffac9f20a82eae95d97733fbcd227d1eab7264f8fde14503f3494"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat"
+  },
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "computer_name": "CLIENT1.breach.local",
+    "version": 5,
+    "event_data": {
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "IntegrityLevel": "System",
+      "TerminalSessionId": "0",
+      "Description": "Application Impact Telemetry Agent",
+      "LogonId": "0x3e7",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)"
+    },
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "record_id": 1467
+  },
+  "event": {
+    "created": "2021-02-05T01:30:00.174Z",
+    "kind": "event",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  }
+}

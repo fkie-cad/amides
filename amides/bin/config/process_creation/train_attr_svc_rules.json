@@ -1,0 +1,20 @@
+{
+    "model_type": "attrbution",
+    "model_params": "bin/config/process_creation/params.json",
+    "malicious_samples_type": "rule_filters",
+    "tokenization": "comma_separation",
+    "ngram_mode": "word",
+    "ngram_range": "(1,1)",
+    "vectorization": "tfidf",
+    "num_jobs": 1,
+    "num_subprocesses": 1,
+    "mcc_scaling": true,
+    "mcc_threshold": 0.1,
+    "save_data": true,
+    "num_iterations": 1,
+    "benign_samples": "../data/socbed/process_creation/train",
+    "events_dir": "../data/sigma/events/windows/process_creation",
+    "rules_dir": "../data/sigma/rules/windows/process_creation",
+    "result_name": "attr_svc_rules_f1",
+    "out_dir": "models/process_creation/"
+}

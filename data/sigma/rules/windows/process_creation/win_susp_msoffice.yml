@@ -1,0 +1,12 @@
+filter: 'process.executable: ("*\powerpnt.exe" OR "*\winword.exe" OR "*\excel.exe")
+  AND process.command_line: "*http*"'
+pre_detector:
+  case_condition: directly
+  id: 0c79148b-118e-472b-bdb7-9b57b444cc19
+  mitre:
+  - attack.command_and_control
+  - attack.t1105
+  severity: high
+  title: Malicious Payload Download via Office Binaries
+sigma_fields: true
+description: Downloads payload from remote server

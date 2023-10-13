@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:58.140Z",
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:58.140\nProcessGuid: {19FC45AC-752A-601C-0000-00101A390100}\nProcessId: 1524\nImage: C:\\Windows\\Sysmon.exe\nFileVersion: 10.41\nDescription: System activity monitor\nProduct: Sysinternals Sysmon\nCompany: Sysinternals - www.sysinternals.com\nOriginalFileName: ?\nCommandLine: C:\\Windows\\Sysmon.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-7528-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=C2F59C783A26DD480BAFCC9955A99F42,SHA256=8C50CE44732912726E5AB0958E4199DEEE77F904CD746369F37B91E67A9826C6\nParentProcessGuid: {19FC45AC-7527-601C-0000-00104B610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "command_line": "rar a C:\\Temp\\myarchive.rar C:\\Users\\Mal\\Desktop\\data",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-7527-601C-0000-00104B610000}",
+      "pid": 444
+    },
+    "name": "Sysmon.exe",
+    "args": [
+      "C:\\Windows\\Sysmon.exe"
+    ],
+    "hash": {
+      "md5": "c2f59c783a26dd480bafcc9955a99f42",
+      "sha256": "8c50ce44732912726e5ab0958e4199deee77f904cd746369f37b91e67a9826c6"
+    },
+    "entity_id": "{19FC45AC-752A-601C-0000-00101A390100}",
+    "pid": 1524,
+    "executable": "C:\\Program Files\\WinRAR\\rar.exe"
+  },
+  "hash": {
+    "md5": "c2f59c783a26dd480bafcc9955a99f42",
+    "sha256": "8c50ce44732912726e5ab0958e4199deee77f904cd746369f37b91e67a9826c6"
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "hash": [
+      "c2f59c783a26dd480bafcc9955a99f42",
+      "8c50ce44732912726e5ab0958e4199deee77f904cd746369f37b91e67a9826c6"
+    ],
+    "user": "SYSTEM"
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "winlog": {
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "api": "wineventlog",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "version": 5,
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "record_id": 1286,
+    "computer_name": "CLIENT1.breach.local",
+    "event_data": {
+      "OriginalFileName": "?",
+      "Description": "System activity monitor",
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E7030000}",
+      "Company": "Sysinternals - www.sysinternals.com",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "Product": "Sysinternals Sysmon",
+      "TerminalSessionId": "0",
+      "FileVersion": "10.41"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    }
+  },
+  "event": {
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.298Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event"
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local"
+  }
+}

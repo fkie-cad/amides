@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:34:54.984Z",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86"
+  },
+  "winlog": {
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "event_id": 1,
+    "version": 5,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "record_id": 1320,
+    "computer_name": "CLIENT1.breach.local",
+    "event_data": {
+      "LogonGuid": "{19FC45AC-768F-601C-0000-0020E7030000}",
+      "Company": "Microsoft Corporation",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "IntegrityLevel": "System",
+      "FileVersion": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "TerminalSessionId": "0",
+      "Description": "Windows Session Manager",
+      "OriginalFileName": "smss.exe",
+      "LogonId": "0x3e7"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    }
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:37:09.053Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    ]
+  },
+  "hash": {
+    "md5": "01c6c743fe49d0fb3f0a1391fef1deb3",
+    "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:34:54.984\nProcessGuid: {19FC45AC-768E-601C-0000-001088440000}\nProcessId: 296\nImage: C:\\Windows\\System32\\smss.exe\nFileVersion: 6.1.7601.18741 (win7sp1_gdr.150202-1526)\nDescription: Windows Session Manager\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: smss.exe\nCommandLine: \\SystemRoot\\System32\\smss.exe 00000000 0000003c \nCurrentDirectory: C:\\Windows\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-768F-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=01C6C743FE49D0FB3F0A1391FEF1DEB3,SHA256=36155638E650576A8BCAFC23C50483AB4B831D9A34C781DDF7CC89554D0546B7\nParentProcessGuid: {19FC45AC-768E-601C-0000-0010502F0000}\nParentProcessId: 236\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe",
+  "process": {
+    "args": [
+      "\\SystemRoot\\System32\\smss.exe",
+      "00000000",
+      "0000003c"
+    ],
+    "parent": {
+      "name": "smss.exe",
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe"
+      ],
+      "entity_id": "{19FC45AC-768E-601C-0000-0010502F0000}",
+      "pid": 236,
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe"
+    },
+    "name": "smss.exe",
+    "hash": {
+      "md5": "01c6c743fe49d0fb3f0a1391fef1deb3",
+      "sha256": "36155638e650576a8bcafc23c50483ab4b831d9a34c781ddf7cc89554d0546b7"
+    },
+    "entity_id": "{19FC45AC-768E-601C-0000-001088440000}",
+    "pid": 296,
+    "executable": "C:\\Windows\\System32\\smss.exe",
+    "command_line": "set \"SYSTEMROOT=C:\\Windows\\Temp\" && cmd /c desktopimgdownldr.exe /lockscreenurl:https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/3_Downloads/C/Coronavirus/Verordnungen/CoronaImpfV_BAnz_AT_08.02.2021_V1.pdf /eventName:desktopimgdownldr",
+    "working_directory": "C:\\Windows\\"
+  }
+}

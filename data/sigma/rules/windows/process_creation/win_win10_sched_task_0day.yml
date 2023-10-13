@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\schtasks.exe" AND process.command_line: "*/change*/TN*/RU*/RP*"'
+pre_detector:
+  case_condition: directly
+  id: 931b6802-d6a6-4267-9ffa-526f57f22aaf
+  mitre:
+  - attack.privilege_escalation
+  - attack.t1053.005
+  - attack.t1053
+  - car.2013-08-001
+  severity: high
+  title: Windows 10 Scheduled Task SandboxEscaper 0-day
+sigma_fields: true
+description: Detects Task Scheduler .job import arbitrary DACL write\par

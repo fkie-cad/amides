@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-05T01:01:19.911Z",
+  "host": {
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "name": "CLIENT1.breach.local",
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "process": {
+    "executable": "C:\\Windows\\System32\\svchost.exe",
+    "command_line": "svchost.exe",
+    "hash": {
+      "md5": "9178bd65fc4f7ec665c799dc801d4f1e",
+      "sha256": "67ec19c47423b9afb9e84e56530ad59db07be36eb68c00edfaf5cb36a0f65ed8"
+    },
+    "entity_id": "{19FC45AC-98DF-601C-0000-001089931B00}",
+    "pid": 2424,
+    "working_directory": "C:\\BREACH\\",
+    "parent": {
+      "command_line": "\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground",
+      "name": "firefox.exe",
+      "args": [
+        "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+        "-foreground"
+      ],
+      "entity_id": "{19FC45AC-98DD-601C-0000-001018771B00}",
+      "pid": 2188,
+      "executable": "C:\\Windows\\System32\\rpcnet_not.exe"
+    },
+    "name": "helper.exe",
+    "args": [
+      "C:\\Program Files\\Mozilla Firefox\\uninstall\\helper.exe",
+      "/UpdateShortcutAppUserModelIds"
+    ]
+  },
+  "related": {
+    "user": "client1",
+    "hash": [
+      "9178bd65fc4f7ec665c799dc801d4f1e",
+      "67ec19c47423b9afb9e84e56530ad59db07be36eb68c00edfaf5cb36a0f65ed8"
+    ]
+  },
+  "hash": {
+    "sha256": "67ec19c47423b9afb9e84e56530ad59db07be36eb68c00edfaf5cb36a0f65ed8",
+    "md5": "9178bd65fc4f7ec665c799dc801d4f1e"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "version": 5,
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "event_data": {
+      "TerminalSessionId": "1",
+      "FileVersion": "38.0.5",
+      "Description": "Firefox Helper",
+      "OriginalFileName": "helper.exe",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "IntegrityLevel": "Medium",
+      "Product": "Firefox",
+      "Company": "Mozilla Corporation",
+      "LogonId": "0xfb53"
+    },
+    "task": "Process Create (rule: ProcessCreate)",
+    "opcode": "Info",
+    "record_id": 1455,
+    "computer_name": "CLIENT1.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "api": "wineventlog",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "created": "2021-02-05T01:01:22.117Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 01:01:19.911\nProcessGuid: {19FC45AC-98DF-601C-0000-001089931B00}\nProcessId: 2424\nImage: C:\\Program Files\\Mozilla Firefox\\uninstall\\helper.exe\nFileVersion: 38.0.5\nDescription: Firefox Helper\nProduct: Firefox\nCompany: Mozilla Corporation\nOriginalFileName: helper.exe\nCommandLine: \"C:\\Program Files\\Mozilla Firefox\\uninstall\\helper.exe\" /UpdateShortcutAppUserModelIds\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=9178BD65FC4F7EC665C799DC801D4F1E,SHA256=67EC19C47423B9AFB9E84E56530AD59DB07BE36EB68C00EDFAF5CB36A0F65ED8\nParentProcessGuid: {19FC45AC-98DD-601C-0000-001018771B00}\nParentProcessId: 2188\nParentImage: C:\\Program Files\\Mozilla Firefox\\firefox.exe\nParentCommandLine: \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground",
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72"
+  }
+}

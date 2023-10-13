@@ -1,0 +1,16 @@
+filter: 'process.command_line: "*netsh*" AND ((process.command_line: "*firewall add
+  portopening*" AND process.command_line: "*tcp 3389*") OR (process.command_line:
+  "*advfirewall firewall add rule*" AND process.command_line: "*action=allow*" AND
+  process.command_line: "*protocol=TCP*" AND process.command_line: "*localport=3389*"))'
+pre_detector:
+  case_condition: directly
+  id: 01aeb693-138d-49d2-9403-c4f52d7d3d62
+  mitre:
+  - attack.defense_evasion
+  - attack.t1089
+  - attack.t1562.004
+  severity: high
+  title: Netsh RDP Port Opening
+sigma_fields: true
+description: Detects netsh commands that opens the port 3389 used for RDP, used in
+  Sarwent Malware

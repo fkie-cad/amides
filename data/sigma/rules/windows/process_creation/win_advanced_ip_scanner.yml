@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\advanced_ip_scanner*"'
+pre_detector:
+  case_condition: directly
+  id: bef37fa2-f205-4a7b-b484-0759bfd5f86f
+  mitre:
+  - attack.discovery
+  - attack.t1046
+  severity: medium
+  title: Advanced IP Scanner
+sigma_fields: true
+description: Detects the use of Advanced IP Scanner. Seems to be a popular tool for
+  ransomware groups.

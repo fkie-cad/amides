@@ -1,0 +1,146 @@
+{
+  "@timestamp": "2021-02-04T22:29:01.515Z",
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "created": "2021-02-04T22:31:11.539Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "342271f6142e7c70805b8a81e1ba5f5c",
+      "f9112b88fec5ef10a7aedf88dcee61956d1fcde7cb42197216e8265578713786"
+    ]
+  },
+  "hash": {
+    "md5": "342271f6142e7c70805b8a81e1ba5f5c",
+    "sha256": "f9112b88fec5ef10a7aedf88dcee61956d1fcde7cb42197216e8265578713786"
+  },
+  "process": {
+    "name": "csrss.exe",
+    "args": [
+      "%%SystemRoot%%\\system32\\csrss.exe",
+      "ObjectDirectory=\\Windows",
+      "SharedSection=1024,12288,512",
+      "Windows=On",
+      "SubSystemType=Windows",
+      "ServerDll=basesrv,1",
+      "ServerDll=winsrv:UserServerDllInitialization,3",
+      "ServerDll=winsrv:ConServerDllInitialization,2",
+      "ServerDll=sxssrv,4",
+      "ProfileControl=Off",
+      "MaxRequestThreads=16"
+    ],
+    "pid": 312,
+    "executable": "C:\\Windows\\System32\\net.exe",
+    "parent": {
+      "args": [
+        "\\SystemRoot\\System32\\smss.exe",
+        "00000000",
+        "0000003c"
+      ],
+      "entity_id": "{19FC45AC-752D-601C-0000-0010B9510000}",
+      "pid": 304,
+      "executable": "C:\\Windows\\System32\\smss.exe",
+      "command_line": "\\SystemRoot\\System32\\smss.exe 00000000 0000003c ",
+      "name": "smss.exe"
+    },
+    "hash": {
+      "md5": "342271f6142e7c70805b8a81e1ba5f5c",
+      "sha256": "f9112b88fec5ef10a7aedf88dcee61956d1fcde7cb42197216e8265578713786"
+    },
+    "entity_id": "{19FC45AC-752D-601C-0000-001052530000}",
+    "command_line": "net  start \"windows search\"",
+    "working_directory": "C:\\Windows\\system32"
+  },
+  "winlog": {
+    "event_id": 1,
+    "record_id": 1264,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "process": {
+      "pid": 1528,
+      "thread": {
+        "id": 1796
+      }
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "computer_name": "CLIENT2.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "TerminalSessionId": "0",
+      "OriginalFileName": "CSRSS.Exe",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "LogonId": "0x3e7",
+      "Description": "Client Server Runtime Process",
+      "IntegrityLevel": "System",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-752E-601C-0000-0020E7030000}"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "opcode": "Info",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational"
+  },
+  "host": {
+    "name": "CLIENT2.breach.local",
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    }
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:01.515\nProcessGuid: {19FC45AC-752D-601C-0000-001052530000}\nProcessId: 312\nImage: C:\\Windows\\System32\\csrss.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Client Server Runtime Process\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: CSRSS.Exe\nCommandLine: %%SystemRoot%%\\system32\\csrss.exe ObjectDirectory=\\Windows SharedSection=1024,12288,512 Windows=On SubSystemType=Windows ServerDll=basesrv,1 ServerDll=winsrv:UserServerDllInitialization,3 ServerDll=winsrv:ConServerDllInitialization,2 ServerDll=sxssrv,4 ProfileControl=Off MaxRequestThreads=16\nCurrentDirectory: C:\\Windows\\system32\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-752E-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=342271F6142E7C70805B8A81E1BA5F5C,SHA256=F9112B88FEC5EF10A7AEDF88DCEE61956D1FCDE7CB42197216E8265578713786\nParentProcessGuid: {19FC45AC-752D-601C-0000-0010B9510000}\nParentProcessId: 304\nParentImage: C:\\Windows\\System32\\smss.exe\nParentCommandLine: \\SystemRoot\\System32\\smss.exe 00000000 0000003c "
+}

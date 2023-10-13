@@ -1,0 +1,13 @@
+filter: 'user.name: "NT AUTHORITY\SYSTEM" AND process.executable: "*\whoami.exe"'
+pre_detector:
+  case_condition: directly
+  id: 80167ada-7a12-41ed-b8e9-aa47195c66a1
+  mitre:
+  - attack.privilege_escalation
+  - attack.discovery
+  - attack.t1033
+  severity: high
+  title: Run Whoami as SYSTEM
+sigma_fields: true
+description: Detects a whoami.exe executed by LOCAL SYSTEM. This may be a sign of
+  a successful local privilege escalation.

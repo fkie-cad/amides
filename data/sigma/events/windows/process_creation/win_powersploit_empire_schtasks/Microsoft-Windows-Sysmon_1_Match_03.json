@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:16.250Z",
+  "agent": {
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "name": "CLIENT3",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    }
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:16.250\nProcessGuid: {19FC45AC-7500-601C-0000-0010D9B50200}\nProcessId: 2224\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: IP Configuration Utility\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: CLIENT3\\setup\nLogonGuid: {19FC45AC-74FE-601C-0000-0020FD380200}\nLogonId: 0x238fd\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=CABB20E171770FF64614A54C1F31C033,SHA256=C0E3087D87C84776FE7FFCA768A0793C02D28E34A821F0C9DA32339AF8E7E6A6\nParentProcessGuid: {19FC45AC-74FF-601C-0000-0010D7AA0200}\nParentProcessId: 2180\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "process": {
+    "name": "ipconfig.exe",
+    "hash": {
+      "md5": "cabb20e171770ff64614a54c1f31c033",
+      "sha256": "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6"
+    },
+    "entity_id": "{19FC45AC-7500-601C-0000-0010D9B50200}",
+    "pid": 2224,
+    "parent": {
+      "entity_id": "{19FC45AC-74FF-601C-0000-0010D7AA0200}",
+      "pid": 2180,
+      "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "command_line": "\"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+      "name": "python.exe",
+      "args": [
+        "C:\\Program Files\\Python35-32\\python.exe",
+        "C:\\BREACH\\init_tbf_client.py"
+      ]
+    },
+    "args": [
+      "ipconfig",
+      "/all"
+    ],
+    "executable": "C:\\Windows\\System32\\ipconfig.exe",
+    "command_line": "\"C:\\Windows\\system32\\schtasks.exe\" /create /sc onidle /tn updatertask /tr powershell.exe",
+    "working_directory": "C:\\BREACH\\"
+  },
+  "user": {
+    "domain": "CLIENT3",
+    "name": "setup"
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "cabb20e171770ff64614a54c1f31c033",
+      "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6"
+    ]
+  },
+  "hash": {
+    "md5": "cabb20e171770ff64614a54c1f31c033",
+    "sha256": "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.053Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "event_id": 1,
+    "api": "wineventlog",
+    "computer_name": "CLIENT3",
+    "version": 5,
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1239,
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1516,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "event_data": {
+      "Description": "IP Configuration Utility",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "IntegrityLevel": "High",
+      "TerminalSessionId": "1",
+      "Company": "Microsoft Corporation",
+      "LogonId": "0x238fd",
+      "LogonGuid": "{19FC45AC-74FE-601C-0000-0020FD380200}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "ipconfig.exe"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    }
+  }
+}

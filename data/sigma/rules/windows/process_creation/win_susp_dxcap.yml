@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\dxcap.exe" AND process.command_line: "*-c*" AND process.command_line:
+  "*.exe*"'
+pre_detector:
+  case_condition: directly
+  id: 60f16a96-db70-42eb-8f76-16763e333590
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218
+  - attack.execution
+  severity: medium
+  title: Application Whitelisting Bypass via Dxcap.exe
+sigma_fields: true
+description: Detects execution of of Dxcap.exe

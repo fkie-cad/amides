@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:27:19.468Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:19.468\nProcessGuid: {19FC45AC-74C7-601C-0000-00109E510100}\nProcessId: 1496\nImage: C:\\Program Files\\freeSSHd\\FreeSSHDService.exe\nFileVersion: 1, 3, 1, 26\nDescription: FreeSSHDService Module\nProduct: FreeSSHDService Module\nCompany: ?\nOriginalFileName: FreeSSHDService.exe\nCommandLine: \"C:\\Program Files\\freeSSHd\\FreeSSHDService.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C3-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=A25C33FB549D90018DBEEC40BB07D543,SHA256=472168CF54A123BA0FC585B4B5FEDBB60562B81B3ADA7616CE9CA77DDB5C4914\nParentProcessGuid: {19FC45AC-74C2-601C-0000-001050630000}\nParentProcessId: 440\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer_name": "CLIENT",
+    "event_data": {
+      "OriginalFileName": "FreeSSHDService.exe",
+      "LogonId": "0x3e7",
+      "Description": "FreeSSHDService Module",
+      "Company": "?",
+      "IntegrityLevel": "System",
+      "LogonGuid": "{19FC45AC-74C3-601C-0000-0020E7030000}",
+      "TerminalSessionId": "0",
+      "FileVersion": "1, 3, 1, 26",
+      "Product": "FreeSSHDService Module"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1172,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1896,
+      "thread": {
+        "id": 1392
+      }
+    },
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "a25c33fb549d90018dbeec40bb07d543",
+      "472168cf54a123ba0fc585b4b5fedbb60562b81b3ada7616ce9ca77ddb5c4914"
+    ]
+  },
+  "hash": {
+    "md5": "a25c33fb549d90018dbeec40bb07d543",
+    "sha256": "472168cf54a123ba0fc585b4b5fedbb60562b81b3ada7616ce9ca77ddb5c4914"
+  },
+  "host": {
+    "name": "CLIENT",
+    "architecture": "x86",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.355Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "process": {
+    "executable": "C:\\Program Files\\freeSSHd\\FreeSSHDService.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "FreeSSHDService.exe",
+    "args": [
+      "C:\\Program Files\\freeSSHd\\FreeSSHDService.exe"
+    ],
+    "hash": {
+      "md5": "a25c33fb549d90018dbeec40bb07d543",
+      "sha256": "472168cf54a123ba0fc585b4b5fedbb60562b81b3ada7616ce9ca77ddb5c4914"
+    },
+    "pid": 1496,
+    "command_line": "\"C:\\Program Files\\freeSSHd\\FreeSSHDService.exe\"",
+    "parent": {
+      "entity_id": "{19FC45AC-74C2-601C-0000-001050630000}",
+      "pid": 440,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "entity_id": "{19FC45AC-74C7-601C-0000-00109E510100}"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  }
+}

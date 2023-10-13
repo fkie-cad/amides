@@ -1,0 +1,18 @@
+filter: 'process.command_line: ("*tracert -h 10 yahoo.com*" OR "*.WSqmCons))|iex;*"
+  OR "*Fr`omBa`se6`4Str`ing*") OR (process.command_line: "*net use https://docs.live.net*"
+  AND process.command_line: "*@aol.co.uk*")'
+pre_detector:
+  case_condition: directly
+  id: 9e2e51c5-c699-4794-ba5a-29f5da40ac0c
+  mitre:
+  - attack.g0010
+  - attack.execution
+  - attack.t1086
+  - attack.t1059.001
+  - attack.t1053
+  - attack.t1053.005
+  - attack.t1027
+  severity: critical
+  title: Turla Group Commands May 2020
+sigma_fields: true
+description: Detects commands used by Turla group as reported by ESET in May 2020

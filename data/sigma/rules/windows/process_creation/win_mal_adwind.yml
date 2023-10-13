@@ -1,0 +1,45 @@
+filter: 'process.command_line: ("*\AppData\Roaming\Oracle*\java*.exe *" OR "*cscript.exe
+  *Retrive*.vbs *")'
+pre_detector:
+  case_condition: directly
+  id: 1fac1481-2dbc-48b2-9096-753c49b4ec71
+  mitre:
+  - attack.execution
+  - attack.t1059.005
+  - attack.t1059.007
+  - attack.t1064
+  severity: high
+  title: Adwind RAT / JRAT
+sigma_fields: true
+description: Detects javaw.exe in AppData folder as used by Adwind / JRAT
+---
+filter: 'winlog.channel: "Microsoft-Windows-Sysmon/Operational" AND winlog.event_id:
+  11 AND file.path: ("*\AppData\Roaming\Oracle\bin\java*.exe" OR "*\Retrive*.vbs")'
+pre_detector:
+  case_condition: directly
+  id: 1fac1481-2dbc-48b2-9096-753c49b4ec71
+  mitre:
+  - attack.execution
+  - attack.t1059.005
+  - attack.t1059.007
+  - attack.t1064
+  severity: high
+  title: Adwind RAT / JRAT
+sigma_fields: true
+description: Detects javaw.exe in AppData folder as used by Adwind / JRAT
+---
+filter: 'winlog.channel: "Microsoft-Windows-Sysmon/Operational" AND winlog.event_id:
+  13 AND winlog.event_data.TargetObject: "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run*"
+  AND winlog.event_data.Details: "%AppData%\Roaming\Oracle\bin\\*"'
+pre_detector:
+  case_condition: directly
+  id: 1fac1481-2dbc-48b2-9096-753c49b4ec71
+  mitre:
+  - attack.execution
+  - attack.t1059.005
+  - attack.t1059.007
+  - attack.t1064
+  severity: high
+  title: Adwind RAT / JRAT
+sigma_fields: true
+description: Detects javaw.exe in AppData folder as used by Adwind / JRAT

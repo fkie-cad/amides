@@ -1,0 +1,15 @@
+filter: '(process.executable: "*\sc.exe" AND process.command_line: "*create*" AND
+  process.command_line: "*binpath*") OR (process.executable: "*\powershell.exe" AND
+  process.command_line: "*new-service*")'
+pre_detector:
+  case_condition: directly
+  id: 7fe71fc9-de3b-432a-8d57-8c809efc10ab
+  mitre:
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.t1050
+  - attack.t1543.003
+  severity: low
+  title: New Service Creation
+sigma_fields: true
+description: Detects creation of a new service

@@ -1,0 +1,3 @@
+{
+    "Keyless": "Remove-Item  (Get-PSReadLineOption).HistorySavePath"
+}

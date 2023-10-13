@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:29:14.964Z",
+  "winlog": {
+    "version": 5,
+    "process": {
+      "pid": 1536,
+      "thread": {
+        "id": 1812
+      }
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "record_id": 1296,
+    "computer_name": "CLIENT3.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "IntegrityLevel": "Medium",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "TerminalSessionId": "1",
+      "LogonGuid": "{19FC45AC-753A-601C-0000-0020AE510200}",
+      "LogonId": "0x251ae",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "USERINIT.EXE",
+      "Description": "Userinit Logon Application"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "event_id": 1
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:14.964\nProcessGuid: {19FC45AC-753A-601C-0000-0010F35E0200}\nProcessId: 2056\nImage: C:\\Windows\\System32\\userinit.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Userinit Logon Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: USERINIT.EXE\nCommandLine: C:\\Windows\\system32\\userinit.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client3\nLogonGuid: {19FC45AC-753A-601C-0000-0020AE510200}\nLogonId: 0x251ae\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=61AC3EFDFACFDD3F0F11DD4FD4044223,SHA256=538FE1012FEDC72727A8DE0C2C01944B3D35C29812ECEF88E95AAC07235E0B0B\nParentProcessGuid: {19FC45AC-752D-601C-0000-0010D95C0000}\nParentProcessId: 384\nParentImage: C:\\Windows\\System32\\winlogon.exe\nParentCommandLine: winlogon.exe",
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.166Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1
+  },
+  "host": {
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "name": "CLIENT3.breach.local",
+    "architecture": "x86"
+  },
+  "process": {
+    "hash": {
+      "sha256": "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b",
+      "md5": "61ac3efdfacfdd3f0f11dd4fd4044223"
+    },
+    "entity_id": "{19FC45AC-753A-601C-0000-0010F35E0200}",
+    "executable": "C:\\Windows\\System32\\userinit.exe",
+    "command_line": "findstr -S -I cpassword \\\\ComputerName\\sysvol\\ComputerName\\policies\\*.xml",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "userinit.exe",
+    "args": [
+      "C:\\Windows\\system32\\userinit.exe"
+    ],
+    "pid": 2056,
+    "parent": {
+      "entity_id": "{19FC45AC-752D-601C-0000-0010D95C0000}",
+      "pid": 384,
+      "executable": "C:\\Windows\\System32\\winlogon.exe",
+      "command_line": "winlogon.exe",
+      "name": "winlogon.exe",
+      "args": [
+        "winlogon.exe"
+      ]
+    }
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client3"
+  },
+  "related": {
+    "user": "client3",
+    "hash": [
+      "61ac3efdfacfdd3f0f11dd4fd4044223",
+      "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b"
+    ]
+  },
+  "hash": {
+    "md5": "61ac3efdfacfdd3f0f11dd4fd4044223",
+    "sha256": "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b"
+  }
+}

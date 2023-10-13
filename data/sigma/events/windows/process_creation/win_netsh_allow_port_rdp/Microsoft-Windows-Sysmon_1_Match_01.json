@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:29:15.949Z",
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_id": 1,
+    "record_id": 1304,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT3.breach.local",
+    "opcode": "Info",
+    "version": 5,
+    "api": "wineventlog",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "process": {
+      "thread": {
+        "id": 1812
+      },
+      "pid": 1536
+    },
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-753A-601C-0000-0020AE510200}",
+      "IntegrityLevel": "Medium",
+      "Company": "Python Software Foundation",
+      "Description": "Python",
+      "OriginalFileName": "python.exe",
+      "TerminalSessionId": "1",
+      "FileVersion": "3.5.2",
+      "LogonId": "0x251ae",
+      "Product": "Python"
+    }
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:15.949\nProcessGuid: {19FC45AC-753B-601C-0000-0010E5BE0200}\nProcessId: 2480\nImage: C:\\Program Files\\Python35-32\\python.exe\nFileVersion: 3.5.2\nDescription: Python\nProduct: Python\nCompany: Python Software Foundation\nOriginalFileName: python.exe\nCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" \nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client3\nLogonGuid: {19FC45AC-753A-601C-0000-0020AE510200}\nLogonId: 0x251ae\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=EDC79826E21859E93A875DFC087606C5,SHA256=D61DDEA87B2483612CAEB0F3514AEE3E60237D5F3880F49512C834539462742E\nParentProcessGuid: {19FC45AC-753B-601C-0000-00106BAB0200}\nParentProcessId: 2388\nParentImage: C:\\Windows\\py.exe\nParentCommandLine: \"C:\\Windows\\py.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "user": {
+    "name": "client3",
+    "domain": "BREACH"
+  },
+  "related": {
+    "user": "client3",
+    "hash": [
+      "edc79826e21859e93a875dfc087606c5",
+      "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+    ]
+  },
+  "hash": {
+    "md5": "edc79826e21859e93a875dfc087606c5",
+    "sha256": "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.179Z",
+    "kind": "event",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "code": 1
+  },
+  "host": {
+    "name": "CLIENT3.breach.local",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4"
+  },
+  "process": {
+    "hash": {
+      "md5": "edc79826e21859e93a875dfc087606c5",
+      "sha256": "d61ddea87b2483612caeb0f3514aee3e60237d5f3880f49512c834539462742e"
+    },
+    "executable": "C:\\Program Files\\Python35-32\\python.exe",
+    "command_line": "netsh advfirewall firewall add rule action=allow protocol=TCP localport=3389 dir=in name=allowRDP",
+    "name": "python.exe",
+    "args": [
+      "C:\\Program Files\\Python35-32\\python.exe",
+      "C:\\BREACH\\init_tbf_client.py"
+    ],
+    "entity_id": "{19FC45AC-753B-601C-0000-0010E5BE0200}",
+    "pid": 2480,
+    "working_directory": "C:\\BREACH\\",
+    "parent": {
+      "executable": "C:\\Windows\\py.exe",
+      "command_line": "\"C:\\Windows\\py.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+      "name": "py.exe",
+      "args": [
+        "C:\\Windows\\py.exe",
+        "C:\\BREACH\\init_tbf_client.py"
+      ],
+      "entity_id": "{19FC45AC-753B-601C-0000-00106BAB0200}",
+      "pid": 2388
+    }
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5"
+  }
+}

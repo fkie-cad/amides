@@ -1,0 +1,15 @@
+filter: 'winlog.event_data.Description: "Windows PowerShell" AND winlog.event_data.Company:
+  "Microsoft Corporation" AND NOT process.executable: ("*\powershell.exe" OR "*\powershell_ise.exe")'
+pre_detector:
+  case_condition: directly
+  id: d178a2d7-129a-4ba4-8ee6-d6e1fecd5d20
+  mitre:
+  - car.2013-05-009
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.t1036.003
+  severity: critical
+  title: Renamed PowerShell
+sigma_fields: true
+description: Detects the execution of a renamed PowerShell often used by attackers
+  or malware

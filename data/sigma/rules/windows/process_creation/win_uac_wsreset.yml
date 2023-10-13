@@ -1,0 +1,13 @@
+filter: 'process.parent.executable: "*\wsreset.exe" AND NOT process.executable: "*\conhost.exe"'
+pre_detector:
+  case_condition: directly
+  id: d797268e-28a9-49a7-b9a8-2f5039011c5c
+  mitre:
+  - attack.privilege_escalation
+  - attack.t1548.002
+  - attack.t1088
+  severity: high
+  title: Bypass UAC via WSReset.exe
+sigma_fields: true
+description: Identifies use of WSReset.exe to bypass User Account Control. Adversaries
+  use this technique to execute privileged processes.

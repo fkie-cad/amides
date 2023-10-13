@@ -1,0 +1,6 @@
+queried_event_types:
+  - Proxy-Web
+evasion_possible: yes
+broken_rule: no
+edited_fields:
+  - url.full

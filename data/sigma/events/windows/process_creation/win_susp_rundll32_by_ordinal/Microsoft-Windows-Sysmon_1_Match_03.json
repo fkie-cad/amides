@@ -1,0 +1,133 @@
+{
+  "@timestamp": "2021-02-04T22:28:09.421Z",
+  "host": {
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT3"
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "94c08df0f07c509d99fea7cfc486c335",
+      "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+    ]
+  },
+  "hash": {
+    "md5": "94c08df0f07c509d99fea7cfc486c335",
+    "sha256": "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.051Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:09.421\nProcessGuid: {19FC45AC-74F9-601C-0000-0010783A0100}\nProcessId: 1440\nImage: C:\\Program Files\\NetTime\\NetTimeService.exe\nFileVersion: 3.1.4.220\nDescription: Network Time Synchronizer - NT Service\nProduct: NetTime\nCompany: \nOriginalFileName: NetTimeService.exe\nCommandLine: \"C:\\Program Files\\NetTime\\NetTimeService.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74F7-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=94C08DF0F07C509D99FEA7CFC486C335,SHA256=0AAE40D7B5D57AED2A897161601A08123E64088033B03527DC1BA2B55E7A4E9A\nParentProcessGuid: {19FC45AC-74F7-601C-0000-0010FE630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "api": "wineventlog",
+    "version": 5,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1223,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT3",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_id": 1,
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1516,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "event_data": {
+      "Description": "Network Time Synchronizer - NT Service",
+      "LogonId": "0x3e7",
+      "TerminalSessionId": "0",
+      "IntegrityLevel": "System",
+      "FileVersion": "3.1.4.220",
+      "Product": "NetTime",
+      "OriginalFileName": "NetTimeService.exe",
+      "LogonGuid": "{19FC45AC-74F7-601C-0000-0020E7030000}"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "process": {
+    "executable": "C:\\Program Files\\NetTime\\NetTimeService.exe",
+    "command_line": "C:\\Windows\\System32\\rundll32.exe justa.dll ,#2",
+    "entity_id": "{19FC45AC-74F9-601C-0000-0010783A0100}",
+    "pid": 1440,
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-74F7-601C-0000-0010FE630000}",
+      "pid": 444
+    },
+    "name": "NetTimeService.exe",
+    "args": [
+      "C:\\Program Files\\NetTime\\NetTimeService.exe"
+    ],
+    "hash": {
+      "sha256": "0aae40d7b5d57aed2a897161601a08123e64088033b03527dc1ba2b55e7a4e9a",
+      "md5": "94c08df0f07c509d99fea7cfc486c335"
+    }
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978"
+  }
+}

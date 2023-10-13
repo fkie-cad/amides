@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\Psr.exe" AND process.command_line: "*/start*"'
+pre_detector:
+  case_condition: directly
+  id: 2158f96f-43c2-43cb-952a-ab4580f32382
+  mitre:
+  - attack.collection
+  - attack.t1113
+  severity: medium
+  title: Psr.exe Capture Screenshots
+sigma_fields: true
+description: The psr.exe captures desktop screenshots and saves them on the local
+  machine

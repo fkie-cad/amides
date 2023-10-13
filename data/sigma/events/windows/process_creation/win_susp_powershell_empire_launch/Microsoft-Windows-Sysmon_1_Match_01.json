@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:57.796Z",
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:57.796\nProcessGuid: {19FC45AC-7529-601C-0000-001079230100}\nProcessId: 1344\nImage: C:\\Program Files\\freeSSHd\\FreeSSHDService.exe\nFileVersion: 1, 3, 1, 26\nDescription: FreeSSHDService Module\nProduct: FreeSSHDService Module\nCompany: ?\nOriginalFileName: FreeSSHDService.exe\nCommandLine: \"C:\\Program Files\\freeSSHd\\FreeSSHDService.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-7528-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=A25C33FB549D90018DBEEC40BB07D543,SHA256=472168CF54A123BA0FC585B4B5FEDBB60562B81B3ADA7616CE9CA77DDB5C4914\nParentProcessGuid: {19FC45AC-7527-601C-0000-00104B610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1281,
+    "task": "Process Create (rule: ProcessCreate)",
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_data": {
+      "FileVersion": "1, 3, 1, 26",
+      "Description": "FreeSSHDService Module",
+      "LogonId": "0x3e7",
+      "Company": "?",
+      "TerminalSessionId": "0",
+      "OriginalFileName": "FreeSSHDService.exe",
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E7030000}",
+      "Product": "FreeSSHDService Module",
+      "IntegrityLevel": "System"
+    }
+  },
+  "related": {
+    "hash": [
+      "a25c33fb549d90018dbeec40bb07d543",
+      "472168cf54a123ba0fc585b4b5fedbb60562b81b3ada7616ce9ca77ddb5c4914"
+    ],
+    "user": "SYSTEM"
+  },
+  "agent": {
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  },
+  "event": {
+    "kind": "event",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.297Z"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "hash": {
+    "md5": "a25c33fb549d90018dbeec40bb07d543",
+    "sha256": "472168cf54a123ba0fc585b4b5fedbb60562b81b3ada7616ce9ca77ddb5c4914"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-7529-601C-0000-001079230100}",
+    "executable": "C:\\Program Files\\freeSSHd\\FreeSSHDService.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-7527-601C-0000-00104B610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe"
+    },
+    "name": "FreeSSHDService.exe",
+    "args": [
+      "C:\\Program Files\\freeSSHd\\FreeSSHDService.exe"
+    ],
+    "pid": 1344,
+    "command_line": "powershell.exe -NoP -sta -NonI -W Hidden -Enc ENC0D3DC0MM4ND",
+    "hash": {
+      "md5": "a25c33fb549d90018dbeec40bb07d543",
+      "sha256": "472168cf54a123ba0fc585b4b5fedbb60562b81b3ada7616ce9ca77ddb5c4914"
+    }
+  }
+}

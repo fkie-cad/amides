@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:29:15.652Z",
+  "event": {
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.178Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "related": {
+    "user": "client3",
+    "hash": [
+      "452fa961163ef4aee4815796a13ab2cf",
+      "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1299,
+    "opcode": "Info",
+    "event_data": {
+      "Product": "Adobe Acrobat",
+      "Company": "Adobe Systems Incorporated",
+      "LogonId": "0x251ae",
+      "TerminalSessionId": "1",
+      "LogonGuid": "{19FC45AC-753A-601C-0000-0020AE510200}",
+      "FileVersion": "9.1.0.2009022700",
+      "Description": "Adobe Acrobat SpeedLauncher",
+      "OriginalFileName": "AcroSpeedLaunch.exe",
+      "IntegrityLevel": "Medium"
+    },
+    "process": {
+      "thread": {
+        "id": 1812
+      },
+      "pid": 1536
+    },
+    "version": 5,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "computer_name": "CLIENT3.breach.local"
+  },
+  "process": {
+    "pid": 2356,
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "reader_sl.exe",
+    "args": [
+      "C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe"
+    ],
+    "hash": {
+      "md5": "452fa961163ef4aee4815796a13ab2cf",
+      "sha256": "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+    },
+    "entity_id": "{19FC45AC-753B-601C-0000-00100F990200}",
+    "executable": "C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe",
+    "command_line": "C:\\Windows\\System32\\rundll32.exe r4nd0m.dll ,#4",
+    "parent": {
+      "entity_id": "{19FC45AC-753B-601C-0000-001083660200}",
+      "pid": 2096,
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ]
+    }
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client3"
+  },
+  "hash": {
+    "md5": "452fa961163ef4aee4815796a13ab2cf",
+    "sha256": "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3"
+  },
+  "host": {
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT3.breach.local",
+    "hostname": "CLIENT3",
+    "architecture": "x86"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:15.652\nProcessGuid: {19FC45AC-753B-601C-0000-00100F990200}\nProcessId: 2356\nImage: C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe\nFileVersion: 9.1.0.2009022700\nDescription: Adobe Acrobat SpeedLauncher\nProduct: Adobe Acrobat\nCompany: Adobe Systems Incorporated\nOriginalFileName: AcroSpeedLaunch.exe\nCommandLine: \"C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe\" \nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client3\nLogonGuid: {19FC45AC-753A-601C-0000-0020AE510200}\nLogonId: 0x251ae\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=452FA961163EF4AEE4815796A13AB2CF,SHA256=14DC422082F96F5C21C41A5E5F6E8445547CC4B02B18F0A86A34669CA2CE18A7\nParentProcessGuid: {19FC45AC-753B-601C-0000-001083660200}\nParentProcessId: 2096\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE"
+}

@@ -1,0 +1,14 @@
+filter: 'process.parent.executable: "*\svchost.exe" AND process.executable: "*\mshta.exe"'
+pre_detector:
+  case_condition: directly
+  id: ed5d72a6-f8f4-479d-ba79-02f6a80d7471
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.005
+  - attack.execution
+  - attack.t1170
+  severity: high
+  title: MSHTA Spwaned by SVCHOST
+sigma_fields: true
+description: Detects MSHTA.EXE spwaned by SVCHOST as seen in LethalHTA and described
+  in report

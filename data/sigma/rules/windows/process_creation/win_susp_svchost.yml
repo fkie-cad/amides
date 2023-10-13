@@ -1,0 +1,13 @@
+filter: 'process.executable: "*\svchost.exe" AND NOT process.parent.executable: ("*\services.exe"
+  OR "*\MsMpEng.exe" OR "*\Mrt.exe" OR "*\rpcnet.exe" OR "*\svchost.exe") AND process.parent.executable'
+pre_detector:
+  case_condition: directly
+  id: 01d2e2a1-5f09-44f7-9fc1-24faa7479b6d
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036.005
+  - attack.t1036
+  severity: high
+  title: Suspicious Svchost Process
+sigma_fields: true
+description: Detects a suspicious svchost process start

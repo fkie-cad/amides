@@ -1,0 +1,12 @@
+filter: 'process.command_line: "*\SYSVOL\\*\policies\\*"'
+pre_detector:
+  case_condition: directly
+  id: 05f3c945-dcc8-4393-9f3d-af65077a8f86
+  mitre:
+  - attack.credential_access
+  - attack.t1552.006
+  - attack.t1003
+  severity: medium
+  title: Suspicious SYSVOL Domain Group Policy Access
+sigma_fields: true
+description: Detects Access to Domain Group Policies stored in SYSVOL

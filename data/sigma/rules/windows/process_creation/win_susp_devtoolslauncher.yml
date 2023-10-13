@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\devtoolslauncher.exe" AND process.command_line: "*LaunchForDeploy*"'
+pre_detector:
+  case_condition: directly
+  id: cc268ac1-42d9-40fd-9ed3-8c4e1a5b87e6
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218
+  - attack.execution
+  severity: critical
+  title: Devtoolslauncher.exe Executes Specified Binary
+sigma_fields: true
+description: The Devtoolslauncher.exe executes other binary

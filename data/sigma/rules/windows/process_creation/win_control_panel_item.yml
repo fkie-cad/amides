@@ -1,0 +1,17 @@
+filter: '(process.command_line: "*.cpl" AND NOT (process.command_line: ("*\System32\\*"
+  OR "*%System%*"))) OR (process.command_line: "*reg add*" AND process.command_line:
+  "*CurrentVersion\\Control Panel\\CPLs*")'
+pre_detector:
+  case_condition: directly
+  id: 0ba863e6-def5-4e50-9cea-4dd8c7dc46a4
+  mitre:
+  - attack.execution
+  - attack.defense_evasion
+  - attack.t1218.002
+  - attack.t1196
+  - attack.persistence
+  - attack.t1546
+  severity: critical
+  title: Control Panel Items
+sigma_fields: true
+description: Detects the malicious use of a control panel item

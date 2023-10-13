@@ -1,0 +1,138 @@
+{
+  "@timestamp": "2021-02-04T23:00:37.631Z",
+  "winlog": {
+    "opcode": "Info",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "process": {
+      "thread": {
+        "id": 1804
+      },
+      "pid": 1704
+    },
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "version": 5,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "LogonId": "0xfb27",
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "csc.exe",
+      "IntegrityLevel": "Medium",
+      "TerminalSessionId": "1",
+      "FileVersion": "8.0.50727.4927 (NetFXspW7.050727-4900)",
+      "LogonGuid": "{19FC45AC-76D9-601C-0000-002027FB0000}",
+      "Product": "Microsoft\u00ae Visual Studio\u00ae 2005",
+      "Description": "Visual C# Command Line Compiler"
+    },
+    "record_id": 1402,
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "computer_name": "CLIENT2.breach.local"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client2"
+  },
+  "related": {
+    "user": "client2",
+    "hash": [
+      "3d7d2e825c63ff501e896cf008c70d75",
+      "037fc52b8fc6089338eb456f2b45638ed36c42a4dca7ace391d166b2329838a1"
+    ]
+  },
+  "hash": {
+    "md5": "3d7d2e825c63ff501e896cf008c70d75",
+    "sha256": "037fc52b8fc6089338eb456f2b45638ed36c42a4dca7ace391d166b2329838a1"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:00:37.631\nProcessGuid: {19FC45AC-7C95-601C-0000-0010952C0C00}\nProcessId: 3788\nImage: C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe\nFileVersion: 8.0.50727.4927 (NetFXspW7.050727-4900)\nDescription: Visual C# Command Line Compiler\nProduct: Microsoft\u00ae Visual Studio\u00ae 2005\nCompany: Microsoft Corporation\nOriginalFileName: csc.exe\nCommandLine: \"C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe\" /noconfig /fullpaths @\"C:\\Users\\client2\\AppData\\Local\\Temp\\ptne0piy.cmdline\"\nCurrentDirectory: C:\\Users\\client2\\AppData\\Local\\Temp\\SDIAG_48f926c1-3306-4e3d-8c87-5812d0551052\\\nUser: BREACH\\client2\nLogonGuid: {19FC45AC-76D9-601C-0000-002027FB0000}\nLogonId: 0xfb27\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=3D7D2E825C63FF501E896CF008C70D75,SHA256=037FC52B8FC6089338EB456F2B45638ED36C42A4DCA7ACE391D166B2329838A1\nParentProcessGuid: {19FC45AC-7C94-601C-0000-0010BA1B0C00}\nParentProcessId: 4028\nParentImage: C:\\Windows\\System32\\sdiagnhost.exe\nParentCommandLine: C:\\Windows\\System32\\sdiagnhost.exe -Embedding",
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T23:00:39.203Z",
+    "kind": "event",
+    "module": "sysmon"
+  },
+  "process": {
+    "command_line": "C:\\calc.exe",
+    "args": [
+      "C:\\Windows\\Microsoft.NET\\Framework\\v2.0.50727\\csc.exe",
+      "/noconfig",
+      "/fullpaths",
+      "@C:\\Users\\client2\\AppData\\Local\\Temp\\ptne0piy.cmdline"
+    ],
+    "parent": {
+      "args": [
+        "C:\\Windows\\System32\\sdiagnhost.exe",
+        "-Embedding"
+      ],
+      "entity_id": "{19FC45AC-7C94-601C-0000-0010BA1B0C00}",
+      "pid": 4028,
+      "executable": "C:\\Windows\\System32\\sdiagnhost.exe",
+      "command_line": "C:\\Windows\\System32\\sdiagnhost.exe -Embedding",
+      "name": "sdiagnhost.exe"
+    },
+    "name": "csc.exe",
+    "hash": {
+      "md5": "3d7d2e825c63ff501e896cf008c70d75",
+      "sha256": "037fc52b8fc6089338eb456f2b45638ed36c42a4dca7ace391d166b2329838a1"
+    },
+    "entity_id": "{19FC45AC-7C95-601C-0000-0010952C0C00}",
+    "pid": 3788,
+    "executable": "C:\\calc.exe",
+    "working_directory": "C:\\Users\\client2\\AppData\\Local\\Temp\\SDIAG_48f926c1-3306-4e3d-8c87-5812d0551052\\"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2"
+  },
+  "host": {
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT2.breach.local",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  }
+}

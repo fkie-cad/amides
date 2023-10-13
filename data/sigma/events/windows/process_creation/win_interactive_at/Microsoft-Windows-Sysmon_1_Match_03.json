@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:27:15.062Z",
+  "winlog": {
+    "event_id": 1,
+    "api": "wineventlog",
+    "computer_name": "CLIENT",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "record_id": 1158,
+    "process": {
+      "pid": 1896,
+      "thread": {
+        "id": 1392
+      }
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "opcode": "Info",
+    "version": 5,
+    "event_data": {
+      "OriginalFileName": "lsass.exe",
+      "Company": "Microsoft Corporation",
+      "Description": "Local Security Authority Process",
+      "FileVersion": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "IntegrityLevel": "System",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "TerminalSessionId": "0",
+      "LogonGuid": "{19FC45AC-74C3-601C-0000-0020E7030000}",
+      "LogonId": "0x3e7"
+    }
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "name": "CLIENT",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ]
+  },
+  "process": {
+    "entity_id": "{19FC45AC-74C3-601C-0000-001092640000}",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ],
+      "entity_id": "{19FC45AC-74C2-601C-0000-001053580000}",
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\wininit.exe"
+    },
+    "args": [
+      "C:\\Windows\\system32\\lsass.exe"
+    ],
+    "pid": 452,
+    "executable": "C:\\Windows\\System32\\at.exe",
+    "command_line": "at 18:00 /interactive mal.exe",
+    "name": "lsass.exe",
+    "hash": {
+      "sha256": "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350",
+      "md5": "27945cf21e17afbff1e31993aaee4551"
+    }
+  },
+  "hash": {
+    "md5": "27945cf21e17afbff1e31993aaee4551",
+    "sha256": "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.321Z",
+    "module": "sysmon"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:15.062\nProcessGuid: {19FC45AC-74C3-601C-0000-001092640000}\nProcessId: 452\nImage: C:\\Windows\\System32\\lsass.exe\nFileVersion: 6.1.7601.18741 (win7sp1_gdr.150202-1526)\nDescription: Local Security Authority Process\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: lsass.exe\nCommandLine: C:\\Windows\\system32\\lsass.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74C3-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=27945CF21E17AFBFF1E31993AAEE4551,SHA256=E24137EFC6215FCD27479E0C1C455518B1D39F75B8CF67E8A9B46DCDDCECB350\nParentProcessGuid: {19FC45AC-74C2-601C-0000-001053580000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "27945cf21e17afbff1e31993aaee4551",
+      "e24137efc6215fcd27479e0c1c455518b1d39f75b8cf67e8a9b46dcddcecb350"
+    ]
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426"
+  }
+}

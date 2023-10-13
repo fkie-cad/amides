@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*netsh*" AND process.command_line: "*trace*" AND process.command_line:
+  "*start*"'
+pre_detector:
+  case_condition: directly
+  id: d3c3861d-c504-4c77-ba55-224ba82d0118
+  mitre:
+  - attack.discovery
+  - attack.credential_access
+  - attack.t1040
+  severity: medium
+  title: Capture a Network Trace with netsh.exe
+sigma_fields: true
+description: Detects capture a network trace via netsh.exe trace functionality

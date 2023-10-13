@@ -1,0 +1,12 @@
+{
+    "malicious_samples_type": "evasions",
+    "save_vectorizer": true,
+    "save_data": true,
+    "result_path": [
+        "models/process_creation/train_rslt_misuse_svc_rules_f1_0.zip"
+    ],
+    "benign_samples": "../data/socbed/process_creation/validation",
+    "events_dir": "../data/sigma/events/windows/process_creation",
+    "rules_dir": "../data/sigma/rules/windows/process_creation",
+    "out_dir": "models/process_creation"
+}

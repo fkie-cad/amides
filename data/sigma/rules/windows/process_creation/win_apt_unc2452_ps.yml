@@ -1,0 +1,16 @@
+filter: '(process.command_line: "*Invoke-WMIMethod win32_process -name create -argumentlist*"
+  AND process.command_line: "*rundll32 c:\windows*") OR (process.command_line: "*wmic
+  /node:*" AND process.command_line: "*process call create \"rundll32 c:\windows*")'
+pre_detector:
+  case_condition: directly
+  id: b7155193-8a81-4d8f-805d-88de864ca50c
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1047
+  - sunburst
+  severity: critical
+  title: UNC2452 PowerShell Pattern
+sigma_fields: true
+description: Detects a specific PowerShell command line pattern used by the UNC2452
+  actors as mentioned in Microsoft and Symantec reports

@@ -1,0 +1,133 @@
+{
+  "@timestamp": "2021-02-04T22:28:15.328Z",
+  "hash": {
+    "md5": "60b65f97c12ba30cd36450d376227c02",
+    "sha256": "d06598f2f203cec7a7a3857f727bc2ba457c1c0cef2787b90ce553407fbf8536"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT3",
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.052Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:15.328\nProcessGuid: {19FC45AC-74FF-601C-0000-0010B4890200}\nProcessId: 2084\nImage: C:\\Program Files\\NetTime\\NetTime.exe\nFileVersion: 3.1.4.220\nDescription: Network Time Synchronizer\nProduct: NetTime\nCompany: \nOriginalFileName: NetTime.exe\nCommandLine: \"C:\\Program Files\\NetTime\\NetTime.exe\" \nCurrentDirectory: C:\\Windows\\system32\\\nUser: CLIENT3\\setup\nLogonGuid: {19FC45AC-74FE-601C-0000-0020FD380200}\nLogonId: 0x238fd\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=60B65F97C12BA30CD36450D376227C02,SHA256=D06598F2F203CEC7A7A3857F727BC2BA457C1C0CEF2787B90CE553407FBF8536\nParentProcessGuid: {19FC45AC-74FE-601C-0000-0010D8530200}\nParentProcessId: 1572\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "winlog": {
+    "computer_name": "CLIENT3",
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "event_id": 1,
+    "record_id": 1234,
+    "opcode": "Info",
+    "event_data": {
+      "Product": "NetTime",
+      "Description": "Network Time Synchronizer",
+      "LogonGuid": "{19FC45AC-74FE-601C-0000-0020FD380200}",
+      "TerminalSessionId": "1",
+      "OriginalFileName": "NetTime.exe",
+      "IntegrityLevel": "High",
+      "FileVersion": "3.1.4.220",
+      "LogonId": "0x238fd"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "version": 5,
+    "process": {
+      "thread": {
+        "id": 1780
+      },
+      "pid": 1516
+    }
+  },
+  "process": {
+    "entity_id": "{19FC45AC-74FF-601C-0000-0010B4890200}",
+    "pid": 2084,
+    "executable": "C:\\Program Files\\NetTime\\NetTime.exe",
+    "name": "NetTime.exe",
+    "args": [
+      "C:\\Program Files\\NetTime\\NetTime.exe"
+    ],
+    "command_line": "netsh advfirewall set allprofiles state off",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-74FE-601C-0000-0010D8530200}",
+      "pid": 1572,
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ]
+    },
+    "hash": {
+      "md5": "60b65f97c12ba30cd36450d376227c02",
+      "sha256": "d06598f2f203cec7a7a3857f727bc2ba457c1c0cef2787b90ce553407fbf8536"
+    }
+  },
+  "user": {
+    "domain": "CLIENT3",
+    "name": "setup"
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "60b65f97c12ba30cd36450d376227c02",
+      "d06598f2f203cec7a7a3857f727bc2ba457c1c0cef2787b90ce553407fbf8536"
+    ]
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "name": "CLIENT3",
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    }
+  }
+}

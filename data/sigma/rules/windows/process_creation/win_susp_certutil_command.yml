@@ -1,0 +1,25 @@
+filter: 'process.command_line: ("* -decode *" OR "* /decode *" OR "* -decodehex *"
+  OR "* /decodehex *" OR "* -urlcache *" OR "* /urlcache *" OR "* -verifyctl *" OR
+  "* /verifyctl *" OR "* -encode *" OR "* /encode *" OR "*certutil* -URL*" OR "*certutil*
+  /URL*" OR "*certutil* -ping*" OR "*certutil* /ping*")'
+pre_detector:
+  case_condition: directly
+  id: e011a729-98a6-4139-b5c4-bf6f6dd8239a
+  mitre:
+  - attack.defense_evasion
+  - attack.t1140
+  - attack.command_and_control
+  - attack.t1105
+  - attack.s0160
+  - attack.g0007
+  - attack.g0010
+  - attack.g0045
+  - attack.g0049
+  - attack.g0075
+  - attack.g0096
+  severity: high
+  title: Suspicious Certutil Command
+sigma_fields: true
+description: Detects a suspicious Microsoft certutil execution with sub commands like
+  'decode' sub command, which is sometimes used to decode malicious code with the
+  built-in certutil utility

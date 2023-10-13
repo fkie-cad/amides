@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:29:09.358Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:29:09.358\nProcessGuid: {19FC45AC-7535-601C-0000-0010FDC50200}\nProcessId: 2388\nImage: C:\\Windows\\System32\\ipconfig.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: IP Configuration Utility\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: ipconfig.exe\nCommandLine: ipconfig /all\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7533-601C-0000-0020ED4A0200}\nLogonId: 0x24aed\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=CABB20E171770FF64614A54C1F31C033,SHA256=C0E3087D87C84776FE7FFCA768A0793C02D28E34A821F0C9DA32339AF8E7E6A6\nParentProcessGuid: {19FC45AC-7534-601C-0000-001004B80200}\nParentProcessId: 2340\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: \"C:\\Program Files\\Python35-32\\python.exe\" \"C:\\BREACH\\init_tbf_client.py\" ",
+  "process": {
+    "pid": 2388,
+    "executable": "C:\\Windows\\System32\\bcdedit.exe",
+    "parent": {
+      "command_line": "\"C:\\Windows\\System32\\cmd.exe\"",
+      "name": "cmd.exe",
+      "args": [
+        "\"C:\\Windows\\System32\\cmd.exe\""
+      ],
+      "entity_id": "{19FC45AC-7534-601C-0000-001004B80200}",
+      "pid": 2340,
+      "executable": "C:\\Windows\\System32\\cmd.exe"
+    },
+    "name": "bcdedit.exe",
+    "args": [
+      "bcdedit",
+      "/delete",
+      "foo"
+    ],
+    "hash": {
+      "md5": "cabb20e171770ff64614a54c1f31c033",
+      "sha256": "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6"
+    },
+    "entity_id": "{19FC45AC-7535-601C-0000-0010FDC50200}",
+    "command_line": "bcdedit /delete {5cb10d44-20ee-11ea-85c6-e6e1f64324aa}",
+    "working_directory": "C:\\Windows\\System32\\"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.300Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "host": {
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "name": "CLIENT1.breach.local",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "related": {
+    "hash": [
+      "cabb20e171770ff64614a54c1f31c033",
+      "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6"
+    ],
+    "user": "client1"
+  },
+  "hash": {
+    "sha256": "c0e3087d87c84776fe7ffca768a0793c02d28e34a821f0c9da32339af8e7e6a6",
+    "md5": "cabb20e171770ff64614a54c1f31c033"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer_name": "CLIENT1.breach.local",
+    "event_id": 1,
+    "api": "wineventlog",
+    "version": 5,
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    },
+    "event_data": {
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "LogonId": "0x24aed",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "ipconfig.exe",
+      "LogonGuid": "{19FC45AC-7533-601C-0000-0020ED4A0200}",
+      "Description": "IP Configuration Utility",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "Medium",
+      "TerminalSessionId": "1"
+    },
+    "record_id": 1302,
+    "task": "Process Create (rule: ProcessCreate)",
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  }
+}

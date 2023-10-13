@@ -1,0 +1,13 @@
+filter: 'process.command_line: ("netsh firewall set opmode mode=disable" OR "netsh
+  advfirewall set * state off")'
+pre_detector:
+  case_condition: directly
+  id: 57c4bf16-227f-4394-8ec7-1b745ee061c3
+  mitre:
+  - attack.defense_evasion
+  - attack.t1562.004
+  - attack.s0108
+  severity: medium
+  title: Firewall Disabled via Netsh
+sigma_fields: true
+description: Detects netsh commands that turns off the Windows firewall

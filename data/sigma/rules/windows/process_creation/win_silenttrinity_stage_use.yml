@@ -1,0 +1,22 @@
+filter: 'winlog.event_data.Description: "*st2stager*"'
+pre_detector:
+  case_condition: directly
+  id: 03552375-cc2c-4883-bbe4-7958d5a980be
+  mitre:
+  - attack.command_and_control
+  severity: high
+  title: SILENTTRINITY Stager Execution
+sigma_fields: true
+description: Detects SILENTTRINITY stager use
+---
+filter: 'winlog.channel: "Microsoft-Windows-Sysmon/Operational" AND winlog.event_id:
+  7 AND winlog.event_data.Description: "*st2stager*"'
+pre_detector:
+  case_condition: directly
+  id: 03552375-cc2c-4883-bbe4-7958d5a980be
+  mitre:
+  - attack.command_and_control
+  severity: high
+  title: SILENTTRINITY Stager Execution
+sigma_fields: true
+description: Detects SILENTTRINITY stager use

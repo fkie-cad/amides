@@ -1,0 +1,11 @@
+filter: 'process.command_line: ("*h^t^t^p*" OR "*h\"t\"t\"p*")'
+pre_detector:
+  case_condition: directly
+  id: f0cdd048-82dc-4f7a-8a7a-b87a52b6d0fd
+  mitre:
+  - attack.defense_evasion
+  - attack.t1140
+  severity: low
+  title: Suspicious Commandline Escape
+sigma_fields: true
+description: Detects suspicious process that use escape characters

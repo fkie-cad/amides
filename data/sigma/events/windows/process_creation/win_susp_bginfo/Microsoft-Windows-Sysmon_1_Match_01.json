@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T22:28:09.218Z",
+  "event": {
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.400Z",
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ]
+  },
+  "host": {
+    "name": "CLIENT2",
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ]
+  },
+  "process": {
+    "entity_id": "{19FC45AC-74F9-601C-0000-0010CCF00000}",
+    "pid": 972,
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-74F8-601C-0000-0010F2600000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\cmd.exe",
+      "command_line": "C:\\Windows\\system32\\cmd.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "executable": "C:\\bginfo.exe",
+    "command_line": "bginfo.exe /popup /nolicprompt info.bgi",
+    "name": "svchost.exe",
+    "args": [
+      "bginfo.exe",
+      "/popup",
+      "/nolicprompt"
+    ],
+    "hash": {
+      "md5": "54a47f6b5e09a77e61649109c6a08866",
+      "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "LOCAL SERVICE"
+  },
+  "related": {
+    "user": "LOCAL SERVICE",
+    "hash": [
+      "54a47f6b5e09a77e61649109c6a08866",
+      "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+    ]
+  },
+  "hash": {
+    "md5": "54a47f6b5e09a77e61649109c6a08866",
+    "sha256": "121118a0f5e0e8c933efd28c9901e54e42792619a8a3a6d11e1f0025a7324bc2"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:09.218\nProcessGuid: {19FC45AC-74F9-601C-0000-0010CCF00000}\nProcessId: 972\nImage: C:\\Windows\\System32\\svchost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Host Process for Windows Services\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: svchost.exe\nCommandLine: C:\\Windows\\system32\\svchost.exe -k LocalService\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\LOCAL SERVICE\nLogonGuid: {19FC45AC-74F8-601C-0000-0020E5030000}\nLogonId: 0x3e5\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=54A47F6B5E09A77E61649109C6A08866,SHA256=121118A0F5E0E8C933EFD28C9901E54E42792619A8A3A6D11E1F0025A7324BC2\nParentProcessGuid: {19FC45AC-74F8-601C-0000-0010F2600000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "computer_name": "CLIENT2",
+    "process": {
+      "pid": 1488,
+      "thread": {
+        "id": 1752
+      }
+    },
+    "event_data": {
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "Description": "Host Process for Windows Services",
+      "IntegrityLevel": "System",
+      "TerminalSessionId": "0",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "LogonGuid": "{19FC45AC-74F8-601C-0000-0020E5030000}",
+      "OriginalFileName": "svchost.exe",
+      "LogonId": "0x3e5"
+    },
+    "record_id": 1216,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "version": 5,
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2"
+  }
+}

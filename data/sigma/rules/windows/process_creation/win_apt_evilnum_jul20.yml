@@ -1,0 +1,14 @@
+filter: 'process.command_line: "*regsvr32*" AND process.command_line: "* /s /i *"
+  AND process.command_line: "*\AppData\Roaming\\*" AND process.command_line: "*.ocx*"'
+pre_detector:
+  case_condition: directly
+  id: 8acf3cfa-1e8c-4099-83de-a0c4038e18f0
+  mitre:
+  - attack.defense_evasion
+  - attack.t1085
+  - attack.t1218.011
+  severity: critical
+  title: EvilNum Golden Chickens Deployment via OCX Files
+sigma_fields: true
+description: Detects Golden Chickens deployment method as used by Evilnum in report
+  published in July 2020

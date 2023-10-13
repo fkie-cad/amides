@@ -1,0 +1,136 @@
+{
+  "@timestamp": "2021-02-04T20:33:38.599Z",
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T20:33:40.392Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1
+  },
+  "host": {
+    "name": "CLIENT",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.254",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:38fe",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:01:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT",
+    "architecture": "x86"
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "client",
+    "name": "breach"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "api": "wineventlog",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_data": {
+      "OriginalFileName": "RUNDLL32.EXE",
+      "LogonId": "0x25612",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "Description": "Windows host process (Rundll32)",
+      "TerminalSessionId": "1",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "High",
+      "LogonGuid": "{19FC45AC-53AD-601C-0000-002012560200}"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "version": 5,
+    "computer_name": "CLIENT",
+    "task": "Process Create (rule: ProcessCreate)",
+    "event_id": 1,
+    "record_id": 1135,
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 20:33:38.599\nProcessGuid: {19FC45AC-5A22-601C-0000-00103D041000}\nProcessId: 3512\nImage: C:\\Windows\\System32\\rundll32.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Windows host process (Rundll32)\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: RUNDLL32.EXE\nCommandLine: \"C:\\Windows\\system32\\rundll32.exe\" C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL C:\\ProgramData\\winlogbeat\\logs\\winlogbeat\nCurrentDirectory: C:\\ProgramData\\winlogbeat\\logs\\\nUser: client\\breach\nLogonGuid: {19FC45AC-53AD-601C-0000-002012560200}\nLogonId: 0x25612\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=51138BEEA3E2C21EC44D0932C71762A8,SHA256=5AD3C37E6F2B9DB3EE8B5AEEDC474645DE90C66E3D95F8620C48102F1EBA4124\nParentProcessGuid: {19FC45AC-53AF-601C-0000-0010E7660300}\nParentProcessId: 1876\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "process": {
+    "executable": "C:\\Windows\\System32\\rundll32.exe",
+    "command_line": "netsh advfirewall firewall add rule action=allow protocol=UDP localport=1337 dir=in name=rulename",
+    "args": [
+      "C:\\Windows\\system32\\rundll32.exe",
+      "C:\\Windows\\system32\\shell32.dll,OpenAs_RunDLL",
+      "C:\\ProgramData\\winlogbeat\\logs\\winlogbeat"
+    ],
+    "entity_id": "{19FC45AC-5A22-601C-0000-00103D041000}",
+    "pid": 3512,
+    "working_directory": "C:\\ProgramData\\winlogbeat\\logs\\",
+    "parent": {
+      "executable": "C:\\Windows\\explorer.exe",
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-53AF-601C-0000-0010E7660300}",
+      "pid": 1876
+    },
+    "name": "rundll32.exe",
+    "hash": {
+      "md5": "51138beea3e2c21ec44d0932c71762a8",
+      "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    }
+  },
+  "related": {
+    "user": "breach",
+    "hash": [
+      "51138beea3e2c21ec44d0932c71762a8",
+      "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+    ]
+  },
+  "hash": {
+    "md5": "51138beea3e2c21ec44d0932c71762a8",
+    "sha256": "5ad3c37e6f2b9db3ee8b5aeedc474645de90c66e3d95f8620c48102f1eba4124"
+  },
+  "agent": {
+    "hostname": "CLIENT",
+    "ephemeral_id": "8d71002f-bbaa-43e7-9f1b-6316d51fcd53",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  }
+}

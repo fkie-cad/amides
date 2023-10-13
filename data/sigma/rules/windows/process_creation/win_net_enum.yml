@@ -1,0 +1,13 @@
+filter: 'process.executable: ("*\net.exe" OR "*\net1.exe") AND process.command_line:
+  "*view*" AND NOT process.command_line: "*\\\\*"'
+pre_detector:
+  case_condition: directly
+  id: 62510e69-616b-4078-b371-847da438cc03
+  mitre:
+  - attack.discovery
+  - attack.t1018
+  severity: low
+  title: Windows Network Enumeration
+sigma_fields: true
+description: Identifies attempts to enumerate hosts in a network using the built-in
+  Windows net.exe tool.

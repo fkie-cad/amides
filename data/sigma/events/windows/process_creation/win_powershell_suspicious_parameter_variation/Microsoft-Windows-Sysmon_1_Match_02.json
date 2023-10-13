@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-04T22:59:28.557Z",
+  "winlog": {
+    "event_data": {
+      "Description": "Scripted Diagnostics Native Host",
+      "OriginalFileName": "sdiagnhost.exe",
+      "TerminalSessionId": "1",
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "LogonId": "0xfb53",
+      "IntegrityLevel": "Medium",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "task": "Process Create (rule: ProcessCreate)",
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "opcode": "Info",
+    "version": 5,
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "computer_name": "CLIENT1.breach.local",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "record_id": 1395,
+    "api": "wineventlog"
+  },
+  "host": {
+    "architecture": "x86",
+    "name": "CLIENT1.breach.local",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:59:28.557\nProcessGuid: {19FC45AC-7C50-601C-0000-00106D370C00}\nProcessId: 3804\nImage: C:\\Windows\\System32\\sdiagnhost.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Scripted Diagnostics Native Host\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: sdiagnhost.exe\nCommandLine: C:\\Windows\\System32\\sdiagnhost.exe -Embedding\nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=15F07E50407139AA93D3FB6E612D2F74,SHA256=AEE5AF2E994B008A7A2BF47283B8FC9197CA67296CDD18F3BA37EF3631FCCE8F\nParentProcessGuid: {19FC45AC-7690-601C-0000-0010907C0000}\nParentProcessId: 580\nParentImage: C:\\Windows\\System32\\svchost.exe\nParentCommandLine: C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+  "related": {
+    "user": "client1",
+    "hash": [
+      "15f07e50407139aa93d3fb6e612d2f74",
+      "aee5af2e994b008a7a2bf47283b8fc9197ca67296cdd18f3ba37ef3631fcce8f"
+    ]
+  },
+  "hash": {
+    "md5": "15f07e50407139aa93d3fb6e612d2f74",
+    "sha256": "aee5af2e994b008a7a2bf47283b8fc9197ca67296cdd18f3ba37ef3631fcce8f"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:59:29.883Z"
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "parent": {
+      "entity_id": "{19FC45AC-7690-601C-0000-0010907C0000}",
+      "pid": 580,
+      "executable": "C:\\Windows\\System32\\svchost.exe",
+      "command_line": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+      "name": "svchost.exe",
+      "args": [
+        "C:\\Windows\\system32\\svchost.exe",
+        "-k",
+        "DcomLaunch"
+      ]
+    },
+    "name": "sdiagnhost.exe",
+    "hash": {
+      "md5": "15f07e50407139aa93d3fb6e612d2f74",
+      "sha256": "aee5af2e994b008a7a2bf47283b8fc9197ca67296cdd18f3ba37ef3631fcce8f"
+    },
+    "entity_id": "{19FC45AC-7C50-601C-0000-00106D370C00}",
+    "pid": 3804,
+    "working_directory": "C:\\Windows\\system32\\",
+    "args": [
+      "C:\\Windows\\System32\\sdiagnhost.exe",
+      "-Embedding"
+    ],
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "command_line": "powershell -NoProf ipconfig"
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "agent": {
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1"
+  }
+}

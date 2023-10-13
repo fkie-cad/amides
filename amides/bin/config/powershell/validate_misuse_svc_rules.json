@@ -1,0 +1,6 @@
+{
+    "evasions_file": "../data/sigma/events/windows/powershell/values_evasion_powershell",
+    "result_file": "models/powershell/train_rslt_misuse_svc_rules_f1_0.zip",
+    "benign_samples": "../data/socbed/powershell/validation",
+    "out_dir": "models/powershell"
+}

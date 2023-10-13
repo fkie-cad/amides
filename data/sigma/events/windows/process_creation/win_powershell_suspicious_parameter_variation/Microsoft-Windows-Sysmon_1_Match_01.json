@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-04T23:21:54.091Z",
+  "host": {
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT1.breach.local",
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "hash": {
+    "md5": "d861eb4d6719d6738270e6a376b87f18",
+    "sha256": "cb6faaf9ffbc91a4f306a95d4472ee23715c91b06ce59394d6a5c23a4f4b9476"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1"
+  },
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 23:21:54.091\nProcessGuid: {19FC45AC-8192-601C-0000-001036801100}\nProcessId: 3912\nImage: C:\\Windows\\System32\\slui.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Windows Activation Client\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: slui.exe\nCommandLine: C:\\Windows\\System32\\slui.exe -Embedding\nCurrentDirectory: C:\\Windows\\system32\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=D861EB4D6719D6738270E6A376B87F18,SHA256=CB6FAAF9FFBC91A4F306A95D4472EE23715C91B06CE59394D6A5C23A4F4B9476\nParentProcessGuid: {19FC45AC-7690-601C-0000-0010907C0000}\nParentProcessId: 580\nParentImage: C:\\Windows\\System32\\svchost.exe\nParentCommandLine: C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "record_id": 1428,
+    "version": 5,
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_data": {
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "Medium",
+      "Description": "Windows Activation Client",
+      "LogonId": "0xfb53",
+      "OriginalFileName": "slui.exe",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "TerminalSessionId": "1"
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "event_id": 1,
+    "api": "wineventlog"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "event": {
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T23:21:55.468Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ]
+  },
+  "process": {
+    "entity_id": "{19FC45AC-8192-601C-0000-001036801100}",
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "entity_id": "{19FC45AC-7690-601C-0000-0010907C0000}",
+      "pid": 580,
+      "executable": "C:\\Windows\\System32\\svchost.exe",
+      "command_line": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch",
+      "name": "svchost.exe",
+      "args": [
+        "C:\\Windows\\system32\\svchost.exe",
+        "-k",
+        "DcomLaunch"
+      ]
+    },
+    "name": "slui.exe",
+    "args": [
+      "C:\\Windows\\System32\\slui.exe",
+      "-Embedding"
+    ],
+    "hash": {
+      "md5": "d861eb4d6719d6738270e6a376b87f18",
+      "sha256": "cb6faaf9ffbc91a4f306a95d4472ee23715c91b06ce59394d6a5c23a4f4b9476"
+    },
+    "pid": 3912,
+    "command_line": "powershell.exe -windowstyle h notepad.exe"
+  },
+  "related": {
+    "user": "client1",
+    "hash": [
+      "d861eb4d6719d6738270e6a376b87f18",
+      "cb6faaf9ffbc91a4f306a95d4472ee23715c91b06ce59394d6a5c23a4f4b9476"
+    ]
+  }
+}

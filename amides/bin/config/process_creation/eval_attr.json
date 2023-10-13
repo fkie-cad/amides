@@ -1,0 +1,7 @@
+{
+    "multi_result": "models/process_creation/multi_train_rslt_attr_svc_rules_f1_0.zip",
+    "benign_samples": "../data/socbed/process_creation/validation",
+    "events_dir": "../data/sigma/events/windows/process_creation",
+    "rules_dir": "../data/sigma/rules/windows/process_creation",
+    "out_dir": "models/process_creation"
+}

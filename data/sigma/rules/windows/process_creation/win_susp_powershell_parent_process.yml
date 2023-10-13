@@ -1,0 +1,21 @@
+filter: '(process.parent.executable: ("*\mshta.exe" OR "*\rundll32.exe" OR "*\regsvr32.exe"
+  OR "*\services.exe" OR "*\winword.exe" OR "*\wmiprvse.exe" OR "*\powerpnt.exe" OR
+  "*\excel.exe" OR "*\msaccess.exe" OR "*\mspub.exe" OR "*\visio.exe" OR "*\outlook.exe"
+  OR "*\amigo.exe" OR "*\chrome.exe" OR "*\firefox.exe" OR "*\iexplore.exe" OR "*\microsoftedgecp.exe"
+  OR "*\microsoftedge.exe" OR "*\browser.exe" OR "*\vivaldi.exe" OR "*\safari.exe"
+  OR "*\sqlagent.exe" OR "*\sqlserver.exe" OR "*\sqlservr.exe" OR "*\w3wp.exe" OR
+  "*\httpd.exe" OR "*\nginx.exe" OR "*\php-cgi.exe" OR "*\jbosssvc.exe" OR "*MicrosoftEdgeSH.exe")
+  OR process.parent.executable: "*tomcat*") AND (process.command_line: ("*powershell*"
+  OR "*pwsh*") OR winlog.event_data.Description: "Windows PowerShell" OR winlog.event_data.Product:
+  "PowerShell Core 6")'
+pre_detector:
+  case_condition: directly
+  id: 754ed792-634f-40ae-b3bc-e0448d33f695
+  mitre:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1086
+  severity: medium
+  title: Suspicious PowerShell Parent Process
+sigma_fields: true
+description: Detects a suspicious parents of powershell.exe

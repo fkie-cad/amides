@@ -1,0 +1,16 @@
+filter: 'process.executable: "*\cmstp.exe" AND process.command_line: ("*/s*" OR "*/au*")'
+pre_detector:
+  case_condition: directly
+  id: e66779cc-383e-4224-a3a4-267eeb585c40
+  mitre:
+  - attack.privilege_escalation
+  - attack.defense_evasion
+  - attack.t1548.002
+  - attack.t1218.003
+  - attack.t1191
+  - attack.t1088
+  severity: high
+  title: Bypass UAC via CMSTP
+sigma_fields: true
+description: Detect child processes of automatically elevated instances of Microsoft
+  Connection Manager Profile Installer (cmstp.exe).

@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*\ntdsutil*"'
+pre_detector:
+  case_condition: directly
+  id: 2afafd61-6aae-4df4-baed-139fa1f4c345
+  mitre:
+  - attack.credential_access
+  - attack.t1003.003
+  - attack.t1003
+  severity: high
+  title: Invocation of Active Directory Diagnostic Tool (ntdsutil.exe)
+sigma_fields: true
+description: Detects execution of ntdsutil.exe, which can be used for various attacks
+  against the NTDS database (NTDS.DIT)

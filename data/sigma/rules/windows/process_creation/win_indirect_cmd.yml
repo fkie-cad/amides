@@ -1,0 +1,12 @@
+filter: 'process.parent.executable: ("*\pcalua.exe" OR "*\forfiles.exe")'
+pre_detector:
+  case_condition: directly
+  id: fa47597e-90e9-41cd-ab72-c3b74cfb0d02
+  mitre:
+  - attack.defense_evasion
+  - attack.t1202
+  severity: low
+  title: Indirect Command Execution
+sigma_fields: true
+description: Detect indirect command execution via Program Compatibility Assistant
+  pcalua.exe or forfiles.exe

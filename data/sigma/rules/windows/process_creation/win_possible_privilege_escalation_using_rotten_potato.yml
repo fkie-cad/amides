@@ -1,0 +1,15 @@
+filter: 'ParentUser: ("NT AUTHORITY\NETWORK SERVICE" OR "NT AUTHORITY\LOCAL SERVICE")
+  AND user.name: "NT AUTHORITY\SYSTEM" AND NOT (process.executable: "*\rundll32.exe"
+  AND process.command_line: "*DavSetCookie*")'
+pre_detector:
+  case_condition: directly
+  id: 6c5808ee-85a2-4e56-8137-72e5876a5096
+  mitre:
+  - attack.privilege_escalation
+  - attack.t1134
+  - attack.t1134.002
+  severity: high
+  title: Detection of Possible Rotten Potato
+sigma_fields: true
+description: Detection of child processes spawned with SYSTEM privileges by parents
+  with LOCAL SERVICE or NETWORK SERVICE privileges

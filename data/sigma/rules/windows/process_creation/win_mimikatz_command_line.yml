@@ -1,0 +1,18 @@
+filter: 'process.command_line: ("*DumpCreds*" OR "*invoke-mimikatz*") OR (process.command_line:
+  ("*rpc*" OR "*token*" OR "*crypto*" OR "*dpapi*" OR "*sekurlsa*" OR "*kerberos*"
+  OR "*lsadump*" OR "*privilege*" OR "*process*") AND process.command_line: "*::*")'
+pre_detector:
+  case_condition: directly
+  id: a642964e-bead-4bed-8910-1bb4d63e3b4d
+  mitre:
+  - attack.credential_access
+  - attack.t1003
+  - attack.t1003.001
+  - attack.t1003.002
+  - attack.t1003.004
+  - attack.t1003.005
+  - attack.t1003.006
+  severity: medium
+  title: Mimikatz Command Line
+sigma_fields: true
+description: Detection well-known mimikatz command line arguments

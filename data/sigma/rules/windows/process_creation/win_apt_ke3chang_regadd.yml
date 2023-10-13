@@ -1,0 +1,16 @@
+filter: 'process.command_line: ("*-Property DWORD -name DisableFirstRunCustomize -value
+  2 -Force*" OR "*-Property String -name Check_Associations -value*" OR "*-Property
+  DWORD -name IEHarden -value 0 -Force*")'
+pre_detector:
+  case_condition: directly
+  id: 7b544661-69fc-419f-9a59-82ccc328f205
+  mitre:
+  - attack.g0004
+  - attack.defense_evasion
+  - attack.t1089
+  - attack.t1562.001
+  severity: critical
+  title: Ke3chang Registry Key Modifications
+sigma_fields: true
+description: Detects Registry modifcations performaed by Ke3chang malware in campaigns
+  running in 2019 and 2020

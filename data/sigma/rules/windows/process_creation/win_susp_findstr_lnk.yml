@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\findstr.exe" AND process.command_line: "*.lnk"'
+pre_detector:
+  case_condition: directly
+  id: 33339be3-148b-4e16-af56-ad16ec6c7e7b
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.t1202
+  - attack.t1027.003
+  severity: medium
+  title: Findstr Launching .lnk File
+sigma_fields: true
+description: Detects usage of findstr to identify and execute a lnk file as seen within
+  the HHS redirect attack

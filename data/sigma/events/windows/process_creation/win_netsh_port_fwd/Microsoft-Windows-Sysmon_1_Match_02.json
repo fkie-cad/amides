@@ -1,0 +1,137 @@
+{
+  "@timestamp": "2021-02-05T10:10:14.806Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-05 10:10:14.806\nProcessGuid: {19FC45AC-1986-601D-0000-001057116800}\nProcessId: 2300\nImage: C:\\Program Files\\Mozilla Firefox\\firefox.exe\nFileVersion: 38.0.5\nDescription: Firefox\nProduct: Firefox\nCompany: Mozilla Corporation\nOriginalFileName: firefox.exe\nCommandLine: \"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" -foreground\nCurrentDirectory: C:\\BREACH\\\nUser: BREACH\\client1\nLogonGuid: {19FC45AC-7690-601C-0000-002053FB0000}\nLogonId: 0xfb53\nTerminalSessionId: 1\nIntegrityLevel: Medium\nHashes: MD5=923FE895B22B22A9CA03C72F3D15CE20,SHA256=98B7F5B40C557775CD645CA69B788FE4A3DEAE25CDB6E5DD4FB94DB1BDC10969\nParentProcessGuid: {19FC45AC-7695-601C-0000-0010FF940100}\nParentProcessId: 1940\nParentImage: C:\\Program Files\\Python35-32\\python.exe\nParentCommandLine: python C:\\BREACH\\userbehavior.pex --use-breach-setup",
+  "user": {
+    "domain": "BREACH",
+    "name": "client1"
+  },
+  "related": {
+    "hash": [
+      "923fe895b22b22a9ca03c72f3d15ce20",
+      "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+    ],
+    "user": "client1"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT1",
+    "ephemeral_id": "486f7872-9118-4349-8630-511973cdbf72",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1"
+  },
+  "event": {
+    "kind": "event",
+    "code": 1,
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-05T10:10:18.366Z"
+  },
+  "host": {
+    "name": "CLIENT1.breach.local",
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "process": {
+    "entity_id": "{19FC45AC-1986-601D-0000-001057116800}",
+    "executable": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+    "command_line": "netsh interface portproxy add v4tov4 listenport=1337 connectaddress=127.0.0.1 connectport=2448",
+    "working_directory": "C:\\BREACH\\",
+    "args": [
+      "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+      "-foreground"
+    ],
+    "pid": 2300,
+    "parent": {
+      "entity_id": "{19FC45AC-7695-601C-0000-0010FF940100}",
+      "pid": 1940,
+      "executable": "C:\\Program Files\\Python35-32\\python.exe",
+      "command_line": "python C:\\BREACH\\userbehavior.pex --use-breach-setup",
+      "name": "python.exe",
+      "args": [
+        "python",
+        "C:\\BREACH\\userbehavior.pex",
+        "--use-breach-setup"
+      ]
+    },
+    "name": "firefox.exe",
+    "hash": {
+      "sha256": "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969",
+      "md5": "923fe895b22b22a9ca03c72f3d15ce20"
+    }
+  },
+  "hash": {
+    "md5": "923fe895b22b22a9ca03c72f3d15ce20",
+    "sha256": "98b7f5b40c557775cd645ca69b788fe4a3deae25cdb6e5dd4fb94db1bdc10969"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "event_id": 1,
+    "api": "wineventlog",
+    "computer_name": "CLIENT1.breach.local",
+    "version": 5,
+    "event_data": {
+      "Description": "Firefox",
+      "OriginalFileName": "firefox.exe",
+      "LogonGuid": "{19FC45AC-7690-601C-0000-002053FB0000}",
+      "LogonId": "0xfb53",
+      "FileVersion": "38.0.5",
+      "Product": "Firefox",
+      "TerminalSessionId": "1",
+      "IntegrityLevel": "Medium",
+      "Company": "Mozilla Corporation"
+    },
+    "opcode": "Info",
+    "task": "Process Create (rule: ProcessCreate)",
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "process": {
+      "pid": 1928,
+      "thread": {
+        "id": 1716
+      }
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "record_id": 1633,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon"
+  }
+}

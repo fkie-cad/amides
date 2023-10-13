@@ -1,0 +1,125 @@
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe\Debugger
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\utilman.exe\Debugger
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\osk.exe\Debugger
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Magnify.exe\Debugger
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Narrator.exe\Debugger
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DisplaySwitch.exe\Debugger
+*\cmmgr32.exe*
+HKLM\SYSTEM\CurrentControlSet\Control\MiniNt
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\ntkd
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_Dlls
+*\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_Dlls
+HKEY_CURRENT_USER\Software\Microsoft\Office test\Special\Perf
+HKEY_LOCAL_MACHINE\Software\Microsoft\Office test\Special\Perf
+*\EulaAccepted
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\\*\GlobalFlag
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\\*\ReportingMode
+*\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\\*\MonitorProcess
+HKU\\*_Classes\CLSID\\*\InProcServer32\(Default)
+HKCU\Software\Classes\Folder\shell\open\command\DelegateExecute
+HKCR\CLSID\{E08A0F4B-1F65-4D4D-9A09-BD4625B9C5A1}\Model
+HKU\\*_Classes\CLSID\{E08A0F4B-1F65-4D4D-9A09-BD4625B9C5A1}\Model
+*\SOFTWARE\App\AppXbf13d4ea2945444d8b13e2121cb6b663\Application
+*\SOFTWARE\App\AppXbf13d4ea2945444d8b13e2121cb6b663\DefaultIcon
+*\SOFTWARE\App\AppX70162486c7554f7f80f481985d67586d\Application
+*\SOFTWARE\App\AppX70162486c7554f7f80f481985d67586d\DefaultIcon
+*\SOFTWARE\App\AppX37cc7fdccd644b4f85f4b22d5a3f105a\Application
+*\SOFTWARE\App\AppX37cc7fdccd644b4f85f4b22d5a3f105a\DefaultIcon
+HKU\\*_Classes\AppXc52346ec40fb4061ad96be0e6cb7d16a\\*
+HKU\\*_Classes\AppX3bbba44c6cae4d9695755183472171e2\\*
+HKU\\*_Classes\CLSID\{E3517E26-8E93-458D-A6DF-8030BC80528B}\\*
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Ports*
+*.dll*
+*.exe*
+*.bat*
+*.com*
+*C:*
+*Services\WCESERVICE\Start*
+*\SYSTEM\CurrentControlSet\services\null\Instance*
+HKLM\System\CurrentControlSet\Services\NalDrv\ImagePath
+HKLM\System\CurrentControlSet\Services\PROCEXP152\ImagePath
+*HKLM\SOFTWARE\Microsoft\HTMLHelp\data*
+*Software\Microsoft\Windows\CurrentVersion\Run\Backup Mgr
+*\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\DelegateExecute
+*\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\(Default)
+*\services\DNS\Parameters\ServerLevelPluginDll
+HKU\\*_Classes\exefile\shell\runas\command\isolatedCommand
+*UserInitMprLogonScript*
+*\software\Microsoft\Windows\CurrentVersion\Run*
+*\software\Microsoft\Windows\CurrentVersion\RunOnce*
+*\software\Microsoft\Windows\CurrentVersion\RunOnceEx*
+*\software\Microsoft\Windows\CurrentVersion\RunServices*
+*\software\Microsoft\Windows\CurrentVersion\RunServicesOnce*
+*\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit*
+*\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell*
+*\software\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs*
+*\software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs*
+*\software\Microsoft\Windows NT\CurrentVersion\Windows\Load*
+*\software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows\Load*
+*\software\Microsoft\Windows NT\CurrentVersion\Windows\Run*
+*\software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows\Run*
+*\software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders*
+HKU\\*_Classes\CLSID\\*\TreatAs
+*\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
+C:\Windows\Temp\\*
+C:\ProgramData\\*
+*\AppData\\*
+C:\$Recycle.bin\\*
+C:\Temp\\*
+C:\Users\Public\\*
+C:\Users\Default\\*
+*\Keyboard Layout\Preload\\*
+*\Keyboard Layout\Substitutes\\*
+*00000429*
+*00050429*
+*0000042a*
+*\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\\*
+*\Software\Microsoft\Office\Outlook\Addins\\*
+*\Software\Microsoft\Office\Word\Addins\\*
+*\Software\Microsoft\Office\Excel\Addins\\*
+*\Software\Microsoft\Office\Powerpoint\Addins\\*
+*\Software\Microsoft\VSTO\Security\Inclusion\\*
+*\CurrentControlSet\Services\NTDS\DirectoryServiceExtPt*
+*\CurrentControlSet\Services\NTDS\LsaDbExtPt*
+*\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\UserAuthentication
+*\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
+DWORD (0x00000000)
+*\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\\*\NonPackaged*
+*microphone*
+*webcam*
+*#C:#Windows#Temp#*
+*#C:#$Recycle.bin#*
+*#C:#Temp#*
+*#C:#Users#Public#*
+*#C:#Users#Default#*
+*#C:#Users#Desktop#*
+*TrustRecords*
+HKU\\*\mscfile\shell\open\command
+HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCertDlls
+HKLM\System\CurrentControlSet\Control\Lsa\Security Packages
+HKLM\System\CurrentControlSet\Control\Lsa\OSConfig\Security Packages
+*\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\\*
+*\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\\*
+*C:\Windows\Temp\\*
+*C:\$Recycle.bin\\*
+*C:\Temp\\*
+*C:\Users\Public\\*
+%Public%\\*
+*C:\Users\Default\\*
+*C:\Users\Desktop\\*
+wscript*
+cscript*
+*\services\\*
+*\ImagePath
+*\FailureCommand
+*\Parameters\ServiceDll
+*SOFTWARE\Microsoft\.NETFramework\ETWEnabled
+DWORD (0x00000000)
+*\Security\Trusted Documents\TrustRecords
+*\Security\AccessVBOM
+*\Security\VBAWarnings
+*\Services\DHCPServer\Parameters\CalloutDlls
+*\Services\DHCPServer\Parameters\CalloutEnabled
+*\services\TermService\Parameters\ServiceDll*
+*\Control\Terminal Server\fSingleSessionPerUser*
+*\Control\Terminal Server\fDenyTSConnections*

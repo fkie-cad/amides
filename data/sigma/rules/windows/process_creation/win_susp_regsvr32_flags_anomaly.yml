@@ -1,0 +1,14 @@
+filter: 'process.executable: "*\regsvr32.exe" AND process.command_line: "* /i:*" AND
+  NOT process.command_line: "* /n *"'
+pre_detector:
+  case_condition: directly
+  id: b236190c-1c61-41e9-84b3-3fe03f6d76b0
+  mitre:
+  - attack.defense_evasion
+  - attack.t1218.010
+  - attack.t1117
+  severity: high
+  title: Regsvr32 Flags Anomaly
+sigma_fields: true
+description: Detects a flag anomaly in which regsvr32.exe uses a /i flag without using
+  a /n flag at the same time

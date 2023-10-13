@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:09.812Z",
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "866a43013535dc8587c258e43579c764",
+      "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    ]
+  },
+  "hash": {
+    "md5": "866a43013535dc8587c258e43579c764",
+    "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "winlog": {
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "computer_name": "CLIENT2",
+    "opcode": "Info",
+    "version": 5,
+    "record_id": 1218,
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "event_data": {
+      "LogonId": "0x3e7",
+      "Company": "Microsoft Corporation",
+      "IntegrityLevel": "System",
+      "Description": "Query or reset the computer's SPN attribute",
+      "LogonGuid": "{19FC45AC-74F8-601C-0000-0020E7030000}",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "spoolsv.exe",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "TerminalSessionId": "0"
+    },
+    "process": {
+      "thread": {
+        "id": 1752
+      },
+      "pid": 1488
+    },
+    "event_id": 1,
+    "provider_name": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "name": "CLIENT2",
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ]
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:09.812\nProcessGuid: {19FC45AC-74F9-601C-0000-0010950A0100}\nProcessId: 1188\nImage: C:\\Windows\\System32\\spoolsv.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Spooler SubSystem App\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: spoolsv.exe\nCommandLine: C:\\Windows\\System32\\spoolsv.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-74F8-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=866A43013535DC8587C258E43579C764,SHA256=B2BE846B5167A2ECD1E30C69A81385FCC6EAE6033394D08458A5583D311C4D82\nParentProcessGuid: {19FC45AC-74F8-601C-0000-0010F2600000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "entity_id": "{19FC45AC-74F9-601C-0000-0010950A0100}",
+    "pid": 1188,
+    "command_line": "C:\\set_spn.exe -q */*server*",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "spoolsv.exe",
+    "executable": "C:\\set_spn.exe",
+    "parent": {
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ],
+      "entity_id": "{19FC45AC-74F8-601C-0000-0010F2600000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe"
+    },
+    "args": [
+      "C:\\Windows\\System32\\spoolsv.exe"
+    ],
+    "hash": {
+      "md5": "866a43013535dc8587c258e43579c764",
+      "sha256": "b2be846b5167a2ecd1e30c69a81385fcc6eae6033394d08458a5583d311c4d82"
+    }
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "agent": {
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat"
+  },
+  "event": {
+    "created": "2021-02-04T22:31:11.400Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)"
+  },
+  "log": {
+    "level": "information"
+  }
+}

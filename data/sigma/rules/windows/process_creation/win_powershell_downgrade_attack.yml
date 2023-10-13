@@ -1,0 +1,15 @@
+filter: 'process.command_line: ("* -version 2 *" OR "* -versio 2 *" OR "* -versi 2
+  *" OR "* -vers 2 *" OR "* -ver 2 *" OR "* -ve 2 *") AND process.executable: "*\powershell.exe"'
+pre_detector:
+  case_condition: directly
+  id: b3512211-c67e-4707-bedc-66efc7848863
+  mitre:
+  - attack.defense_evasion
+  - attack.execution
+  - attack.t1086
+  - attack.t1059.001
+  severity: medium
+  title: PowerShell Downgrade Attack
+sigma_fields: true
+description: Detects PowerShell downgrade attack by comparing the host versions with
+  the actually used engine version 2.0

@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:27:18.156Z",
+  "log": {
+    "level": "information"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:27:18.156\nProcessGuid: {19FC45AC-74C6-601C-0000-00107E140100}\nProcessId: 1228\nImage: C:\\Windows\\System32\\userinit.exe\nFileVersion: 6.1.7601.17514 (win7sp1_rtm.101119-1850)\nDescription: Userinit Logon Application\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: USERINIT.EXE\nCommandLine: C:\\Windows\\system32\\userinit.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: client\\setup\nLogonGuid: {19FC45AC-74C5-601C-0000-0020F4FF0000}\nLogonId: 0xfff4\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=61AC3EFDFACFDD3F0F11DD4FD4044223,SHA256=538FE1012FEDC72727A8DE0C2C01944B3D35C29812ECEF88E95AAC07235E0B0B\nParentProcessGuid: {19FC45AC-74C2-601C-0000-0010CE5B0000}\nParentProcessId: 384\nParentImage: C:\\Windows\\System32\\winlogon.exe\nParentCommandLine: winlogon.exe",
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "api": "wineventlog",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "process": {
+      "pid": 1896,
+      "thread": {
+        "id": 1392
+      }
+    },
+    "record_id": 1166,
+    "version": 5,
+    "computer_name": "CLIENT",
+    "opcode": "Info",
+    "user": {
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18"
+    },
+    "event_data": {
+      "LogonId": "0xfff4",
+      "FileVersion": "6.1.7601.17514 (win7sp1_rtm.101119-1850)",
+      "Description": "Userinit Logon Application",
+      "TerminalSessionId": "1",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "USERINIT.EXE",
+      "IntegrityLevel": "High",
+      "Company": "Microsoft Corporation",
+      "LogonGuid": "{19FC45AC-74C5-601C-0000-0020F4FF0000}"
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)"
+  },
+  "user": {
+    "domain": "client",
+    "name": "setup"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "805d2621-88bc-4353-a953-25544d012426",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2"
+  },
+  "event": {
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:11.345Z",
+    "module": "sysmon",
+    "category": [
+      "process"
+    ],
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "kind": "event",
+    "code": 1
+  },
+  "host": {
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT",
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ]
+  },
+  "process": {
+    "hash": {
+      "md5": "61ac3efdfacfdd3f0f11dd4fd4044223",
+      "sha256": "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b"
+    },
+    "entity_id": "{19FC45AC-74C6-601C-0000-00107E140100}",
+    "pid": 1228,
+    "executable": "C:\\Windows\\System32\\userinit.exe",
+    "command_line": "C:\\Windows\\system32\\userinit.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "parent": {
+      "name": "winlogon.exe",
+      "args": [
+        "winlogon.exe"
+      ],
+      "entity_id": "{19FC45AC-74C2-601C-0000-0010CE5B0000}",
+      "pid": 384,
+      "executable": "C:\\Windows\\System32\\winlogon.exe",
+      "command_line": "winlogon.exe"
+    },
+    "name": "userinit.exe",
+    "args": [
+      "C:\\Windows\\system32\\userinit.exe"
+    ]
+  },
+  "related": {
+    "user": "setup",
+    "hash": [
+      "61ac3efdfacfdd3f0f11dd4fd4044223",
+      "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b"
+    ]
+  },
+  "hash": {
+    "sha256": "538fe1012fedc72727a8de0c2c01944b3d35c29812ecef88e95aac07235e0b0b",
+    "md5": "61ac3efdfacfdd3f0f11dd4fd4044223"
+  }
+}

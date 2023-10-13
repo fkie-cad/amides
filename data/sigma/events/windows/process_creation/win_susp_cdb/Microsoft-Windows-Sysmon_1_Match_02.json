@@ -1,0 +1,144 @@
+{
+  "@timestamp": "2021-02-04T22:31:00.343Z",
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:31:00.343\nProcessGuid: {19FC45AC-75A4-601C-0000-0010A5B90300}\nProcessId: 3492\nImage: C:\\Program Files\\Auditbeat\\auditbeat.exe\nFileVersion: ?\nDescription: ?\nProduct: ?\nCompany: ?\nOriginalFileName: ?\nCommandLine: \"C:\\Program Files\\Auditbeat\\auditbeat.exe\" -c \"C:\\Program Files\\Auditbeat\\auditbeat.yml\" -path.home \"C:\\Program Files\\Auditbeat\" -path.data \"C:\\ProgramData\\auditbeat\" -path.logs \"C:\\ProgramData\\auditbeat\\logs\" -E logging.files.redirect_stderr=true\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-7528-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=71E9FB7C11FAE8552759EE46EC925C03,SHA256=1D9DCA436BFCDEC163A97F15ECC358CEB383545334E1BB3EA9B2A8675D29868D\nParentProcessGuid: {19FC45AC-7527-601C-0000-00104B610000}\nParentProcessId: 444\nParentImage: C:\\Windows\\System32\\services.exe\nParentCommandLine: C:\\Windows\\system32\\services.exe",
+  "process": {
+    "hash": {
+      "md5": "71e9fb7c11fae8552759ee46ec925c03",
+      "sha256": "1d9dca436bfcdec163a97f15ecc358ceb383545334e1bb3ea9b2a8675d29868d"
+    },
+    "pid": 3492,
+    "command_line": "cdb.exe -o calc.exe -cf %TEMP%\\malicious_script",
+    "parent": {
+      "entity_id": "{19FC45AC-7527-601C-0000-00104B610000}",
+      "pid": 444,
+      "executable": "C:\\Windows\\System32\\services.exe",
+      "command_line": "C:\\Windows\\system32\\services.exe",
+      "name": "services.exe",
+      "args": [
+        "C:\\Windows\\system32\\services.exe"
+      ]
+    },
+    "args": [
+      "C:\\Program Files\\Auditbeat\\auditbeat.exe",
+      "-c",
+      "C:\\Program Files\\Auditbeat\\auditbeat.yml",
+      "-path.home",
+      "C:\\Program Files\\Auditbeat",
+      "-path.data",
+      "C:\\ProgramData\\auditbeat",
+      "-path.logs",
+      "C:\\ProgramData\\auditbeat\\logs",
+      "-E",
+      "logging.files.redirect_stderr=true"
+    ],
+    "entity_id": "{19FC45AC-75A4-601C-0000-0010A5B90300}",
+    "executable": "C:\\Program Files (x86)\\Windows Kits\\10\\Debuggers\\x86\\cdb.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "auditbeat.exe"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "winlog": {
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_data": {
+      "Company": "?",
+      "Product": "?",
+      "IntegrityLevel": "System",
+      "Description": "?",
+      "LogonGuid": "{19FC45AC-7528-601C-0000-0020E7030000}",
+      "OriginalFileName": "?",
+      "LogonId": "0x3e7",
+      "FileVersion": "?",
+      "TerminalSessionId": "0"
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "computer_name": "CLIENT1.breach.local",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "record_id": 1310,
+    "version": 5,
+    "user": {
+      "domain": "NT AUTHORITY",
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM"
+    },
+    "process": {
+      "pid": 1524,
+      "thread": {
+        "id": 1792
+      }
+    }
+  },
+  "event": {
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon",
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:06.305Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ]
+  },
+  "log": {
+    "level": "information"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "agent": {
+    "hostname": "CLIENT1",
+    "ephemeral_id": "c6dab1c1-2860-4ed8-b41c-e6b57498568e",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT1",
+    "type": "winlogbeat",
+    "version": "7.10.2"
+  },
+  "host": {
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "name": "CLIENT1.breach.local",
+    "ip": [
+      "192.168.56.101",
+      "172.16.1.1",
+      "fe80::5efe:c0a8:3865",
+      "fe80::5efe:ac10:101"
+    ],
+    "mac": [
+      "00:50:56:00:03:01",
+      "00:50:56:00:00:01",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT1"
+  },
+  "related": {
+    "hash": [
+      "71e9fb7c11fae8552759ee46ec925c03",
+      "1d9dca436bfcdec163a97f15ecc358ceb383545334e1bb3ea9b2a8675d29868d"
+    ],
+    "user": "SYSTEM"
+  },
+  "hash": {
+    "md5": "71e9fb7c11fae8552759ee46ec925c03",
+    "sha256": "1d9dca436bfcdec163a97f15ecc358ceb383545334e1bb3ea9b2a8675d29868d"
+  }
+}

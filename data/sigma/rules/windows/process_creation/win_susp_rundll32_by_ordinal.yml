@@ -1,0 +1,13 @@
+filter: 'process.command_line: "*\rundll32.exe *,#*"'
+pre_detector:
+  case_condition: directly
+  id: e79a9e79-eb72-4e78-a628-0e7e8f59e89c
+  mitre:
+  - attack.defense_evasion
+  - attack.execution
+  - attack.t1218.011
+  - attack.t1085
+  severity: high
+  title: Suspicious Call by Ordinal
+sigma_fields: true
+description: Detects suspicious calls of DLLs in rundll32.dll exports by ordinal

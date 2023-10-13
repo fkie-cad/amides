@@ -1,0 +1,134 @@
+{
+  "@timestamp": "2021-02-04T22:36:08.234Z",
+  "ecs": {
+    "version": "1.5.0"
+  },
+  "message": "Process Create:\nRuleName: \nUtcTime: 2021-02-04 22:36:08.234\nProcessGuid: {19FC45AC-76D8-601C-0000-0010F1630000}\nProcessId: 444\nImage: C:\\Windows\\System32\\services.exe\nFileVersion: 6.1.7600.16385 (win7_rtm.090713-1255)\nDescription: Services and Controller app\nProduct: Microsoft\u00ae Windows\u00ae Operating System\nCompany: Microsoft Corporation\nOriginalFileName: services.exe\nCommandLine: C:\\Windows\\system32\\services.exe\nCurrentDirectory: C:\\Windows\\system32\\\nUser: NT AUTHORITY\\SYSTEM\nLogonGuid: {19FC45AC-76D8-601C-0000-0020E7030000}\nLogonId: 0x3e7\nTerminalSessionId: 0\nIntegrityLevel: System\nHashes: MD5=5F1B6A9C35D3D5CA72D6D6FDEF9747D6,SHA256=D7BC4ED605B32274B45328FD9914FB0E7B90D869A38F0E6F94FB1BF4E9E2B407\nParentProcessGuid: {19FC45AC-76D8-601C-0000-001034590000}\nParentProcessId: 348\nParentImage: C:\\Windows\\System32\\wininit.exe\nParentCommandLine: wininit.exe",
+  "winlog": {
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "opcode": "Info",
+    "provider_guid": "{5770385F-C22A-43E0-BF4C-06F5698FFBD9}",
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "version": 5,
+    "computer_name": "CLIENT2.breach.local",
+    "user": {
+      "identifier": "S-1-5-18",
+      "name": "SYSTEM",
+      "domain": "NT AUTHORITY",
+      "type": "User"
+    },
+    "event_id": 1,
+    "task": "Process Create (rule: ProcessCreate)",
+    "api": "wineventlog",
+    "process": {
+      "pid": 1704,
+      "thread": {
+        "id": 1804
+      }
+    },
+    "event_data": {
+      "LogonGuid": "{19FC45AC-76D8-601C-0000-0020E7030000}",
+      "IntegrityLevel": "System",
+      "LogonId": "0x3e7",
+      "Company": "Microsoft Corporation",
+      "TerminalSessionId": "0",
+      "Description": "Services and Controller app",
+      "FileVersion": "6.1.7600.16385 (win7_rtm.090713-1255)",
+      "Product": "Microsoft\u00ae Windows\u00ae Operating System",
+      "OriginalFileName": "services.exe"
+    },
+    "record_id": 1329
+  },
+  "event": {
+    "action": "Process Create (rule: ProcessCreate)",
+    "created": "2021-02-04T22:38:22.762Z",
+    "module": "sysmon",
+    "type": [
+      "start",
+      "process_start"
+    ],
+    "category": [
+      "process"
+    ],
+    "kind": "event",
+    "code": 1,
+    "provider": "Microsoft-Windows-Sysmon"
+  },
+  "host": {
+    "id": "19fc45ac-5890-4f96-81b1-50ed111c0ce4",
+    "ip": [
+      "192.168.56.102",
+      "172.16.1.2",
+      "fe80::5efe:c0a8:3866",
+      "fe80::5efe:ac10:102"
+    ],
+    "mac": [
+      "00:50:56:00:03:02",
+      "00:50:56:00:00:02",
+      "00:00:00:00:00:00:00:e0",
+      "00:00:00:00:00:00:00:e0"
+    ],
+    "hostname": "CLIENT2",
+    "architecture": "x86",
+    "name": "CLIENT2.breach.local",
+    "os": {
+      "platform": "windows",
+      "version": "6.1",
+      "family": "windows",
+      "name": "Windows 7 Professional",
+      "kernel": "6.1.7601.18741 (win7sp1_gdr.150202-1526)",
+      "build": "7601.0"
+    }
+  },
+  "process": {
+    "entity_id": "{19FC45AC-76D8-601C-0000-0010F1630000}",
+    "executable": "C:\\Windows\\System32\\netsh.exe",
+    "working_directory": "C:\\Windows\\system32\\",
+    "name": "services.exe",
+    "args": [
+      "C:\\Windows\\system32\\services.exe"
+    ],
+    "hash": {
+      "md5": "5f1b6a9c35d3d5ca72d6d6fdef9747d6",
+      "sha256": "d7bc4ed605b32274b45328fd9914fb0e7b90d869a38f0e6f94fb1bf4e9e2b407"
+    },
+    "pid": 444,
+    "command_line": "netsh.exe add helper mymal.dll",
+    "parent": {
+      "entity_id": "{19FC45AC-76D8-601C-0000-001034590000}",
+      "pid": 348,
+      "executable": "C:\\Windows\\System32\\wininit.exe",
+      "command_line": "wininit.exe",
+      "name": "wininit.exe",
+      "args": [
+        "wininit.exe"
+      ]
+    }
+  },
+  "log": {
+    "level": "information"
+  },
+  "user": {
+    "domain": "NT AUTHORITY",
+    "name": "SYSTEM"
+  },
+  "related": {
+    "user": "SYSTEM",
+    "hash": [
+      "5f1b6a9c35d3d5ca72d6d6fdef9747d6",
+      "d7bc4ed605b32274b45328fd9914fb0e7b90d869a38f0e6f94fb1bf4e9e2b407"
+    ]
+  },
+  "hash": {
+    "md5": "5f1b6a9c35d3d5ca72d6d6fdef9747d6",
+    "sha256": "d7bc4ed605b32274b45328fd9914fb0e7b90d869a38f0e6f94fb1bf4e9e2b407"
+  },
+  "agent": {
+    "id": "c58de8d4-8be2-444c-bc20-92fab97cbaf5",
+    "name": "CLIENT2",
+    "type": "winlogbeat",
+    "version": "7.10.2",
+    "hostname": "CLIENT2",
+    "ephemeral_id": "d5d7daa0-c0ba-4d39-9140-3b4a4308a222"
+  }
+}

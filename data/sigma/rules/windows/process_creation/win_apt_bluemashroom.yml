@@ -1,0 +1,13 @@
+filter: 'process.command_line: ("*\regsvr32*\AppData\Local\\*" OR "*\AppData\Local\\*,DllEntry*")'
+pre_detector:
+  case_condition: directly
+  id: bd70d3f8-e60e-4d25-89f0-0b5a9cff20e0
+  mitre:
+  - attack.defense_evasion
+  - attack.t1117
+  - attack.t1218.010
+  severity: critical
+  title: BlueMashroom DLL Load
+sigma_fields: true
+description: Detects a suspicious DLL loading from AppData Local path as described
+  in BlueMashroom report

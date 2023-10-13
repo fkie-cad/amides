@@ -1,0 +1,14 @@
+filter: '(process.executable: "*\fsutil.exe" OR winlog.event_data.OriginalFilename:
+  "fsutil.exe") AND process.command_line: ("*deletejournal*" OR "*createjournal*")'
+pre_detector:
+  case_condition: directly
+  id: add64136-62e5-48ea-807e-88638d02df1e
+  mitre:
+  - attack.defense_evasion
+  - attack.t1070
+  severity: high
+  title: Fsutil Suspicious Invocation
+sigma_fields: true
+description: Detects suspicious parameters of fsutil (deleting USN journal, configuring
+  it with small size..). Might be used by ransomwares during the attack (seen by NotPetya
+  and others)

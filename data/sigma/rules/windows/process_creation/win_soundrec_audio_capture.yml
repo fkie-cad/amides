@@ -1,0 +1,11 @@
+filter: 'process.executable: "*\SoundRecorder.exe" AND process.command_line: "*/FILE*"'
+pre_detector:
+  case_condition: directly
+  id: 83865853-59aa-449e-9600-74b9d89a6d6e
+  mitre:
+  - attack.collection
+  - attack.t1123
+  severity: medium
+  title: Audio Capture via SoundRecorder
+sigma_fields: true
+description: Detect attacker collecting audio via SoundRecorder application

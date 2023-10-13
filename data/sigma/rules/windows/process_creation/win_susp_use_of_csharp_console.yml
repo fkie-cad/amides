@@ -1,0 +1,12 @@
+filter: 'process.executable: "*\csi.exe" AND process.parent.executable: "*\powershell.exe"
+  AND winlog.event_data.OriginalFilename: "csi.exe"'
+pre_detector:
+  case_condition: directly
+  id: a9e416a8-e613-4f8b-88b8-a7d1d1af2f61
+  mitre:
+  - attack.execution
+  - attack.t1127
+  severity: high
+  title: Suspicious Use of CSharp Interactive Console
+sigma_fields: true
+description: Detects the execution of CSharp interactive console by PowerShell

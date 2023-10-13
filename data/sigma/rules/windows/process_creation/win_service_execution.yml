@@ -1,0 +1,13 @@
+filter: 'process.executable: ("*\net.exe" OR "*\net1.exe") AND process.command_line:
+  "* start *"'
+pre_detector:
+  case_condition: directly
+  id: 2a072a96-a086-49fa-bcb5-15cc5a619093
+  mitre:
+  - attack.execution
+  - attack.t1035
+  - attack.t1569.002
+  severity: low
+  title: Service Execution
+sigma_fields: true
+description: Detects manual service execution (start) via system utilities

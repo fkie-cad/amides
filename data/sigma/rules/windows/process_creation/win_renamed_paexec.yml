@@ -1,0 +1,17 @@
+filter: 'winlog.event_data.Product: "*PAExec*" AND winlog.event_data.Imphash: ("11D40A7B7876288F919AB819CC2D9802"
+  OR "6444f8a34e99b8f7d9647de66aabe516" OR "dfd6aa3f7b2b1035b76b718f1ddc689f" OR "1a6cca4d5460b1710a12dea39e4a592c")
+  AND NOT process.executable: "*paexec*"'
+pre_detector:
+  case_condition: directly
+  id: 7b0666ad-3e38-4e3d-9bab-78b06de85f7b
+  mitre:
+  - attack.defense_evasion
+  - attack.t1036
+  - attack.t1036.003
+  - FIN7
+  - car.2013-05-009
+  severity: medium
+  title: Execution of Renamed PaExec
+sigma_fields: true
+description: Detects execution of renamed paexec via imphash and executable product
+  string

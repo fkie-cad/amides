@@ -1,0 +1,14 @@
+filter: 'process.command_line: ("net group \"domain admins\" /domain" OR "net localgroup
+  administrators" OR "net group \"enterprise admins\" /domain")'
+pre_detector:
+  case_condition: directly
+  id: d95de845-b83c-4a9a-8a6a-4fc802ebf6c0
+  mitre:
+  - attack.discovery
+  - attack.t1087.001
+  - attack.t1087.002
+  - attack.t1087
+  severity: medium
+  title: Suspicious Reconnaissance Activity
+sigma_fields: true
+description: Detects suspicious command line activity on Windows systems
