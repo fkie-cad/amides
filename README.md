@@ -4,27 +4,25 @@ The Adaptive Misuse Detection System (AMIDES) extends conventional rule matching
 
 ![amides_architecture](./docs/amides.png)
 
- Incoming events are transformed into feature vectors by the feature extraction component. During operation, features learned during the training phase will be re-used by the feature extraction component. Feature vectors are then passed to the Misuse Classification component which classifies events as malicious or benign. In case of a malicious result, the feature vector is passed to the Rule Attribution component which generates a ranked list of SIEM rules potentially evaded by the event.
+ Incoming events are transformed into feature vectors by the feature extraction component. During operation, features learned during the training phase will be re-used by the feature extraction component. Feature vectors are then passed to the Misuse Classification component, which classifies events as malicious or benign. In case of a malicious result, the feature vector is passed to the Rule Attribution component, which generates a ranked list of SIEM rules potentially evaded by the event.
 
-This repository contains the source code used for model training, validation, and evaluation, as well as some initial training and validation data that enables to build and evaluate models for AMIDES.
-
-For operational use, AMIDES was integrated into the 
-For more information on how to use AMIDES with Logprep, read [here](https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides)
+This repository contains the source code used for model training, validation, and evaluation, as well as some initial training and validation data that enable to build and evaluate models for AMIDES.
+For operational use, AMIDES is integrated into [Logprep] (https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides).
 
 ## System Requirements
 
-AMIDES was developed and tested on a Linux-distribution using Python3.10. Before attempting to use AMIDES, make sure you have
+AMIDES was developed and tested on Linux using Python 3.10. Before attempting to use AMIDES, make sure you have
 
-- Physical or virtual host with a Linux-based OS)
+- Physical or virtual host with a Linux-based OS
 - A minimum of 8 GB of RAM
 - At least 1 GB of HDD space
-- Python v3.10 (or newer)
+- Python 3.10 (or newer)
 
-The repository also contains a `Dockerfile` that enables to create a quickstart environment with AMIDES and all the required dependencies already installed. To build and use the quickstart environment, Docker is required. Building and using the quickstart environment has been tested using Docker v20.10.
+The repository also contains a `Dockerfile` that enables to create a quickstart environment with AMIDES and all the required dependencies already installed. To build and use the quickstart environment, Docker is required. Building and using the quickstart environment has been tested using Docker 20.10.
 
-## Getting Code and Initial Data
+## Accessing Code and Initial Data
 
-In order to get the AMIDES source code and initial data, change into the target location on your system and clone the repository by executing
+In order to access the AMIDES source code and initial data, change into the target location on your system and clone the repository by executing
 
     git clone https://github.com/fkie-cad/amides.git
 
@@ -32,20 +30,20 @@ or
 
     git clone git@github.com:fkie-cad/amides.git 
 
-respectively (in case you are configured to use SSH).
+in case you prefer to use SSH.
 
 Alternatively, you can get the repository by downloading the `.zip`-file from the repository's main page and unpack it into your target location.
 
-The `amides` package in the `amides` directory contains modules and scripts that enable to train and validate models for AMIDES, evaluate the model's classification performance, and create meaningful visualisations that help users to asses the models classification performance. The package also contains additional scripts and classes that help to prepare generated models for operational use with Logprep and perform further testing.
+The `amides` package in the `amides` directory contains modules and scripts that enable to train and validate models for AMIDES, evaluate the model's classification performance, and create meaningful visualizations that help users to assess the models classification performance. The package also contains additional scripts and classes that help to prepare generated models for operational use with Logprep and perform further testing.
 
-Initial data to train and validate models for AMIDES is provided in the `data` directory. The `socbed` folder contains a small set of benign event logs for each of the 4 different rule types that AMIDES was originally designed for: Windows Process Creation, Web Proxy, Windows Registry, and Windows PowerShell. The provided benign data was generated using [SOCBED](https://github.com/fkie-cad/socbed).
+Initial data to train and validate models for AMIDES is provided in the `data` directory. The `socbed` folder contains a small set of benign event logs for each of the four different rule types that AMIDES was tested with: Windows Process Creation, Web Proxy, Windows Registry, and Windows PowerShell. The provided benign data was generated using [SOCBED](https://github.com/fkie-cad/socbed).
 
-Converted Sigma rules, matches, and a small number of evasions already revealed in the corresponding [academic research paper](#documentation) are located in the `data/sigma` folder. Converted rules required for model training are located in `sigma/rules`, matches and evasions required for model validation  are located in `sigma/events`.
+Converted Sigma rules, matches, and a small number of evasions already revealed in the corresponding [academic research paper](#documentation) are located in the `data/sigma` folder. Converted rules required for model training are located in `data/sigma/rules`, matches and evasions required for model validation  are located in `data/sigma/events`.
 
 
 ## Installing  ##
 
-Like other python packages, the `amides` package can be installed system-wide, or into a Python virtual environment. We highly recommend using a dedicated virtual environment for `amides`. Virtual environments can be created using either the `venv` or `virtualenv` package. To create a dedicated virtual environment for `amides`, execute
+Like other Python packages, the `amides` package can be installed system-wide, or into a Python virtual environment. We highly recommend using a dedicated virtual environment for `amides`. Virtual environments can be created using either the `venv` or `virtualenv` package. To create a dedicated virtual environment for `amides`, execute
 
     python3 -m venv <VIRTUAL-ENVIRONMENT-LOCATION>
 
@@ -69,9 +67,9 @@ To install the `amides` package and the required dependencies, change into the `
 
 ## Building and Using the Quickstart Environment ##
 
-As alternative to installing the `amides` package on your local system, we provide a `Dockerfile` to create an AMIDES quickstart environment where `amides` and all its requirements are already installed. Building and running the quickstart environment requires a Docker installation.
+As an alternative to installing the `amides` package on your local system, we provide a `Dockerfile` to create an AMIDES quickstart environment where `amides` and all its requirements are already installed. Building and running the quickstart environment requires a Docker installation.
 
-In order to build the `amides:base` image of the quickstart environment, containing `amides` and all it's dependencies,, execute the
+In order to build the `amides:base` image of the quickstart environment, containing `amides` and all its dependencies, execute the
 
     build_image.sh 
 
@@ -83,22 +81,17 @@ After the `amides:base` image has been successfully created, executing the
 
 script will create two separate containers: `amides-results` and `amides-env`.
 
-The `amides-results` container is specifically created to execute the `results.sh` script described in the [experiments](#running-experiments). The container is configured to mount the `amides/plots`, `amides/models`, and `data` directories of the container as bind mounts onto the local file systems. This means that plots and models generated during the experiment execution will be available in the equally named directories on the local system..
+The `amides-results` container is specifically created to execute the `results.sh` script described in the [experiments](#running-experiments). The container is configured to mount the `amides/plots`, `amides/models`, and `data` directories of the container as bind mounts onto the local file systems. This means that plots and models generated during the experiment execution will be available in the equally named directories on the local system.
 
-The `amides-env` container provides the actual quickstart environment for AMIDES. Starting the container starts aa bash inside the container which can then be used to execute several scripts of the `amides` package, including training and validating, plotting results, etc. The `amides-env` container supports the same bind mounts as the `amides-results` container which means event data placed in the `data` folder is accessible from within the container. Models, results, and plots 
+The `amides-env` container provides the actual quickstart environment for AMIDES. Starting the container runs a bash script inside the container, which can then be used to execute several scripts of the `amides` package, including training and validating, plotting results, etc. The `amides-env` container supports the same bind mounts as the `amides-results` container, which means event data placed in the `data` folder are accessible from within the container. Models, results, and plots 
 
 
 ## Documentation
 
-The corresponding academic research paper will be published in the proceedings of the 33nd USENIX Security Symposium:
+The corresponding academic research paper will be published in the proceedings of the 33rd USENIX Security Symposium:
 
 R. Uetz, M. Herzog, L. Hackländer, S. Schwarz, and M. Henze, “You Cannot Escape Me: Detecting Evasions of SIEM Rules in Enterprise Networks,”
-in *Proceedings of the 33rd USENIX Security Symposium (USENIX Sec)*, 2024.[[DOI]()] [[arXiv]()]
-
-
-## Contributors
-
-AMIDES was developed during an active research project of the Cyber Analysis & Defense department of the [Fraunhofer Insitute for Communication, Information Processing, and Ergonomics (FKIE)](https://www.fkie.fraunhofer.de/).
+in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024.[[DOI]()] [[arXiv]()]
 
 
 ## License
@@ -106,10 +99,3 @@ AMIDES was developed during an active research project of the Cyber Analysis & D
 The files in this repository are licensed under the GNU General Public License Version 3. See [LICENSE](LICENSE) for details.
 
 If you are using AMIDES for your academic work, please cite the paper under [Documentation](#documentation).
-
-
-
-
-
-
-
