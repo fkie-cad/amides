@@ -116,7 +116,7 @@ def normalize_rule_filters(sigma_dir: str, num_samples: int, out_file: str):
 
     create_normalized_samples_file(
         rule_set_data.extract_field_values_from_filter(
-            search_fields=["proceess.command_line"]
+            search_fields=["process.command_line"]
         ),
         num_samples,
         out_file,
