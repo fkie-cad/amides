@@ -7,7 +7,7 @@ The Adaptive Misuse Detection System (AMIDES) extends conventional rule matching
  Incoming events are transformed into feature vectors by the feature extraction component. During operation, features learned during the training phase will be re-used by the feature extraction component. Feature vectors are then passed to the Misuse Classification component, which classifies events as malicious or benign. In case of a malicious result, the feature vector is passed to the Rule Attribution component, which generates a ranked list of SIEM rules potentially evaded by the event.
 
 This repository contains the source code used for model training, validation, and evaluation, as well as some initial training and validation data that enable to build and evaluate models for AMIDES.
-For operational use, AMIDES is integrated into [Logprep] (https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides).
+For operational use, AMIDES is integrated into [Logprep](https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides).
 
 ## System Requirements
 
