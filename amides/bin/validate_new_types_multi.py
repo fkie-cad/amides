@@ -11,9 +11,7 @@ def main():
     filename_regex = ".*multi_train_rslt_([a-z]+)_[0-9]+_[0-9]+.zip"
     category = re.compile(filename_regex).match(args.file).group(1)
 
-    evasion_values = open(
-        "Daten/Generalisierung/values_evasion_" + category
-    ).readlines()
+    evasion_values = open("data/generalisation/values_evasion_" + category).readlines()
     normalizer = Normalizer(max_len_num_values=3)
     evasion_tokens = [normalizer.normalize(sample) for sample in evasion_values]
 

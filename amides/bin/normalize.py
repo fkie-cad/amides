@@ -91,7 +91,7 @@ def event_cmdlines(events):
 def create_normalized_samples_file(
     line_generator: callable, num_samples: int, out_file: str
 ):
-    with open(out_file, "w") as out:
+    with open(out_file, "w", encoding="utf-8") as out:
         for i, line in enumerate(line_generator):
             if i == num_samples:
                 break
@@ -115,7 +115,11 @@ def normalize_rule_filters(sigma_dir: str, num_samples: int, out_file: str):
     rule_set_data = load_rules_data(sigma_dir)
 
     create_normalized_samples_file(
-        rule_set_data.extract_filter_cmdline_args(), num_samples, out_file
+        rule_set_data.extract_field_values_from_filter(
+            search_fields=["proceess.command_line"]
+        ),
+        num_samples,
+        out_file,
     )
 
 
@@ -123,7 +127,7 @@ def normalize_evasions(sigma_dir: str, num_samples: int, out_file: str):
     rule_set_data = load_rules_data(sigma_dir)
 
     create_normalized_samples_file(
-        event_cmdlines(rule_set_data.evasive_events), num_samples, out_file
+        event_cmdlines(rule_set_data.evasions), num_samples, out_file
     )
 
 
@@ -131,7 +135,7 @@ def normalize_matches(sigma_dir: str, num_samples: int, out_file: str):
     rule_set_data = load_rules_data(sigma_dir)
 
     create_normalized_samples_file(
-        event_cmdlines(rule_set_data.matching_events), num_samples, out_file
+        event_cmdlines(rule_set_data.matches), num_samples, out_file
     )
 
 

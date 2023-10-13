@@ -6,9 +6,9 @@ AMIDES_ENV_CONTAINER="amides-env"
 echo "Removing AMIDES results container '$AMIDES_RESULTS_CONTAINER'..."
 docker rm --force $AMIDES_RESULTS_CONTAINER
 if [ $? -eq 0 ]; then 
-    echo "Successfulyy removed AMIDES results container '$AMIDES_RESULTS_CONTAINER'"
+    echo "Successfully removed AMIDES results container '$AMIDES_RESULTS_CONTAINER'"
 else
-    echo "Failed ro remove AMODES results container '$AMIDES_RESULTS_CONTAINER'"
+    echo "Failed to remove AMIDES results container '$AMIDES_RESULTS_CONTAINER'"
 fi
 
 

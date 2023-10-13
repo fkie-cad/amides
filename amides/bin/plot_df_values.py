@@ -6,7 +6,6 @@ import numpy as np
 
 from amides.visualization import SwarmPlot, BoxPlot, ViolinPlot
 from amides.data import (
-    MultiValidationResult,
     ValidationResult,
 )
 from amides.persist import Dumper
@@ -128,30 +127,11 @@ def create_plot_from_valid_result(result):
     return create_plot(df_values, result.name)
 
 
-def create_plot_from_multi_valid_result(multi_result):
-    overall_df_values = []
-    overall_labels = []
-
-    for result in multi_result.results.values():
-        df_values = result.predict
-        labels = result.data.validation_data.labels
-
-        if scale_df and result.scaler:
-            df_values = result.scaler.transform(df_values[:, np.newaxis]).flatten()
-
-        overall_df_values.extend(df_values)
-        overall_labels.extend(labels)
-
-    return create_plot(overall_df_values, overall_labels, result.name)
-
-
 def create_df_values_plot():
     result = load_result(result_path)
 
     if type(result) is ValidationResult:
         plot = create_plot_from_valid_result(result)
-    elif type(result) is MultiValidationResult:
-        plot = create_plot_from_multi_valid_result(result)
 
     del result
 

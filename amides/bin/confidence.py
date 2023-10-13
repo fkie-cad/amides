@@ -22,11 +22,11 @@ _logger = get_logger("confidence")
 
 
 base_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "../../"))
-sigma_dir = os.path.join(base_dir, "Daten/Sigma-Studie")
+sigma_dir = os.path.join(base_dir, "data/sigma")
 events_dir = os.path.join(sigma_dir, "events/windows/process_creation")
 rules_dir = os.path.join(sigma_dir, "rules/windows/process_creation")
 
-benign_samples = os.path.join(base_dir, "Daten/2021-02-05-socbed/cmdlines.txt")
+benign_samples = os.path.join(base_dir, "data/socbed/cmdlines")
 result = None
 
 dumper = None
@@ -51,6 +51,7 @@ def write_to_file(output: dict, file_name: str):
     with open(out_file_path, "w", encoding="utf-8") as out_file:
         json.dump(output, out_file, indent=4)
 
+
 def write_cf_results_to_file(cf_values: list[dict], file_name: str):
     output = {"cf_values": cf_values, "num_elements": len(cf_values)}
     write_to_file(output, file_name)
@@ -73,7 +74,9 @@ def benign_samples_iterator() -> str:
 
 def rule_filter_iterator() -> str:
     rule_set_data = RuleSetDataset(events_dir, rules_dir)
-    rule_filters = rule_set_data.extract_filter_cmdline_args()
+    rule_filters = rule_set_data.extract_field_values_from_filter(
+        search_fields=["process.command_line"]
+    )
 
     for rule_filter in rule_filters:
         yield rule_filter
@@ -209,14 +212,14 @@ def calculate_rule_filter_confidence_values(result: TrainingResult) -> dict:
 
 def calculate_evasion_confidence_values(result: TrainingResult) -> dict:
     rule_set_data = RuleSetDataset(events_dir, rules_dir)
-    evasions = rule_set_data.evasive_events
+    evasions = rule_set_data.evasions
 
     return calculate_confidence_values(result, events_iterator(evasions))
 
 
 def calculate_matches_confidence_values(result: TrainingResult) -> dict:
     rule_set_data = RuleSetDataset(events_dir, rules_dir)
-    matches = rule_set_data.matching_events
+    matches = rule_set_data.matches
 
     return calculate_confidence_values(result, events_iterator(matches))
 

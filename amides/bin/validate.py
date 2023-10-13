@@ -31,7 +31,7 @@ set_log_level("info")
 _logger = get_logger("validate")
 
 base_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "../../"))
-sigma_dir = os.path.join(base_dir, "Daten/Sigma-Studie")
+sigma_dir = os.path.join(base_dir, "data/sigma")
 events_dir = os.path.join(sigma_dir, "events/windows/process_creation")
 rules_dir = os.path.join(sigma_dir, "rules/windows/process_creation")
 

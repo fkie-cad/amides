@@ -9,9 +9,7 @@ import matplotlib.pyplot as plt
 from amides.persist import Dumper
 
 
-valid_result_path = (
-    "../results/bpol/tfidf/new/valid_rslt_single_svc_rules_f1_20230718_102006.zip"
-)
+valid_result_path = None
 
 
 def main():
