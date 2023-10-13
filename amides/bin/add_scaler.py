@@ -25,15 +25,15 @@ set_log_level("info")
 logger = get_logger(__name__)
 
 base_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "../../"))
-sigma_dir = os.path.join(base_dir, "Daten/Sigma-Studie")
-pc_events_dir = os.path.join(sigma_dir, "events/windows/process_creation")
-pc_rules_dir = os.path.join(sigma_dir, "rules/windows/process_creation")
+sigma_dir = os.path.join(base_dir, "data/sigma")
+events_dir = os.path.join(sigma_dir, "events/windows/process_creation")
+rules_dir = os.path.join(sigma_dir, "rules/windows/process_creation")
 result_paths = []
 
 out_dir = None
 
-benign_train_samples_path = os.path.join(base_dir, "Daten/2021-02-05-socbed/train.txt")
-benign_valid_samples_path = os.path.join(base_dir, "Daten/2021-02-05-socbed/valid.txt")
+benign_train_samples_path = os.path.join(base_dir, "data/socbed/process_creation/train")
+benign_valid_samples_path = os.path.join(base_dir, "data/socbed/process_creation/valid")
 num_benign_train_samples = 0
 num_benign_valid_samples = 0
 
@@ -70,7 +70,7 @@ def load_pickled_object(path):
 
 def load_pc_rules_data():
     try:
-        return RuleSetDataset(pc_events_dir, pc_rules_dir)
+        return RuleSetDataset(events_dir, rules_dir)
     except FileNotFoundError as err:
         logger.error(err)
         sys.exit(1)
@@ -93,7 +93,7 @@ def check_benign_train_samples():
 def check_benign_valid_samples():
     global num_benign_valid_samples
 
-    num_benign_valid_samples = check_benign_valid_samples(benign_train_samples_path)
+    num_benign_valid_samples = check_benign_samples(benign_train_samples_path)
 
 
 def save_object(obj):
@@ -131,7 +131,7 @@ def prepare_training_data(extractor, rule_dataset):
     feature_vectors = extractor.transform(
         samples(benign_train_samples_path, malicious_samples)
     )
-    labels = create_labels_array(len(malicious_samples))
+    labels = create_labels_array(num_benign_valid_samples, len(malicious_samples))
 
     train_data = DataBunch(
         samples=feature_vectors, labels=labels, label_names=["benign", "matching"]
@@ -145,7 +145,7 @@ def prepare_validation_data(extractor, rule_dataset):
     feature_vectors = extractor.transform(
         samples(benign_valid_samples_path, malicious_samples)
     )
-    labels = create_labels_array(len(malicious_samples))
+    labels = create_labels_array(num_benign_train_samples, len(malicious_samples))
 
     valid_data = DataBunch(
         samples=feature_vectors, labels=labels, label_names=["benign", "matching"]
@@ -326,7 +326,7 @@ def add_scaler_to_result(result_path, pc_rules_data):
     elif isinstance(result, MultiValidationResult):
         new_result = add_scaler_to_multi_valid_result(result, pc_rules_data)
     else:
-        logger.error(f"Non-supported result type loaded: {type(result)}")
+        logger.error("Non-supported result type loaded: %s", type(result))
         sys.exit(1)
 
     save_object(new_result)
@@ -363,12 +363,12 @@ def parse_args_and_options(args):
 
     if args.sigma_dir:
         global sigma_dir
-        global pc_events_dir
-        global pc_rules_dir
+        global events_dir
+        global rules_dir
 
         sigma_dir = args.sigma_dir
-        pc_events_dir = os.path.join(sigma_dir, "events/windows/process_creation")
-        pc_rules_dir = os.path.join(sigma_dir, "rules/windows/process_creation")
+        events_dir = os.path.join(sigma_dir, "events/windows/process_creation")
+        rules_dir = os.path.join(sigma_dir, "rules/windows/process_creation")
 
     global out_dir
     if args.out_dir:

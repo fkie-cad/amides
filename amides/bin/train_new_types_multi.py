@@ -4,10 +4,6 @@ import argparse
 import json
 import numpy as np
 
-# from sklearnex import patch_sklearn
-
-# patch_sklearn()
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 
