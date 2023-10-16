@@ -37,5 +37,5 @@
         "models/process_creation/tainted/eval/eval_rslt_misuse_svc_rules_tainted_30_f1_9.zip"
     ],
     "out_dir": "plots/process_creation",
-    "title": "misuse_rules_svc_tainted_f1"
+    "title": "figure_5_c4_tainted_training"
 }

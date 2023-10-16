@@ -7,7 +7,7 @@ The Adaptive Misuse Detection System (AMIDES) extends conventional rule matching
  Incoming events are transformed into feature vectors by the feature extraction component. During operation, features learned during the training phase will be re-used by the feature extraction component. Feature vectors are then passed to the Misuse Classification component, which classifies events as malicious or benign. In case of a malicious result, the feature vector is passed to the Rule Attribution component, which generates a ranked list of SIEM rules potentially evaded by the event.
 
 This repository contains the source code used for model training, validation, and evaluation, as well as some initial training and validation data that enable to build and evaluate models for AMIDES.
-For operational use, AMIDES is integrated into [Logprep] (https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides).
+For operational use, AMIDES is integrated into [Logprep](https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides).
 
 ## System Requirements
 
@@ -18,7 +18,7 @@ AMIDES was developed and tested on Linux using Python 3.10. Before attempting to
 - At least 1 GB of HDD space
 - Python 3.10 (or newer)
 
-The repository also contains a `Dockerfile` that enables to create a quickstart environment with AMIDES and all the required dependencies already installed. To build and use the quickstart environment, Docker is required. Building and using the quickstart environment has been tested using Docker 20.10.
+The repository contains a `Dockerfile` that creates a quickstart environment for AMIDES. For testing purposes, we highly recommend to use the quickstart environment. Building and using the environment has been tested with Docker 20.10.
 
 ## Accessing Code and Initial Data
 
@@ -36,14 +36,44 @@ Alternatively, you can get the repository by downloading the `.zip`-file from th
 
 The `amides` package in the `amides` directory contains modules and scripts that enable to train and validate models for AMIDES, evaluate the model's classification performance, and create meaningful visualizations that help users to assess the models classification performance. The package also contains additional scripts and classes that help to prepare generated models for operational use with Logprep and perform further testing.
 
-Initial data to train and validate models for AMIDES is provided in the `data` directory. The `socbed` folder contains a small set of benign event logs for each of the four different rule types that AMIDES was tested with: Windows Process Creation, Web Proxy, Windows Registry, and Windows PowerShell. The provided benign data was generated using [SOCBED](https://github.com/fkie-cad/socbed).
+Initial data to train and validate models for AMIDES is provided in the `data` directory. The [SOCBED](https://github.com/fkie-cad/socbed) framework was used to generate a small set of benign  data for each of the four different rule types that AMIDES was tested with. The `socbed` folder contains sub-folders  with training and validation data for each of the rule types:
 
-Converted Sigma rules, matches, and a small number of evasions already revealed in the corresponding [academic research paper](#documentation) are located in the `data/sigma` folder. Converted rules required for model training are located in `data/sigma/rules`, matches and evasions required for model validation  are located in `data/sigma/events`.
+*`windows/process_creation` - This process command-lines in this folder are taken from Sysmon ProcessCreation (ID 1) events.
+*`proxy_web` - This folder contains full URLs observed in web-proxy logs.
+*`windows/registry` - Samples in this folder are registry keys extracted from Sysmon RegistryEvent (Value Set) (ID 12) and RegistryEvent (Object Create and Delete) events. For Value Set events the samples also hold the corresponding key values.
+*`windows/powershell` - The samples in this folder are ScriptBlockText field values  extracted from Microsoft-Windows-PowerShell (ID 4104) events.
 
+Samples in the `train` and `validation` files have already been normalized for training and validation scripts. Each sub-folder additionally contains a file named `all` which contains alltraining and validation samples in a non-normalized format.
 
-## Installing  ##
+Converted Sigma rules, matches, and a small number of evasions already revealed in the corresponding [academic research paper](#documentation) are located in the `data/sigma` folder. Converted rules required for model training are located in `data/sigma/rules`, matches and evasions required for model validation  are located in `data/sigma/events`. The subfolders show the same structure as the benign data in the `data/socbed` folder.
 
-Like other Python packages, the `amides` package can be installed system-wide, or into a Python virtual environment. We highly recommend using a dedicated virtual environment for `amides`. Virtual environments can be created using either the `venv` or `virtualenv` package. To create a dedicated virtual environment for `amides`, execute
+## Building and Using the Quickstart Environment
+
+We highly recommend the AMIDES quickstart environment where the `amides` package and all its dependencies are already installed. Using the quickstart environment requires a Docker installation. Building and running the environment was tested using Docker 20.10, but it should also work with other Docker versions.
+
+In order to build the `amides:base` image of the quickstart environment, execute the
+
+    ./build_image.sh 
+
+script located in the project's root folder. This will execute the corresponding `docker build` command. The image is based on the `python:3.11-slim-bookworm` image. If the image is no longer needed at some point, it can be removed by executing the `remove_image.sh` script.
+
+After the image has been successfully created, execute the
+
+    ./create_containers.sh
+
+script to create the two containers `amides-results` and `amides-env`.
+
+The `amides-results` container is specifically created to execute the `results.sh` script inside the `bin` folder of the `amides` package (See [experiments](#running-experiments)). Start the execution of `results.sh` by executing
+
+    ./create_results.sh
+
+in the project's root folder. The container is configured to use separate bind mounts for models and plots generated by AMIDES, as well as the input data used by AMIDES. This means that after the container's execution, the generated models and plots are accessible via the `amides/models` and `amides/plots` directories of the projects root folder. The input data used for model training and validation is the sample data located in the `data` directory of the project's root folder.
+
+The `amides-env` container provides the actual quickstart environment for AMIDES. Starting the container runs a bash script inside the container, which can then be used to execute several scripts of the `amides` package, including training and validating, plotting results, etc. The `amides-env` container supports the same bind mounts as the `amides-results` container, which means event data placed in the `data` folder are accessible from within the container. Models, results, and plots 
+
+## Installing
+
+In case you want to run AMIDES without the quickstart environment, the `amides` package can also be locally installed like other Python packages. We highly recommend to use a dedicated virtual environment for AMIDES though. Virtual environments are created either using the `venv` or `virtualenv` package. To create a dedicated virtual environment for AMIDES, execute
 
     python3 -m venv <VIRTUAL-ENVIRONMENT-LOCATION>
 
@@ -55,36 +85,18 @@ in case you want to use `virtualenv`. After the environment has been created, ac
 
     source <VIRTUAL-ENVIRONMENT-LOCATION>/bin/activate
 
-To install the `amides` package and the required dependencies, change into the `amides` directory and execute
+To install the `amides` package and all it's dependencies, change into the `amides` directory and execute
 
-    pip install --upgrade pip
     pip install -r requirements.txt
     pip install .
 
+Now, AMIDES modules and scripts should be usable in your virtual environment.
 
-## Running Experiments ##
+## Running Experiments
 
+The `amides` package comes with bash script named `results.sh` which is located in the package's `bin` folder. Executing this bash script re-produces the models and plots which are presented in the supplementary material of the AMIDES academic research paper.
 
-## Building and Using the Quickstart Environment ##
-
-As an alternative to installing the `amides` package on your local system, we provide a `Dockerfile` to create an AMIDES quickstart environment where `amides` and all its requirements are already installed. Building and running the quickstart environment requires a Docker installation.
-
-In order to build the `amides:base` image of the quickstart environment, containing `amides` and all its dependencies, execute the
-
-    build_image.sh 
-
-script located in the project's root folder. This will execute the corresponding `docker build` command. The image is based on the `python:3.11-slim-bookworm` image. If the image is no longer needed at some point, it can be removed by executing the `remove_image.sh` script.
-
-After the `amides:base` image has been successfully created, executing the
-
-    create_containers.sh
-
-script will create two separate containers: `amides-results` and `amides-env`.
-
-The `amides-results` container is specifically created to execute the `results.sh` script described in the [experiments](#running-experiments). The container is configured to mount the `amides/plots`, `amides/models`, and `data` directories of the container as bind mounts onto the local file systems. This means that plots and models generated during the experiment execution will be available in the equally named directories on the local system.
-
-The `amides-env` container provides the actual quickstart environment for AMIDES. Starting the container runs a bash script inside the container, which can then be used to execute several scripts of the `amides` package, including training and validating, plotting results, etc. The `amides-env` container supports the same bind mounts as the `amides-results` container, which means event data placed in the `data` folder are accessible from within the container. Models, results, and plots 
-
+* Angabe welche Plots welche Claims beantworten
 
 ## Documentation
 

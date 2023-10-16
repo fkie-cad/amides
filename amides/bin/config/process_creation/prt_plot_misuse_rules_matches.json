@@ -6,5 +6,5 @@
     "type": "prt",
     "out_dir": "plots/process_creation",
     "save": true,
-    "title": "misuse_svc_rules_matches_f1"
+    "title": "figure_3_c1_c2_misuse_classification"
 }

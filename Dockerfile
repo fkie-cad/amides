@@ -10,7 +10,7 @@ WORKDIR /amides
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN python -m pip install --upgrade pip && pip install -r requirements.txt && pip install .
-RUN chmod +x bin/results.sh
+RUN chmod +x experiments.sh classification.sh rule_attribution.sh tainted_training.sh classification_new_types.sh
 
 
 
