@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 
 AMIDES_IMAGE="amides:base"
-AMIDES_RESULTS_CONTAINER="amides-results"
+AMIDES_EXPERIMENTS_CONTAINER="amides-experiments"
 
-echo "Starting AMIDES results container '$AMIDES_RESULTS_CONTAINER' ..."
-docker run --rm --name $AMIDES_RESULTS_CONTAINER --interactive --tty --mount type=bind,source="$(pwd)"/amides/models,target=/amides/models --mount type=bind,source="$(pwd)"/amides/plots,target=/amides/plots --mount type=bind,source="$(pwd)"/data,target=/data $AMIDES_IMAGE ./experiments.sh
+echo "########## Starting AMIDES experiments container '$AMIDES_EXPERIMENTS_CONTAINER' ... ##########"
+docker run --rm --name $AMIDES_EXPERIMENTS_CONTAINER --interactive --tty --user docker-user --mount type=bind,source="$(pwd)"/amides/models,target=/home/docker-user/amides/models --mount type=bind,source="$(pwd)"/amides/plots,target=/home/docker-user/amides/plots --mount type=bind,source="$(pwd)"/data,target=/home/docker-user/data $AMIDES_IMAGE ./experiments.sh
 if [ $? -eq 0 ]; then
-    echo "Successfully executed AMIDES results container '$AMIDES_RESULTS_CONTAINER'"
+    echo "########## Successfully executed AMIDES experiments container '$AMIDES_EXPERIMENTS_CONTAINER' ##########"
 else
-    echo "Failed to execute AMIDES results container '$AMIDES_RESULTS_CONTAINER'"
+    echo "########## Failed to execute AMIDES experiments container '$AMIDES_EXPERIMENTS_CONTAINER' ##########"
 fi
