@@ -322,7 +322,6 @@ class TestTrainTestSplit:
                     "positive_negative_ratio": 0.5,
                 },
             },
-            "feature_extractors": [],
             "name": "tt_split_text",
         }
 
@@ -488,7 +487,6 @@ class TestTrainTestValidSplit:
                     "positive_negative_ratio": 0.5,
                 },
             },
-            "feature_extractors": [],
             "name": "ttv_split_text",
         }
 

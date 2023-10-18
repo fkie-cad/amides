@@ -26,5 +26,5 @@
 {"Keyless": "$global:?"}
 {"Keyless": "$reg_path = 'HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon'; Set-ItemProperty -Path $reg_path -Name 'AutoAdminLogon' -Value '1'; Set-ItemProperty -Path $reg_path -Name 'DefaultDomainName' -Value 'BREACH'; Set-ItemProperty -Path $reg_path -Name 'DefaultPassword' -Value 'breach'; Set-ItemProperty -Path $reg_path -Name 'DefaultUserName' -Value 'client2'"}
 {"Keyless": "$global:?"}
-{"Keyless": "$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force"}
+{"Keyless": "$admin_secpwd = ConvertTo-SecureString 'breach' -AsPlainText -Force; $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList 'BREACH\\Administrator', $admin_secpwd; Add-Computer -Credential $credential -DomainName 'BREACH' -Restart -Force"}
 {"Keyless": "$global:?"}

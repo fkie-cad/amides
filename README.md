@@ -38,14 +38,14 @@ The `amides` package in the `amides` directory contains modules and scripts that
 
 Initial data to train and validate models for AMIDES is provided in the `data` directory. The [SOCBED](https://github.com/fkie-cad/socbed) framework was used to generate a small set of benign  data for each of the four different rule types that AMIDES was tested with. The `socbed` folder contains sub-folders  with training and validation data for each of the rule types:
 
-*`windows/process_creation` - This process command-lines in this folder are taken from Sysmon ProcessCreation (ID 1) events.
-*`proxy_web` - This folder contains full URLs observed in web-proxy logs.
-*`windows/registry` - Samples in this folder are registry keys extracted from Sysmon RegistryEvent (Value Set) (ID 12) and RegistryEvent (Object Create and Delete) events. For Value Set events the samples also hold the corresponding key values.
-*`windows/powershell` - The samples in this folder are ScriptBlockText field values  extracted from Microsoft-Windows-PowerShell (ID 4104) events.
+- `windows/process_creation` - This process command-lines in this folder are taken from Sysmon ProcessCreation (ID 1) events.
+- `proxy_web` - This folder contains full URLs observed in web-proxy logs.
+- `windows/registry` - Samples in this folder are registry keys extracted from Sysmon RegistryEvent (Value Set) (ID 12) and RegistryEvent (Object Create and Delete) events. For Value Set events the samples also hold the corresponding key values.
+- `windows/powershell` - The samples in this folder are ScriptBlockText field values  extracted from Microsoft-Windows-PowerShell (ID 4104) events.
 
 Samples in the `train` and `validation` files have already been normalized for training and validation scripts. Each sub-folder additionally contains a file named `all` which contains alltraining and validation samples in a non-normalized format.
 
-Converted Sigma rules, matches, and a small number of evasions already revealed in the corresponding [academic research paper](#documentation) are located in the `data/sigma` folder. Converted rules required for model training are located in `data/sigma/rules`, matches and evasions required for model validation  are located in `data/sigma/events`. The subfolders show the same structure as the benign data in the `data/socbed` folder.
+Converted Sigma rules, matches, and a small number of evasions already revealed in the corresponding [academic research paper](#documentation) are located in the `data/sigma` folder. Converted rules required for model training are located in `data/sigma/rules`, matches and evasions required for model validation  are located in `data/sigma/events`. The subfolders show the same structure as the benign data in the `data/socbed` folder. 
 
 ## Building and Using the Quickstart Environment
 
@@ -79,15 +79,11 @@ If both containers and their results are no longer required, executing `cleanup.
 
 ## Installing
 
-In case you want to run AMIDES without the quickstart environment, the `amides` package can also be locally installed like other Python packages. We highly recommend to use a dedicated virtual environment for AMIDES though. Virtual environments are created either using the `venv` or `virtualenv` package. To create a dedicated virtual environment for AMIDES, execute
+In case you want to run AMIDES without the quickstart environment, the `amides` package can also be locally installed like other Python packages. We highly recommend to use a dedicated virtual environment for AMIDES though. Virtual environments are created using `venv`. To create a dedicated virtual environment for AMIDES, execute
 
     python3 -m venv <VIRTUAL-ENVIRONMENT-LOCATION>
 
-or
-
-    python3 -m virtualenv <VIRTUAL-ENVIRONMENT-LOCATION>
-
-in case you want to use `virtualenv`. After the environment has been created, activate it by executing
+After the environment has been created, activate it by executing
 
     source <VIRTUAL-ENVIRONMENT-LOCATION>/bin/activate
 
@@ -102,10 +98,10 @@ Now, AMIDES modules and scripts should be usable in your virtual environment.
 
 The `amides` package comes with a bash script named `experiments.sh` which is located in the package's root folder. Executing the script will use the given SOCBED and rule data in the `data` directory and carry out the same experiments and produce the same figures as in the corresponding academic research paper, stating our major claims. This includes:
 
-*Classification performance - This experiment compares AMIDES's classification performance to the benchmark approach that learns from attack events ("matches") instead of SIEM rules. The Precision-Recall-Thresholds plot showing Precision, Recall, F1-Score, and MCC is named `figure_3_c1_c2_misuse_classification.pdf` and is located in the `amides/plots/process_creation` folder.
-*Rule Attribution - Figure `figure_4_c3_rule_attribution.pdf` in `amides/plots/process_creation`, visualizes the distribution and cumulative distribution of the rule attribution evaluation.
-*Tainted training data - The influence of different fractions of tainted training data onto AMIDES' classification performance is shown in `figure_5_c4_tainted_training.pdf`, also in the `amides/plots/process_creation`-folder.
-*Classification performance for new rule and event types - The classification performance results for new rule and event types are shown in `figure_6_c5_classification_new_types.pdf`, located in `amides/plots`.
+- Classification performance - This experiment compares AMIDES's classification performance to the benchmark approach that learns from attack events ("matches") instead of SIEM rules. The Precision-Recall-Thresholds plot showing Precision, Recall, F1-Score, and MCC is named `figure_3_c1_c2_misuse_classification.pdf` and is located in the `amides/plots/process_creation` folder.
+- Rule Attribution - Figure `figure_4_c3_rule_attribution.pdf` in `amides/plots/process_creation`, visualizes the distribution and cumulative distribution of the rule attribution evaluation.
+- Tainted training data - The influence of different fractions of tainted training data onto AMIDES' classification performance is shown in `figure_5_c4_tainted_training.pdf`, also in the `amides/plots/process_creation` folder.
+- Classification performance for new rule and event types - The classification performance results for new rule and event types are shown in `figure_6_c5_classification_new_types.pdf`, located in `amides/plots`.
 
 Since the benign data in the repository are generated by SOCBED and not taken from the same enterprise network, the generated results will look different than in the corresponding research paper. Hence, we provide the correct output in the document `Paper Supplement.pdf` in this repository.
 As the complete set of rule evasions is not publicly available, the results produced with the small amount of evasions provided in this repository are different again.
@@ -116,7 +112,6 @@ The corresponding academic research paper will be published in the proceedings o
 
 R. Uetz, M. Herzog, L. Hackländer, S. Schwarz, and M. Henze, “You Cannot Escape Me: Detecting Evasions of SIEM Rules in Enterprise Networks,”
 in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024.[[DOI]()] [[arXiv]()]
-
 
 ## License
 

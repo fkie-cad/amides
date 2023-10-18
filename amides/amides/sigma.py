@@ -376,7 +376,7 @@ class RuleDataset:
         try:
             properties = read_yaml_file(properties_path)
             return properties[0]
-        except IndexError as err:
+        except (IndexError, TypeError) as err:
             raise RuleDatasetError(self._name, "No properties.yml available") from err
 
     def _is_evasion_possible(self, properties):
@@ -490,8 +490,8 @@ class RuleSetDataset:
     dir_name_rule_type_map = {
         "process_creation": RuleType.WINDOWS_PROCESS_CREATION,
         "registry_event": RuleType.WINDOWS_REGISTRY_EVENT,
-        "web": RuleType.WEB_PROXY,
-        "proxy": RuleType.WEB_PROXY,
+        "powershell": RuleType.WINDOWS_POWERSHELL,
+        "proxyweb": RuleType.WEB_PROXY,
     }
 
     def __init__(self, name=None, set_type=None):

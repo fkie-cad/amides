@@ -390,18 +390,15 @@ class DataSplit(ABC):
     def file_name(self):
         """Returns file name which is mainly used when data splits should
         be pickled."""
-        pass
 
     @abstractmethod
     def stack_horizontally(self, data_split):
         """Stack splitted data horizontally."""
-        pass
 
     @abstractmethod
     def create_info_dict(self):
         """Return basic information on data split. Mainly used for integration
         when objects are being pickled."""
-        pass
 
 
 class TrainTestSplit(DataSplit):
@@ -1007,7 +1004,7 @@ class MultiTrainingResult:
         return result
 
     def file_name(self):
-        if self.name.startswith("multi_train_result"):
+        if self.name.startswith("multi_train_rslt"):
             file_name = self.name
         else:
             file_name = f"multi_train_rslt_{self.name}"

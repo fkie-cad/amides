@@ -122,7 +122,7 @@ class HyperParameterOptimizer:
         _logger.debug(
             "Calculating prediction on: estimator=%s best_parameters=%s",
             self._search_method.best_estimator_.__class__.__name__,
-            self._search_method.best_parameters_,
+            self._search_method.best_params_,
         )
 
         return self._search_method.best_estimator_.predict(data.samples)

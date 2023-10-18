@@ -10,8 +10,8 @@ from amides.data import DataBunch, TrainTestValidSplit
 class TestTrainingResult:
     def test_default_name(self):
         train_rslt = TrainingResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
@@ -24,8 +24,8 @@ class TestTrainingResult:
 
     def test_file_name_default_name(self):
         train_rslt = TrainingResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
@@ -39,8 +39,8 @@ class TestTrainingResult:
 
     def test_file_name_no_default_name(self):
         train_rslt = TrainingResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
@@ -85,16 +85,19 @@ class TestTrainingResult:
                         "positive_negative_ratio": 0.5,
                     },
                 },
-                "feature_extractors": [],
                 "name": "ttv_split",
             },
+            "feature_extractors": None,
             "name": "sample_result",
             "timestamp": "20220518_111030",
+            "scaler": None,
+            "tainted_seed": 0,
+            "tainted_share": 0.0,
         }
 
         train_rslt = TrainingResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
@@ -111,30 +114,30 @@ class TestTrainingResult:
 class TestValidationResult:
     def test_default_name(self):
         valid_rslt = ValidationResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
                     np.array(["other", "validation", "data"]), np.array([0, 1, 0])
                 ),
             ),
-            np.array([1, 1, 0]),
+            predict=np.array([1, 1, 0]),
         )
 
         assert valid_rslt.name == "valid_rslt_svc"
 
     def test_file_name_default_name(self):
         valid_rslt = ValidationResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
                     np.array(["other", "validation", "data"]), np.array([0, 1, 0])
                 ),
             ),
-            np.array([1, 1, 0]),
+            predict=np.array([1, 1, 0]),
             timestamp="20220518_111030",
         )
 
@@ -142,15 +145,15 @@ class TestValidationResult:
 
     def test_file_name_no_default_name(self):
         valid_rslt = ValidationResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
                     np.array(["other", "validation", "data"]), np.array([0, 1, 0])
                 ),
             ),
-            np.array([1, 1, 0]),
+            predict=np.array([1, 1, 0]),
             name="sample_result",
             timestamp="20220518_111030",
         )
@@ -189,23 +192,26 @@ class TestValidationResult:
                         "positive_negative_ratio": 0.5,
                     },
                 },
-                "feature_extractors": [],
                 "name": "ttv_split",
             },
+            "feature_extractors": None,
             "name": "sample_result",
             "timestamp": "20220518_111030",
+            "scaler": None,
+            "tainted_seed": 0,
+            "tainted_share": 0.0,
         }
 
         valid_rslt = ValidationResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
                     np.array(["other", "validation", "data"]), np.array([0, 1, 0])
                 ),
             ),
-            np.array([1, 1, 0]),
+            predict=np.array([1, 1, 0]),
             name="sample_result",
             timestamp="20220518_111030",
         )
@@ -232,15 +238,15 @@ class TestMultiTrainingResult:
     def test_add_result(self):
         multi_rslt = MultiTrainingResult(name="custom", timestamp="20220518_120000")
         valid_rslt = ValidationResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
                     np.array(["other", "validation", "data"]), np.array([0, 1, 0])
                 ),
             ),
-            np.array([1, 1, 0]),
+            predict=np.array([1, 1, 0]),
             name="sample_result",
             timestamp="20220518_111030",
         )
@@ -285,26 +291,29 @@ class TestMultiTrainingResult:
                                 "positive_negative_ratio": 0.5,
                             },
                         },
-                        "feature_extractors": [],
                         "name": "ttv_split",
                     },
                     "name": "sample_result",
                     "timestamp": "20220518_111030",
+                    "scaler": None,
+                    "tainted_seed": 0,
+                    "tainted_share": 0.0,
+                    "feature_extractors": None,
                 }
             },
         }
 
         multi_rslt = MultiTrainingResult(name="custom", timestamp="20220518_120000")
         valid_rslt = ValidationResult(
-            SVC(),
-            TrainTestValidSplit(
+            estimator=SVC(),
+            data=TrainTestValidSplit(
                 DataBunch(np.array(["other", "training", "data"]), np.array([0, 1, 0])),
                 DataBunch(np.array(["other", "testing", "data"]), np.array([0, 1, 0])),
                 DataBunch(
                     np.array(["other", "validation", "data"]), np.array([0, 1, 0])
                 ),
             ),
-            np.array([1, 1, 0]),
+            predict=np.array([1, 1, 0]),
             name="sample_result",
             timestamp="20220518_111030",
         )

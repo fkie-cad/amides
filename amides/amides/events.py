@@ -94,7 +94,7 @@ class Events:
 
     @staticmethod
     def get_event_type_from_dir_name(dir_name):
-        return Events.dir_name_event_type_map[dir_name]
+        return Events.event_name_type_map[dir_name]
 
     def add_event(self, event):
         """

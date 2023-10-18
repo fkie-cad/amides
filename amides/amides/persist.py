@@ -222,7 +222,7 @@ class EventWriter:
 
         return f"events_{start}_{end}"
 
-    def write(self, hits: list[dict], batch_size: int):
+    def write(self, hits: list[dict]):
         with self._output_path.open("a+", encoding="utf-8") as out_file:
             self._write_batch(hits, out_file)
 
@@ -255,7 +255,7 @@ class EventCompressor(EventWriter):
         self._compression = compression
         self._archive_path = self._output_path.parent / f"{self._output_path.name}.zip"
 
-    def write(self, hits: list[dict], batch_size: int):
+    def write(self, hits: list[dict]):
         if self._archive_path.is_file():
             events = self._get_events()
             events.extend(hits)
