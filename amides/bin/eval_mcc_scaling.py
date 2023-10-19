@@ -5,7 +5,6 @@ import sys
 import argparse
 import numpy as np
 import itertools
-import time
 
 from sklearn.metrics import matthews_corrcoef, precision_score, recall_score
 from sklearn.preprocessing import MinMaxScaler
@@ -27,7 +26,6 @@ mcc_values = []
 
 zero_null_vectors = False
 mcc_threshold = 0.1
-multi_scaling = False
 
 dumper = None
 save = False
@@ -243,53 +241,6 @@ def prepare_values_and_labels(
     return df_values, labels
 
 
-def evaluate_multi_mcc_scaling_with_optimum_shift():
-    timestamp = get_current_timestamp()
-    target_df_min, target_df_max = None, None
-
-    result_paths = list(itertools.zip_longest(valid_results, mcc_values))
-
-    for i, valid_rslt_path, mcc_val_path in enumerate(result_paths):
-        df_values, labels, result_name = load_valid_result(valid_rslt_path)
-
-        df_iter_values = calculate_iter_values(df_values.min(), df_values.max())
-        mcc = calculate_mcc(df_iter_values, labels)
-
-        if i == 0:
-            (
-                target_df_min,
-                target_df_max,
-            ) = get_target_df_min_max_values(mcc, df_iter_values)
-            target_iter_values = calculate_iter_values(target_df_min, target_df_max)
-
-        target_mcc = load_mcc_values(mcc_val_path)
-        if not target_mcc:
-            target_mcc = calculate_mcc(df_values, labels, target_iter_values)
-            save_mcc_values(target_mcc, target_iter_values, result_name, timestamp)
-
-        shift_value = calculate_shifting_value(target_mcc, target_iter_values)
-        shifted_df_values = df_values - shift_value
-
-        scaler = create_min_max_scaler(target_df_min, target_df_max)
-        scaled_df_values = scaler.transform(shifted_df_values[:, np.newaxis]).flatten()
-
-        scaled_iter_values = calculate_iter_values(0, 1)
-
-        precision = calculate_precision(scaled_df_values, labels, scaled_iter_values)
-        recall = calculate_recall(scaled_df_values, labels, scaled_iter_values)
-
-        # Save result using original result name
-        eval_result = BinaryEvaluationResult(
-            thresholds=scaled_iter_values,
-            name=result_name,
-            timestamp=timestamp,
-        )
-        eval_result.precision = precision
-        eval_result.recall = recall
-
-        save_eval_result(eval_result)
-
-
 def evaluate_mcc_scaling_with_optimum_shift():
     result_paths = list(itertools.zip_longest(valid_results, train_results, mcc_values))
 
@@ -342,13 +293,6 @@ def evaluate_mcc_scaling_with_optimum_shift():
         save_eval_result(eval_result)
 
 
-def evaluate_mcc_scaling():
-    if multi_scaling:
-        evaluate_multi_mcc_scaling_with_optimum_shift()
-    else:
-        evaluate_mcc_scaling_with_optimum_shift()
-
-
 def parse_args_and_options(parser):
     args = parser.parse_args()
 
@@ -376,10 +320,6 @@ def parse_args_and_options(parser):
     if args.mcc_values:
         global mcc_values
         mcc_values = args.mcc_values
-
-    if args.multi_scaling:
-        global multi_scaling
-        multi_scaling = args.multi_scaling
 
     if args.zero_null_vecs:
         global zero_null_vectors
@@ -415,10 +355,10 @@ def main():
         help="Path of the associated MCC values (if available)",
     )
     parser.add_argument(
-        "--multi-scaling",
-        action="store_true",
-        default=False,
-        help="Specifiy if same scaling should be applied to multiple results",
+        "--num-eval-thresholds",
+        action="store",
+        default=50,
+        help="Specifiy the number of evaluation thresholds",
     )
     parser.add_argument(
         "--zero-null-vecs",
@@ -434,7 +374,7 @@ def main():
 
     parse_args_and_options(parser)
 
-    evaluate_mcc_scaling()
+    evaluate_mcc_scaling_with_optimum_shift()
 
 
 if __name__ == "__main__":
