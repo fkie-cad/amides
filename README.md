@@ -127,9 +127,9 @@ Precision, Recall, and all of all thirty runs models are shown in `figure_5_c4_t
 
 The classification performance of the misuse classification performance for Windows PowerShell, Windows Registry, and Web-Proxy data is evaluated in this experiment. The experiment can be carried out by executing the `classification_new_types.sh`. Precision and Recall of the models trained on the given SOCBED data are shown in `figure_6_c5_classification_new_types.pdf`, located in `amides/plots`.
 
-### Running Experiments using the Quickstart Environment
+## Running Experiments using the Quickstart Environment
 
-After the image has been successfully created, executing
+After the image of the quickstart environment has been successfully created, executing
 
 ```bash
     ./run_experiments.sh
