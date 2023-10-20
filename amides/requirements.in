@@ -1,10 +1,10 @@
 scikit-learn>=1.2.0
 numpy
-joblib
+joblib>=1.2.0
 matplotlib
 luqum
 scipy>=1.9.2
-pandas
+pandas>=1.5.3
 seaborn
 elasticsearch
 ndjson
