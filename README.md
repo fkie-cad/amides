@@ -98,6 +98,29 @@ To install the `amides` package and all it's dependencies, change into the `amid
 
 Now, the `amides` modules and scripts should be usable in your virtual environment.
 
+### Testing
+
+`tox` can be used to execute the unit tests of the `amides` package. `tox` can be installed from PyPI via
+
+```bash
+pip install tox
+```
+
+To get an overview of the configured test environments, execute 
+
+```bash
+tox -av
+```
+
+in the package root folder. The `tox.ini` file currently provides configurations for Python 3.10 and 3.11. For example, executing
+
+```bash
+tox -e py310-tests
+```
+
+will execute unit tests using Python 3.10.
+
+
 ## Running Experiments
 
 The `amides` package comes with a bash script named `experiments.sh` which is located in the package root folder. Executing the script will use the SOCBED and SIEM rule data in `data` and carry out the same experiments that state the major claims of the corresponding academic research paper. Each of the experiments is described in more detail below.
@@ -123,9 +146,9 @@ The influence of different fractions of tainted training data onto AMIDES' class
 
 Precision, Recall, and all of all thirty runs models are shown in `figure_5_c4_tainted_training.pdf`, also located in the `amides/plots/process_creation` folder.
 
-### Classification Performance for new Rule and Event Types
+### Other Rule and Event Types
 
-The classification performance of the misuse classification performance for Windows PowerShell, Windows Registry, and Web-Proxy data is evaluated in this experiment. The experiment can be carried out by executing the `classification_new_types.sh`. Precision and Recall of the models trained on the given SOCBED data are shown in `figure_6_c5_classification_new_types.pdf`, located in `amides/plots`.
+The classification performance of the misuse classification performance for Windows PowerShell, Windows Registry, and Web-Proxy data is evaluated in this experiment. The experiment can be carried out by executing the `classification_other_types.sh`. Precision and Recall of the models trained on the given SOCBED data are shown in `figure_6_c5_classification_other_types.pdf`, located in `amides/plots`.
 
 ## Running Experiments using the Quickstart Environment
 

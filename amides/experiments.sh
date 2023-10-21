@@ -9,5 +9,5 @@ echo "########## Creating results for rule attribution (C3) ##########"
 echo "########## Creating results for tainted training data (C4) ##########"
 ./tainted_training.sh
 
-echo "########## Creating results for new rule types (C5) ##########"
-./classification_new_types.sh
+echo "########## Creating results for other rule types (C5) ##########"
+./classification_other_types.sh
