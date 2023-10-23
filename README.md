@@ -68,13 +68,13 @@ In order to just run the [experiments](#running-experiments), we highly recommen
 
 Using the quickstart environment requires a `docker` installation. Building and running the environment was tested using `docker 20.10`, but it should also be compatible with other Docker versions.
 
-In order to build the `amides:base` image for the quickstart environment, execute the
+In order to build the `amides:base` image for the quickstart environment, change into the project root directory and execute
 
 ```bash
 ./build_image.sh 
 ```
 
-script located in the project root folder. This will execute the corresponding `docker build` command. The image is based on the `python:3.11-slim-bookworm` image. If the quickstart environment image is no longer needed at some point, it can be removed by executing the `remove_image.sh` script.
+This will execute the corresponding `docker build` command. The image is based on the `python:3.11-slim-bookworm` image. If the quickstart environment image is no longer needed at some point, it can be removed by executing the `remove_image.sh` script from the project root directory.
 
 ### Installation
 
@@ -123,54 +123,54 @@ will execute unit tests using Python 3.10.
 
 ## Running Experiments
 
-The `amides` package comes with a bash script named `experiments.sh` which is located in the package root folder. Executing the script will use the SOCBED and Sigma rule data in `data` and carry out the same four experiments that stating the major claims of the corresponding [research paper](#documentation). Each of the experiments is described in more detail below.
+The `amides` package comes with a bash script named `experiments.sh` which is located in the package root folder. Executing the script from the package root folder will use the SOCBED and Sigma rule data in `data` and carry out the same four experiments that stating the major claims of the corresponding [research paper](#documentation). Each of the experiments is described in more detail below.
 
 Since the benign datasets in this repository are generated using SOCBED, and not taken from the same enterprise network as in the research paper, the generated experiment results will look different. Hence, we provide the additional document `Paper Supplement.pdf` that shows the correct output that is to be expected when using the SOCBED datasets.
 Due to responsible disclosure, most of the evasions are not available in this repository. Thus, the results produced with the small amount of evasions in this repository are different again.
 
 ### Classification Performance
 
-This experiment compares AMIDES's misuse component classification performance to the benchmark approach that learns from matches (attack events) instead of the Sigma rule filters. This experiment can be carried out alone  by executing `classification.sh` in the package root folder, either using your local installation or the environment container. A look into the script file reveals the scripts and configuration files used for this experiment.
+This experiment compares AMIDES's misuse component classification performance to the benchmark approach that learns from matches (attack events) instead of the Sigma rule filters. This experiment can be carried out alone  by executing `classification.sh` from the package root folder, either using your local installation or the environment container. A look into the script file reveals the scripts and configuration files used for this experiment.
 
 When finished, the file `figure_3_c1_c2_misuse_classification.pdf` showing precision, recall, f1-score, and mcc for the threshold range from 0 to 1 is located in the `amides/plots/process_creation` folder.
 
 ### Rule Attribution
 
-This experiment evaluates the AMIDES rule attribution model's attribution performance by assessing the position of the correct detection rule in the ranked list of possibly evaded detection rules. This experiment can be run by the `rule_attribution.sh` script in the `amides` folder. The Python scripts used and the corresponding configuration files are revealed in the script file.
+This experiment evaluates the AMIDES rule attribution model's attribution performance by assessing the position of the correct detection rule in the ranked list of possibly evaded detection rules. This experiment can be run by changing into the `amides` package directory and executing the `rule_attribution.sh` script. The Python scripts used and the corresponding configuration files are revealed in the script file.
 
 After execution, figure `figure_4_c3_rule_attribution.pdf` in `amides/plots/process_creation` visualizes the distribution and cumulative distribution of the correct rule rankings returned by the rule attribution model.
 
 ### Tainted Training Data
 
-The influence of different fractions of tainted training data onto AMIDES' misuse classification model is evaluated int this experiment. During the experiment, 10%, 20%, and 30% of the Sigma rule evasions are used to taint benign samples for the training of AMIDES' misuse classification model. During the exeperiment, the training data is tainted ten times for each fraction of tainted data. This specific experiment can be re-run by executing the `tainted_training.sh` script in the `amides` folder.
+The influence of different fractions of tainted training data onto AMIDES' misuse classification model is evaluated in this experiment. During the experiment, 10%, 20%, and 30% of the Sigma rule evasions are used to taint benign samples for the training of AMIDES' misuse classification model. During the experiment, the training data is tainted ten times for each fraction of tainted data. This specific experiment can be re-run by changing into the `amides` package folder and executing the `tainted_training.sh` script.
 
 Precision and recall of all 30 training runs are shown in `figure_5_c4_tainted_training.pdf`, also located in the `amides/plots/process_creation` folder.
 
 ### Other Rule and Event Types
 
-The classification performance of the AMIDES misuse classification model for Windows PowerShell, Windows Registry, and Web-Proxy datasets is evaluated in this experiment. The experiment can be carried out by executing `classification_other_types.sh`. Precision and eecall of the models trained on the given SOCBED data are shown in `figure_6_c5_classification_other_types.pdf`, located in `amides/plots`.
+The classification performance of the AMIDES misuse classification model for Windows PowerShell, Windows Registry, and Web-Proxy datasets is evaluated in this experiment. The experiment can be carried out by executing `classification_other_types.sh` from the `amides` package root folder. Precision and eecall of the models trained on the given SOCBED data are shown in `figure_6_c5_classification_other_types.pdf`, located in `amides/plots`.
 
 ## Running Experiments using the Quickstart Environment
 
-After the image of the quickstart environment has been successfully created, executing
+After the image of the quickstart environment has been successfully created, change into the project root directory and execute
 
 ```bash
 ./run_experiments.sh
 ```
 
-in the project root folder will run the `amides-experiments` container that executes the `experiments.sh` script of the `amides` package. The container is configured to use the bind mounts `amides/models` and `amides/plots` for results generated during the experiments, as well as the `data` mount as source for input data used for the experiments. This means that after the container's execution, models and plots generated by the experiments are accessible via the `amides/models` and `amides/plots` directories in the project root folder. The default input data used for model training and validation is taken from the `data` directory.
+This will run the `amides-experiments` container that executes the `experiments.sh` script of the `amides` package. The container is configured to use the bind mounts `amides/models` and `amides/plots` for results generated during the experiments, as well as the `data` mount as source for input data used for the experiments. This means that after the container's execution, models and plots generated by the experiments are accessible via the `amides/models` and `amides/plots` directories in the project root folder. The default input data used for model training and validation is taken from the `data` directory.
 
-To start the quickstart environment for running your own experiments, execute
+To start the quickstart environment for running your own experiments, change into the project root directory and execute
 
 ```bash
 ./start_env.sh
 ```
 
-in the project root folder. The script creates and starts the `amides-env` container which is created from the same base image as the `amides-experiments` container. When being started, the `amides-env` container is configured to immediately start a bash inside the container. The shell allows to use and configure the modules and scripts of the `amides` package for further experiments. Supporting the same bind mounts as the `amides-results` container, the `amides-env` container enables to build and evaluate models using your own data.
+The script creates and starts the `amides-env` container which is created from the same base image as the `amides-experiments` container. When being started, the `amides-env` container is configured to immediately start a bash inside the container. The shell allows to use and configure the modules and scripts of the `amides` package to run your own experiments. Supporting the same bind mounts as the `amides-results` container, the `amides-env` container enables to build and evaluate models using your own data.
 
 Both containers are run using the `--rm`-flag, which means they will be automatically removed once they finish execution.
 
-Executing `cleanup.sh` will remove the base image as well as all models and plots placed in the default `amides/plots` and `amides/models` bind mount directories.
+Executing `cleanup.sh` from the same location will remove the base image as well as all models and plots placed in the default `amides/plots` and `amides/models` bind mount directories.
 
 ## Running Your Own Experiments
 
@@ -194,7 +194,7 @@ In case your data should be normalized beforehand, you can use the `normalize.py
 
 Location of the SIEM detection rules and corresponding matches and evasions are defined by `--rules-dir` and `--events-dir`. SIEM rule filters and events are loaded by the `RuleSetDataset`-class of the `amides.sigma` module. The `--malicious-samples-type` flag determines the type of malicious samples used for training. `rule_filters` uses the SIEM rule filters, `matches` takes the actual attack events.
 
-After normalization, the feature extractor converts all samples into TF-IDF vectors. With the `--vectorization` option, other feature extraction and vectorization methods are available. The vectors are later used to fit the SVM model. The `--search-params` flag determines if the hyper-parameters of the SVM should be optimized, or the SVM should just be fitted on default parameters. Currently, the optimization is performed by the `GridSearchCV` class of `scikit-learn`. `GridSearchCV` uses a Stratified-K-Fold approach when cross-validating. The `--cv` flag determines the number of folds for the . The scoring function used for optimization is specified by `--scoring`. The default scoring function is 'f1-score'.
+After normalization, the feature extractor converts all samples into TF-IDF vectors. With the `--vectorization` option, other feature extraction and vectorization methods are available. The vectors are later used to fit the SVM model. The `--search-params` flag determines if the hyper-parameters of the SVM should be optimized, or the SVM should just be fitted on default parameters. Currently, the optimization is performed by the `GridSearchCV` class of `scikit-learn`. `GridSearchCV` exhaustively generates candidates from a grid of parameter values. The currently pre-set range of parameter values has been discovered throughout various experiments performed during the AMIDES development. The cross validation splitting strategy is a Stratified-K-Fold approach. The `--cv` flag determines the number of folds. The score function used to evaluate a parameter setting is specified by `--scoring`. The default score function is 'f1-score', but nearly all score functions of `sklearn.metrics` are compatible.
 
 After parameters have been established and the model has been fit, an additional output-scaler is created. The `--mcc-scaling` flag determines if the scaler range is determined by the mcc values on the benign training data. The `--mcc-threshold` determines the threshold value that is applied symmetrically to determine the required value range.
 
@@ -237,10 +237,10 @@ To visualize the evaluation results, the `plot_pr.py`-script is used to create a
 
 ### Performing Tainted Training
 
-Tainted training is performed in the same way as training misuse classification models. For tainted training, the `--tainted-share` and `--tainted-seed` options are provided to `train.py`. The `tainted-share` option takes a value between 0 and 100 and defines the fraction of evasions that are used as benign training samples. In order to re-create tainted training results, the `tainted-seed` parameter can be provided. The seed value fixes the set of evasions that are used for tainting. Executing
+Tainted training is performed in the same way as training misuse classification models. For tainted training, the `--tainted-benign-samples` and `--tainted-seed` options are provided to `train.py`. The `tainted-benign-samples` option takes a value between 0 and 100 and defines the fraction of evasions that are used as benign training samples. In order to re-create tainted training results, the `tainted-seed` parameter can be provided. The seed value fixes the set of evasions that are used for tainting. Executing
 
 ```bash
-./bin/train.py --benign-samples "../data/socbed/process_creation/train" --events-dir "../data/sigma/events/windows/process_creation" --rules-dir "../data/sigma/rules/windows/process_creation" --type "misuse" --malicious-samples-type "rule_filters" --tainted-share 10.0 --tainted-seed 42 --search-params --cv 5 --mcc-scaling --mcc-threshold 0.5 --result-name "misuse_model_tainted" --out-dir "models/process_creation/tainted/10"
+./bin/train.py --benign-samples "../data/socbed/process_creation/train" --events-dir "../data/sigma/events/windows/process_creation" --rules-dir "../data/sigma/rules/windows/process_creation" --type "misuse" --malicious-samples-type "rule_filters" --tainted-benign-samples 10.0 --tainted-seed 42 --search-params --cv 5 --mcc-scaling --mcc-threshold 0.5 --result-name "misuse_model_tainted" --out-dir "models/process_creation/tainted/10"
 ```
 
 trains and optimizes a misuse classification  model using 10% of the evasions as benign samples. The seeding to fix the set of evasions that are used for tainting is 42.

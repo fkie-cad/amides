@@ -1,3 +1,4 @@
+"""This module contains classes and functions that help to load and organize events."""
 import random
 
 from enum import Enum, auto
@@ -254,20 +255,12 @@ class Events:
         _logger.debug("Loading events from %s", events_file)
         events = read_jsonl_file(events_file)
         for event in events:
-            try:
-                self._add_event(event)
-            except EventsError as err:
-                _logger.error(err)
-                continue
+            self._add_event(event)
 
     def _add_event(self, event):
         if self._is_required_type_of_event(event):
             self._data.append(event)
             _logger.debug("Adding event %s to %s events", event, self._type)
-        else:
-            raise EventsError(
-                f"Event type does not match required event type {self._type}"
-            )
 
     def _is_json_file(self, event_file):
         return event_file.endswith(".json")
@@ -276,7 +269,7 @@ class Events:
         return event_file.endswith(".jsonl")
 
     def _is_required_type_of_event(self, event):
-        return True
+        return True if event is not None else False
 
     def _create_random_split(self, split_sizes, seed=None):
         if seed is not None:
@@ -318,6 +311,7 @@ class EventsCache:
 
     @property
     def events(self):
+        """Returns the dictionary containing events."""
         return self._events
 
     def add_events(self, events):
@@ -378,5 +372,5 @@ class EventsCache:
         return events_list
 
 
-# Global events cache to hold once loaded benign event data
 benign_events_cache = EventsCache()
+"""Global events cache to hold once loaded benign event data"""

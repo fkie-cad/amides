@@ -1,8 +1,11 @@
+"""This module contains classes used for preprocessing during normalization."""
 import re
 from abc import ABC, abstractmethod
 
 
 class Preprocessor(ABC):
+    """Base class for all Preprocessing-classes."""
+
     @abstractmethod
     def __call__(self, string):
         pass
@@ -10,10 +13,12 @@ class Preprocessor(ABC):
     @property
     @abstractmethod
     def name(self):
-        pass
+        """Return name of the preprocessor."""
 
 
 class FilterDummyCharacters(Preprocessor):
+    """FilterDummyCharacter removes all command-line dummy characters (",^,`)."""
+
     def __init__(self):
         super().__init__()
         self._re = r"[\"\^`’]"
@@ -27,6 +32,8 @@ class FilterDummyCharacters(Preprocessor):
 
 
 class Lowercase(Preprocessor):
+    """Turns all samples into lowercase."""
+
     def __call__(self, string):
         return string.lower()
 

@@ -1,7 +1,8 @@
-"""This module provides classes and functions to hold and prepare data for the classification process."""
+"""This module provides classes and functions to hold and prepare datasets for the training and validation process.
+"""
+from abc import ABC, abstractmethod
 import numpy as np
 
-from abc import ABC, abstractmethod
 from scipy import sparse
 
 from amides.utils import get_current_timestamp
@@ -69,6 +70,7 @@ class DataBunch:
 
     @property
     def samples(self):
+        """Return samples."""
         return self._samples
 
     @samples.setter
@@ -82,6 +84,7 @@ class DataBunch:
 
     @property
     def labels(self):
+        """Return labels."""
         return self._labels
 
     @labels.setter
@@ -98,6 +101,7 @@ class DataBunch:
 
     @property
     def label_names(self):
+        """Return label names."""
         return self._label_names
 
     @label_names.setter
@@ -109,14 +113,17 @@ class DataBunch:
 
     @property
     def feature_info(self):
+        """Return feature info string."""
         return self._feature_info
 
     @property
     def size(self):
+        """Return the number of samples in the bunch."""
         return self._samples.shape[0]
 
     @property
     def shape(self):
+        """Return the shape of the samples array."""
         return self._samples.shape
 
     def add_feature_info(self, info):
@@ -428,6 +435,7 @@ class TrainTestSplit(DataSplit):
 
     @property
     def name(self):
+        """(Sets) and returns the name of the split."""
         if self._name is None:
             self._build_name_from_data_info()
 
@@ -439,6 +447,7 @@ class TrainTestSplit(DataSplit):
 
     @property
     def train_data(self):
+        """Return the training data."""
         return self._data["train"]
 
     @train_data.setter
@@ -447,6 +456,7 @@ class TrainTestSplit(DataSplit):
 
     @property
     def test_data(self):
+        """Return the test-data."""
         return self._data["test"]
 
     @test_data.setter
@@ -545,7 +555,7 @@ class TrainTestSplit(DataSplit):
 
 
 class TrainTestValidSplit(TrainTestSplit):
-    """TrainTestValibSplit-class to create objects containing data splits
+    """TrainTestValidSplit-class to create objects containing data splits
     for training, testing, and validation. Testing or validation data could also be used
     for other purposes.
     """
@@ -569,6 +579,7 @@ class TrainTestValidSplit(TrainTestSplit):
 
     @property
     def validation_data(self):
+        """Returns the validation data."""
         return self._data["valid"]
 
     @validation_data.setter
@@ -641,58 +652,6 @@ class TrainTestValidSplit(TrainTestSplit):
                 self._name = f"{self._name}_{info}"
 
 
-class PrecisionRecallData:
-    """PrecisionRecallData to represent already calculated precision and recall data"""
-
-    def __init__(self, precision, recall, thresholds=None, name=None):
-        """Creates PrecisionRecallData instances holding precision and recall data.
-
-        Parameters
-        ----------
-        precision: List or np.array
-            Precision data.
-        recall: List or np.array
-            Recall data.
-        thresholds: List or np.array
-            Threshold values that were used to calculate precision and recall data.
-        name: Optional[str]
-            Name of the PrecisionRecallData instance (usually used for visualization).
-        """
-
-        self._name = name
-        self._precision = precision
-        self._recall = recall
-        self._thresholds = thresholds
-
-    @property
-    def name(self):
-        return self._name
-
-    @property
-    def precision(self):
-        return self._precision
-
-    @property
-    def recall(self):
-        return self._recall
-
-    @property
-    def thresholds(self):
-        return self._thresholds
-
-
-class PlotData:
-    def __init__(self, data, name):
-        self.data = data
-        self.name = name
-
-
-class ReliabilityEvaluationData:
-    def __init__(self, probabilities, labels):
-        self.probabilities = probabilities
-        self.labels = labels
-
-
 class TrainingResult:
     """Holds trained estimator instance and the used training data."""
 
@@ -742,6 +701,7 @@ class TrainingResult:
 
     @property
     def estimator(self):
+        """Returns the trained model."""
         return self._estimator
 
     @estimator.setter
@@ -750,6 +710,7 @@ class TrainingResult:
 
     @property
     def data(self):
+        """Returns the training data."""
         return self._data
 
     @data.setter
@@ -758,6 +719,7 @@ class TrainingResult:
 
     @property
     def tainted_share(self):
+        """Returns the fraction of tainting."""
         return self._tainted_share
 
     @tainted_share.setter
@@ -766,6 +728,7 @@ class TrainingResult:
 
     @property
     def tainted_seed(self):
+        """Returns the seeding used for tainting."""
         return self._tainted_seed
 
     @tainted_seed.setter
@@ -774,10 +737,12 @@ class TrainingResult:
 
     @property
     def feature_extractors(self):
+        """Returns the feature extractor."""
         return self._feature_extractors
 
     @property
     def scaler(self):
+        """Returns the symmetric min-max scaler."""
         return self._scaler
 
     @scaler.setter
@@ -786,10 +751,12 @@ class TrainingResult:
 
     @property
     def timestamp(self):
+        """Returns the timestamp value."""
         return self._timestamp
 
     @property
     def name(self):
+        """Returns the name of the result."""
         if self._name is None:
             self._build_name_from_result_info()
 
@@ -800,6 +767,13 @@ class TrainingResult:
         self._name = name
 
     def add_feature_extractor(self, feat_extractor):
+        """Add feature extractor to the result.
+
+        Parameters
+        ----------
+        feat_extractor: Vectorizer
+            The feature extractor to be added.
+        """
         self._feature_extractors.append(feat_extractor)
 
     def file_name(self):
@@ -825,6 +799,13 @@ class TrainingResult:
         return file_name
 
     def create_info_dict(self):
+        """Creates an info dict containin meta information in human-readable format.
+
+        Returns
+        -------
+        :dict
+            Dictionary containing meta information.
+        """
         info = {
             "estimator": self._estimator.__class__.__name__,
             "estimator_params": self._estimator.get_params(),
@@ -908,6 +889,7 @@ class ValidationResult(TrainingResult):
 
     @property
     def predict(self):
+        """Returns the decision function values."""
         return self._predict
 
     def file_name(self):
@@ -952,6 +934,7 @@ class MultiTrainingResult:
 
     @property
     def name(self):
+        """Return the name of the result."""
         if self._name is None:
             self._name = "multi_train_rslt"
 
@@ -963,6 +946,7 @@ class MultiTrainingResult:
 
     @property
     def timestamp(self):
+        """Return the timestamp value."""
         return self._timestamp
 
     @timestamp.setter
@@ -971,10 +955,12 @@ class MultiTrainingResult:
 
     @property
     def results(self):
+        """Return the results dictionary."""
         return self._results
 
     @property
     def benign_train_data(self):
+        """Return the common benign training data."""
         return self._benign_train_data
 
     @benign_train_data.setter
@@ -1004,6 +990,13 @@ class MultiTrainingResult:
         return result
 
     def file_name(self):
+        """Build a file name starting with 'multi_train_rslt'
+
+        Returns
+        -------
+        :str
+            The file name starting with 'multi_train_rslt'
+        """
         if self.name.startswith("multi_train_rslt"):
             file_name = self.name
         else:
@@ -1015,6 +1008,13 @@ class MultiTrainingResult:
         return file_name
 
     def create_info_dict(self):
+        """Creates an info dict containing meta information in human-readable format.
+
+        Returns
+        -------
+        :dict
+            Dictionary containing meta information.
+        """
         results_info = {}
 
         for key, result in self._results.items():
@@ -1069,6 +1069,7 @@ class MultiValidationResult(MultiTrainingResult):
 
     @property
     def benign_valid_data(self):
+        """Returns common benign validation data."""
         return self._benign_valid_data
 
     @benign_valid_data.setter

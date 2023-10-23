@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""This script takes a trained (and validated) model and fits a symmetric min-max scaler from 
+decision function values. The decision function values are computed either using feature vectors
+of training data or validation data. The range of the symmetric min-max scaler is either determined
+by a specific MCC threshold range or the highest absolute decision function value.
+"""
 
 import sys
 import argparse

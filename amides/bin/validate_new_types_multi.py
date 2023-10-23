@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+
+"""This script validates rule attribution models for the other rule and event types.
+"""
+
 import argparse
 import re
 from pprint import pprint
@@ -11,7 +16,9 @@ def main():
     filename_regex = ".*multi_train_rslt_([a-z]+)_[0-9]+_[0-9]+.zip"
     category = re.compile(filename_regex).match(args.file).group(1)
 
-    evasion_values = open("data/generalisation/values_evasion_" + category).readlines()
+    evasion_values = open(
+        "data/generalisation/values_evasion_" + category, "r", encoding="utf-8"
+    ).readlines()
     normalizer = Normalizer(max_len_num_values=3)
     evasion_tokens = [normalizer.normalize(sample) for sample in evasion_values]
 

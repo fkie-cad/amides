@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""This script trains misuse classification models for other event types."""
 
 import sys
 import argparse

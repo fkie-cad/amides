@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+This script is used to train models for the AMIDES misuse classification and rule attribution components. Models are 
+trained using feature vectors extracted from benign samples of enterprise networks  and Sigma rule filters or matches 
+(i.e. events triggering SIEM detectio rules) serving as malicious samples.
+
+Benign samples are provided in .txt-files, one sample per line. Sigma rule data(rule filters, matches, evasions) are provided
+in folders with .json files, one element per file.
+
+The trained model, converted training data, the feature extractor, as well as the scaler are pickled and saved into a single .zip-archive.
+The archive is accompanied by a JSON-file holding meta information on the produced results in human readable format.
+"""
 
 import os
 import sys
@@ -91,6 +102,7 @@ mcc_threshold = 0.1
 num_mcc_samples = 50
 
 tainted_benign_samples = 0.0
+tainted_random_seed = 42
 tainted_sample_seedings = []
 
 num_subprocesses = 1
@@ -163,7 +175,7 @@ def prepare_benign_sample_tainting():
         sys.exit(1)
 
     global tainted_sample_seedings
-    random.seed(42)
+    random.seed(tainted_random_seed)
 
     for _ in range(num_iterations):
         tainted_sample_seedings.append(random.randint(0, 100))
@@ -511,6 +523,10 @@ def parse_args_and_options(parser: argparse.ArgumentParser):
         global tainted_benign_samples
         tainted_benign_samples = args.tainted_benign_samples / 100.0
 
+    if args.tainted_seed:
+        global tainted_random_seed
+        tainted_random_seed = args.tainted_seed
+
     if args.vectorization:
         global vectorization
         vectorization = args.vectorization
@@ -580,39 +596,41 @@ def parse_args_and_options(parser: argparse.ArgumentParser):
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Train misuse and rule attribution models for AMIDES"
+    )
     parser.add_argument(
         "--benign-samples",
         type=str,
         nargs="?",
         action="store",
-        help="Path to benign samples used for training.",
+        help="Path of the benign training samples file (.txt)",
     )
     parser.add_argument(
         "--deduplicate",
         action="store_true",
-        help="Perform training data deduplication 'on-the-fly' before model training",
+        help="Perform deduplication of benign samples before model training",
     )
     parser.add_argument(
         "--normalize",
         type=str,
         nargs="?",
         action="store",
-        help="Normalize benign samples before training.",
+        help="Normalize benign samples before training",
     )
     parser.add_argument(
         "--events-dir",
         type=str,
         nargs="?",
         action="store",
-        help="Path of the directory where the rule set evasions (and matches) are located.",
+        help="Path of the directory with Sigma rule matches and evasions (.json)",
     )
     parser.add_argument(
         "--rules-dir",
         type=str,
         nargs="?",
         action="store",
-        help="Path of the directory where the rule set rule data is located.",
+        help="Path of the directory with Sigma detection rules (.yml)",
     )
     parser.add_argument(
         "--model-type",
@@ -626,20 +644,26 @@ def main():
         type=str,
         action="store",
         choices=["rule_filters, matches"],
-        help="Type of malicious samples to be used for training",
+        help="Specifies the type  of malicious samples used for training",
     )
     parser.add_argument(
         "--tainted-benign-samples",
         type=float,
         action="store",
-        help="Taint benign training samples",
+        help="Fraction (0-100) of evasions that are used for benign samples tainting",
+    )
+    parser.add_argument(
+        "--tainted-seed",
+        type=int,
+        action="store",
+        help="Seeding value to init benign sample tainting",
     )
     parser.add_argument(
         "--vectorization",
         type=str,
         action="store",
         choices=["count", "binary_count", "tfidf", "hashing", "scaled_count"],
-        help="Specifies the vectorizer class that should be used",
+        help="Specifies the type of vectorization used to create feature vectors",
     )
     parser.add_argument(
         "--tokenization",
@@ -653,7 +677,7 @@ def main():
             "ws_ast_sla_min_eq",
             "comma_separation",
         ],
-        help="Specifiecs the sample tokenizer (if ngram_mode == 'word')",
+        help="Specifiecs the sample tokenizer given to the vectorizer (if ngram_mode == 'word')",
     )
     parser.add_argument(
         "--ngram-mode",
@@ -666,12 +690,31 @@ def main():
         "--ngram-range",
         type=str,
         action="store",
-        help="Specifies the n-gram range used by the vectorizer",
+        help="Specifies the n-gram range used by the vectorizer (Example: (1,1))",
     )
     parser.add_argument(
         "--search-params",
         action="store_true",
-        help="Search the given parameter grid for optimal hyper-parameters.",
+        help="Optimize the classifier by searching a given hyper parameter space",
+    )
+    parser.add_argument(
+        "--scoring",
+        type=str,
+        action="store",
+        choices=["f1", "mcc"],
+        help="Choose the scoring function used for candidate evaluation when perforing exhaustive parameter optimization",
+    )
+    parser.add_argument(
+        "--cv",
+        type=int,
+        action="store",
+        help="Number of cross-validation splits used for parameter optimization",
+    )
+    parser.add_argument(
+        "--model-params",
+        type=str,
+        action="store",
+        help="Path to JSON-file containing parameters used for just fitting the model (No parameter optimization)",
     )
     parser.add_argument(
         "--mcc-scaling",
@@ -682,38 +725,19 @@ def main():
         "--mcc-threshold",
         action="store",
         type=float,
-        help="Threshold value for MCC-Scaling",
-    )
-    parser.add_argument(
-        "--scoring",
-        type=str,
-        action="store",
-        choices=["f1", "mcc"],
-        help="Choose the scoring function used for model evaluation",
-    )
-    parser.add_argument(
-        "--model-params",
-        type=str,
-        action="store",
-        help="Path to JSON-file containing parameters used for model fitting",
-    )
-    parser.add_argument(
-        "--cv",
-        type=int,
-        action="store",
-        help="Number of cross-validation splits used for parameter optimization",
+        help="Threshold value used for MCC-Scaling",
     )
     parser.add_argument(
         "--num-jobs",
         type=int,
         action="store",
-        help="Number of parallel jobs when grid search is performed",
+        help="Number of parallel jobs when search candidates are evaluated during parameter optimization",
     )
     parser.add_argument(
         "--num-subprocesses",
         type=int,
         action="store",
-        help="Number of processes used when creating the rule attribution model",
+        help="Number of parallel processes used to use rule models for the rule attribution model",
     )
     parser.add_argument(
         "--num-iterations",
@@ -724,7 +748,7 @@ def main():
     parser.add_argument(
         "--save-data",
         action="store_true",
-        help="Specify if training data should be added to TrainingResult",
+        help="Specify if the transformed training data (feature vectors!) should be added to TrainingResult",
     )
     parser.add_argument(
         "--out-dir",
@@ -736,7 +760,7 @@ def main():
         "--result-name",
         type=str,
         action="store",
-        help="Specifies the result's base name",
+        help="Specifies the result files base name",
     )
     parser.add_argument(
         "--config", type=str, action="store", help="Path to config file."

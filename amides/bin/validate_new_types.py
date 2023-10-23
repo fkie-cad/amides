@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""This script validates misuse classification models for other rule and event types.
+"""
+
 
 import sys
 import argparse

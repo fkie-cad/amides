@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""This script prepares misuse classification models and rule attribution models for the 
+operational use with the AMIDES Logprep processor. Both models are extracted from the
+corresponding (Multi)ValidationResult and pickled, together with feature extractors and
+scalers, into a single archive (.zip).
+"""
 
 import os
 import sys
@@ -121,13 +126,13 @@ def main():
         "--single",
         type=str,
         action="store",
-        help="Path to results file (TrainingResult, ValidationResult) containing the single model",
+        help="Path of the TrainingResult containing the misuse classification model",
     )
     parser.add_argument(
         "--multi",
         type=str,
         action="store",
-        help="Path to results file (ValidationResults) holding the multi model",
+        help="Path of the MultiValidationResult with the rule attribution model",
     )
     parser.add_argument(
         "--out-dir", type=str, action="store", help="Specify output directory"

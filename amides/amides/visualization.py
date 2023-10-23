@@ -1,6 +1,5 @@
 """This module contains components used for the visualization of 
-classification results.
-
+evaluation results and other data.
 """
 import matplotlib.pyplot as plt
 import seaborn as sbn

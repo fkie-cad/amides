@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""This script creates a histogram of decision function values of benign samples created by a misuse
+classification model.
+"""
 
 import seaborn
 import os

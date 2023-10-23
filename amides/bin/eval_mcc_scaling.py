@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""This script takes already validated misuse classification models and builds a symmetric min-max scaler
+using the mcc values and a pre-defined mcc value threshold. Afterwards, the model is evaluated using the
+newly calibrated scaler. The number of evaluation thresholds (or evaluation iterations) is configurable.
+"""
 
 import os
 import sys

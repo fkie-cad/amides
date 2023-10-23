@@ -1,5 +1,4 @@
-""" This module contains functions for general purpose use, e.g. opening files or 
-    fetching directory contents. 
+""" This module contains functions for general purpose use, e.g. opening files or fetching directory contents. 
 """
 import os
 import re
@@ -23,11 +22,24 @@ class TimeRangeIterator:
     """
 
     def __init__(self, start: str, end: str, interval: str):
+        """Create TimeRangeIterator.
+
+        Parameters
+        ----------
+        start : str
+            Starting timestamp in ISO8601 format
+        end: str
+            Ending timestamp in ISO8601 format
+        interval: str
+            Interval in 'HH:MM:SS.s+'
+        """
         self._start = self._parse_timestamp(start)
         self._end = self._parse_timestamp(end)
+
         self._interval = self._parse_interval(interval)
 
     def next(self):
+        """Returns the next timestamp value."""
         current_start = self._start
         current_end = current_start + self._interval
         yield current_start.isoformat(), current_end.isoformat()
@@ -54,6 +66,17 @@ def load_args_from_file(
 ) -> argparse.Namespace:
     """Loads command line arguments from config file and
     puts values in args.Namsespace object.
+
+    Parameters
+    ----------
+    parser : argparse.ArgumentParser
+        The ArgumentParser instance
+    path: str
+        Path of the configuration file (.json)
+
+    Returns
+    -------
+    args: Optional[argparse.ArgumentParser]
     """
     config_dict = read_json_file(path)
     if config_dict:
@@ -97,12 +120,6 @@ def get_file_names(path):
     -------
     file_names: List[str]
         List of file names.
-
-    Raises
-    ------
-    OSError
-        If path does not lead to existing directory.
-
     """
     file_names = []
     for entry in sorted(os.listdir(path)):
@@ -125,12 +142,6 @@ def get_file_paths(path):
     -------
     paths: List[str]
         List of file paths.
-
-    Raises
-    ------
-    OSError
-        In case directory does not exist or cannot be accessed.
-
     """
     file_paths = []
     for entry in sorted(os.listdir(path)):
@@ -154,12 +165,6 @@ def get_dir_names(path):
     -------
     dir_names: List[str]
         List of directory names.
-
-    Raises
-    ------
-    OSError
-        In case target directory does not exist or cannot be accessed.
-
     """
     dir_names = []
     for entry in sorted(os.listdir(path)):
@@ -181,17 +186,14 @@ def read_yaml_file(path):
 
     Returns
     -------
-    yaml-data: Optional[Dict]
-        Dict-representation of the loaded .y(a)ml-file or None.
+    yaml-data: Dict
+        Dict-representation of the loaded .y(a)ml-file.
 
     """
-    try:
-        with open(path, "r") as f:
-            docs = yaml.safe_load_all(f)
-            return list(docs)
-    except FileNotFoundError as err:
-        _logger.error(err)
-        return None
+
+    with open(path, "r", encoding="utf-8") as f:
+        docs = yaml.safe_load_all(f)
+        return list(docs)
 
 
 def read_json_file(path):
@@ -210,7 +212,7 @@ def read_json_file(path):
 
     """
     try:
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
             return data
@@ -236,7 +238,7 @@ def read_jsonl_file(path):
     """
     try:
         json_objects = []
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             for line in f:
                 json_objects.append(json.loads(line))
 
@@ -248,7 +250,8 @@ def read_jsonl_file(path):
 
 def execution_time(func):
     """
-    Wrapper for functions and methods that measures execution time in ms
+    Wrapper for functions and methods that measures execution time in
+    milliseconds (ms)
 
     Parameters
     ----------

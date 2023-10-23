@@ -1,4 +1,9 @@
 #! /usr/bin/env python3
+"""This script normalizes benign samples, matches, rule filter, and evasions into list
+of tokens. The normalization performed in this script is the same normalization 
+that is performed by AMIDES during operational use. Normalized/converted samples
+are written into a separate output file.
+"""
 
 import argparse
 import sys
@@ -73,7 +78,7 @@ def extract_tokens(cmdline):
 
 def samples_file(samples_file_path: str):
     try:
-        with open(samples_file_path, "r") as in_file:
+        with open(samples_file_path, "r", encoding="utf-8") as in_file:
             for line in in_file:
                 stripped = line.rstrip("\n")
 
@@ -160,14 +165,14 @@ def main():
     parser.add_argument(
         "--sigma-dir",
         action="store",
-        default=os.path.join(base_dir, "Daten/Sigma-Studie"),
+        default=os.path.join(base_dir, "data/sigma"),
     )
     parser.add_argument(
         "-o",
         "--out-file",
         type=str,
         action="store",
-        default=os.path.join(os.getcwd(), "tokens.out"),
+        default=os.path.join(os.getcwd(), "tokens.txt"),
     )
 
     args = parser.parse_args()

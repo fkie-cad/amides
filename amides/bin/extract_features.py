@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""This script extracts the vocabulary learned by feature extractors and the corresponding
+weights from the fitted SVC and sorts them according to the feature weight. The top n
+features with the highest/lowest weight can be plotted."""
 
 import os
 import sys

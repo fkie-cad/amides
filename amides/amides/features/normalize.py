@@ -1,3 +1,5 @@
+"""This module normalizes samples by performing certain preprocessing, tokenization, and toke elimination steps."""
+
 from typing import List
 
 from amides.features.preprocessing import FilterDummyCharacters, Lowercase
@@ -44,6 +46,19 @@ class Normalizer:
         self._strings = Strings(length=max_len_strings)
 
     def normalize(self, sample: str) -> str:
+        """Normalize a single string.
+
+        Parameters
+        ---------
+        sample: str
+            Sample which should be normalized.
+
+        Returns
+        -------
+        normalized :str
+            String with comma-separated list of remaining tokens.
+
+        """
         preprocessed = self._preprocess(sample)
         tokens = self._tokenize(preprocessed)
         shrinked_tokens = self._eliminate_tokens(tokens)

@@ -1,8 +1,11 @@
+"""This module contains classes used to turn samples into lists of tokens."""
 import re
 from abc import ABC, abstractmethod
 
 
 class Tokenizer(ABC):
+    """Base class for all tokenization-classes."""
+
     @abstractmethod
     def __call__(self, string):
         pass
@@ -10,7 +13,7 @@ class Tokenizer(ABC):
     @property
     @abstractmethod
     def name(self):
-        pass
+        """Returns unique name tag of the tokenizer-class."""
 
 
 class Split(Tokenizer):
@@ -42,7 +45,7 @@ class WhitespaceAsterisk(Tokenizer):
 
 
 class WhitespaceAsteriskSlashMinus(Tokenizer):
-    """WhitespaceAsteriskSlashMinus-Tokenizer to be used as tokenizer. Splits strings
+    """WhitespaceAsteriskSlashMinus-Tokenizer splits strings
     on whitespace, asterisk(*), slashes (/\), and minus (-) symbols.
     """
 
@@ -59,6 +62,10 @@ class WhitespaceAsteriskSlashMinus(Tokenizer):
 
 
 class WhitespaceAsteriskSlashMinusEquals(Tokenizer):
+    """WhitespaceAsteriskSlashMinusEquals-Tokenizer splits strings
+    on whitespace, asterisk(*), slashes (/\), minus (-), and equals (=) symbols.
+    """
+
     def __init__(self):
         super().__init__()
         self._re = r"([^\s\\/\*=-]+)"
@@ -72,6 +79,9 @@ class WhitespaceAsteriskSlashMinusEquals(Tokenizer):
 
 
 class AnyWordCharacter(Tokenizer):
+    """Split string samples on the occurrence of any-word character,
+    i.e.[a-zA-Z_0-9]."""
+
     def __init__(self):
         super().__init__()
         self._re = r"(\w+)"
@@ -85,6 +95,8 @@ class AnyWordCharacter(Tokenizer):
 
 
 class CommaSeparation(Tokenizer):
+    """Split samples on any comma value."""
+
     def __call__(self, string):
         return string.split(",")
 
@@ -94,6 +106,7 @@ class CommaSeparation(Tokenizer):
 
 
 class TokenizerFactory:
+    """TokenizerFactory to create Tokenizer-Objects using their unique name tags."""
 
     _tokenizers = {
         "split": Split,
@@ -106,4 +119,15 @@ class TokenizerFactory:
 
     @classmethod
     def create(cls, name):
+        """Create a Tokenizer-Instance using its unique name tag.
+
+        Parameters
+        ----------
+        name: str
+            The unique name of the Tokenizer-class.
+
+        Returns
+        ------
+            : Tokenizer
+        """
         return cls._tokenizers[name]()
