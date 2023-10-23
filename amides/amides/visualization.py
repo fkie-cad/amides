@@ -1,6 +1,5 @@
 """This module contains components used for the visualization of 
-classification results.
-
+evaluation results and other data.
 """
 import matplotlib.pyplot as plt
 import seaborn as sbn
@@ -142,7 +141,7 @@ class CombinedDistributionPlot(Visualization):
         self._data = data
 
     def file_name(self):
-        return f"combined_dist_{self._name}"
+        return self._name
 
     def plot(self):
         self._figure, self._ax = plt.subplots(figsize=(6.4, 3.2))
@@ -428,9 +427,9 @@ class PrecisionRecallThresholdsPlot(Visualization):
 
     def file_name(self):
         if self._timestamp:
-            file_name = f"prt_plot_{self._name}_{self._timestamp}"
+            file_name = f"{self._name}_{self._timestamp}"
         else:
-            file_name = f"prt_plot_{self._name}"
+            file_name = self._name
 
         return file_name
 
@@ -572,7 +571,10 @@ class MultiPRThresholdsPlot(PrecisionRecallThresholdsPlot):
         super().__init__(timestamp, name)
 
     def file_name(self):
-        return f"multi_pr_plot_{self._name}_{self._timestamp}"
+        if self._timestamp:
+            return f"{self._name}_{self._timestamp}"
+        else:
+            return self._name
 
     def plot(self):
         self._figure, self._ax = plt.subplots(figsize=(6.4, 3.2))
@@ -692,9 +694,9 @@ class MultiTaintedPRThresholdsPlot(Visualization):
 
     def file_name(self):
         if self._timestamp:
-            file_name = f"multi_pr_plot_{self._name}_{self._timestamp}"
+            file_name = f"{self._name}_{self._timestamp}"
         else:
-            file_name = f"multi_pr_plot_{self._name}"
+            file_name = self._name
 
         return file_name
 

@@ -1,49 +1,18 @@
 #!/usr/bin/env python3
-
-from luqum.parser import parser
-from amides.features.normalize import Normalizer
-from luqum.visitor import TreeVisitor
-from luqum.tree import NoneItem
-from argparse import ArgumentParser
-from pathlib import Path
+"""This script enables to  extract values of different search fields from Sigma rules. Extracted search field values can be additionally
+normalized, i.e. split into lists of token strings using preprocessing, tokenization, and token elimination.
+"""
 
 import glob
 import os
 import yaml
 import json
 
-
-class MultiFieldVisitor(TreeVisitor):
-    def __init__(self, fields):
-        super(MultiFieldVisitor, self).__init__(track_parents=False)
-        self._fields = fields
-        self._values = []
-
-    @property
-    def values(self):
-        return self._values
-
-    def visit_search_field(self, node, context):
-        match = False
-        for field in self._fields:
-            if node.name == field or node.name.startswith(field + "|"):
-                match = True
-        if match:
-            context = self.child_context(node, NoneItem(), context)
-            context[node.name.split("|")[0]] = True
-        yield from self.generic_visit(node, context)
-
-    def visit_phrase(self, node, context):
-        for field in self._fields:
-            if context.get(field, False):
-                if node.value.startswith('"') and node.value.endswith('"'):
-                    self._values.append(node.value[1:-1])
-                else:
-                    self._values.append(node.value)
-        yield from self.generic_visit(node, context)
-
-    def visit_not(self, node, context):
-        yield NoneItem()
+from luqum.parser import parser
+from amides.features.normalize import Normalizer
+from amides.sigma import MultiFieldVisitor
+from argparse import ArgumentParser
+from pathlib import Path
 
 
 def main():
@@ -54,7 +23,7 @@ def main():
     normalizer = Normalizer(max_len_num_values=3)
     rules = []
     for rule_file in rule_files:
-        with open(rule_file) as f:
+        with open(rule_file, "r", encoding="utf-8") as f:
             docs = list(yaml.safe_load_all(f))
             rule = {}
             # rule["title"] = docs[0]["pre_detector"]["title"]

@@ -1,8 +1,14 @@
+"""This module contains token elimination classes used to eliminate tokens showing specific
+patterns from a list of tokens.
+"""
+
 import re
 from abc import ABC, abstractmethod
 
 
 class TokenEliminator(ABC):
+    """Base class for all token elimination classes."""
+
     @abstractmethod
     def __call__(self, token_list):
         pass
@@ -10,11 +16,21 @@ class TokenEliminator(ABC):
     @property
     @abstractmethod
     def name(self):
-        pass
+        """Return the name of the eliminator."""
 
 
 class NumericValues(TokenEliminator):
+    """NumericValues eliminates hex and decimal values whose number of characters/digits exceeds
+    a maximum length value."""
+
     def __init__(self, length):
+        """Create instances.
+
+        Parameter
+        --------
+        length: int
+            Maximum character length of hex/decimal values.
+        """
         super().__init__()
         self._re = r"^(?:0x)?[0-9a-f]{{{0},}}$".format(length + 1)
 
@@ -29,6 +45,8 @@ class NumericValues(TokenEliminator):
 
 
 class Strings(TokenEliminator):
+    """Eliminates strings that exceed a certain length."""
+
     def __init__(self, length):
         super().__init__()
         self._length = length

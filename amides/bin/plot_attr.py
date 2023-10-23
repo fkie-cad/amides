@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""This script illustrates the evaluation results of the rule attribution model evaluation. Depending
+on the specified plot option, this means:
+    (1) Distribution of the position of the correct rule evaded in the ranked list of potentially evaded rules
+    (2) Cumulative distribution of the position of the correct rule evaded in the ranked list of potentially evaded rules
+    (3) Both
+"""
 
 import sys
 import os
@@ -12,7 +18,6 @@ from amides.visualization import (
     CombinedDistributionPlot,
 )
 from amides.utils import (
-    get_current_timestamp,
     get_logger,
     set_log_level,
     load_args_from_file,
@@ -128,23 +133,21 @@ def main():
         "--eval-result",
         type=str,
         action="store",
-        help="Path to a pickled evaluation result",
+        help="Path to the RuleAttributionEvaluationResult",
     )
     parser.add_argument(
         "--plot",
         type=str,
         action="store",
         choices=["dist", "cum_dist", "combined"],
-        help="Type of result plot which should be created",
+        help="Type of plot that should be created",
+    )
+    parser.add_argument("--out-dir", type=str, action="store", help="Output directory")
+    parser.add_argument(
+        "--title", type=str, action="store", help="Title of the final figure"
     )
     parser.add_argument(
-        "--out-dir", type=str, action="store", help="Output directory to save plots"
-    )
-    parser.add_argument(
-        "--title", type=str, action="store", help="Title of the multi PR diagram"
-    )
-    parser.add_argument(
-        "--config", type=str, action="store", help="Path to config file."
+        "--config", type=str, action="store", help="Path of the config file."
     )
     args = parse_args_and_options(parser)
 

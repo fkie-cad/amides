@@ -7,7 +7,7 @@ from luqum.visitor import TreeVisitor
 from luqum.tree import NoneItem
 
 from amides.data import DataBunch, TrainTestValidSplit, TrainTestSplit
-from amides.events import Events, EventsError
+from amides.events import Events
 from amides.utils import (
     read_json_file,
     read_yaml_file,
@@ -348,7 +348,7 @@ class RuleDataset:
             rules = read_yaml_file(rule_path)
             self._filter = self._extract_rule_filters(rules)
             self._name = self._extract_rule_name(rules)
-        except (TypeError, IndexError) as err:
+        except (TypeError, IndexError, FileNotFoundError) as err:
             raise RuleDatasetError(self._name, "No rule filter available") from err
 
     def _extract_rule_filters(self, rules):
@@ -376,7 +376,7 @@ class RuleDataset:
         try:
             properties = read_yaml_file(properties_path)
             return properties[0]
-        except IndexError as err:
+        except (IndexError, TypeError, FileNotFoundError) as err:
             raise RuleDatasetError(self._name, "No properties.yml available") from err
 
     def _is_evasion_possible(self, properties):
@@ -490,8 +490,8 @@ class RuleSetDataset:
     dir_name_rule_type_map = {
         "process_creation": RuleType.WINDOWS_PROCESS_CREATION,
         "registry_event": RuleType.WINDOWS_REGISTRY_EVENT,
-        "web": RuleType.WEB_PROXY,
-        "proxy": RuleType.WEB_PROXY,
+        "powershell": RuleType.WINDOWS_POWERSHELL,
+        "proxyweb": RuleType.WEB_PROXY,
     }
 
     def __init__(self, name=None, set_type=None):
@@ -878,8 +878,8 @@ class RuleSetDataset:
                 rule_dir_name, rule_set_events_path, rule_set_rules_path
             )
             self._add_rule_dataset(rule_data)
-        except (EventsError, RuleDatasetError) as err:
-            _logger.error(err)
+        except RuleDatasetError as err:
+            _logger.info(err)
 
     def _load_rule_data(self, rule_dir_name, rule_set_events_path, rule_set_rules_path):
         rule_data_events_path = os.path.join(rule_set_events_path, rule_dir_name)

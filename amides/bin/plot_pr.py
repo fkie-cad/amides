@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""This script is used to create plots of evaluation results of misuse classification models. The script takes
+precision, recall, f1-score, and mcc-values from the EvaluationResult provided and illustrates them in a
+so called precision-recall-thresholds plot. The final plot is saved as .pdf-file into the specified output location.
+"""
 
 import sys
 import os
@@ -151,14 +155,14 @@ def main():
         "--result",
         type=str,
         action="append",
-        help="Path to a pickled evaluation result",
+        help="Path of a pickled EvaluationResult whose data should be visualized",
     )
     parser.add_argument(
         "--type",
         action="store",
         choices=["prt", "multi_prt"],
         default="prt",
-        help="Specifiy which type of precision-recall visualization should be made.",
+        help="Specifiy which type of precision-recall plot should be made",
     )
     parser.add_argument("--save", action="store_true", help="Save plots to file(s)")
     parser.add_argument(
@@ -167,13 +171,13 @@ def main():
     parser.add_argument(
         "--interactive",
         action="store_true",
-        help="Show plot when computation is finished. Requires manual interaction to close window and finish the script.",
+        help="Show plot when computation is finished. Requires manual interaction to close window and finish the script",
     )
     parser.add_argument(
         "--title",
         type=str,
         action="store",
-        help="Title of the precision-recall diagram.",
+        help="Title of the precision-recall diagram",
     )
     parser.add_argument(
         "--config", type=str, action="store", help="Path to config file."

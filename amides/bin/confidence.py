@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+"""This script creates a listing of  
+    (1) Sample
+    (2) Normalized sample (String of tokens that are left over after normalization)
+    (3) Features extracted using the feature extractor
+    (4) Number of entries in the feature vector that are non-zero
+    (5) Decision function value
+    (6) Confidence value (scaled decision function value)
+using a trained misuse classifcation model and its feature extractor, on a list of samples.
+"""
 
 import sys
 import os
@@ -282,7 +291,7 @@ def parse_args_and_options():
         "--benign-samples",
         action="store",
         type=str,
-        help="Path of a benign samples file",
+        help="Path of file (.txt) containing benign samples",
     )
     parser.add_argument(
         "--sigma-dir", action="store", type=str, help="Path of the sigma data directory"

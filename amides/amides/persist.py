@@ -1,14 +1,9 @@
-"""This module contains the functionality to persist and load intermediate 
-and final classification results. 
-
-This includes training and test data splits,
-training results (optmimization results), and final validation results.
-
+"""This module contains the functionality to save and load training and
+validation results.
 """
-
+import os
 import json
 import ndjson
-import os
 
 from zipfile import ZipFile, ZIP_DEFLATED
 from joblib import dump, load
@@ -20,7 +15,6 @@ from amides.data import DataSplit, TrainingResult, MultiTrainingResult
 from amides.evaluation import (
     BinaryEvaluationResult,
     RuleAttributionEvaluationResult,
-    NegativeStateEvaluationResult,
 )
 from amides.utils import get_logger
 
@@ -62,6 +56,17 @@ class Dumper:
         self._output_path = output_path
 
     def save_object(self, obj, file_name=None):
+        """Save given object.
+
+        Parameters
+        ----------
+        obj: object
+            Object which should be pickled.
+
+        file_name: Optional[str]
+            Name of the output file.
+
+        """
         if self._is_known_object(obj):
             self._save_known_object(obj, file_name)
         else:
@@ -176,7 +181,6 @@ class Dumper:
                 MultiTrainingResult,
                 BinaryEvaluationResult,
                 RuleAttributionEvaluationResult,
-                NegativeStateEvaluationResult,
                 dict,
             ),
         ):
@@ -217,19 +221,40 @@ class EventWriter:
 
     @staticmethod
     def create_filename(start_iso: str, end_iso: str):
+        """Create file name for the events that have been written to file."""
         start = start_iso.replace(":", "").replace("-", "")
         end = end_iso.replace(":", "").replace("-", "")
 
         return f"events_{start}_{end}"
 
-    def write(self, hits: list[dict], batch_size: int):
+    def write(self, hits: list[dict]):
+        """Write events to file in batches. If file exists, events are appended.
+
+        Parameters
+        ----------
+        hist: List[Dict]
+            List of events that should be written to file.
+        """
         with self._output_path.open("a+", encoding="utf-8") as out_file:
             self._write_batch(hits, out_file)
 
     def get_last_file(self) -> Optional[Path]:
+        """Returns the path of the last output file.
+
+        Returns
+        -------
+        :Optional[Path]
+        """
         return self._output_path if self._output_path.is_file() else None
 
     def read_last_file(self) -> set[str]:
+        """Read events already written to the last file.
+
+        Returns
+        -------
+        :set[str]
+            Set of unique events written to the last file.
+        """
         last_file = self.get_last_file()
         if last_file:
             with last_file.open("r", encoding="utf-8") as last_file:
@@ -255,7 +280,14 @@ class EventCompressor(EventWriter):
         self._compression = compression
         self._archive_path = self._output_path.parent / f"{self._output_path.name}.zip"
 
-    def write(self, hits: list[dict], batch_size: int):
+    def write(self, hits: list[dict]):
+        """Write list of events to .zip-file.
+
+        Parameters
+        ----------
+        hits: list[dict]
+            List of dictionaries.
+        """
         if self._archive_path.is_file():
             events = self._get_events()
             events.extend(hits)

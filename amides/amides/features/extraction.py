@@ -1,4 +1,5 @@
-"""This module contains functions and classes that are used for feature extraction."""
+"""This module contains functions and classes that are used for feature extraction from 
+data bunches."""
 
 import numpy as np
 
@@ -8,10 +9,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.preprocessing import FunctionTransformer
 
 from amides.data import DataBunch
-from amides.utils import get_current_timestamp, get_logger
-from amides.features.tokenization import AnyWordCharacter, CommaSeparation
-from amides.features.filter import NumericValues, Strings
-from amides.features.preprocessing import FilterDummyCharacters, Lowercase
+from amides.utils import get_logger
 
 _logger = get_logger(__name__)
 
@@ -22,10 +20,12 @@ class TextFeatureExtractor(ABC):
     @property
     @abstractmethod
     def name(self):
+        """Returns the name of the extractor."""
         return
 
     @abstractmethod
     def file_name(self):
+        """Returns the file name of the extractor."""
         return
 
     def extract(self, train_data, test_data=None, valid_data=None):
@@ -149,6 +149,7 @@ class TokenCountExtractor(TextFeatureExtractor):
 
     @property
     def vectorizer(self):
+        """Return the underlying vectorizer."""
         return self._vectorizer
 
     def file_name(self):
@@ -193,12 +194,14 @@ class TokenCountExtractor(TextFeatureExtractor):
         return transformed_samples
 
     def get_feature_names(self):
+        """Return feature names (vocabulary) learned by the extractor."""
         return self._vectorizer.get_feature_names_out()
 
 
 class TfidfExtractor(TextFeatureExtractor):
-    """Convert text data into n-dimensional darray of
-    Term Frequency-Inverse Document Frequency (TF-IDF) vectors."""
+    """Convert data bunches holding text data into n-dimensional darray of
+    Term Frequency-Inverse Document Frequency (TF-IDF) vectors.
+    """
 
     def __init__(
         self,
@@ -255,6 +258,7 @@ class TfidfExtractor(TextFeatureExtractor):
 
     @property
     def vectorizer(self):
+        """Return the underlying vectorizer."""
         return self._vectorizer
 
     def file_name(self):
@@ -298,6 +302,7 @@ class TfidfExtractor(TextFeatureExtractor):
         return transformed_samples
 
     def get_feature_names(self):
+        """Return feature names (vocabulary) learned by the extractor."""
         return self._vectorizer.get_feature_names_out()
 
 
@@ -664,6 +669,17 @@ class ProcessArgsExtractor(TextFeatureExtractor):
 
     @staticmethod
     def extract_process_args_from_event(event):
+        """Extract field values from 'process.args' from dictionary.
+
+        Parameters
+        ----------
+        event :dict
+            Event whose values should be extracted
+
+        Returns
+        -------
+        args: Optional[str]
+        """
         try:
             return event["process"]["args"]
         except KeyError:
@@ -789,6 +805,17 @@ class CommandlineExtractor(TextFeatureExtractor):
 
     @staticmethod
     def extract_commandline_from_event(event):
+        """Extract process command-line from winlog or SOCBED event.
+
+        Parameters
+        ----------
+        event :dict
+            Event whose values should be extracted
+
+        Returns
+        -------
+        args: Optional[str]
+        """
         proc_cmdline = CommandlineExtractor._extract_commandline_from_winlog(event)
         if proc_cmdline is None:
             proc_cmdline = CommandlineExtractor._extract_commandline(event)
@@ -810,7 +837,7 @@ class CommandlineExtractor(TextFeatureExtractor):
             return None
 
     def _adjust_data_labels_mismatch(self, data_bunch, transformed_data):
-        none_indices = np.where(transformed_data == None)[0]
+        none_indices = np.where(transformed_data is None)[0]
         adjusted_data = np.delete(transformed_data, none_indices, axis=0)
         adjusted_labels = np.delete(data_bunch.labels, none_indices, axis=0)
 
@@ -824,7 +851,6 @@ class CommandlineExtractor(TextFeatureExtractor):
         return adjusted_bunch
 
 
-
 def _is_valid_str_sequence_array(seq_iter):
     """Checks if list or np.ndarray of strings is provided.
 
@@ -836,8 +862,6 @@ def _is_valid_str_sequence_array(seq_iter):
     Returns
     -------
     result: Boolean
-        True/False.
-
     """
     if isinstance(seq_iter, (list, np.ndarray)):
         return all(isinstance(sequence, str) for sequence in seq_iter)

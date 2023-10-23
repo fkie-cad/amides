@@ -1,4 +1,4 @@
-"""This module contains functions and classes that aim to help with model selection."""
+"""This module contains functions and classes that aim to help with candidate selection."""
 from sklearn.model_selection import GridSearchCV, ParameterGrid
 from sklearn.utils.validation import check_is_fitted
 
@@ -28,7 +28,7 @@ class HyperParameterOptimizer:
         Parameters
         ----------
         estimator: sklearn.base.BaseEstimator
-            The estimator which should be optimised.
+            The estimator which should be optimized.
         param_grid: dict
             The parameter grid used as search space.
         search_method: sklearn.model_selection.BaseSearchCV
@@ -51,16 +51,20 @@ class HyperParameterOptimizer:
 
     @property
     def best_parameters(self):
+        """Returns the best (final) model parameters."""
         check_is_fitted(self._search_method)
         return self._search_method.best_params_
 
     @property
     def best_estimator(self):
+        """Returns the estimator already fitted on the given data and
+        the best parameters."""
         check_is_fitted(self._search_method)
         return self._search_method.best_estimator_
 
     @property
     def best_score(self):
+        """Returns the best score value of all tested candidates."""
         check_is_fitted(self._search_method)
         return self._search_method.best_score_
 
@@ -122,7 +126,7 @@ class HyperParameterOptimizer:
         _logger.debug(
             "Calculating prediction on: estimator=%s best_parameters=%s",
             self._search_method.best_estimator_.__class__.__name__,
-            self._search_method.best_parameters_,
+            self._search_method.best_params_,
         )
 
         return self._search_method.best_estimator_.predict(data.samples)
@@ -150,8 +154,7 @@ class HyperParameterOptimizer:
         """
         if not isinstance(train_test_split, TrainTestSplit):
             raise ValueError(
-                "data is of type {0}, but not of required"
-                "type TrainTestSplit".format(type(train_test_split))
+                f"data is of type {type(train_test_split)}, but not of required type TrainTestSplit"
             )
 
         self.search_best_parameters(train_test_split.train_data)
@@ -187,17 +190,32 @@ class GridSearch:
 
     @property
     def estimator(self):
+        """Returns the estimator."""
         return self._estimator
 
     @property
     def cv(self):
+        """Returns the CV instance."""
         return self._cv
 
     @property
     def param_grid(self):
+        """Return the parameter space used for candidate search."""
         return self._param_grid
 
     def fit(self, samples, labels):
+        """Search the parameter grid for the best candiate using
+        the given samples.
+
+        Parameters
+        ----------
+        samples :np.ndarray
+            Array of samples
+
+        labels :np.ndarray
+            Array of labels
+
+        """
         for params in self._param_grid:
             self._estimator.set_params(**params)
             self._estimator.fit(samples, labels)

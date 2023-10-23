@@ -14,10 +14,8 @@ from amides.features.tokenization import (
     Split,
     WhitespaceAsterisk,
     WhitespaceAsteriskSlashMinus,
-    AnyWordCharacter,
 )
 
-from amides.features.preprocessing import FilterDummyCharacters, Lowercase
 from amides.features.filter import NumericValues, Strings
 
 

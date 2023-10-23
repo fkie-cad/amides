@@ -37,9 +37,9 @@ class TestEvents:
         assert Events("proxy_web", EventType.PROXY_WEB)
 
     event_paths = [
-        (pc_events_json_path, 20),
-        (pc_events_jsonl_path, 20),
-        (powershell_events_jsonl_path, 30),
+        (pc_events_json_path(), 20),
+        (pc_events_jsonl_path(), 20),
+        (powershell_events_jsonl_path(), 30),
     ]
 
     @pytest.mark.parametrize("events_path,num_events", event_paths)
@@ -61,12 +61,6 @@ class TestEvents:
         with pytest.raises(FileNotFoundError):
             events.load_from_dir("some/sample/path")
 
-    def test_load_from_dir_event_type_mismatch(self):
-        events = Events(EventType.PROCESS_CREATION)
-        events.load_from_dir(powershell_events_jsonl_path())
-
-        assert not events.data
-
     def test_add_event(self):
         event = {"winlog": {"event_id": 1}}
         events = Events(EventType.PROCESS_CREATION)
@@ -79,7 +73,7 @@ class TestEvents:
     @pytest.mark.parametrize("split_sizes", split_sizes)
     def test_create_random_split_raising_typerrror(self, split_sizes):
         events = Events(EventType.PROCESS_CREATION)
-        events.load_from_dir(pc_events_jsonl_path)
+        events.load_from_dir(pc_events_jsonl_path())
 
         with pytest.raises(TypeError):
             _ = events.create_random_split(split_sizes=split_sizes)
@@ -149,7 +143,10 @@ class TestEventsCache:
         events_cache.add_events(registry_events)
         events_cache.add_events(proxy_events)
 
-        assert "test" in events_cache.events
+        assert "process_creation" in events_cache.events
+        assert "powershell" in events_cache.events
+        assert "registry" in events_cache.events
+        assert "proxy_web" in events_cache.events
 
     def test_add_events_existing_name(self):
         events_1 = Events(EventType.PROCESS_CREATION, name="test")

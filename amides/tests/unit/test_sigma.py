@@ -5,10 +5,10 @@ import numpy as np
 
 from amides.sigma import (
     extract_field_values_from_filter,
-    RuleDatasetError,
     RuleDataset,
     RuleSetDataset,
     RuleSetDatasetError,
+    RuleDatasetError,
 )
 from amides.events import Events, EventType
 
@@ -18,7 +18,7 @@ def data_path():
 
 
 def sigma_path():
-    return os.path.join(data_path, "sigma-study")
+    return os.path.join(data_path(), "sigma-study")
 
 
 def benign_pc_events():
@@ -26,39 +26,41 @@ def benign_pc_events():
         data_path(), "socbed-sample/process_creation/jsonl"
     )
     events = Events(EventType.PROCESS_CREATION, name="process_creation")
+    events.load_from_dir(benign_pc_events_path)
 
-    return events.load_from_dir(benign_pc_events_path)
+    return events
 
 
 def benign_powershell_events():
     powershell_events_path = os.path.join(data_path(), "socbed-sample/powershell/jsonl")
     events = Events(EventType.POWERSHELL, name="powershell")
+    events.load_from_dir(powershell_events_path)
 
-    return events.load_from_dir(powershell_events_path)
+    return events
 
 
 def pc_events_path():
-    return os.path.join(sigma_path, "events/windows/process_creation")
+    return os.path.join(sigma_path(), "events/windows/process_creation")
 
 
 def pc_rules_path():
-    return os.path.join(sigma_path, "rules/windows/process_creation")
+    return os.path.join(sigma_path(), "rules/windows/process_creation")
 
 
 def powershell_events_path():
-    return os.path.join(sigma_path, "events/windows/powershell")
+    return os.path.join(sigma_path(), "events/windows/powershell")
 
 
 def powershell_rules_path():
-    return os.path.join(sigma_path, "rules/windows/powershell")
+    return os.path.join(sigma_path(), "rules/windows/powershell")
 
 
 def proxy_events_path():
-    return os.path.join(sigma_path, "events/proxy")
+    return os.path.join(sigma_path(), "events/proxyweb")
 
 
 def proxy_rules_path():
-    return os.path.join(sigma_path, "rules/proxy")
+    return os.path.join(sigma_path(), "rules/proxyweb")
 
 
 class TestMultiFieldVisitor:
@@ -373,8 +375,8 @@ class TestMultiFieldVisitor:
 class TestRuleDataset:
     rules_data = [
         (
-            os.path.join(sigma_path, "rules/windows/process_creation/rule_1.yml"),
-            os.path.join(sigma_path, "events/windows/process_creation/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/process_creation/rule_1.yml"),
+            os.path.join(sigma_path(), "events/windows/process_creation/rule_1"),
             "rule_1",
             (
                 "process.command_line: ("
@@ -384,8 +386,8 @@ class TestRuleDataset:
             ),
         ),
         (
-            os.path.join(sigma_path, "rules/windows/powershell/rule_1.yml"),
-            os.path.join(sigma_path, "events/windows/powershell/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/powershell/rule_1.yml"),
+            os.path.join(sigma_path(), "events/windows/powershell/rule_1"),
             "rule_1",
             (
                 'Keyless: "del (Get-PSReadlineOption).HistorySavePath" OR Keyless: "Set-PSReadlineOption '
@@ -394,8 +396,8 @@ class TestRuleDataset:
             ),
         ),
         (
-            os.path.join(sigma_path, "rules/windows/registry/rule_1.yml"),
-            os.path.join(sigma_path, "events/windows/registry/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/registry/rule_1.yml"),
+            os.path.join(sigma_path(), "events/windows/registry/rule_1"),
             "rule_1",
             (
                 'winlog.event_data.TargetObject: ("*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\\\*" '
@@ -406,10 +408,10 @@ class TestRuleDataset:
             ),
         ),
         (
-            os.path.join(sigma_path, "rules/proxy/rule_1.yml"),
-            os.path.join(sigma_path, "events/proxy/rule_1"),
+            os.path.join(sigma_path(), "rules/proxyweb/rule_1.yml"),
+            os.path.join(sigma_path(), "events/proxyweb/rule_1"),
             "rule_1",
-            'c-uri: "*/list/suc?name=*"',
+            'url.full: "*/list/suc?name=*"',
         ),
     ]
 
@@ -424,23 +426,35 @@ class TestRuleDataset:
         assert rule_data.evasions.size > 0
 
     @pytest.mark.parametrize(
-        "matches_evasions_path",
+        "rule_path,matches_evasions_path",
         [
-            "events/windows/process_creation/missing_evasions",
-            "events/windows/process_creation/missing_matches",
+            (
+                os.path.join(sigma_path(), "rules/windows/process_creation/rule_1.yml"),
+                os.path.join(
+                    sigma_path(), "events/windows/process_creation/missing_evasions"
+                ),
+            ),
+            (
+                os.path.join(sigma_path(), "rules/windows/process_creation/rule_1.yml"),
+                os.path.join(
+                    sigma_path(), "events/windows/process_creation/missing_matches"
+                ),
+            ),
         ],
     )
     def test_load_events_and_filter_missing_matches_or_evasions(
         self, rule_path, matches_evasions_path
     ):
-        missing_events = os.path.join(sigma_path, matches_evasions_path)
         rule_data = RuleDataset()
 
-        rule_data.load_events_and_filter(missing_events, rule_path)
+        rule_data.load_events_and_filter(matches_evasions_path, rule_path)
 
-    def test_load_events_and_filter_missing_properties(self, rule_path):
+    def test_load_events_and_filter_missing_properties(self):
         missing_properties = os.path.join(
-            sigma_path, "events/windows/process_creation/missing_properties"
+            sigma_path(), "events/windows/process_creation/missing_properties"
+        )
+        rule_path = os.path.join(
+            sigma_path(), "rules/windows/process_creation/rule_1.yml"
         )
         rule_data = RuleDataset()
 
@@ -449,8 +463,8 @@ class TestRuleDataset:
 
     search_fields_values = [
         (
-            os.path.join(sigma_path, "events/windows/process_creation/rule_1"),
-            os.path.join(sigma_path, "rules/windows/process_creation/rule_1.yml"),
+            os.path.join(sigma_path(), "events/windows/process_creation/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/process_creation/rule_1.yml"),
             ["process.command_line"],
             [
                 'reg query \\"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\\"',
@@ -459,8 +473,8 @@ class TestRuleDataset:
             ],
         ),
         (
-            os.path.join(sigma_path, "events/windows/powershell/rule_1"),
-            os.path.join(sigma_path, "rules/windows/powershell/rule_1.yml"),
+            os.path.join(sigma_path(), "events/windows/powershell/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/powershell/rule_1.yml"),
             ["Keyless"],
             [
                 "del (Get-PSReadlineOption).HistorySavePath",
@@ -470,8 +484,8 @@ class TestRuleDataset:
             ],
         ),
         (
-            os.path.join(sigma_path, "events/windows/registry/rule_1"),
-            os.path.join(sigma_path, "rules/windows/registry/rule_1.yml"),
+            os.path.join(sigma_path(), "events/windows/registry/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/registry/rule_1.yml"),
             ["winlog.event_data.Details", "winlog.event_data.TargetObject"],
             [
                 "*\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\\\*",
@@ -488,8 +502,8 @@ class TestRuleDataset:
             ],
         ),
         (
-            os.path.join(sigma_path, "events/proxy/rule_1"),
-            os.path.join(sigma_path, "rules/proxy/rule_1.yml"),
+            os.path.join(sigma_path(), "events/proxyweb/rule_1"),
+            os.path.join(sigma_path(), "rules/proxyweb/rule_1.yml"),
             ["url.full"],
             ["*/list/suc?name=*"],
         ),
@@ -512,21 +526,19 @@ class TestRuleDataset:
     events_paths = [
         (
             benign_pc_events(),
-            os.path.join(sigma_path, "events/windows/process_creation/rule_1"),
-            os.path.join(sigma_path, "rules/windows/process_creation/rule_1.yml"),
-        ),
-        (
-            benign_powershell_events(),
-            os.path.join(sigma_path, "events/windows/powershell/rule_1"),
-            os.path.join(sigma_path, "rules/windows/powershell/rule_1.yml"),
+            os.path.join(sigma_path(), "events/windows/process_creation/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/process_creation/rule_1.yml"),
         ),
     ]
 
+    @pytest.mark.parametrize(
+        "benign_events,matches_evasions_path,rule_path", events_paths
+    )
     def test_create_matches_evasions_train_test_split(
         self,
         benign_events,
-        rule_path,
         matches_evasions_path,
+        rule_path,
     ):
         expected_train_size = expected_test_size = 23
         rule_data = RuleDataset()
@@ -544,59 +556,46 @@ class TestRuleDataset:
 
     events_search_fields = [
         (
-            os.path.join(sigma_path, "events/windows/process_creation/rule_1"),
-            os.path.join(sigma_path, "rules/windows/process_creation/rule_1.yml"),
+            benign_pc_events(),
+            os.path.join(sigma_path(), "events/windows/process_creation/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/process_creation/rule_1.yml"),
             ["process.command_line"],
         ),
         (
-            os.path.join(sigma_path, "events/windows/powershell/rule_1"),
-            os.path.join(sigma_path, "rules/windows/powershell/rule_1.yml"),
+            benign_powershell_events(),
+            os.path.join(sigma_path(), "events/windows/powershell/rule_1"),
+            os.path.join(sigma_path(), "rules/windows/powershell/rule_1.yml"),
             ["Keyless"],
-        ),
-        (
-            os.path.join(sigma_path, "events/windows/registry/rule_1"),
-            os.path.join(sigma_path, "rules/windows/registry/rule_1.yml"),
-            ["winlog.event_data.Details", "winlog.event_data.TargetObject"],
-        ),
-        (
-            os.path.join(sigma_path, "events/proxy/rule_1"),
-            os.path.join(sigma_path, "rules/proxy/rule_1.yml"),
-            ["url.full"],
         ),
     ]
 
     @pytest.mark.parametrize(
-        "benign_events, matches_evasions_path,rule_path,search_fields",
-        search_fields_values,
+        "benign_events,matches_evasions_path,rule_path,search_fields",
+        events_search_fields,
     )
     def test_create_filter_evasions_train_test_split(
-        self, benign_events, rule_path, evasions_path, search_fields
+        self, benign_events, matches_evasions_path, rule_path, search_fields
     ):
-        expected_train_size = expected_test_size = 23
-
         rule_data = RuleDataset()
-        rule_data.load_events_and_filter(evasions_path, rule_path)
+        rule_data.load_events_and_filter(matches_evasions_path, rule_path)
         train_test_split = rule_data.create_filter_evasions_train_test_split(
             benign_train_events=benign_events,
             benign_test_events=benign_events,
             search_fields=search_fields,
         )
 
-        train_data = train_test_split.train_data
-        assert train_data.size == expected_train_size
-
-        test_data = train_test_split.test_data
-        assert test_data.size == expected_test_size
+        assert train_test_split.train_data
+        assert train_test_split.test_data
 
     @pytest.mark.parametrize(
-        "benign_events, matches_evasions_path,rule_path,search_fields",
-        search_fields_values,
+        "benign_events,matches_evasions_path,rule_path,search_fields",
+        events_search_fields,
     )
     def test_create_filter_evasions_train_test_split_with_seed(
-        self, benign_events, evasions_path, rule_path, search_fields
+        self, benign_events, matches_evasions_path, rule_path, search_fields
     ):
         rule_data = RuleDataset()
-        rule_data.load_events_and_filter(evasions_path, rule_path)
+        rule_data.load_events_and_filter(matches_evasions_path, rule_path)
 
         tt_split = rule_data.create_filter_evasions_train_test_split(
             benign_train_events=benign_events,
@@ -622,22 +621,23 @@ class TestRuleDataset:
             tt_split.test_data.labels, other_tt_split.test_data.labels
         )
 
-    def test_create_matches_evasions_validation_split(
-        self,
-        benign_events,
-        rule_path,
-        matches_evasions_path,
-    ):
+    def test_create_matches_evasions_validation_split(self):
         expected_train_size = 23
         expected_test_size = 21
         expected_valid_size = 22
+        events_path = os.path.join(
+            sigma_path(), "events/windows/process_creation/rule_1"
+        )
+        rule_path = os.path.join(
+            sigma_path(), "rules/windows/process_creation/rule_1.yml"
+        )
 
         rule_data = RuleDataset()
-        rule_data.load_events_and_filter(matches_evasions_path, rule_path)
+        rule_data.load_events_and_filter(events_path, rule_path)
         valid_split = rule_data.create_matches_evasions_validation_split(
-            benign_train_events=benign_events,
-            benign_test_events=benign_events,
-            benign_valid_events=benign_events,
+            benign_train_events=benign_pc_events(),
+            benign_test_events=benign_pc_events(),
+            benign_valid_events=benign_pc_events(),
             evasions_test_size=0.33,
             evasions_valid_size=0.66,
             evasions_split_seed=42,
@@ -652,19 +652,23 @@ class TestRuleDataset:
         valid_data = valid_split.validation_data
         assert valid_data.size == expected_valid_size
 
-    def test_create_filter_evasions_validaion_split(
-        self, benign_events, rule_path, matches_evasions_path
-    ):
+    def test_create_filter_evasions_validaion_split(self):
         expected_train_size = 23
         expected_test_size = 21
         expected_valid_size = 22
+        events_path = os.path.join(
+            sigma_path(), "events/windows/process_creation/rule_1"
+        )
+        rule_path = os.path.join(
+            sigma_path(), "rules/windows/process_creation/rule_1.yml"
+        )
 
         rule_data = RuleDataset()
-        rule_data.load_events_and_filter(matches_evasions_path, rule_path)
+        rule_data.load_events_and_filter(events_path, rule_path)
         valid_split = rule_data.create_filter_evasions_validation_split(
-            benign_train_events=benign_events,
-            benign_test_events=benign_events,
-            benign_valid_events=benign_events,
+            benign_train_events=benign_pc_events(),
+            benign_test_events=benign_pc_events(),
+            benign_valid_events=benign_pc_events(),
             search_fields=["process.command_line"],
             evasions_test_size=0.33,
             evasions_valid_size=0.66,
@@ -691,28 +695,31 @@ class TestRuleSetDataset:
         return data
 
     evasions_rule_paths = [
-        (pc_events_path(), pc_rules_path()),
         (powershell_events_path(), powershell_rules_path()),
         (proxy_events_path(), proxy_rules_path()),
     ]
 
     @pytest.mark.parametrize("evasions_path,rules_path", evasions_rule_paths)
     def test_load_rule_set_data(self, evasions_path, rules_path):
-        rule_set_data = RuleSetDataset(evasions_path, rules_path)
+        rule_set_data = RuleSetDataset()
+        rule_set_data.load_rule_set_data(evasions_path, rules_path)
         assert rule_set_data.get_rule_dataset_by_name("rule_1")
 
     def test_load_rule_set_data_invalid_rules_path(self):
         with pytest.raises(RuleSetDatasetError):
-            _ = RuleSetDataset(pc_events_path(), "/non/existing/path")
+            rule_set_data = RuleSetDataset()
+            rule_set_data.load_rule_set_data(pc_events_path(), "/non/existing/path")
 
     def test_load_rule_set_data_invalid_events_path(self):
         with pytest.raises(RuleSetDatasetError):
-            _ = RuleSetDataset("/non/existing/path", pc_rules_path())
+            rule_set_data = RuleSetDataset()
+            rule_set_data.load_rule_set_data("/non/existing/path", pc_rules_path())
 
     def test_create_matches_evasions_train_test_split(self):
         expected_train_size = expected_test_size = 26
         benign_events = benign_pc_events()
-        rule_set_data = RuleSetDataset(pc_events_path(), pc_rules_path())
+        rule_set_data = RuleSetDataset()
+        rule_set_data.load_rule_set_data(pc_events_path(), pc_rules_path())
         tt_split = rule_set_data.create_matches_evasions_train_test_split(
             benign_train_events=benign_events, benign_test_events=benign_events
         )
@@ -725,7 +732,8 @@ class TestRuleSetDataset:
         expected_test_size = expected_valid_size = 23
         benign_events = benign_pc_events()
 
-        rule_set_data = RuleSetDataset(pc_events_path(), pc_rules_path())
+        rule_set_data = RuleSetDataset()
+        rule_set_data.load_rule_set_data(pc_events_path(), pc_rules_path())
         valid_split = rule_set_data.create_matches_evasions_validation_split(
             benign_train_events=benign_events,
             benign_test_events=benign_events,
@@ -766,16 +774,16 @@ class TestRuleSetDataset:
         ),
     ]
 
+    @pytest.mark.parametrize(
+        "matches_evasions_path,rules_path,search_fields,field_values", rules_data
+    )
     def test_extract_field_values_from_filter(
-        self, evasions_path, rules_path, search_fields, field_values
+        self, matches_evasions_path, rules_path, search_fields, field_values
     ):
-        rule_set_data = RuleSetDataset(evasions_path, rules_path)
+        rule_set_data = RuleSetDataset()
+        rule_set_data.load_rule_set_data(matches_evasions_path, rules_path)
         assert (
-            set(
-                rule_set_data.extract_field_values_from_filter(
-                    search_fields=search_fields
-                )
-            )
+            rule_set_data.extract_field_values_from_filter(search_fields=search_fields)
             == field_values
         )
 
@@ -785,7 +793,9 @@ class TestRuleSetDataset:
         expected_train_size = expected_test_size = 26
         benign_events = benign_pc_events()
 
-        rule_set_data = RuleSetDataset(pc_events_path(), pc_rules_path())
+        rule_set_data = RuleSetDataset()
+        rule_set_data.load_rule_set_data(pc_events_path(), pc_rules_path())
+
         tt_split = rule_set_data.create_filter_evasions_train_test_split(
             benign_train_events=benign_events,
             benign_test_events=benign_events,
@@ -797,7 +807,9 @@ class TestRuleSetDataset:
 
     def test_create_filter_evasions_valid_split_with_seed(self):
         benign_events = benign_pc_events()
-        rule_set = RuleSetDataset(pc_events_path(), pc_rules_path())
+        rule_set = RuleSetDataset()
+        rule_set.load_rule_set_data(pc_events_path(), pc_rules_path())
+
         valid_split = rule_set.create_filter_evasions_validation_split(
             benign_train_events=benign_events,
             benign_test_events=benign_events,

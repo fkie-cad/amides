@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""This script is used to create a precision-recall plot of multiple evaluation results of models whose training data has been tainted.
+The idea of this plot is to visualize the influence of different fractions of tainted training data on the classification performance.
+For better comparison, a baseline result (.e.g. with the same parameters, but without tainted data) is provided.
+In case of multiple evaluation results (for multiple fractions of tainted data), the script calculates the average precision and 
+recall for each fraction of tainting and plots the average values into the figure.
+"""
 
 import sys
 import os
@@ -137,28 +143,28 @@ def main():
         "-b",
         type=str,
         action="store",
-        help="Path of the base evaluation result without tainted benign samples.",
+        help="Path of the baseline evaluation result (without tainted benign samples)",
     )
     parser.add_argument(
         "--low-tainted",
         "-lt",
         type=str,
         action="append",
-        help="Path of evaluation result with low percentage of tainted samples (10%)",
+        help="Path of evaluation result(s) with low tainting (10%)",
     )
     parser.add_argument(
         "--medium-tainted",
         "-mt",
         type=str,
         action="append",
-        help="Path of evaluation result with medium percentage of tainted samples (20%)",
+        help="Path of evaluation result(s) with medium tainting (20%)",
     )
     parser.add_argument(
         "--high-tainted",
         "-ht",
         type=str,
         action="append",
-        help="Path of evaluation result with high  percentage of tainted samples (30%)",
+        help="Path of evaluation result(s) with high tainting (30%)",
     )
     parser.add_argument(
         "--out-dir", "-o", type=str, action="store", help="Path of the output directory"

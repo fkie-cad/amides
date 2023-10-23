@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+"""This script trains rule attribution models for the other rule event types."""
+
 
 import argparse
 import json

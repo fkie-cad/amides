@@ -1,3 +1,4 @@
+"""This module holds classes used for model evaluation."""
 import math
 import numpy as np
 
@@ -39,10 +40,24 @@ class BinaryEvaluationResult:
 
     @property
     def thresholds(self):
+        """Returns array of threshold values.
+
+        Returns
+        -------
+        :np.ndarray
+            Array of threshold values.
+        """
         return self._thresholds
 
     @property
     def precision(self):
+        """Returns array of precision values.
+
+        Returns
+        -------
+        :np.ndarray
+            Array of threshold values.
+        """
         return self._precision
 
     @precision.setter
@@ -51,6 +66,13 @@ class BinaryEvaluationResult:
 
     @property
     def recall(self):
+        """Returns array of recall values.
+
+        Returns
+        -------
+        :np.ndarray
+            Array of recall values.
+        """
         return self._recall
 
     @recall.setter
@@ -59,10 +81,24 @@ class BinaryEvaluationResult:
 
     @property
     def f1_scores(self):
+        """Returns array of f1-score values.
+
+        Returns
+        -------
+        :np.ndarray
+            Array of f1-score values.
+        """
         return self._f1_scores
 
     @property
     def mccs(self):
+        """Returns array of mcc values.
+
+        Returns
+        -------
+        :np.ndarray
+            Array of mcc values.
+        """
         return self._mccs
 
     @property
@@ -87,9 +123,17 @@ class BinaryEvaluationResult:
         self._calculate_no_skill(labels)
 
     def optimal_threshold_index(self):
+        """Returns the optimal threshold index of the maximum f1-score value.
+
+        Returns
+        -------
+        :int
+            Index of the maximum f1-score.
+        """
         return np.argmax(self._f1_scores)
 
     def file_name(self):
+        """Build and return the file name starting with 'eval_rslt_'"""
         file_name = (
             self.name if self.name.startswith("eval_rslt") else f"eval_rslt_{self.name}"
         )
@@ -100,6 +144,7 @@ class BinaryEvaluationResult:
         return file_name
 
     def create_info_dict(self):
+        """Creates and returns dict containing meta information in human-readable format."""
         optimal_index = self.optimal_threshold_index()
         default_index = self.default_threshold_index()
         info = {
@@ -137,6 +182,7 @@ class BinaryEvaluationResult:
         return info
 
     def default_threshold_index(self):
+        """Returns the default threshold index."""
         default_idx = np.where(self._thresholds == 0.5)
 
         if len(default_idx[0]) > 0:
@@ -166,7 +212,6 @@ class BinaryEvaluationResult:
 
     def _evaluate_with_given_thresholds(self, labels, predict):
         for i, threshold in enumerate(self._thresholds):
-            # print(f"Iteration: {i}")
             new_predict = np.where(predict >= threshold, 1, 0)
             self._precision[i] = precision_score(
                 y_true=labels, y_pred=new_predict, zero_division=1
@@ -198,274 +243,9 @@ class BinaryEvaluationResult:
         self._no_skill = len(labels[labels == 1]) / len(labels)
 
 
-class RawBinaryEvaluationResult:
-    """RawBinaryEvaluationResult to evaluate classification result against custom
-    threshold values."""
-
-    def __init__(self, thresholds, name=None, timestamp=None):
-        """Create objects.
-
-        Parameters
-        ---------
-        thresholds: iterable
-            Iterable of threshold values. Values are used for classifer evaluation.
-        name: Optional[str]
-            Name of the evaluation result (Optional as it is mainly used for pickling)
-        timestamp: Optional[str]
-            Timestamp when result was created (Optional)
-        """
-        super().__init__(name, timestamp)
-        self._thresholds = thresholds
-        self._num_thresholds = len(thresholds)
-
-        self._tp = np.zeros(shape=(self._num_thresholds,))
-        self._fp = np.zeros(shape=(self._num_thresholds,))
-        self._tn = np.zeros(shape=(self._num_thresholds,))
-        self._fn = np.zeros(shape=(self._num_thresholds,))
-
-    @property
-    def name(self):
-        if self._name is None:
-            self._build_name_from_params()
-
-        return self._name
-
-    @property
-    def tp(self):
-        return self._tp
-
-    @property
-    def fp(self):
-        return self._fp
-
-    @property
-    def tn(self):
-        return self._tn
-
-    @property
-    def fn(self):
-        return self._fn
-
-    @property
-    def thresholds(self):
-        return self._thresholds
-
-    def file_name(self):
-        file_name = (
-            self.name
-            if self.name.startswith("th_eval_rslt")
-            else f"th_eval_rslt_{self.name}"
-        )
-
-        return f"{file_name}_{self._timestamp}"
-
-    def create_info_dict(self):
-        optimal_index = self.optimal_threshold_index()
-        precision = self._calculate_precision()
-        recall = self._calculate_recall()
-        f1_score = self._calculate_f_score()
-        mcc = self._calculate_mcc()
-
-        info = {
-            "name": self.name,
-            "timestamp": self._timestamp,
-            "thresholds": {
-                "num_thresholds": self._num_thresholds,
-                "min_threshold_value": np.amin(self._thresholds),
-                "max_threshold_value": np.amax(self._thresholds),
-            },
-            "max": {
-                "f1_score": np.amax(f1_score),
-                "precision": np.amax(precision),
-                "recall": np.amax(recall),
-                "mcc": np.amax(mcc),
-            },
-            "optimum": {
-                "threshold": self._thresholds[optimal_index],
-                "f1_score": f1_score[optimal_index],
-                "precision": precision[optimal_index],
-                "recall": recall[optimal_index],
-                "mcc": mcc[optimal_index],
-            },
-        }
-
-        return info
-
-    def calculate_precision(self):
-        precision = np.zeros(shape=(self._num_thresholds,))
-
-        for i in range(0, self._num_thresholds):
-            if self._tp[i] + self._fp[i] == 0:
-                precision[i] = 1.0
-            else:
-                precision[i] = self._tp[i] / (self._tp[i] + self._fp[i])
-
-        return precision
-
-    def calculate_recall(self):
-        recall = np.zeros(shape=(self._num_thresholds,))
-
-        for i in range(0, self._num_thresholds):
-            if self._tp[i] + self._fn[i] == 0:
-                recall[i] = 1.0
-            else:
-                recall[i] = self._tp[i] / (self._tp[i] + self._fn[i])
-
-        return recall
-
-    def calculate_f_score(self):
-        precision = self.calculate_precision()
-        recall = self.calculate_recall()
-        f1_score = np.zeros(shape=(self._num_thresholds,))
-        beta_squared = pow(1.0, 2)
-
-        for i in range(0, self._num_thresholds):
-            f1_score[i] = (1 + beta_squared) * (
-                (precision[i] * recall[i]) / (beta_squared * precision[i] + recall[i])
-            )
-
-        return f1_score
-
-    def _calculate_mcc(self):
-        mcc = np.zeros(shape=(self._num_thresholds,))
-
-        for i in range(0, self._num_thresholds):
-            mcc[i] = (
-                self._tp[i] * self._tn[i] - self._fp[i] * self._fn[i]
-            ) / math.sqrt(
-                (
-                    (self._tp[i] + self._fp[i])
-                    * (self._tp[i] + self._fn[i])
-                    * (self._tn[i] + self._fp[i])
-                    * (self._tn[i] + self._fn[i])
-                )
-            )
-
-        return mcc
-
-    def _calculate_no_skill(self):
-        no_skill = (self._tp[0] + self._fn[0]) / (
-            self._tp[0] + self._fp[0] + self._tn[0] + self._fn[0]
-        )
-
-        return no_skill
-
-    def evaluate(self, labels, predict):
-        for idx, threshold in enumerate(self._thresholds):
-            adapted_predict = self._predict(threshold, predict)
-            self._update_data(idx, adapted_predict, labels)
-
-    def _predict(self, threshold, predict):
-        return (predict[:] >= threshold).astype("int")
-
-    def _update_data(self, threshold_idx, predict, labels):
-        for i in range(0, len(predict)):
-            if self._is_true_positive(labels[i], predict[i]):
-                self._tp[threshold_idx] += 1
-            elif self._is_true_negative(labels[i], predict[i]):
-                self._tn[threshold_idx] += 1
-            elif self._is_false_positive(labels[i], predict[i]):
-                self._fp[threshold_idx] += 1
-            elif self._is_false_negative(labels[i], predict[i]):
-                self._fn[threshold_idx] += 1
-
-    def _build_name_from_params(self):
-        self._name = f"th_eval_rslt_{self._num_thresholds}"
-
-    def _is_false_negative(self, label, predict):
-        return label == 1 and predict == 0
-
-    def _is_true_positive(self, label, predict):
-        return label == 1 and predict == 1
-
-    def _is_false_positive(self, label, predict):
-        return label == 0 and predict == 1
-
-    def _is_true_negative(self, label, predict):
-        return label == 0 and predict == 0
-
-
-class NegativeStateEvaluationResult(RawBinaryEvaluationResult):
-    def __init__(self, origin_labels, thresholds, name=None, timestamp=None):
-        super().__init__(thresholds, name, timestamp)
-        self._init_negative_sample_state(origin_labels)
-        self._num_positive_samples = 0
-
-    def _init_negative_sample_state(self, origin_labels):
-        negative_samples_end = self._get_negative_samples_end(origin_labels)
-        self._negative_samples_state = np.zeros(
-            shape=(
-                self._num_thresholds,
-                negative_samples_end,
-            ),
-            dtype="int64",
-        )
-
-    @property
-    def negative_sample_state(self):
-        return self._negative_samples_state
-
-    def file_name(self):
-        if self.name.startswith("state_eval_rslt"):
-            file_name = self.name
-        else:
-            file_name = f"state_eval_rslt_{self.name}"
-
-        return f"{file_name}_{self._timestamp}"
-
-    def _calculate_no_skill(self):
-        try:
-            num_total_samples = (
-                len(self._negative_samples_state[0]) + self._num_positive_samples
-            )
-        except IndexError:
-            num_total_samples = self._num_positive_samples
-
-        self._no_skill = self._num_positive_samples / num_total_samples
-
-    def evaluate(self, predict, labels):
-        self._update_num_positive_samples(labels)
-        negative_samples_end = self._get_negative_samples_end(labels)
-
-        for idx, threshold in enumerate(self._thresholds):
-            adapted_predict = self._predict(threshold, predict)
-            overall_predict = self._get_negative_samples_status(
-                adapted_predict, negative_samples_end, idx
-            )
-            self._update_data(idx, overall_predict, labels)
-            self._update_negative_samples_state(
-                overall_predict, labels, negative_samples_end, idx
-            )
-
-    def _get_negative_samples_end(self, labels):
-        return len([label for label in labels if label == 0])
-
-    def _update_num_positive_samples(self, labels):
-        self._num_positive_samples = +len(labels[labels == 1])
-
-    def _get_negative_samples_status(self, predict, negative_samples_end, idx):
-        predict[:negative_samples_end] = (
-            self._negative_samples_state[idx] | predict[:negative_samples_end]
-        ).astype(int)
-
-        return predict
-
-    def _update_negative_samples_state(
-        self, predict, labels, negative_samples_end, idx
-    ):
-        self._negative_samples_state[idx] = (
-            self._negative_samples_state[idx]
-            | (
-                (labels[:negative_samples_end] == 0)
-                & (predict[:negative_samples_end] == 1)
-            )
-        ).astype(int)
-
-    def _build_name_from_params(self):
-        self._name = f"multi_eval_rslt_{self._metric}_{self._num_thresholds}"
-
-
 class RuleAttributionEvaluationResult:
+    """This class evaluates the"""
+
     def __init__(self, num_rules=130, name=None, timestamp=None):
         self._name = name
         self._timestamp = (
@@ -486,6 +266,7 @@ class RuleAttributionEvaluationResult:
 
     @property
     def name(self):
+        """Return the name of the result."""
         if self._name is None:
             self._name = self._build_name_from_params()
 
@@ -493,37 +274,46 @@ class RuleAttributionEvaluationResult:
 
     @property
     def tp(self):
+        """Returns the number of true positives (tp)."""
         return self._tp
 
     @property
     def fp(self):
+        """Returns the number of false positives (tp)."""
         return self._fp
 
     @property
     def tn(self):
+        """Returns the number of true negatives (tn)."""
         return self._tn
 
     @property
     def fn(self):
+        """Returns the number of false negatives (fn)."""
         return self._fn
 
     @property
     def num_total_samples(self):
+        """Returns the total number of samples seen."""
         return self._num_total_samples
 
     @property
     def top_n_hits(self):
+        """Returns the top-n hits."""
         return self._top_n_hits
 
     @property
     def top_n_hit_rates(self):
+        """Returns the top-n hit rates."""
         return self._top_n_hit_rates
 
     @property
     def misses(self):
+        """Returns the number of misses."""
         return self._misses
 
     def file_name(self):
+        """Creates a file name for the result."""
         file_name = (
             self.name
             if self.name.startswith("eval_rl_attr")
@@ -536,6 +326,7 @@ class RuleAttributionEvaluationResult:
         return file_name
 
     def create_info_dict(self):
+        """Crates info dict containing meta information."""
         info = {
             "name": self._name,
             "timestamp": self._timestamp,
@@ -561,6 +352,7 @@ class RuleAttributionEvaluationResult:
         return info
 
     def calculate_precision(self):
+        """Calculates and returns the precision array."""
         try:
             precision = self._tp / (self._tp + self._fp)
         except ZeroDivisionError:
@@ -569,6 +361,7 @@ class RuleAttributionEvaluationResult:
         return precision
 
     def calculate_recall(self):
+        """Calculates and returns the recall array."""
         try:
             recall = self._tp / (self._tp + self._fn)
         except ZeroDivisionError:
@@ -577,9 +370,11 @@ class RuleAttributionEvaluationResult:
         return recall
 
     def calculate_no_skill(self):
+        """Calculates and returns the no-skill values."""
         return (self._tp + self._fn) / (self._tp + self._fp + self._tn + self._fn)
 
     def calculate_f_score(self, beta=1):
+        """Calculates and returns the f1-score values."""
         precision = self.calculate_precision()
         recall = self.calculate_recall()
         beta_squared = pow(beta, 2)
@@ -591,12 +386,16 @@ class RuleAttributionEvaluationResult:
         return f_score
 
     def calculate_top_n_hit_rates(self):
+        """Calculate the top-n-hit-rates."""
         self._top_n_hit_rates = self._top_n_hits / sum(self._top_n_hits)
 
     def calculate_miss_rate(self):
+        """Calculate the miss rate."""
         return self._calculate_rate(self._misses, self._tp)
 
     def evaluate_rule_attributions(self, rule_name, rule_attributions):
+        """Evaluate the given rule attribution by checking at which position
+        the correct rule name appears in the ranked list of potentially evaded rules."""
         self._num_total_samples += 1
 
         if self._is_true_positive(rule_name, rule_attributions):
@@ -657,10 +456,3 @@ class RuleAttributionEvaluationResult:
             return f"eval_rl_attr_{self._timestamp}"
 
         return "eval_rl_attr"
-
-
-def calculate_hyperplane_distances(svc, data):
-    if isinstance(data, sparse.csr_matrix):
-        return svc.decision_function(data) / sparse.linalg.norm(svc.coef_.copy())
-    else:
-        return svc.decision_function(data) / np.linalg.norm(svc.coef_.copy())

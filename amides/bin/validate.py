@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+"""This script is used to validate models trained for the AMIDES misuse classification and rule attribution components
+using a set of benign samples and Sigma rule evasions. Benign samples are provided in the same format as for train.py.
+
+After loading estimator and feature extractor from the given TrainingResult, the feature extractor
+transforms the given benign validation samples and Sigma evasions into feature vectors. Afterwards, the model is used
+to calculate decision function values for the transformed validation samples. In case of a MultiTrainingResult, the
+step is repeated for each rule model provided.
+
+The calculated decision function values and feature vectors are stored together with the rest of the TrainingResult into
+a ValidationResult, which is then pickled. In case of a rule attribution model validation, ValidationResult objects for 
+each rule models are pickled into a single MultiValidationResult object.
+"""
 
 import sys
 import os
@@ -17,7 +29,7 @@ from amides.utils import (
 from amides.persist import Dumper, PersistError
 from amides.features.extraction import CommandlineExtractor
 from amides.features.normalize import normalize
-from amides.evaluation import BinaryEvaluationResult, NegativeStateEvaluationResult
+from amides.evaluation import BinaryEvaluationResult
 from amides.data import (
     DataBunch,
     MultiTrainingResult,
@@ -218,41 +230,6 @@ def prepare_validation_result(
     return valid_result
 
 
-def evaluate_multi_model(multi_result: MultiValidationResult):
-    _logger.info("Evaluating model %s", multi_result.name)
-    check_benign_valid_samples()
-    pc_rules_data = load_pc_rules_dataset()
-    results = multi_result.results.values()
-
-    result = next(results)
-    rule_dataset = pc_rules_data.get_rule_dataset_by_name(result.name)
-    validation_data = prepare_validation_data(result, rule_dataset)
-
-    multi_eval_result = NegativeStateEvaluationResult(
-        thresholds=np.arange(-1, 1, 0.004),
-        origin_labels=validation_data.labels,
-        name=multi_result.name,
-        timestamp=multi_result.timestamp,
-    )
-
-    for result in results:
-        rule_dataset = pc_rules_data.get_rule_dataset_by_name(result.name)
-        validation_data = prepare_validation_data(result, rule_dataset)
-
-        if result.predict is not None:
-            predict = result.predict
-        else:
-            predict = calculate_predict(result.estimator, validation_data.samples)
-
-        try:
-            scaled_df_values = scale_df_values(predict, result.scaler)
-            multi_eval_result.evaluate(scaled_df_values, validation_data.labels)
-        except (ValueError, IndexError):
-            continue
-
-    save_result(multi_eval_result)
-
-
 def validate_multi_model(multi_result: MultiTrainingResult):
     _logger.info("Validating model %s", multi_result.name)
     check_benign_valid_samples()
@@ -270,8 +247,6 @@ def validate_multi_model(multi_result: MultiTrainingResult):
         multi_valid_result.add_result(valid_result)
 
     save_result(multi_valid_result)
-
-    return multi_valid_result
 
 
 def evaluate_single_model(valid_result: ValidationResult):
@@ -333,10 +308,6 @@ def validate_model(result_path: str):
             evaluate_single_model(result)
     elif type(result) is MultiTrainingResult:
         valid_result = validate_multi_model(result)
-        if evaluate:
-            evaluate_multi_model(valid_result)
-    elif type(result) is MultiValidationResult:
-        evaluate_multi_model(result)
     else:
         _logger.error("Loaded object is not of supported result type. Exiting.")
         sys.exit(1)
@@ -422,32 +393,34 @@ def parse_args_and_options(parser: argparse.ArgumentParser):
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Validate misuse and rule attribution models for AMIDES"
+    )
     parser.add_argument(
         "--result-path",
         type=str,
         action="append",
-        help="Path of a pickled TrainingResult(s) or MultiTrainingResult(s)",
+        help="Path of a pickled TrainingResult or MultiTrainingResult",
     )
     parser.add_argument(
         "--benign-samples",
         type=str,
         action="store",
-        help="Path to benign events used for evaluation",
+        help="Path of the benign validation samples file (.txt)",
     )
     parser.add_argument(
         "--events-dir",
         type=str,
         nargs="?",
         action="store",
-        help="Path of the directory where the rule set events (matches and evasions) are located",
+        help="Path of the directory with Sigma rule matches and evasions (.json)",
     )
     parser.add_argument(
         "--rules-dir",
         type=str,
         nargs="?",
         action="store",
-        help="Path of the directory where the rule set rule data is located.",
+        help="Path of the directory with Sigma detection rules (.yml)",
     )
     parser.add_argument(
         "--malicious-samples-type",
@@ -464,24 +437,24 @@ def main():
     parser.add_argument(
         "--adapt-scaling",
         action="store_true",
-        help="Adapt given scaling to symmetric MCC-scaling using invsere scale transformation",
+        help="Adapt given scaler to symmetric MCC-scaler using invsere scale transformation on the validation data",
     )
     parser.add_argument(
         "--evaluate",
         action="store_true",
-        help="Evaluate the loaded model using custom evaluation method",
+        help="Evaluate the provided model(s) using validation data and scaled model decision function values.",
     )
     parser.add_argument(
         "--num-eval-thresholds",
         type=int,
         action="store",
         default=50,
-        help="Number of evaluation thresholds when using 'custom'-mode",
+        help="Number of evaluation thresholds used when model(s) are evaluated",
     )
     parser.add_argument(
         "--zero-to-zero",
         action="store_true",
-        help="Set prediction of all-zero vectors to zero",
+        help="Set decision function values of all-zero feature vectors to 0.0",
     )
     parser.add_argument(
         "--out-dir",

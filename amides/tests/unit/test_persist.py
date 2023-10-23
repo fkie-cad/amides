@@ -17,7 +17,6 @@ from amides.data import (
     TrainingResult,
     ValidationResult,
 )
-from amides.models.baseline.baseline import BaselineClassifier
 
 
 @pytest.fixture
@@ -60,15 +59,15 @@ class TestDumper:
     @pytest.fixture
     def train_result(self, tt_split):
         return TrainingResult(
-            SVC(), tt_split, name="some_train_result", timestamp="19700101_000000"
+            SVC(), data=tt_split, name="some_train_result", timestamp="19700101_000000"
         )
 
     @pytest.fixture
     def valid_result(self, tt_split):
         return ValidationResult(
             SVC(),
-            tt_split,
-            np.array([1, 0, 0]),
+            data=tt_split,
+            predict=np.array([1, 0, 0]),
             name="some_valid_result",
             timestamp="19700101_000000",
         )
@@ -79,8 +78,8 @@ class TestDumper:
         multi_rslt.add_result(
             ValidationResult(
                 SVC(),
-                tt_split,
-                np.array([1, 0, 0]),
+                data=tt_split,
+                predict=np.array([1, 0, 0]),
                 name="some_rule",
                 timestamp="19700101_000000",
             )
@@ -88,28 +87,14 @@ class TestDumper:
         multi_rslt.add_result(
             ValidationResult(
                 SVC(),
-                tt_split,
-                np.array([1, 0, 0]),
+                data=tt_split,
+                predict=np.array([1, 0, 0]),
                 name="another_rule",
                 timestamp="19700101_000000",
             )
         )
 
         return multi_rslt
-
-    @pytest.fixture
-    def baseline_clf(self):
-        return BaselineClassifier(
-            {
-                "remove_escape_characters": True,
-                "delete_whitespaces": True,
-                "modify_exe": True,
-                "swap_slash_minus": True,
-                "swap_minus_slash": True,
-            },
-            name="some_base_clf",
-            timestamp="19700101_000000",
-        )
 
     def test_init(self, dump_dir):
         dumper = Dumper(dump_dir)
@@ -165,33 +150,11 @@ class TestDumper:
         assert entries[0] == f"{expected_filename}.zip"
         assert entries[1] == f"{expected_filename}_info.json"
 
-    def test_save_calibration_result(self, dump_dir, calib_result):
-        expected_filename = "calib_rslt_some_calib_result_19700101_000000"
-
-        dumper = Dumper(dump_dir)
-        dumper.save_object(calib_result)
-
-        entries = sorted(os.listdir(dump_dir))
-        assert len(entries) == 2
-        assert entries[0] == f"{expected_filename}.zip"
-        assert entries[1] == f"{expected_filename}_info.json"
-
     def test_save_multi_result(self, dump_dir, multi_result):
-        expected_filename = "multi_rslt_some_rules_19700101_000000"
+        expected_filename = "multi_train_rslt_some_rules_19700101_000000"
 
         dumper = Dumper(dump_dir)
         dumper.save_object(multi_result)
-
-        entries = sorted(os.listdir(dump_dir))
-        assert len(entries) == 2
-        assert entries[0] == f"{expected_filename}.zip"
-        assert entries[1] == f"{expected_filename}_info.json"
-
-    def test_save_baseline_clf(self, dump_dir, baseline_clf):
-        expected_filename = "baseline_clf_some_base_clf_19700101_000000"
-
-        dumper = Dumper(dump_dir)
-        dumper.save_object(baseline_clf)
 
         entries = sorted(os.listdir(dump_dir))
         assert len(entries) == 2
@@ -283,27 +246,6 @@ class TestDumper:
             result.data.test_data.labels, valid_result.data.test_data.labels
         )
 
-    def test_load_calibration_result(self, dump_dir, calib_result):
-        dumper = Dumper(dump_dir)
-        dumper.save_object(calib_result)
-
-        entries = sorted(os.listdir(dump_dir))
-
-        result = dumper.load_object(entries[0])
-        assert type(result) is CalibrationResult
-        assert np.array_equal(
-            result.data.train_data.samples, calib_result.data.train_data.samples
-        )
-        assert np.array_equal(
-            result.data.train_data.labels, calib_result.data.train_data.labels
-        )
-        assert np.array_equal(
-            result.data.test_data.samples, calib_result.data.test_data.samples
-        )
-        assert np.array_equal(
-            result.data.test_data.labels, calib_result.data.test_data.labels
-        )
-
     def test_load_multi_result(self, dump_dir, multi_result):
         dumper = Dumper(dump_dir)
         dumper.save_object(multi_result)
@@ -344,16 +286,6 @@ class TestDumper:
         assert np.array_equal(
             result_2.data.test_data.labels, expected_result_2.data.test_data.labels
         )
-
-    def test_load_baseline_clf(self, dump_dir, baseline_clf):
-        dumper = Dumper(dump_dir)
-        dumper.save_object(baseline_clf)
-
-        entries = sorted(os.listdir(dump_dir))
-
-        result = dumper.load_object(entries[0])
-        assert type(result) is BaselineClassifier
-        assert result.modifier_mask == 0
 
     def test_load_object_from_dir_path(self, dump_dir):
         dumper = Dumper()
@@ -464,7 +396,7 @@ class TestEventWriter:
         writer = EventWriter(
             str(test_out), "2023-06-01T00:00:00", "2023-06-01T01:00:00"
         )
-        writer.write(events, 0)
+        writer.write(events)
 
         assert test_file.is_file()
         with test_file.open("r", encoding="utf-8") as test_file:
@@ -492,7 +424,7 @@ class TestEventWriter:
         writer = EventWriter(
             str(test_out), "2023-06-01T00:00:00", "2023-06-01T01:00:00"
         )
-        writer.write(events[1:], 0)
+        writer.write(events[1:])
 
         with test_file.open("r", encoding="utf-8") as in_file:
             result = in_file.read()
@@ -519,7 +451,7 @@ class TestEventWriter:
         ]
         expected = set([f"{json.dumps(event)}\n" for event in events])
 
-        writer.write(events, 0)
+        writer.write(events)
         result = writer.read_last_file()
         assert expected == result
 
@@ -538,7 +470,7 @@ class TestEventCompressor:
         writer = EventCompressor(
             str(test_out), "2023-06-01T00:00:00", "2023-06-01T01:00:00"
         )
-        writer.write(events, 0)
+        writer.write(events)
 
         assert test_archive.is_file()
         with ZipFile(str(test_archive), mode="r") as my_zip:
@@ -578,7 +510,7 @@ class TestEventCompressor:
         writer = EventCompressor(
             str(test_out), "2023-06-01T00:00:00", "2023-06-01T01:00:00"
         )
-        writer.write(events[1:], 0)
+        writer.write(events[1:])
 
         with ZipFile(str(test_archive), mode="r") as my_zip:
             with TextIOWrapper(
@@ -608,6 +540,6 @@ class TestEventCompressor:
         ]
         expected = set([f"{json.dumps(event)}\n" for event in events])
 
-        writer.write(events, 0)
+        writer.write(events)
         result = writer.read_last_file()
         assert expected == result

@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""This script is used to create swarm-,box-, and violin-plots of decision function values of benign samples,
+rules, and evasions. 
+"""
+
 import argparse
 import sys
 import os
@@ -166,7 +171,7 @@ def main():
         "valid_result",
         type=str,
         action="store",
-        help="Path of result file containing trained (or calibrated) estimator",
+        help="Path of pickled ValidationResult",
     )
     parser.add_argument(
         "file_name", type=str, action="store", help="Name of the output file"
