@@ -16,7 +16,7 @@ RUN chown -R docker-user:docker-user /home/docker-user/amides
 WORKDIR /home/docker-user/amides
 USER docker-user
 RUN pip install --upgrade pip && pip install -r requirements_dev.txt && pip install tox && pip install -e .
-RUN chmod +x experiments.sh classification.sh rule_attribution.sh tainted_training.sh classification_new_types.sh
+RUN chmod +x experiments.sh classification.sh rule_attribution.sh tainted_training.sh classification_other_types.sh
 
 
 
