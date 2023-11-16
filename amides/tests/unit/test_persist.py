@@ -297,8 +297,8 @@ class TestDumper:
         dumper = Dumper(dump_dir)
         dumper.save_object(tt_split)
 
-        entries = os.listdir(dump_dir)
-        file_path = os.path.join(dump_dir, entries[1])
+        entries = sorted(os.listdir(dump_dir))
+        file_path = os.path.join(dump_dir, entries[0])
 
         result = dumper.load_object(file_path)
         assert result
@@ -308,10 +308,10 @@ class TestDumper:
             dumper = Dumper()
             dumper.save_object(tt_split)
 
-            entries = os.listdir(os.path.join(os.getcwd(), "pickled"))
+            entries = sorted(os.listdir(os.path.join(os.getcwd(), "pickled")))
 
             new_dumper = Dumper()
-            result = new_dumper.load_object(entries[1])
+            result = new_dumper.load_object(entries[0])
             assert result
 
     def test_load_object_non_existing_file(self, dump_dir):
