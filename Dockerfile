@@ -2,10 +2,13 @@
 
 FROM python:3.11-slim-bullseye AS base
 
-RUN addgroup --gid 1000 docker-user && \
-    adduser --uid 1000 --gid 1000 --disabled-password --gecos "" docker-user && \
-    echo "docker-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    apt-get update && apt-get upgrade -y && apt-get install -y jq
+ARG GID=1001
+ARG UID=1001
+
+RUN apt-get update && apt-get upgrade -y && apt-get install -y jq && \
+    addgroup --gid ${GID} docker-user && \
+    adduser --uid ${UID} --gid ${GID} --disabled-password --gecos "" docker-user && \
+    echo "docker-user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ADD ./amides /home/docker-user/amides
 
