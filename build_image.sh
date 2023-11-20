@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 AMIDES_TAG="amides:base"
 UID=$(id -u)

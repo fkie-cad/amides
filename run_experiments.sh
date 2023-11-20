@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 AMIDES_IMAGE="amides:base"
 AMIDES_EXPERIMENTS_CONTAINER="amides-experiments"
