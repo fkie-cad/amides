@@ -1,29 +1,48 @@
 <h1 align="left">Adaptive Misuse Detection System (AMIDES)</h1>
 
-The Adaptive Misuse Detection System (AMIDES) extends conventional rule matching of SIEM systems by applying machine learning components that aim to detect attacks evading existing SIEM rules as well as otherwise undetected attack variants. It learns from SIEM rules and historical benign events and can thus estimate which SIEM rule was tried to be evaded. A brief overview of AMIDES is given in [Overview](#overview).
+> ### TL;DR
+>
+> AMIDES extends conventional rule matching of SIEM systems by machine learning components that aim to detect
+> attacks evading existing SIEM rules as well as otherwise undetected attack variants. It learns from SIEM rules
+> and historical benign events and can thus estimate which SIEM rule was tried to be evaded.  
+>
+> To run AMIDES and all the experiments of it's [publication](#documentation), execute the following commands as a *__non-root user__* on a *__linux machine__* with `docker` installed:  
+>
+>```bash  
+> git clone https://github.com/fkie-cad/amides.git
+> cd amides
+> ./build_image.sh
+> ./run_experiments.sh
+> cd amides/plots  
+>```
 
-This repository contains the source code of the `amides` Python package. The package contains the modules and scripts that enable to train and validate models for AMIDES, evaluate the model's classification performance, and create meaningful visualizations that help users to assess the evaluation results. Additionally, the repository contains initial training and validation data that enables to build and evaluate models for AMIDES.
+This repository contains the source code and initial training and validation data which enables to train and validate models for AMIDES. The `amides` Python package contains additional modules and scripts that help to evaluate the model's classification performance and create meaningful visualizations that help users to assess the evaluation results.
 
-For operational use, AMIDES is integrated into [Logprep](https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides), a pipeline-based log message preprocessor also written in Python. The package also contains additional scripts that help to prepare models for the operational use with Logprep. For more information on how to prepare AMIDES models for Logprep, please read [here](#preparing-models-for-logprep).
+For operational use, AMIDES is integrated into [Logprep](https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides), a pipeline-based log message preprocessor also written in Python. The `amides` package also contains additional scripts that help to prepare models for the operational use with Logprep. For more information on how to prepare AMIDES models for Logprep, please read [here](#preparing-models-for-logprep).
 
 ## Overview
+Core of the Adaptive Misuse Detection System (AMIDES) are the misuse classification and rule attribution components. Both components deploy machine learning models. While the misuse classification component deploys a single binary classifier, the rule attribution component makes use of multiple binary classifiers that work as a multi-classifier.
+
+During training, AMIDES' machine learning models for both the misuse classification and rule attribution components are trained using a set of SIEM detection rules and historical benign events taken from an organization's corporate network.
 
 ![amides_architecture](./docs/amides.png)
 
-AMIDES is trained using a set of SIEM detection rules and historical benign events taken from an organization's corporate network.
-During operation, incoming events are passed to the rule matching component and the feature extraction component, which transforms the events into feature vectors. The features required for vectorization have been learned during the training phase. The feature vectors are then passed to the misuse classification component, which classifies events as malicious or benign. In case of a malicious result, the feature vector is passed to the rule attribution component, which generates a ranked list of SIEM rules potentially evaded by the event. In the final step, potential alerts of the rule matching and both machine learning components are merged into a single alert by the alert generation component.
+During operation, incoming events are passed to the rule matching component and the feature extraction component, which transforms the events into feature vectors. The features used for vectorization have been learned during the training phase. The feature vectors are then passed to the misuse classification component, which classifies events as malicious or benign. In case of a malicious result, the feature vector is passed to the rule attribution component, which generates a ranked list of SIEM rules potentially evaded by the event. In the final step, potential alerts of the rule matching and both machine learning components are merged into a single alert by the alert generation component.
+
 
 ## System Requirements
 
-AMIDES was developed and tested on Linux using Python 3.10. Before attempting to use `amides`, make sure you have
+AMIDES was developed and tested on Linux using Python 3.10. It can be run by either installing it (onto your local system/locally) or using the provided docker quickstart environment. Before attempting to install and run `amides`, make sure you have
 
-- Physical or virtual host with a Linux-based OS
+- A physical or virtual host with a Linux-based OS
 - A minimum of 8 GB of RAM
 - At least 2 GB of HDD space
-- Python 3.10 (or newer)
-- jq
 
-The repository contains a `Dockerfile` that creates a quickstart environment for the `amides` package. For testing purposes, we highly recommend to use the quickstart environment. Building and using the environment has been tested with `docker 20.10`.
+### Local Installation
+To directly execute AMIDES on your machine, the `amides` package can be installed either system-wide or into a virtual environment. As AMIDES was developed and tested on Python 3.10, we encourage to use Python greater than or equal to version 3.10. To execute the [experiments](#running-experiments) using your local installation, the command-line JSON processor[`jq`](https://jqlang.github.io/jq/) is also required.
+
+### Docker Quickstart Environment
+The repository contains a `Dockerfile` that creates a quickstart environment for AMIDES. The created docker image comes with the `amides` package and all its requiremnets installed. Building and using the environment has been tested with `docker 20.10`. For testing purposes, we highly recommend to use the quickstart environment.
 
 ## Accessing Code and Initial Data
 
@@ -90,7 +109,7 @@ After the environment has been created, activate it by executing
 source <VIRTUAL-ENVIRONMENT-LOCATION>/bin/activate
 ```
 
-To install the `amides` package and all its dependencies, change into the `amides` directory and execute
+To install the `amides` package and all its dependencies, change into the `amides/amides` directory and execute
 
 ```bash
 pip install -r requirements.txt
@@ -199,7 +218,7 @@ After parameters have been established and the model has been fit, an additional
 By executing
 
 ```bash
-./bin/train.py --benign-samples "../data/socbed/process_creation/train"  --events-dir "../data/sigma/events/windows/process_creation" --rules-dir "../data/sigma/rules/windows/process_creation" --type "misuse" --malicious-samples-type "rule_filters" --search-params  --cv 5 --mcc-scaling --mcc-threshold 0.5  --result-name "misuse_model"  --out-dir "models/process_creation"
+./bin/train.py --benign-samples "../data/socbed/process_creation/train"  --events-dir "../data/sigma/events/windows/process_creation" --rules-dir "../data/sigma/rules/windows/process_creation" --model-type "misuse" --malicious-samples-type "rule_filters" --search-params  --cv 5 --mcc-scaling --mcc-threshold 0.5  --result-name "misuse_model"  --out-dir "models/process_creation"
 ```
 
 a misuse classification models is trained using the benign command lines in `../data/socbed/process_creation/train` and the SIEM rule filters in `./data/sigma/events/windows/process_creation`.
@@ -245,7 +264,7 @@ trains and optimizes a misuse classification  model using 10% of the evasions as
 
 Tainted share and tainted seed values are held by `TrainingResult` objects. When the model is validated, `validate.py` takes the tainted seed and share values to remove the evasions already used for training. Evaluation of tainted training models is performed by `eval_mcc_scaling.py` in the same way as other validation results.
 
-Visualising precision and recall of the `EvaluationResult` objects of multiple tainted training results can be done with the `plot_multi_tainted.py` script. An optional base result without any tainting can be tainted using the `--base-result` flag
+Visualizing precision and recall of the `EvaluationResult` objects of multiple tainted training results can be done with the `plot_multi_tainted.py` script. An optional base result without any tainting can be tainted using the `--base-result` flag
 
 ```bash
 ./bin/plot_multi_tainted.py --base-result "models/process_creation/valid_rslt_misuse_model.zip" --low-tainted "models/process_creation/tainted/10/eval_rslt_misuse_model_tainted.zip" --out-dir "plots"
@@ -258,7 +277,7 @@ Rule attribution models are also generated using `train.py`. Creating a rule att
 To build a rule attribution model, the script is started with the `--mode=attribution` option. The process of training rule attribution models can be parallelized. `train.py` supports the `--num-subprocesses` option to specify the number of sub-processes used for training the single rule models. To create a rule attribution model of the benign command lines and the SIEM rule data in `data/`, execute
 
 ```bash
-./bin/train.py --benign-samples "../data/socbed/process_creation/train" --events-dir "../data/sigma/events/windows/process_creation" --rules-dir "../data/sigma/rules/windows/process_creation" --type "attribution" --malicious-samples-type "rule_filters" --search-params --search-method "GridSearch" --mcc-scaling --mcc-threshold 0.5 --result-name "attr_model" --out-dir "models/process_creation"
+./bin/train.py --benign-samples "../data/socbed/process_creation/train" --events-dir "../data/sigma/events/windows/process_creation" --rules-dir "../data/sigma/rules/windows/process_creation" --model-type "attribution" --malicious-samples-type "rule_filters" --search-params --mcc-scaling --mcc-threshold 0.5 --result-name "attr_model" --out-dir "models/process_creation"
 ```
 
 The rule models are gathered by a `MultiTrainingResult` object, where each entry is a `TrainingResult` object itself.
@@ -277,7 +296,7 @@ The mapping can be provided as .json file by the `--rules-evasions` flag. In thi
 Alternatively, the  mapping is automatically built from the evasion and rule data specified by `events_dir` and `rules_dir` by executing
 
 ```bash
-./bin/eval_attr.py --multi-result "models/process_creation/multi_train_rslt_attr_model.zip" --events-dir ../data/sigma/events/windows/process_creation --rules-dir "../data/sigma/rules/windows"
+./bin/eval_attr.py --multi-result "models/process_creation/multi_train_rslt_attr_model.zip" --events-dir ../data/sigma/events/windows/process_creation --rules-dir "../data/sigma/rules/windows/process_creation"
 ```
 
 Results of the rule attribution evaluation are encapsulated in `RuleAttributionEvaluationResult` instances, which are also pickled.
@@ -300,10 +319,12 @@ Models for the operational use of AMIDES' misuse classification and rule attribu
 
 ## Documentation
 
-The corresponding research paper describes AMIDES in more detail:
+The corresponding research paper describes AMIDES and its evaluation results in more detail:
 
 R. Uetz, M. Herzog, L. Hackländer, S. Schwarz, and M. Henze, "You Cannot Escape Me: Detecting Evasions of SIEM Rules in Enterprise Networks,"
-in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024. [[Conference Website](https://www.usenix.org/conference/usenixsecurity24/presentation/uetz)] [[Prepublication PDF](https://www.usenix.org/system/files/sec23winter-prepub-112-uetz.pdf)]
+in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024. [[arXiv](https://arxiv.org/pdf/2311.10197)]
+
+Artifacts play a crucial role when it comes to availabilty and reproducability of results presented in scientific papers. The code, data, and experiments described in this repository were  submiitted to the official USENIX Artifact Evaluation (AE). The AE committee awarded the submission with all of the available badges (i.e. "Artifacts Available", "Artifacts Functional", and "Results Reproduced"). More information on the artifact submission can be found in the 'Artifact Appendix' of the publication.
 
 ## License
 

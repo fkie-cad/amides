@@ -77,7 +77,7 @@ dumper = None
 output_dir = None
 
 model_type = None
-malicious_samples_type = "rule_filter"
+malicious_samples_type = "rule_filters"
 
 vectorization = "tfidf"
 tokenization = "comma_separation"
@@ -106,6 +106,7 @@ tainted_random_seed = 42
 tainted_sample_seedings = []
 
 num_subprocesses = 1
+num_jobs = 1
 num_iterations = 1
 
 save_data = True
@@ -159,9 +160,7 @@ def load_model_params():
 
 
 def prepare_multi_train_result(train_results, iteration):
-    multi_train_result = MultiTrainingResult(
-        name=f"{result_name}_{iteration}", timestamp=""
-    )
+    multi_train_result = MultiTrainingResult(name=f"{result_name}_{iteration}", timestamp="")
 
     for result in train_results.values():
         multi_train_result.add_result(result)
@@ -214,17 +213,11 @@ def create_vectorizer():
     tokenizer = TokenizerFactory.create(tokenization)
 
     if vectorization == "count":
-        return CountVectorizer(
-            tokenizer=tokenizer, analyzer=ngram_mode, ngram_range=ngram_range
-        )
+        return CountVectorizer(tokenizer=tokenizer, analyzer=ngram_mode, ngram_range=ngram_range)
     elif vectorization == "tfidf":
-        return TfidfVectorizer(
-            tokenizer=tokenizer, analyzer=ngram_mode, ngram_range=ngram_range
-        )
+        return TfidfVectorizer(tokenizer=tokenizer, analyzer=ngram_mode, ngram_range=ngram_range)
     elif vectorization == "hashing":
-        return HashingVectorizer(
-            tokenizer=tokenizer, analyzer=ngram_mode, ngram_range=ngram_range
-        )
+        return HashingVectorizer(tokenizer=tokenizer, analyzer=ngram_mode, ngram_range=ngram_range)
     elif vectorization == "binary_count":
         return CountVectorizer(
             tokenizer=tokenizer,
@@ -311,9 +304,7 @@ def create_tainted_sample_list(rule_set_data: RuleSetDataset, seed: int):
     return []
 
 
-def train_samples(
-    benign_samples: list, tainted_samples: list, malicious_samples: list
-) -> dict:
+def train_samples(benign_samples: list, tainted_samples: list, malicious_samples: list) -> dict:
     for sample in benign_samples:
         yield sample
 
@@ -398,9 +389,7 @@ def _train_models(dataset_queue: multiprocessing.Queue, train_results: dict):
 
         _logger.info("Training model for %s", rule_dataset.name)
         try:
-            train_data, feature_extractor = prepare_training_data(
-                rule_dataset, taint_seed
-            )
+            train_data, feature_extractor = prepare_training_data(rule_dataset, taint_seed)
             train_result = train_model(train_data, feature_extractor, taint_seed)
         except (RuleDatasetError, ValueError) as err:
             _logger.error(err)
@@ -411,9 +400,7 @@ def _train_models(dataset_queue: multiprocessing.Queue, train_results: dict):
 
 
 @execution_time
-def create_attribution_model(
-    rule_set_data: RuleSetDataset, iteration: int
-) -> MultiTrainingResult:
+def create_attribution_model(rule_set_data: RuleSetDataset, iteration: int) -> MultiTrainingResult:
     manager = multiprocessing.Manager()
     train_results = manager.dict()
     dataset_queue = multiprocessing.Queue()
@@ -422,9 +409,7 @@ def create_attribution_model(
 
     for _ in range(num_subprocesses):
         workers.append(
-            multiprocessing.Process(
-                target=_train_models, args=(dataset_queue, train_results)
-            )
+            multiprocessing.Process(target=_train_models, args=(dataset_queue, train_results))
         )
         workers[-1].start()
 
@@ -443,9 +428,7 @@ def create_attribution_model(
 
 
 @execution_time
-def create_misuse_model(
-    rule_set_data: RuleSetDataset, iteration: int
-) -> TrainingResult:
+def create_misuse_model(rule_set_data: RuleSetDataset, iteration: int) -> TrainingResult:
     _logger.info("Creating misuse model for %s", rule_set_data)
     taint_seed = tainted_sample_seedings[iteration]
     train_data, feature_extractor = prepare_training_data(rule_set_data, taint_seed)
@@ -572,9 +555,7 @@ def parse_args_and_options(parser: argparse.ArgumentParser):
         output_dir = args.out_dir
     else:
         output_dir = os.path.join(os.getcwd(), "models")
-        _logger.warning(
-            "No output dir for results data specified. Using %s", output_dir
-        )
+        _logger.warning("No output dir for results data specified. Using %s", output_dir)
 
     init_dumper()
 
@@ -643,7 +624,7 @@ def main():
         "--malicious-samples-type",
         type=str,
         action="store",
-        choices=["rule_filters, matches"],
+        choices=["rule_filters", "matches"],
         help="Specifies the type  of malicious samples used for training",
     )
     parser.add_argument(
@@ -762,9 +743,7 @@ def main():
         action="store",
         help="Specifies the result files base name",
     )
-    parser.add_argument(
-        "--config", type=str, action="store", help="Path to config file."
-    )
+    parser.add_argument("--config", type=str, action="store", help="Path to config file.")
 
     parse_args_and_options(parser)
     create_model()

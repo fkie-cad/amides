@@ -31,17 +31,16 @@ def sigma_path():
 
 class TestEvents:
     def test_init(self):
-        assert Events("process_creation", EventType.PROCESS_CREATION)
-        assert Events("powershell", EventType.POWERSHELL)
-        assert Events("registry", EventType.REGISTRY)
-        assert Events("proxy_web", EventType.PROXY_WEB)
+        assert Events(EventType.PROCESS_CREATION, "process_creation")
+        assert Events(EventType.POWERSHELL, "powershell")
+        assert Events(EventType.REGISTRY, "registry")
+        assert Events(EventType.PROXY_WEB, "proxy_web")
 
     event_paths = [
         (pc_events_json_path(), 20),
         (pc_events_jsonl_path(), 20),
         (powershell_events_jsonl_path(), 30),
     ]
-
     @pytest.mark.parametrize("events_path,num_events", event_paths)
     def test_load_from_dir(self, events_path, num_events):
         events = Events(EventType.PROCESS_CREATION)
