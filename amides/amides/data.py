@@ -1,5 +1,6 @@
 """This module provides classes and functions to hold and prepare datasets for the training and validation process.
 """
+
 from abc import ABC, abstractmethod
 import numpy as np
 
@@ -39,20 +40,15 @@ class DataBunch:
         ValueError
             If size of data and labels are not equal.
         """
-        if not (
-            isinstance(samples, np.ndarray) or isinstance(samples, sparse.csr_matrix)
-        ):
-            raise TypeError(
-                "samples is not of the required type np.ndarray or sparse.csr_matrix"
-            )
+        if not (isinstance(samples, np.ndarray) or isinstance(samples, sparse.csr_matrix)):
+            raise TypeError("samples is not of the required type np.ndarray or sparse.csr_matrix")
 
         if not isinstance(labels, np.ndarray):
             raise TypeError("'labels' is not of the required type 'np.ndarray'")
 
         if samples.shape[0] != labels.shape[0]:
             raise ValueError(
-                "Number of data points in samples and number of labels"
-                " should be equal"
+                "Number of data points in samples and number of labels" " should be equal"
             )
 
         self._samples = samples
@@ -75,9 +71,7 @@ class DataBunch:
 
     @samples.setter
     def samples(self, samples):
-        if not (
-            isinstance(samples, np.ndarray) or isinstance(samples, sparse.csr_matrix)
-        ):
+        if not (isinstance(samples, np.ndarray) or isinstance(samples, sparse.csr_matrix)):
             raise TypeError("data is not of the required type np.ndarray or csr_matrix")
 
         self._samples = samples
@@ -93,9 +87,7 @@ class DataBunch:
             raise TypeError("labels is not of the required type np.ndarray")
 
         if labels.shape[0] != self._samples.shape[0]:
-            raise ValueError(
-                "Number of labels and number of datapoints should be equal"
-            )
+            raise ValueError("Number of labels and number of datapoints should be equal")
 
         self._labels = labels
 
@@ -163,14 +155,10 @@ class DataBunch:
         samples = bunch.samples
 
         if self._samples.shape[0] != samples.shape[0]:
-            raise ValueError(
-                "Number of provided data points does not match" " number of samples"
-            )
+            raise ValueError("Number of provided data points does not match" " number of samples")
 
         if self._samples.ndim == 1:
-            self._samples = np.reshape(
-                self._samples, newshape=(self._samples.shape[0], 1)
-            )
+            self._samples = np.reshape(self._samples, newshape=(self._samples.shape[0], 1))
 
         if samples.ndim == 1:
             samples = np.reshape(samples, newshape=(samples.shape[0], 1))
@@ -281,18 +269,12 @@ class DataBunch:
 
         return info
 
-    def _create_split_bunches(
-        self, positive_sample_indices_splits, negative_sample_indices_splits
-    ):
+    def _create_split_bunches(self, positive_sample_indices_splits, negative_sample_indices_splits):
         split_bunches = []
-        indices_splits = zip(
-            positive_sample_indices_splits, negative_sample_indices_splits
-        )
+        indices_splits = zip(positive_sample_indices_splits, negative_sample_indices_splits)
 
         for positive_sample_split, negative_sample_split in indices_splits:
-            indices_split = np.concatenate(
-                [positive_sample_split, negative_sample_split]
-            )
+            indices_split = np.concatenate([positive_sample_split, negative_sample_split])
             current_sample_split = np.take(self._samples, indices_split, axis=0)
             current_labels_split = np.take(self._labels, indices_split, axis=0)
 
@@ -306,15 +288,11 @@ class DataBunch:
 
     def _create_random_split(self, elements, num_splits):
         try:
-            random_elements = np.random.choice(
-                elements, size=len(elements), replace=False
-            )
+            random_elements = np.random.choice(elements, size=len(elements), replace=False)
             splits = np.array_split(random_elements, num_splits, axis=0)
             return splits
         except ValueError:
-            raise DataError(
-                f"Could not split elements into {num_splits} parts"
-            ) from ValueError
+            raise DataError(f"Could not split elements into {num_splits} parts") from ValueError
 
     def _gather_class_info(self):
         num_positive_samples = np.count_nonzero(self._labels == 1)
@@ -371,10 +349,7 @@ class DataBunch:
         if not isinstance(elements_class_b, list):
             raise TypeError("elements_class_b is not of the required type list")
 
-        if not (
-            isinstance(class_labels, tuple)
-            and list(map(type, class_labels)) == [int, int]
-        ):
+        if not (isinstance(class_labels, tuple) and list(map(type, class_labels)) == [int, int]):
             raise TypeError("class_labels is not of the required type Tuple[int, int]")
 
         labels, samples = [], []
@@ -506,9 +481,7 @@ class TrainTestSplit(DataSplit):
             File name used when pickling objects.
 
         """
-        file_name = (
-            self.name if self.name.startswith("tt_split") else f"tt_split_{self.name}"
-        )
+        file_name = self.name if self.name.startswith("tt_split") else f"tt_split_{self.name}"
 
         return file_name
 
@@ -535,12 +508,8 @@ class TrainTestSplit(DataSplit):
 
     def create_info_dict(self):
         info = {
-            "train_data": self._data["train"].create_info_dict()
-            if self._data["train"]
-            else None,
-            "test_data": self._data["test"].create_info_dict()
-            if self._data["test"]
-            else None,
+            "train_data": self._data["train"].create_info_dict() if self._data["train"] else None,
+            "test_data": self._data["test"].create_info_dict() if self._data["test"] else None,
             "name": self.name,
         }
 
@@ -599,11 +568,7 @@ class TrainTestValidSplit(TrainTestSplit):
             File name used when pickling objects.
 
         """
-        file_name = (
-            self.name
-            if self.name.startswith("ttv_split")
-            else f"ttv_split_{ self.name}"
-        )
+        file_name = self.name if self.name.startswith("ttv_split") else f"ttv_split_{ self.name}"
 
         return file_name
 
@@ -631,15 +596,9 @@ class TrainTestValidSplit(TrainTestSplit):
 
     def create_info_dict(self):
         info = {
-            "train_data": self._data["train"].create_info_dict()
-            if self._data["train"]
-            else None,
-            "test_data": self._data["test"].create_info_dict()
-            if self._data["test"]
-            else None,
-            "valid_data": self._data["valid"].create_info_dict()
-            if self._data["valid"]
-            else None,
+            "train_data": self._data["train"].create_info_dict() if self._data["train"] else None,
+            "test_data": self._data["test"].create_info_dict() if self._data["test"] else None,
+            "valid_data": self._data["valid"].create_info_dict() if self._data["valid"] else None,
             "name": self.name,
         }
 
@@ -694,9 +653,7 @@ class TrainingResult:
         self._feature_extractors = feature_extractors if feature_extractors else []
         self._name = name
         self._timestamp = (
-            timestamp
-            if timestamp is not None
-            else get_current_timestamp("%Y%m%d_%H%M%S")
+            timestamp if timestamp is not None else get_current_timestamp("%Y%m%d_%H%M%S")
         )
 
     @property
@@ -787,11 +744,7 @@ class TrainingResult:
 
         """
 
-        file_name = (
-            self.name
-            if self.name.startswith("train_rslt")
-            else f"train_rslt_{self._name}"
-        )
+        file_name = self.name if self.name.startswith("train_rslt") else f"train_rslt_{self._name}"
 
         if self._timestamp:
             file_name = f"{file_name}_{self.timestamp}"
@@ -813,11 +766,11 @@ class TrainingResult:
             "tainted_share": self._tainted_share,
             "tainted_seed": self._tainted_seed,
             "scaler": self._create_scaler_info() if self._scaler else None,
-            "feature_extractors": [
-                extractor.__class__.__name__ for extractor in self._feature_extractors
-            ]
-            if self._feature_extractors
-            else None,
+            "feature_extractors": (
+                [extractor.__class__.__name__ for extractor in self._feature_extractors]
+                if self._feature_extractors
+                else None
+            ),
             "name": self.name,
             "timestamp": self._timestamp,
         }
@@ -893,11 +846,7 @@ class ValidationResult(TrainingResult):
         return self._predict
 
     def file_name(self):
-        file_name = (
-            self.name
-            if self.name.startswith("valid_rslt")
-            else f"valid_rslt_{self.name}"
-        )
+        file_name = self.name if self.name.startswith("valid_rslt") else f"valid_rslt_{self.name}"
 
         if self._timestamp:
             file_name = f"{file_name}_{self._timestamp}"
@@ -924,9 +873,7 @@ class MultiTrainingResult:
         """
         self._name = name
         self._timestamp = (
-            timestamp
-            if timestamp is not None
-            else get_current_timestamp("%Y%m%d_%H%M%S")
+            timestamp if timestamp is not None else get_current_timestamp("%Y%m%d_%H%M%S")
         )
 
         self._results = {}
