@@ -16,11 +16,12 @@
 > cd amides/plots  
 >```
 
-This repository contains the source code and initial training and validation data which enables to train and validate models for AMIDES. The `amides` Python package contains additional modules and scripts that help to evaluate the model's classification performance and create meaningful visualizations that help users to assess the evaluation results.
+This repository contains the source code, and initial training and validation data which enables to train and validate models for AMIDES. The `amides` Python package contains additional modules and scripts that help to evaluate the model's classification performance and create meaningful visualizations that help users to assess the evaluation results.
 
 For operational use, AMIDES is integrated into [Logprep](https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides), a pipeline-based log message preprocessor also written in Python. The `amides` package also contains additional scripts that help to prepare models for the operational use with Logprep. For more information on how to prepare AMIDES models for Logprep, please read [here](#preparing-models-for-logprep).
 
 ## Overview
+
 Core of the Adaptive Misuse Detection System (AMIDES) are the misuse classification and rule attribution components. Both components deploy machine learning models. While the misuse classification component deploys a single binary classifier, the rule attribution component makes use of multiple binary classifiers that work as a multi-classifier.
 
 During training, AMIDES' machine learning models for both the misuse classification and rule attribution components are trained using a set of SIEM detection rules and historical benign events taken from an organization's corporate network.
@@ -28,7 +29,6 @@ During training, AMIDES' machine learning models for both the misuse classificat
 ![amides_architecture](./docs/amides.png)
 
 During operation, incoming events are passed to the rule matching component and the feature extraction component, which transforms the events into feature vectors. The features used for vectorization have been learned during the training phase. The feature vectors are then passed to the misuse classification component, which classifies events as malicious or benign. In case of a malicious result, the feature vector is passed to the rule attribution component, which generates a ranked list of SIEM rules potentially evaded by the event. In the final step, potential alerts of the rule matching and both machine learning components are merged into a single alert by the alert generation component.
-
 
 ## System Requirements
 
@@ -39,9 +39,11 @@ AMIDES was developed and tested on Linux using Python 3.10. It can be run by eit
 - At least 2 GB of HDD space
 
 ### Local Installation
+
 To directly execute AMIDES on your machine, the `amides` package can be installed either system-wide or into a virtual environment. As AMIDES was developed and tested on Python 3.10, we encourage to use Python greater than or equal to version 3.10. To execute the [experiments](#running-experiments) using your local installation, the command-line JSON processor[`jq`](https://jqlang.github.io/jq/) is also required.
 
 ### Docker Quickstart Environment
+
 The repository contains a `Dockerfile` that creates a quickstart environment for AMIDES. The created docker image comes with the `amides` package and all its requiremnets installed. Building and using the environment has been tested with `docker 20.10`. For testing purposes, we highly recommend to use the quickstart environment.
 
 ## Accessing Code and Initial Data
@@ -324,7 +326,7 @@ The corresponding research paper describes AMIDES and its evaluation results in 
 R. Uetz, M. Herzog, L. Hackländer, S. Schwarz, and M. Henze, "You Cannot Escape Me: Detecting Evasions of SIEM Rules in Enterprise Networks,"
 in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024. [[arXiv](https://arxiv.org/pdf/2311.10197)]
 
-Artifacts play a crucial role when it comes to availabilty and reproducability of results presented in scientific papers. The code, data, and experiments described in this repository were  submiitted to the official USENIX Artifact Evaluation (AE). The AE committee awarded the submission with all of the available badges (i.e. "Artifacts Available", "Artifacts Functional", and "Results Reproduced"). More information on the artifact submission can be found in the 'Artifact Appendix' of the publication.
+Artifacts play a crucial role when it comes to availabilty and reproducability of results presented in scientific papers. The code, data, and experiments described in this repository were  submiitted to the official USENIX Artifact Evaluation (AE). The AE committee awarded the submission with all of the available badges (i.e. "Artifacts Available", "Artifacts Functional", and "Results Reproduced"). More information on the artifact submission can be found in the "Artifact Appendix" of the publication.
 
 ## License
 
