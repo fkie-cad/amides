@@ -6,7 +6,7 @@
 > attacks evading existing SIEM rules as well as otherwise undetected attack variants. It learns from SIEM rules
 > and historical benign events and can thus estimate which SIEM rule was tried to be evaded.  
 >
-> To run AMIDES and all the experiments of it's [publication](#documentation), execute the following commands as a *__non-root user__* on a *__linux machine__* with `docker` installed:  
+> To run AMIDES and all the experiments from its [paper](#documentation), execute the following commands as a *__non-root user__* on a *__Linux machine__* with `docker` installed:
 >
 >```bash  
 > git clone https://github.com/fkie-cad/amides.git
@@ -22,7 +22,7 @@ For operational use, AMIDES is integrated into [Logprep](https://logprep.readthe
 
 ## Overview
 
-Core of the Adaptive Misuse Detection System (AMIDES) are the misuse classification and rule attribution components. Both components deploy machine learning models. While the misuse classification component deploys a single binary classifier, the rule attribution component makes use of multiple binary classifiers that work as a multi-classifier.
+Core of the Adaptive Misuse Detection System (AMIDES) are the misuse classification and rule attribution components. Both components employ machine learning models. While the misuse classification component employs a single binary classifier, the rule attribution component makes use of multiple binary classifiers that work as a multi-classifier.
 
 During training, AMIDES' machine learning models for both the misuse classification and rule attribution components are trained using a set of SIEM detection rules and historical benign events taken from an organization's corporate network.
 
@@ -38,13 +38,13 @@ AMIDES was developed and tested on Linux using Python 3.10. It can be run by eit
 - A minimum of 8 GB of RAM
 - At least 2 GB of HDD space
 
+### Docker Quickstart Environment
+
+The repository contains a `Dockerfile` that creates a quickstart environment for AMIDES. The created docker image comes with the `amides` package and all its requirements installed. Building and using the environment has been tested with `docker 20.10`. For testing purposes, we highly recommend to use the quickstart environment.
+
 ### Local Installation
 
 To directly execute AMIDES on your machine, the `amides` package can be installed either system-wide or into a virtual environment. As AMIDES was developed and tested on Python 3.10, we encourage to use Python greater than or equal to version 3.10. To execute the [experiments](#running-experiments) using your local installation, the command-line JSON processor[`jq`](https://jqlang.github.io/jq/) is also required.
-
-### Docker Quickstart Environment
-
-The repository contains a `Dockerfile` that creates a quickstart environment for AMIDES. The created docker image comes with the `amides` package and all its requiremnets installed. Building and using the environment has been tested with `docker 20.10`. For testing purposes, we highly recommend to use the quickstart environment.
 
 ## Accessing Code and Initial Data
 
@@ -326,7 +326,7 @@ The corresponding research paper describes AMIDES and its evaluation results in 
 R. Uetz, M. Herzog, L. Hackländer, S. Schwarz, and M. Henze, "You Cannot Escape Me: Detecting Evasions of SIEM Rules in Enterprise Networks,"
 in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024. [[arXiv](https://arxiv.org/pdf/2311.10197)]
 
-Artifacts play a crucial role when it comes to availabilty and reproducability of results presented in scientific papers. The code, data, and experiments described in this repository were  submiitted to the official USENIX Artifact Evaluation (AE). The AE committee awarded the submission with all of the available badges (i.e. "Artifacts Available", "Artifacts Functional", and "Results Reproduced"). More information on the artifact submission can be found in the "Artifact Appendix" of the publication.
+Artifacts play a crucial role when it comes to availability and reproducibility of results presented in scientific papers. The code, data, and experiments described in this repository were  submitted to the official USENIX Security Symposium's Artifact Evaluation (AE). The AE committee awarded the submission with all of the available badges (i.e. "Artifacts Available", "Artifacts Functional", and "Results Reproduced"). More information on the artifact submission can be found in the "Artifact Appendix" of the publication.
 
 ## License
 
