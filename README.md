@@ -1,5 +1,7 @@
 <h1 align="left">Adaptive Misuse Detection System (AMIDES)</h1>
 
+🏆 AMIDES received a [Distinguished Artifact Award](https://secartifacts.github.io/usenixsec2024/awards) at the [33rd USENIX Security Symposium](https://www.usenix.org/conference/usenixsecurity24/)! 🏆
+
 > ### TL;DR
 >
 > AMIDES extends conventional rule matching of SIEM systems by machine learning components that aim to detect
