@@ -20,7 +20,7 @@
 
 This repository contains the source code, and initial training and validation data which enables to train and validate models for AMIDES. The `amides` Python package contains additional modules and scripts that help to evaluate the model's classification performance and create meaningful visualizations that help users to assess the evaluation results.
 
-For operational use, AMIDES is integrated into [Logprep](https://logprep.readthedocs.io/en/latest/user_manual/configuration/processor.html#amides), a pipeline-based log message preprocessor also written in Python. The `amides` package also contains additional scripts that help to prepare models for the operational use with Logprep. For more information on how to prepare AMIDES models for Logprep, please read [here](#preparing-models-for-logprep).
+For operational use, AMIDES is integrated into [Logprep](https://logprep.readthedocs.io/en/latest/configuration/processor.html#amides), a pipeline-based log message preprocessor also written in Python. The `amides` package also contains additional scripts that help to prepare models for the operational use with Logprep. For more information on how to prepare AMIDES models for Logprep, please read [here](#preparing-models-for-logprep).
 
 ## Overview
 
@@ -326,7 +326,7 @@ Models for the operational use of AMIDES' misuse classification and rule attribu
 The corresponding research paper describes AMIDES and its evaluation results in more detail:
 
 R. Uetz, M. Herzog, L. Hackländer, S. Schwarz, and M. Henze, "You Cannot Escape Me: Detecting Evasions of SIEM Rules in Enterprise Networks,"
-in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024. [[arXiv](https://arxiv.org/pdf/2311.10197)]
+in *Proceedings of the 33rd USENIX Security Symposium (USENIX Security)*, 2024. [[USENIX website](https://www.usenix.org/conference/usenixsecurity24/presentation/uetz)] [[arXiv](https://arxiv.org/abs/2311.10197)]
 
 Artifacts play a crucial role when it comes to availability and reproducibility of results presented in scientific papers. The code, data, and experiments described in this repository were  submitted to the official USENIX Security Symposium's Artifact Evaluation (AE). The AE committee awarded the submission with all of the available badges (i.e. "Artifacts Available", "Artifacts Functional", and "Results Reproduced"). More information on the artifact submission can be found in the "Artifact Appendix" of the publication.
 
